@@ -1,0 +1,2032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="anlandModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="20" />
+          <Property Name="passwd" Type="nvarchar" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="rights" Type="nvarchar" MaxLength="50" />
+          <Property Name="group_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.an_news' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="an_news">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="obj" Type="nvarchar" MaxLength="20" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cake" Type="nvarchar" MaxLength="10" />
+          <Property Name="Service" Type="nvarchar" MaxLength="10" />
+          <Property Name="subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage_momo" Type="nvarchar" MaxLength="255" />
+          <Property Name="homepage1" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage2" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage3" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage5" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage6" Type="nvarchar" MaxLength="90" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="postdate" Type="datetime" />
+          <Property Name="posttime" Type="datetime" />
+          <Property Name="hit" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="postname" Type="nvarchar" MaxLength="10" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="post_group" Type="nvarchar" MaxLength="50" />
+          <Property Name="post_out" Type="nvarchar" MaxLength="2" />
+          <Property Name="post_out_txt" Type="nvarchar" MaxLength="255" />
+          <Property Name="poster_right" Type="nvarchar" MaxLength="1" />
+          <Property Name="file1_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file2_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file3_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.board_setup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="board_setup">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="display_poster" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="odd_back" Type="nvarchar" MaxLength="50" />
+          <Property Name="odd_font" Type="nvarchar" MaxLength="50" />
+          <Property Name="even_back" Type="nvarchar" MaxLength="50" />
+          <Property Name="even_font" Type="nvarchar" MaxLength="50" />
+          <Property Name="post_type" Type="nvarchar" MaxLength="10" />
+          <Property Name="pages" Type="int" />
+          <Property Name="board_width" Type="int" />
+          <Property Name="display_poster" Type="bit" Nullable="false" />
+          <Property Name="file_size" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.board1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="board1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="obj" Type="nvarchar" MaxLength="20" />
+          <Property Name="subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage_momo" Type="nvarchar" MaxLength="255" />
+          <Property Name="homepage1" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage2" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage3" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage5" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage6" Type="nvarchar" MaxLength="90" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="postdate" Type="datetime" />
+          <Property Name="posttime" Type="datetime" />
+          <Property Name="hit" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="postname" Type="nvarchar" MaxLength="10" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="post_group" Type="nvarchar" MaxLength="50" />
+          <Property Name="post_out" Type="nvarchar" MaxLength="2" />
+          <Property Name="post_out_txt" Type="nvarchar" MaxLength="255" />
+          <Property Name="poster_right" Type="nvarchar" MaxLength="1" />
+          <Property Name="file1_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file2_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file3_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.board1class' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="board1class">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="int" Nullable="false" />
+          <Property Name="classid" Type="int" />
+          <Property Name="classname" Type="nvarchar" MaxLength="50" />
+          <Property Name="creuser" Type="nvarchar" MaxLength="50" />
+          <Property Name="credate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.cake' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="cake">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" Nullable="false" />
+          <Property Name="sno" Type="nvarchar" MaxLength="50" />
+          <Property Name="cre_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="typecode" Type="nvarchar" MaxLength="50" />
+          <Property Name="typename" Type="nvarchar" MaxLength="50" />
+          <Property Name="cre_date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.Cate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="theme" Type="nvarchar" MaxLength="100" />
+          <Property Name="cake" Type="nvarchar" MaxLength="100" />
+          <Property Name="service" Type="nvarchar" MaxLength="100" />
+          <Property Name="url" Type="nvarchar" MaxLength="100" />
+          <Property Name="openWindow" Type="nvarchar" MaxLength="2" />
+          <Property Name="credate" Type="datetime" />
+          <Property Name="theme.typename" Type="nvarchar" MaxLength="50" />
+          <Property Name="cake.typename" Type="nvarchar" MaxLength="50" />
+          <Property Name="service.typename" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.Categories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="openWindow" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="theme" Type="nvarchar" MaxLength="100" />
+          <Property Name="cake" Type="nvarchar" MaxLength="100" />
+          <Property Name="service" Type="nvarchar" MaxLength="100" />
+          <Property Name="url" Type="nvarchar" MaxLength="100" />
+          <Property Name="openWindow" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="credate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.director' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="director">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="int" Nullable="false" />
+          <Property Name="msg_date" Type="datetime" />
+          <Property Name="msg_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg_subject" Type="nvarchar" MaxLength="80" />
+          <Property Name="msg_content" Type="nvarchar(max)" />
+          <Property Name="rpy_unit" Type="nvarchar" MaxLength="20" />
+          <Property Name="rpy_date" Type="datetime" />
+          <Property Name="rpy_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="rpy_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="rpy_content" Type="nvarchar(max)" />
+          <Property Name="attach1" Type="nvarchar" MaxLength="50" />
+          <Property Name="attach2" Type="nvarchar" MaxLength="50" />
+          <Property Name="attach3" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg_tel" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.email' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="int" Nullable="false" />
+          <Property Name="msg_date" Type="datetime" />
+          <Property Name="msg_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg_subject" Type="nvarchar" MaxLength="80" />
+          <Property Name="msg_content" Type="nvarchar(max)" />
+          <Property Name="rpy_unit" Type="nvarchar" MaxLength="20" />
+          <Property Name="rpy_date" Type="datetime" />
+          <Property Name="rpy_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="rpy_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="rpy_content" Type="nvarchar(max)" />
+          <Property Name="attach1" Type="nvarchar" MaxLength="50" />
+          <Property Name="attach2" Type="nvarchar" MaxLength="50" />
+          <Property Name="attach3" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg_type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.form' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="form">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FILETITLE" Type="nvarchar" MaxLength="50" />
+          <Property Name="FILEDESC" Type="nvarchar" MaxLength="255" />
+          <Property Name="FILETYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="FILECONTENTTYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="FILEPATH" Type="nvarchar" MaxLength="255" />
+          <Property Name="FILESIZE" Type="int" />
+          <Property Name="HITS" Type="int" />
+          <Property Name="UploadTime" Type="datetime" />
+          <Property Name="TpcDocNo" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.intro10' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="intro10">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="obj" Type="nvarchar" MaxLength="20" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cake" Type="nvarchar" MaxLength="10" />
+          <Property Name="Service" Type="nvarchar" MaxLength="10" />
+          <Property Name="subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage_momo" Type="nvarchar" MaxLength="255" />
+          <Property Name="homepage1" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage2" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage3" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage5" Type="nvarchar" MaxLength="90" />
+          <Property Name="homepage6" Type="nvarchar" MaxLength="90" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="postdate" Type="datetime" />
+          <Property Name="posttime" Type="datetime" />
+          <Property Name="hit" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="postname" Type="nvarchar" MaxLength="10" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="post_group" Type="nvarchar" MaxLength="50" />
+          <Property Name="post_out" Type="nvarchar" MaxLength="2" />
+          <Property Name="post_out_txt" Type="nvarchar" MaxLength="255" />
+          <Property Name="poster_right" Type="nvarchar" MaxLength="1" />
+          <Property Name="file1_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file2_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file3_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.landlaw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="landlaw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Classfy" Type="int" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cake" Type="nvarchar" MaxLength="10" />
+          <Property Name="Service" Type="nvarchar" MaxLength="10" />
+          <Property Name="lDate" Type="datetime" />
+          <Property Name="Superior" Type="nvarchar" MaxLength="50" />
+          <Property Name="lNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="SubmitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="ModifyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="Attachfile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="homepage2" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage3" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage5" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage6" Type="nvarchar" MaxLength="50" />
+          <Property Name="file1_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file2_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file3_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="hit" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.lawclass' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="lawclass">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="int" Nullable="false" />
+          <Property Name="classid" Type="int" />
+          <Property Name="classname" Type="nvarchar" MaxLength="50" />
+          <Property Name="creuser" Type="nvarchar" MaxLength="50" />
+          <Property Name="credate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.lawview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="lawview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Classfy" Type="int" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cake" Type="nvarchar" MaxLength="10" />
+          <Property Name="Service" Type="nvarchar" MaxLength="10" />
+          <Property Name="lDate" Type="datetime" />
+          <Property Name="Superior" Type="nvarchar" MaxLength="50" />
+          <Property Name="lNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="SubmitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="ModifyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="Attachfile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="homepage2" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage3" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage5" Type="nvarchar" MaxLength="50" />
+          <Property Name="homepage6" Type="nvarchar" MaxLength="50" />
+          <Property Name="file1_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file2_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file3_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="hit" Type="int" />
+          <Property Name="classname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="main_menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menuname" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="menulevel" Type="int" Nullable="false" />
+          <Property Name="levelorder" Type="int" Nullable="false" />
+          <Property Name="parentid" Type="int" Nullable="false" />
+          <Property Name="action" Type="varchar" MaxLength="25" />
+          <Property Name="controller" Type="varchar" MaxLength="25" />
+          <Property Name="createdate" Type="datetime2" Precision="0" />
+          <Property Name="createuser" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.newsclass' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="newsclass">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="int" Nullable="false" />
+          <Property Name="classid" Type="int" />
+          <Property Name="classname" Type="nvarchar" MaxLength="50" />
+          <Property Name="creuser" Type="nvarchar" MaxLength="50" />
+          <Property Name="credate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.post_group' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="post_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="post_group" Type="nvarchar" MaxLength="20" />
+          <Property Name="post_team_num" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.post_team' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="post_team">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="group_name" Type="nvarchar" MaxLength="10" />
+          <Property Name="post_team" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.qa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="qa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cake" Type="nvarchar" MaxLength="10" />
+          <Property Name="Service" Type="nvarchar" MaxLength="10" />
+          <Property Name="Classfy" Type="int" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="SubmitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="ModifyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.qaclass' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="qaclass">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="int" Nullable="false" />
+          <Property Name="classid" Type="int" />
+          <Property Name="classname" Type="nvarchar" MaxLength="50" />
+          <Property Name="creuser" Type="nvarchar" MaxLength="50" />
+          <Property Name="credate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.qaview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="qaview">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cake" Type="nvarchar" MaxLength="10" />
+          <Property Name="Service" Type="nvarchar" MaxLength="10" />
+          <Property Name="Classfy" Type="int" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="SubmitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="ModifyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="classname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.service' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" Nullable="false" />
+          <Property Name="sno" Type="nvarchar" MaxLength="50" />
+          <Property Name="cre_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="typecode" Type="nvarchar" MaxLength="50" />
+          <Property Name="typename" Type="nvarchar" MaxLength="50" />
+          <Property Name="cre_date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.setup_smtp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="setup_smtp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="smtp" Type="nvarchar" MaxLength="50" />
+          <Property Name="smtpusername" Type="nvarchar" MaxLength="50" />
+          <Property Name="smtppassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="recipient" Type="nvarchar" MaxLength="50" />
+          <Property Name="recipientname" Type="nvarchar" MaxLength="50" />
+          <Property Name="subject" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.suggest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="suggest">
+          <Key>
+            <PropertyRef Name="question_id" />
+            <PropertyRef Name="question_name" />
+            <PropertyRef Name="is_open" />
+            <PropertyRef Name="check_ok" />
+          </Key>
+          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="question_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="owner" Type="nvarchar" MaxLength="30" />
+          <Property Name="startday" Type="datetime" />
+          <Property Name="stopday" Type="datetime" />
+          <Property Name="is_open" Type="bit" Nullable="false" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="check_ok" Type="bit" Nullable="false" />
+          <Property Name="who" Type="nvarchar" MaxLength="50" />
+          <Property Name="create_date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.suggest2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="suggest2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="question_id" Type="int" />
+          <Property Name="question_number" Type="nvarchar" MaxLength="10" />
+          <Property Name="question" Type="nvarchar" MaxLength="150" />
+          <Property Name="type1" Type="nvarchar" MaxLength="10" />
+          <Property Name="option1" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.suggest3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="suggest3">
+          <Key>
+            <PropertyRef Name="answer_id" />
+          </Key>
+          <Property Name="answer_id" Type="int" Nullable="false" />
+          <Property Name="question_id" Type="smallint" />
+          <Property Name="writer" Type="nvarchar" MaxLength="20" />
+          <Property Name="answer_date" Type="datetime" />
+          <Property Name="answer" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.theme' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="theme">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" Nullable="false" />
+          <Property Name="sno" Type="nvarchar" MaxLength="50" />
+          <Property Name="cre_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="typecode" Type="nvarchar" MaxLength="50" />
+          <Property Name="typename" Type="nvarchar" MaxLength="50" />
+          <Property Name="cre_date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" Nullable="false" />
+          <Property Name="cre_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="typename" Type="nvarchar" MaxLength="100" />
+          <Property Name="typecode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cre_date" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="anlandModelStoreContainer">
+          <EntitySet Name="main_menu" EntityType="Self.main_menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admin" EntityType="Self.admin" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [admin].[ID] AS [ID], 
+    [admin].[username] AS [username], 
+    [admin].[passwd] AS [passwd], 
+    [admin].[name] AS [name], 
+    [admin].[rights] AS [rights], 
+    [admin].[group_name] AS [group_name], 
+    [admin].[action] AS [action]
+    FROM [dbo].[admin] AS [admin]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="an_news" EntityType="Self.an_news" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [an_news].[obj] AS [obj], 
+    [an_news].[Theme] AS [Theme], 
+    [an_news].[Cake] AS [Cake], 
+    [an_news].[Service] AS [Service], 
+    [an_news].[subject] AS [subject], 
+    [an_news].[author] AS [author], 
+    [an_news].[homepage_momo] AS [homepage_momo], 
+    [an_news].[homepage1] AS [homepage1], 
+    [an_news].[homepage2] AS [homepage2], 
+    [an_news].[homepage3] AS [homepage3], 
+    [an_news].[homepage4] AS [homepage4], 
+    [an_news].[homepage5] AS [homepage5], 
+    [an_news].[homepage6] AS [homepage6], 
+    [an_news].[Body] AS [Body], 
+    [an_news].[postdate] AS [postdate], 
+    [an_news].[posttime] AS [posttime], 
+    [an_news].[hit] AS [hit], 
+    [an_news].[ID] AS [ID], 
+    [an_news].[postname] AS [postname], 
+    [an_news].[end_date] AS [end_date], 
+    [an_news].[post_group] AS [post_group], 
+    [an_news].[post_out] AS [post_out], 
+    [an_news].[post_out_txt] AS [post_out_txt], 
+    [an_news].[poster_right] AS [poster_right], 
+    [an_news].[file1_momo] AS [file1_momo], 
+    [an_news].[file2_momo] AS [file2_momo], 
+    [an_news].[file3_momo] AS [file3_momo], 
+    [an_news].[file4_momo] AS [file4_momo], 
+    [an_news].[file5_momo] AS [file5_momo]
+    FROM [dbo].[an_news] AS [an_news]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="board_setup" EntityType="Self.board_setup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [board_setup].[ID] AS [ID], 
+    [board_setup].[odd_back] AS [odd_back], 
+    [board_setup].[odd_font] AS [odd_font], 
+    [board_setup].[even_back] AS [even_back], 
+    [board_setup].[even_font] AS [even_font], 
+    [board_setup].[post_type] AS [post_type], 
+    [board_setup].[pages] AS [pages], 
+    [board_setup].[board_width] AS [board_width], 
+    [board_setup].[display_poster] AS [display_poster], 
+    [board_setup].[file_size] AS [file_size]
+    FROM [dbo].[board_setup] AS [board_setup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="board1" EntityType="Self.board1" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [board1].[obj] AS [obj], 
+    [board1].[subject] AS [subject], 
+    [board1].[author] AS [author], 
+    [board1].[homepage_momo] AS [homepage_momo], 
+    [board1].[homepage1] AS [homepage1], 
+    [board1].[homepage2] AS [homepage2], 
+    [board1].[homepage3] AS [homepage3], 
+    [board1].[homepage4] AS [homepage4], 
+    [board1].[homepage5] AS [homepage5], 
+    [board1].[homepage6] AS [homepage6], 
+    [board1].[Body] AS [Body], 
+    [board1].[postdate] AS [postdate], 
+    [board1].[posttime] AS [posttime], 
+    [board1].[hit] AS [hit], 
+    [board1].[ID] AS [ID], 
+    [board1].[postname] AS [postname], 
+    [board1].[end_date] AS [end_date], 
+    [board1].[post_group] AS [post_group], 
+    [board1].[post_out] AS [post_out], 
+    [board1].[post_out_txt] AS [post_out_txt], 
+    [board1].[poster_right] AS [poster_right], 
+    [board1].[file1_momo] AS [file1_momo], 
+    [board1].[file2_momo] AS [file2_momo], 
+    [board1].[file3_momo] AS [file3_momo], 
+    [board1].[file4_momo] AS [file4_momo], 
+    [board1].[file5_momo] AS [file5_momo]
+    FROM [dbo].[board1] AS [board1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="board1class" EntityType="Self.board1class" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [board1class].[識別碼] AS [識別碼], 
+    [board1class].[classid] AS [classid], 
+    [board1class].[classname] AS [classname], 
+    [board1class].[creuser] AS [creuser], 
+    [board1class].[credate] AS [credate]
+    FROM [dbo].[board1class] AS [board1class]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="cake" EntityType="Self.cake" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cake].[type_id] AS [type_id], 
+    [cake].[sno] AS [sno], 
+    [cake].[cre_user] AS [cre_user], 
+    [cake].[typecode] AS [typecode], 
+    [cake].[typename] AS [typename], 
+    [cake].[cre_date] AS [cre_date]
+    FROM [dbo].[cake] AS [cake]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cate" EntityType="Self.Cate" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cate].[ID] AS [ID], 
+    [Cate].[Title] AS [Title], 
+    [Cate].[Subject] AS [Subject], 
+    [Cate].[theme] AS [theme], 
+    [Cate].[cake] AS [cake], 
+    [Cate].[service] AS [service], 
+    [Cate].[url] AS [url], 
+    [Cate].[openWindow] AS [openWindow], 
+    [Cate].[credate] AS [credate], 
+    [Cate].[theme.typename] AS [theme.typename], 
+    [Cate].[cake.typename] AS [cake.typename], 
+    [Cate].[service.typename] AS [service.typename]
+    FROM [dbo].[Cate] AS [Cate]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Categories" EntityType="Self.Categories" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Categories].[ID] AS [ID], 
+    [Categories].[Title] AS [Title], 
+    [Categories].[Subject] AS [Subject], 
+    [Categories].[theme] AS [theme], 
+    [Categories].[cake] AS [cake], 
+    [Categories].[service] AS [service], 
+    [Categories].[url] AS [url], 
+    [Categories].[openWindow] AS [openWindow], 
+    [Categories].[credate] AS [credate]
+    FROM [dbo].[Categories] AS [Categories]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="director" EntityType="Self.director" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [director].[no] AS [no], 
+    [director].[msg_date] AS [msg_date], 
+    [director].[msg_name] AS [msg_name], 
+    [director].[msg_email] AS [msg_email], 
+    [director].[msg_subject] AS [msg_subject], 
+    [director].[msg_content] AS [msg_content], 
+    [director].[rpy_unit] AS [rpy_unit], 
+    [director].[rpy_date] AS [rpy_date], 
+    [director].[rpy_name] AS [rpy_name], 
+    [director].[rpy_tel] AS [rpy_tel], 
+    [director].[rpy_content] AS [rpy_content], 
+    [director].[attach1] AS [attach1], 
+    [director].[attach2] AS [attach2], 
+    [director].[attach3] AS [attach3], 
+    [director].[msg_tel] AS [msg_tel]
+    FROM [dbo].[director] AS [director]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="email" EntityType="Self.email" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [email].[no] AS [no], 
+    [email].[msg_date] AS [msg_date], 
+    [email].[msg_name] AS [msg_name], 
+    [email].[msg_email] AS [msg_email], 
+    [email].[msg_subject] AS [msg_subject], 
+    [email].[msg_content] AS [msg_content], 
+    [email].[rpy_unit] AS [rpy_unit], 
+    [email].[rpy_date] AS [rpy_date], 
+    [email].[rpy_name] AS [rpy_name], 
+    [email].[rpy_tel] AS [rpy_tel], 
+    [email].[rpy_content] AS [rpy_content], 
+    [email].[attach1] AS [attach1], 
+    [email].[attach2] AS [attach2], 
+    [email].[attach3] AS [attach3], 
+    [email].[msg_tel] AS [msg_tel], 
+    [email].[msg_type] AS [msg_type]
+    FROM [dbo].[email] AS [email]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="form" EntityType="Self.form" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [form].[ID] AS [ID], 
+    [form].[FILETITLE] AS [FILETITLE], 
+    [form].[FILEDESC] AS [FILEDESC], 
+    [form].[FILETYPE] AS [FILETYPE], 
+    [form].[FILECONTENTTYPE] AS [FILECONTENTTYPE], 
+    [form].[FILEPATH] AS [FILEPATH], 
+    [form].[FILESIZE] AS [FILESIZE], 
+    [form].[HITS] AS [HITS], 
+    [form].[UploadTime] AS [UploadTime], 
+    [form].[TpcDocNo] AS [TpcDocNo]
+    FROM [dbo].[form] AS [form]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="intro10" EntityType="Self.intro10" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [intro10].[obj] AS [obj], 
+    [intro10].[Theme] AS [Theme], 
+    [intro10].[Cake] AS [Cake], 
+    [intro10].[Service] AS [Service], 
+    [intro10].[subject] AS [subject], 
+    [intro10].[author] AS [author], 
+    [intro10].[homepage_momo] AS [homepage_momo], 
+    [intro10].[homepage1] AS [homepage1], 
+    [intro10].[homepage2] AS [homepage2], 
+    [intro10].[homepage3] AS [homepage3], 
+    [intro10].[homepage4] AS [homepage4], 
+    [intro10].[homepage5] AS [homepage5], 
+    [intro10].[homepage6] AS [homepage6], 
+    [intro10].[Body] AS [Body], 
+    [intro10].[postdate] AS [postdate], 
+    [intro10].[posttime] AS [posttime], 
+    [intro10].[hit] AS [hit], 
+    [intro10].[ID] AS [ID], 
+    [intro10].[postname] AS [postname], 
+    [intro10].[end_date] AS [end_date], 
+    [intro10].[post_group] AS [post_group], 
+    [intro10].[post_out] AS [post_out], 
+    [intro10].[post_out_txt] AS [post_out_txt], 
+    [intro10].[poster_right] AS [poster_right], 
+    [intro10].[file1_momo] AS [file1_momo], 
+    [intro10].[file2_momo] AS [file2_momo], 
+    [intro10].[file3_momo] AS [file3_momo], 
+    [intro10].[file4_momo] AS [file4_momo], 
+    [intro10].[file5_momo] AS [file5_momo]
+    FROM [dbo].[intro10] AS [intro10]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="landlaw" EntityType="Self.landlaw" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [landlaw].[ID] AS [ID], 
+    [landlaw].[Classfy] AS [Classfy], 
+    [landlaw].[Theme] AS [Theme], 
+    [landlaw].[Cake] AS [Cake], 
+    [landlaw].[Service] AS [Service], 
+    [landlaw].[lDate] AS [lDate], 
+    [landlaw].[Superior] AS [Superior], 
+    [landlaw].[lNumber] AS [lNumber], 
+    [landlaw].[Subject] AS [Subject], 
+    [landlaw].[Content] AS [Content], 
+    [landlaw].[SubmitName] AS [SubmitName], 
+    [landlaw].[SubmitDate] AS [SubmitDate], 
+    [landlaw].[ModifyName] AS [ModifyName], 
+    [landlaw].[ModifyDate] AS [ModifyDate], 
+    [landlaw].[Attachfile] AS [Attachfile], 
+    [landlaw].[Image] AS [Image], 
+    [landlaw].[Active] AS [Active], 
+    [landlaw].[homepage2] AS [homepage2], 
+    [landlaw].[homepage3] AS [homepage3], 
+    [landlaw].[homepage4] AS [homepage4], 
+    [landlaw].[homepage5] AS [homepage5], 
+    [landlaw].[homepage6] AS [homepage6], 
+    [landlaw].[file1_momo] AS [file1_momo], 
+    [landlaw].[file2_momo] AS [file2_momo], 
+    [landlaw].[file3_momo] AS [file3_momo], 
+    [landlaw].[file4_momo] AS [file4_momo], 
+    [landlaw].[file5_momo] AS [file5_momo], 
+    [landlaw].[hit] AS [hit]
+    FROM [dbo].[landlaw] AS [landlaw]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="lawclass" EntityType="Self.lawclass" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [lawclass].[識別碼] AS [識別碼], 
+    [lawclass].[classid] AS [classid], 
+    [lawclass].[classname] AS [classname], 
+    [lawclass].[creuser] AS [creuser], 
+    [lawclass].[credate] AS [credate]
+    FROM [dbo].[lawclass] AS [lawclass]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="lawview" EntityType="Self.lawview" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [lawview].[ID] AS [ID], 
+    [lawview].[Classfy] AS [Classfy], 
+    [lawview].[Theme] AS [Theme], 
+    [lawview].[Cake] AS [Cake], 
+    [lawview].[Service] AS [Service], 
+    [lawview].[lDate] AS [lDate], 
+    [lawview].[Superior] AS [Superior], 
+    [lawview].[lNumber] AS [lNumber], 
+    [lawview].[Subject] AS [Subject], 
+    [lawview].[Content] AS [Content], 
+    [lawview].[SubmitName] AS [SubmitName], 
+    [lawview].[SubmitDate] AS [SubmitDate], 
+    [lawview].[ModifyName] AS [ModifyName], 
+    [lawview].[ModifyDate] AS [ModifyDate], 
+    [lawview].[Attachfile] AS [Attachfile], 
+    [lawview].[Image] AS [Image], 
+    [lawview].[Active] AS [Active], 
+    [lawview].[homepage2] AS [homepage2], 
+    [lawview].[homepage3] AS [homepage3], 
+    [lawview].[homepage4] AS [homepage4], 
+    [lawview].[homepage5] AS [homepage5], 
+    [lawview].[homepage6] AS [homepage6], 
+    [lawview].[file1_momo] AS [file1_momo], 
+    [lawview].[file2_momo] AS [file2_momo], 
+    [lawview].[file3_momo] AS [file3_momo], 
+    [lawview].[file4_momo] AS [file4_momo], 
+    [lawview].[file5_momo] AS [file5_momo], 
+    [lawview].[hit] AS [hit], 
+    [lawview].[classname] AS [classname]
+    FROM [dbo].[lawview] AS [lawview]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="newsclass" EntityType="Self.newsclass" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [newsclass].[識別碼] AS [識別碼], 
+    [newsclass].[classid] AS [classid], 
+    [newsclass].[classname] AS [classname], 
+    [newsclass].[creuser] AS [creuser], 
+    [newsclass].[credate] AS [credate]
+    FROM [dbo].[newsclass] AS [newsclass]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="post_group" EntityType="Self.post_group" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [post_group].[ID] AS [ID], 
+    [post_group].[post_group] AS [post_group], 
+    [post_group].[post_team_num] AS [post_team_num]
+    FROM [dbo].[post_group] AS [post_group]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="post_team" EntityType="Self.post_team" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [post_team].[id] AS [id], 
+    [post_team].[group_name] AS [group_name], 
+    [post_team].[post_team] AS [post_team]
+    FROM [dbo].[post_team] AS [post_team]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="qa" EntityType="Self.qa" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [qa].[ID] AS [ID], 
+    [qa].[Theme] AS [Theme], 
+    [qa].[Cake] AS [Cake], 
+    [qa].[Service] AS [Service], 
+    [qa].[Classfy] AS [Classfy], 
+    [qa].[Subject] AS [Subject], 
+    [qa].[Content] AS [Content], 
+    [qa].[SubmitName] AS [SubmitName], 
+    [qa].[SubmitDate] AS [SubmitDate], 
+    [qa].[ModifyName] AS [ModifyName], 
+    [qa].[ModifyDate] AS [ModifyDate]
+    FROM [dbo].[qa] AS [qa]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="qaclass" EntityType="Self.qaclass" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [qaclass].[識別碼] AS [識別碼], 
+    [qaclass].[classid] AS [classid], 
+    [qaclass].[classname] AS [classname], 
+    [qaclass].[creuser] AS [creuser], 
+    [qaclass].[credate] AS [credate]
+    FROM [dbo].[qaclass] AS [qaclass]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="qaview" EntityType="Self.qaview" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [qaview].[ID] AS [ID], 
+    [qaview].[Theme] AS [Theme], 
+    [qaview].[Cake] AS [Cake], 
+    [qaview].[Service] AS [Service], 
+    [qaview].[Classfy] AS [Classfy], 
+    [qaview].[Subject] AS [Subject], 
+    [qaview].[Content] AS [Content], 
+    [qaview].[SubmitName] AS [SubmitName], 
+    [qaview].[SubmitDate] AS [SubmitDate], 
+    [qaview].[ModifyName] AS [ModifyName], 
+    [qaview].[ModifyDate] AS [ModifyDate], 
+    [qaview].[classname] AS [classname]
+    FROM [dbo].[qaview] AS [qaview]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="service" EntityType="Self.service" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [service].[type_id] AS [type_id], 
+    [service].[sno] AS [sno], 
+    [service].[cre_user] AS [cre_user], 
+    [service].[typecode] AS [typecode], 
+    [service].[typename] AS [typename], 
+    [service].[cre_date] AS [cre_date]
+    FROM [dbo].[service] AS [service]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="setup_smtp" EntityType="Self.setup_smtp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [setup_smtp].[ID] AS [ID], 
+    [setup_smtp].[type] AS [type], 
+    [setup_smtp].[smtp] AS [smtp], 
+    [setup_smtp].[smtpusername] AS [smtpusername], 
+    [setup_smtp].[smtppassword] AS [smtppassword], 
+    [setup_smtp].[recipient] AS [recipient], 
+    [setup_smtp].[recipientname] AS [recipientname], 
+    [setup_smtp].[subject] AS [subject]
+    FROM [dbo].[setup_smtp] AS [setup_smtp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="suggest" EntityType="Self.suggest" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [suggest].[question_id] AS [question_id], 
+    [suggest].[question_name] AS [question_name], 
+    [suggest].[owner] AS [owner], 
+    [suggest].[startday] AS [startday], 
+    [suggest].[stopday] AS [stopday], 
+    [suggest].[is_open] AS [is_open], 
+    [suggest].[content] AS [content], 
+    [suggest].[check_ok] AS [check_ok], 
+    [suggest].[who] AS [who], 
+    [suggest].[create_date] AS [create_date]
+    FROM [dbo].[suggest] AS [suggest]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="suggest2" EntityType="Self.suggest2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [suggest2].[question_id] AS [question_id], 
+    [suggest2].[question_number] AS [question_number], 
+    [suggest2].[question] AS [question], 
+    [suggest2].[type1] AS [type1], 
+    [suggest2].[option1] AS [option1], 
+    [suggest2].[id] AS [id]
+    FROM [dbo].[suggest2] AS [suggest2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="suggest3" EntityType="Self.suggest3" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [suggest3].[answer_id] AS [answer_id], 
+    [suggest3].[question_id] AS [question_id], 
+    [suggest3].[writer] AS [writer], 
+    [suggest3].[answer_date] AS [answer_date], 
+    [suggest3].[answer] AS [answer]
+    FROM [dbo].[suggest3] AS [suggest3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="theme" EntityType="Self.theme" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [theme].[type_id] AS [type_id], 
+    [theme].[sno] AS [sno], 
+    [theme].[cre_user] AS [cre_user], 
+    [theme].[typecode] AS [typecode], 
+    [theme].[typename] AS [typename], 
+    [theme].[cre_date] AS [cre_date]
+    FROM [dbo].[theme] AS [theme]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="type" EntityType="Self.type" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [type].[type_id] AS [type_id], 
+    [type].[cre_user] AS [cre_user], 
+    [type].[typename] AS [typename], 
+    [type].[typecode] AS [typecode], 
+    [type].[cre_date] AS [cre_date]
+    FROM [dbo].[type] AS [type]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="anlandModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="an_news">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="board_setup">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="display_poster" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="odd_back" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="odd_font" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="even_back" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="even_font" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="pages" Type="Int32" />
+          <Property Name="board_width" Type="Int32" />
+          <Property Name="display_poster" Type="Boolean" Nullable="false" />
+          <Property Name="file_size" Type="Int32" />
+        </EntityType>
+        <EntityType Name="board1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="board1class">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="Int32" Nullable="false" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="cake">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" />
+          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Cate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="theme" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cake" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="service" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="openWindow" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+          <Property Name="theme_typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cake_typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="service_typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="openWindow" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="theme" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cake" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="service" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="openWindow" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="director">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="Int32" Nullable="false" />
+          <Property Name="msg_date" Type="DateTime" Precision="3" />
+          <Property Name="msg_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_subject" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="msg_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_date" Type="DateTime" Precision="3" />
+          <Property Name="rpy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attach1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="Int32" Nullable="false" />
+          <Property Name="msg_date" Type="DateTime" Precision="3" />
+          <Property Name="msg_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_subject" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="msg_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_date" Type="DateTime" Precision="3" />
+          <Property Name="rpy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attach1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="form">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FILETITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FILEDESC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FILETYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FILECONTENTTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FILEPATH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FILESIZE" Type="Int32" />
+          <Property Name="HITS" Type="Int32" />
+          <Property Name="UploadTime" Type="DateTime" Precision="3" />
+          <Property Name="TpcDocNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="intro10">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="landlaw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Classfy" Type="Int32" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="lDate" Type="DateTime" Precision="3" />
+          <Property Name="Superior" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="Attachfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="homepage2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="hit" Type="Int32" />
+        </EntityType>
+        <EntityType Name="lawclass">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="Int32" Nullable="false" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="lawview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Classfy" Type="Int32" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="lDate" Type="DateTime" Precision="3" />
+          <Property Name="Superior" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="Attachfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="homepage2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="newsclass">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="Int32" Nullable="false" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="post_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="post_group1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="post_team_num" Type="Int32" />
+        </EntityType>
+        <EntityType Name="post_team">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="group_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="post_team1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="qa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Classfy" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="qaclass">
+          <Key>
+            <PropertyRef Name="識別碼" />
+          </Key>
+          <Property Name="識別碼" Type="Int32" Nullable="false" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="qaview">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Classfy" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" />
+          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="setup_smtp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="smtp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="smtpusername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="smtppassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipientname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="suggest">
+          <Key>
+            <PropertyRef Name="question_id" />
+            <PropertyRef Name="question_name" />
+            <PropertyRef Name="is_open" />
+            <PropertyRef Name="check_ok" />
+          </Key>
+          <Property Name="question_id" Type="Int32" Nullable="false" />
+          <Property Name="question_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="owner" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="startday" Type="DateTime" Precision="3" />
+          <Property Name="stopday" Type="DateTime" Precision="3" />
+          <Property Name="is_open" Type="Boolean" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="check_ok" Type="Boolean" Nullable="false" />
+          <Property Name="who" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="suggest2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="question_id" Type="Int32" />
+          <Property Name="question_number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="question" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="type1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="option1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="suggest3">
+          <Key>
+            <PropertyRef Name="answer_id" />
+          </Key>
+          <Property Name="answer_id" Type="Int32" Nullable="false" />
+          <Property Name="question_id" Type="Int16" />
+          <Property Name="writer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="answer_date" Type="DateTime" Precision="3" />
+          <Property Name="answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="theme">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" />
+          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" />
+          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="anlandEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="Self.admin" />
+          <EntitySet Name="an_news" EntityType="Self.an_news" />
+          <EntitySet Name="board_setup" EntityType="Self.board_setup" />
+          <EntitySet Name="board1" EntityType="Self.board1" />
+          <EntitySet Name="board1class" EntityType="Self.board1class" />
+          <EntitySet Name="cake" EntityType="Self.cake" />
+          <EntitySet Name="Cate" EntityType="Self.Cate" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="director" EntityType="Self.director" />
+          <EntitySet Name="email" EntityType="Self.email" />
+          <EntitySet Name="form" EntityType="Self.form" />
+          <EntitySet Name="intro10" EntityType="Self.intro10" />
+          <EntitySet Name="landlaw" EntityType="Self.landlaw" />
+          <EntitySet Name="lawclass" EntityType="Self.lawclass" />
+          <EntitySet Name="lawview" EntityType="Self.lawview" />
+          <EntitySet Name="newsclass" EntityType="Self.newsclass" />
+          <EntitySet Name="post_group" EntityType="Self.post_group" />
+          <EntitySet Name="post_team" EntityType="Self.post_team" />
+          <EntitySet Name="qa" EntityType="Self.qa" />
+          <EntitySet Name="qaclass" EntityType="Self.qaclass" />
+          <EntitySet Name="qaview" EntityType="Self.qaview" />
+          <EntitySet Name="service" EntityType="Self.service" />
+          <EntitySet Name="setup_smtp" EntityType="Self.setup_smtp" />
+          <EntitySet Name="suggest" EntityType="Self.suggest" />
+          <EntitySet Name="suggest2" EntityType="Self.suggest2" />
+          <EntitySet Name="suggest3" EntityType="Self.suggest3" />
+          <EntitySet Name="theme" EntityType="Self.theme" />
+          <EntitySet Name="type" EntityType="Self.type" />
+          <EntitySet Name="main_menu" EntityType="anlandModel.main_menu" />
+        </EntityContainer>
+        <EntityType Name="main_menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuname" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="menulevel" Type="Int32" Nullable="false" />
+          <Property Name="levelorder" Type="Int32" Nullable="false" />
+          <Property Name="parentid" Type="Int32" Nullable="false" />
+          <Property Name="action" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="controller" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" Precision="0" />
+          <Property Name="createuser" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="anlandModelStoreContainer" CdmEntityContainer="anlandEntities">
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="anlandModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="rights" ColumnName="rights" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="action" ColumnName="action" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="an_news">
+            <EntityTypeMapping TypeName="anlandModel.an_news">
+              <MappingFragment StoreEntitySet="an_news">
+                <ScalarProperty Name="obj" ColumnName="obj" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="board_setup">
+            <EntityTypeMapping TypeName="anlandModel.board_setup">
+              <MappingFragment StoreEntitySet="board_setup">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="odd_back" ColumnName="odd_back" />
+                <ScalarProperty Name="odd_font" ColumnName="odd_font" />
+                <ScalarProperty Name="even_back" ColumnName="even_back" />
+                <ScalarProperty Name="even_font" ColumnName="even_font" />
+                <ScalarProperty Name="post_type" ColumnName="post_type" />
+                <ScalarProperty Name="pages" ColumnName="pages" />
+                <ScalarProperty Name="board_width" ColumnName="board_width" />
+                <ScalarProperty Name="display_poster" ColumnName="display_poster" />
+                <ScalarProperty Name="file_size" ColumnName="file_size" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="board1">
+            <EntityTypeMapping TypeName="anlandModel.board1">
+              <MappingFragment StoreEntitySet="board1">
+                <ScalarProperty Name="obj" ColumnName="obj" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="board1class">
+            <EntityTypeMapping TypeName="anlandModel.board1class">
+              <MappingFragment StoreEntitySet="board1class">
+                <ScalarProperty Name="識別碼" ColumnName="識別碼" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="credate" ColumnName="credate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cake">
+            <EntityTypeMapping TypeName="anlandModel.cake">
+              <MappingFragment StoreEntitySet="cake">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cate">
+            <EntityTypeMapping TypeName="anlandModel.Cate">
+              <MappingFragment StoreEntitySet="Cate">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="theme" ColumnName="theme" />
+                <ScalarProperty Name="cake" ColumnName="cake" />
+                <ScalarProperty Name="service" ColumnName="service" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="openWindow" ColumnName="openWindow" />
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="theme_typename" ColumnName="theme.typename" />
+                <ScalarProperty Name="cake_typename" ColumnName="cake.typename" />
+                <ScalarProperty Name="service_typename" ColumnName="service.typename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="anlandModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="theme" ColumnName="theme" />
+                <ScalarProperty Name="cake" ColumnName="cake" />
+                <ScalarProperty Name="service" ColumnName="service" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="openWindow" ColumnName="openWindow" />
+                <ScalarProperty Name="credate" ColumnName="credate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="director">
+            <EntityTypeMapping TypeName="anlandModel.director">
+              <MappingFragment StoreEntitySet="director">
+                <ScalarProperty Name="no" ColumnName="no" />
+                <ScalarProperty Name="msg_date" ColumnName="msg_date" />
+                <ScalarProperty Name="msg_name" ColumnName="msg_name" />
+                <ScalarProperty Name="msg_email" ColumnName="msg_email" />
+                <ScalarProperty Name="msg_subject" ColumnName="msg_subject" />
+                <ScalarProperty Name="msg_content" ColumnName="msg_content" />
+                <ScalarProperty Name="rpy_unit" ColumnName="rpy_unit" />
+                <ScalarProperty Name="rpy_date" ColumnName="rpy_date" />
+                <ScalarProperty Name="rpy_name" ColumnName="rpy_name" />
+                <ScalarProperty Name="rpy_tel" ColumnName="rpy_tel" />
+                <ScalarProperty Name="rpy_content" ColumnName="rpy_content" />
+                <ScalarProperty Name="attach1" ColumnName="attach1" />
+                <ScalarProperty Name="attach2" ColumnName="attach2" />
+                <ScalarProperty Name="attach3" ColumnName="attach3" />
+                <ScalarProperty Name="msg_tel" ColumnName="msg_tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="email">
+            <EntityTypeMapping TypeName="anlandModel.email">
+              <MappingFragment StoreEntitySet="email">
+                <ScalarProperty Name="no" ColumnName="no" />
+                <ScalarProperty Name="msg_date" ColumnName="msg_date" />
+                <ScalarProperty Name="msg_name" ColumnName="msg_name" />
+                <ScalarProperty Name="msg_email" ColumnName="msg_email" />
+                <ScalarProperty Name="msg_subject" ColumnName="msg_subject" />
+                <ScalarProperty Name="msg_content" ColumnName="msg_content" />
+                <ScalarProperty Name="rpy_unit" ColumnName="rpy_unit" />
+                <ScalarProperty Name="rpy_date" ColumnName="rpy_date" />
+                <ScalarProperty Name="rpy_name" ColumnName="rpy_name" />
+                <ScalarProperty Name="rpy_tel" ColumnName="rpy_tel" />
+                <ScalarProperty Name="rpy_content" ColumnName="rpy_content" />
+                <ScalarProperty Name="attach1" ColumnName="attach1" />
+                <ScalarProperty Name="attach2" ColumnName="attach2" />
+                <ScalarProperty Name="attach3" ColumnName="attach3" />
+                <ScalarProperty Name="msg_tel" ColumnName="msg_tel" />
+                <ScalarProperty Name="msg_type" ColumnName="msg_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="form">
+            <EntityTypeMapping TypeName="anlandModel.form">
+              <MappingFragment StoreEntitySet="form">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILETITLE" ColumnName="FILETITLE" />
+                <ScalarProperty Name="FILEDESC" ColumnName="FILEDESC" />
+                <ScalarProperty Name="FILETYPE" ColumnName="FILETYPE" />
+                <ScalarProperty Name="FILECONTENTTYPE" ColumnName="FILECONTENTTYPE" />
+                <ScalarProperty Name="FILEPATH" ColumnName="FILEPATH" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="HITS" ColumnName="HITS" />
+                <ScalarProperty Name="UploadTime" ColumnName="UploadTime" />
+                <ScalarProperty Name="TpcDocNo" ColumnName="TpcDocNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="intro10">
+            <EntityTypeMapping TypeName="anlandModel.intro10">
+              <MappingFragment StoreEntitySet="intro10">
+                <ScalarProperty Name="obj" ColumnName="obj" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="landlaw">
+            <EntityTypeMapping TypeName="anlandModel.landlaw">
+              <MappingFragment StoreEntitySet="landlaw">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="lDate" ColumnName="lDate" />
+                <ScalarProperty Name="Superior" ColumnName="Superior" />
+                <ScalarProperty Name="lNumber" ColumnName="lNumber" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Attachfile" ColumnName="Attachfile" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lawclass">
+            <EntityTypeMapping TypeName="anlandModel.lawclass">
+              <MappingFragment StoreEntitySet="lawclass">
+                <ScalarProperty Name="識別碼" ColumnName="識別碼" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="credate" ColumnName="credate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lawview">
+            <EntityTypeMapping TypeName="anlandModel.lawview">
+              <MappingFragment StoreEntitySet="lawview">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="lDate" ColumnName="lDate" />
+                <ScalarProperty Name="Superior" ColumnName="Superior" />
+                <ScalarProperty Name="lNumber" ColumnName="lNumber" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Attachfile" ColumnName="Attachfile" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="newsclass">
+            <EntityTypeMapping TypeName="anlandModel.newsclass">
+              <MappingFragment StoreEntitySet="newsclass">
+                <ScalarProperty Name="識別碼" ColumnName="識別碼" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="credate" ColumnName="credate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post_group">
+            <EntityTypeMapping TypeName="anlandModel.post_group">
+              <MappingFragment StoreEntitySet="post_group">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="post_group1" ColumnName="post_group" />
+                <ScalarProperty Name="post_team_num" ColumnName="post_team_num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post_team">
+            <EntityTypeMapping TypeName="anlandModel.post_team">
+              <MappingFragment StoreEntitySet="post_team">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="post_team1" ColumnName="post_team" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qa">
+            <EntityTypeMapping TypeName="anlandModel.qa">
+              <MappingFragment StoreEntitySet="qa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qaclass">
+            <EntityTypeMapping TypeName="anlandModel.qaclass">
+              <MappingFragment StoreEntitySet="qaclass">
+                <ScalarProperty Name="識別碼" ColumnName="識別碼" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="credate" ColumnName="credate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qaview">
+            <EntityTypeMapping TypeName="anlandModel.qaview">
+              <MappingFragment StoreEntitySet="qaview">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service">
+            <EntityTypeMapping TypeName="anlandModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="setup_smtp">
+            <EntityTypeMapping TypeName="anlandModel.setup_smtp">
+              <MappingFragment StoreEntitySet="setup_smtp">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="smtp" ColumnName="smtp" />
+                <ScalarProperty Name="smtpusername" ColumnName="smtpusername" />
+                <ScalarProperty Name="smtppassword" ColumnName="smtppassword" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+                <ScalarProperty Name="recipientname" ColumnName="recipientname" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suggest">
+            <EntityTypeMapping TypeName="anlandModel.suggest">
+              <MappingFragment StoreEntitySet="suggest">
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="question_name" ColumnName="question_name" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="startday" ColumnName="startday" />
+                <ScalarProperty Name="stopday" ColumnName="stopday" />
+                <ScalarProperty Name="is_open" ColumnName="is_open" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="check_ok" ColumnName="check_ok" />
+                <ScalarProperty Name="who" ColumnName="who" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suggest2">
+            <EntityTypeMapping TypeName="anlandModel.suggest2">
+              <MappingFragment StoreEntitySet="suggest2">
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="question_number" ColumnName="question_number" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="type1" ColumnName="type1" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suggest3">
+            <EntityTypeMapping TypeName="anlandModel.suggest3">
+              <MappingFragment StoreEntitySet="suggest3">
+                <ScalarProperty Name="answer_id" ColumnName="answer_id" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="writer" ColumnName="writer" />
+                <ScalarProperty Name="answer_date" ColumnName="answer_date" />
+                <ScalarProperty Name="answer" ColumnName="answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="theme">
+            <EntityTypeMapping TypeName="anlandModel.theme">
+              <MappingFragment StoreEntitySet="theme">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type">
+            <EntityTypeMapping TypeName="anlandModel.type">
+              <MappingFragment StoreEntitySet="type">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="main_menu">
+            <EntityTypeMapping TypeName="anlandModel.main_menu">
+              <MappingFragment StoreEntitySet="main_menu">
+                <ScalarProperty Name="createuser" ColumnName="createuser" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="controller" ColumnName="controller" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="levelorder" ColumnName="levelorder" />
+                <ScalarProperty Name="menulevel" ColumnName="menulevel" />
+                <ScalarProperty Name="menuname" ColumnName="menuname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
