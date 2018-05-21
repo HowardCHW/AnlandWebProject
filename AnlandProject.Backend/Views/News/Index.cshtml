@@ -31,20 +31,20 @@
                 <table id="newsTable" class="table table-striped table-bordered table-hover table-checkable order-column">
                     <thead>
                         <tr>
-                            <th>編號</th>
-                            <th>主題分類</th>
-                            <th>施政分類</th>
-                            <th>服務分類</th>
+                            <th style="width:40px;">編號</th>
+                            <th style="width:60px;">主題分類</th>
+                            <th style="width:60px;">施政分類</th>
+                            <th style="width:60px;">服務分類</th>
                             <th>主題</th>
-                            <th>置頂</th>
-                            <th>發佈日期</th>
-                            <th>公告期限</th>
-                            <th>點閱</th>
-                            <th class="nosort">管理模式</th>
+                            <th style="width:55px;">置頂</th>
+                            <th style="width:70px;">發佈日期</th>
+                            <th style="width:70px;">公告期限</th>
+                            <th style="width:60px;">點閱</th>
+                            <th style="width:60px;" class="nosort">管理模式</th>
                         </tr>
                     </thead>
-                    @*<tbody>
-                        @foreach (var item in Model)
+                    <tbody>
+                        @*@foreach (var item in Model)
                         {
                             <tr class="odd gradeX">
                                 <td>@item.ID</td>
@@ -81,8 +81,8 @@
                                     </a>
                                 </td>
                             </tr>
-                        }
-                    </tbody>*@
+                        }*@
+                    </tbody>
                 </table>
             </div>
 
@@ -119,130 +119,128 @@
         var urlQueryNews = '@Url.Action("NewsQuery", "News")';
 
         $(document).ready(function () {
-            //DatatableBinding();
-            $('#newsTable').DataTable({
-                "serverSide": true,
-                "processing": true,
-                //ordering: false,
-                //searching: false,
-                "ajax": {
-                    url: urlQueryNews,
-                    type: 'POST'
-                },
-                "columns": [
-                    { mDataProp: "ID" },
-                    { mDataProp: "Theme" },
-                    { mDataProp: "Cake" },
-                    { mDataProp: "Service" },
-                    {
-                        mDataProp: "Subject",
-                        render: function (data, type, full, meta) {
-                            return '<a href="news-view.html">' + data + '</a>'
-                        }
-                    },
-                    { mDataProp: "PostOut" },
-                    {
-                        mDataProp: "PostDate",
-                        render: function (data, type, full, meta) {
-                            return DateTimeFormatYYYYMMDD(data);
-                        }
-                    },
-                    {
-                        mDataProp: "EndDate",
-                        render: function (data, type, full, meta) {
-                            if (data == null) {
-                                return '';
-                            }
-                            return DateTimeFormatYYYYMMDD(data);
-                        }
-                    },
-                    { mDataProp: "Hit" },
-                    {
-                        mDataProp: null,
-                        render: function () {
-                            var tag =
-                                '<a href="news-edit.html" class="btn btn-pure btn-default p-5 btn-primary">' +
-                                '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
-                                '</a >' +
-                                '<a href="#delItem" class="btn btn-pure btn-default p-5 btn-warning" data-toggle="modal">' +
-                                '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
-                                '</a>'
-                            return tag;
-                        }
-                    }
-                ],
-                language: {
-                    aria: {
-                        sortAscending: ": activate to sort column ascending",
-                        sortDescending: ": activate to sort column descending"
-                    },
-                    emptyTable: "無資料",
-                    info: "顯示 _START_ 到 _END_ 總共 _TOTAL_ 筆",
-                    infoEmpty: "無資料",
-                    infoFiltered: "(已篩選 1 至 _MAX_ 筆紀錄)",
-                    lengthMenu: "每次顯示 _MENU_ 筆",
-                    search: "篩選:",
-                    zeroRecords: "沒有找到符合的資料",
-                    paginate: {
-                        previous: "上一頁",
-                        next: "下一頁",
-                        last: "最後一頁",
-                        first: "第一頁",
-                        page: "第",
-                        pageOf: "頁，總頁數： "
-                    }
-                },
-                bStateSave: !0,
-                pagingType: "bootstrap_extended",
-                paging: true,
-                lengthMenu: [
-                    [5, 10, 15, 20, -1],
-                    [5, 10, 15, 20, "All"]
-                ],
-                pageLength: 5,
-                columnDefs: [{
-                    orderable: !1,
-                    targets: 'nosort'
-                }, {
-                    searchable: !1,
-                    targets: [0]
-                }],
-                order: [
-                    [1, "asc"]
-                ]
-            });
+            DatatableBinding();
+            //$('#newsTable').DataTable({
+            //    //"serverSide": true,
+            //    //"processing": true,
+            //    //ordering: false,
+            //    //searching: false,
+            //    "ajax": {
+            //        url: urlQueryNews,
+            //        type: 'POST'
+            //    },
+            //    "columns": [
+            //        { mDataProp: "ID" },
+            //        { mDataProp: "Theme" },
+            //        { mDataProp: "Cake" },
+            //        { mDataProp: "Service" },
+            //        {
+            //            mDataProp: "Subject",
+            //            render: function (data, type, full, meta) {
+            //                return '<a href="news-view.html">' + data + '</a>'
+            //            }
+            //        },
+            //        { mDataProp: "PostOut" },
+            //        {
+            //            mDataProp: "PostDate",
+            //            render: function (data, type, full, meta) {
+            //                return DateTimeFormatYYYYMMDD(data);
+            //            }
+            //        },
+            //        {
+            //            mDataProp: "EndDate",
+            //            render: function (data, type, full, meta) {
+            //                if (data == null) {
+            //                    return '';
+            //                }
+            //                return DateTimeFormatYYYYMMDD(data);
+            //            }
+            //        },
+            //        { mDataProp: "Hit" },
+            //        {
+            //            mDataProp: null,
+            //            render: function () {
+            //                var tag =
+            //                    '<a href="news-edit.html" class="btn btn-pure btn-default p-5 btn-primary">' +
+            //                    '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
+            //                    '</a >' +
+            //                    '<a href="#delItem" class="btn btn-pure btn-default p-5 btn-warning" data-toggle="modal">' +
+            //                    '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
+            //                    '</a>'
+            //                return tag;
+            //            }
+            //        }
+            //    ],
+            //    //language: {
+            //    //    aria: {
+            //    //        sortAscending: ": activate to sort column ascending",
+            //    //        sortDescending: ": activate to sort column descending"
+            //    //    },
+            //    //    emptyTable: "無資料",
+            //    //    info: "顯示 _START_ 到 _END_ 總共 _TOTAL_ 筆",
+            //    //    infoEmpty: "無資料",
+            //    //    infoFiltered: "(已篩選 1 至 _MAX_ 筆紀錄)",
+            //    //    lengthMenu: "每次顯示 _MENU_ 筆",
+            //    //    search: "篩選:",
+            //    //    zeroRecords: "沒有找到符合的資料",
+            //    //    paginate: {
+            //    //        previous: "上一頁",
+            //    //        next: "下一頁",
+            //    //        last: "最後一頁",
+            //    //        first: "第一頁",
+            //    //        page: "第",
+            //    //        pageOf: "頁，總頁數： "
+            //    //    }
+            //    //},
+            //    //bStateSave: !0,
+            //    //pagingType: "bootstrap_extended",
+            //    //paging: true,
+            //    //lengthMenu: [
+            //    //    [5, 10, 15, 20, -1],
+            //    //    [5, 10, 15, 20, "All"]
+            //    //],
+            //    //pageLength: 5,
+            //    //columnDefs: [{
+            //    //    orderable: !1,
+            //    //    targets: 'nosort'
+            //    //}, {
+            //    //    searchable: !1,
+            //    //    targets: [0]
+            //    //}],
+            //    //order: [
+            //    //    [1, "asc"]
+            //    //]
+            //});
         });
 
         function DatatableBinding() {
-            var _tmpOpts = $.extend(true, {}, defaults, {
-                "bFilter": false
-            });
-            _tmpOpts.processing = true;
-            _tmpOpts.serverSide = true;
+            var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+            //_tmpOpts.processing = true;
+            //_tmpOpts.serverSide = true;
             _tmpOpts.ajax = {
                 "url": urlQueryNews,
                 "type": 'POST'                
             };
             _tmpOpts.columns = [
-                { data: "ID" },
-                { data: "Theme" },
-                { data: "Cake" },
-                { data: "Service" },
+                { mDataProp: "ID" },
+                { mDataProp: "Theme" },
+                { mDataProp: "Cake" },
+                { mDataProp: "Service" },
                 {
-                    data: "Subject",
+                    mDataProp: "Subject",
                     render: function (data, type, full, meta) {
                         return '<a href="news-view.html">' + data + '</a>'
                     }
                 },
-                { data: "PostOut" },
+                { mDataProp: "PostOut" },
                 {
-                    data: "PostDate",
+                    mDataProp: "PostDate",
                     render: function (data, type, full, meta) {
                         return DateTimeFormatYYYYMMDD(data);
                     }
                 },
                 {
-                    data: "EndDate",
+                    mDataProp: "EndDate",
                     render: function (data, type, full, meta) {
                         if (data == null) {
                             return '';
@@ -250,16 +248,16 @@
                         return DateTimeFormatYYYYMMDD(data);
                     }
                 },
-                { data: "Hit" },
+                { mDataProp: "Hit" },
                 {
-                    data: null,
+                    mDataProp: null,
                     render: function () {
                         var tag =
                             '<a href="news-edit.html" class="btn btn-pure btn-default p-5 btn-primary">' +
-                                '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
-                            '</a >' + 
+                            '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
+                            '</a >' +
                             '<a href="#delItem" class="btn btn-pure btn-default p-5 btn-warning" data-toggle="modal">' +
-                                '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
+                            '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
                             '</a>'
                         return tag;
                     }
@@ -271,7 +269,6 @@
                 $('#newsTable  tbody tr').remove();
             }
             $('#newsTable').DataTable(_tmpOpts);
-            //TableDatatablesManaged.init();
         }
     </script>
 }

@@ -177,11 +177,11 @@
     <script src="~/global/vendor/select2/select2.full.min.js"></script>
 
     <!-- dataTables -->
-    <!--<script type="text/javascript" src="~/DataTables/datatables.min.js"></script>
-    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
-    <script src="~/global/scripts/datatable.js"></script>-->
+    <script src="~/DataTables/datatables.min.js"></script>
+    <script src="~/DataTables/DataTables-1.10.16/js/dataTables.bootstrap.js"></script>
+    <!--<script src="~/global/scripts/datatable.js"></script>
     <script src="~/global/plugins/datatables/datatables.min.js"></script>
-    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>-->
 
     <script src="~/global/vendor/bootstrap-select/bootstrap-select.js"></script>
 
@@ -217,25 +217,26 @@
     <script src="~/global/js/Plugin/aspaginator.js"></script>
 
     <!-- datatables -->
-    <script src="~/global/scripts/app.js"></script>
-    <!--    <script src="~/base/assets/examples/js/pages/table-datatables-managed.min.js"></script>-->
+    <!--<script src="~/global/scripts/app.js"></script>
+    <script src="~/base/assets/examples/js/pages/table-datatables-managed.min.js"></script> -->
+
     <script src="~/global/js/Plugin/jquery-placeholder.js"></script>
     <script src="~/global/js/Plugin/input-group-file.js"></script>
 
     <script src="~/base/assets/examples/js/forms/advanced.js"></script>
 
     <script src="~/base/assets/examples/js/forms/validation.js"></script>
-    @*<script>
-            (function (document, window, $) {
-                'use strict';
+    <script>
+        (function (document, window, $) {
+            'use strict';
 
-                var Site = window.Site;
-                $(document).ready(function () {
-                    Site.run();
-                });
-            })(document, window, jQuery);
-        </script>*@
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+            });
+        })(document, window, jQuery);
+    </script>
 
     @RenderSection("scripts", false);
 </body>
-    </html>
+        </html>
