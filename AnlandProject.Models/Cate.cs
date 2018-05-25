@@ -14,7 +14,7 @@ namespace AnlandProject.Models
     
     public partial class Cate
     {
-        public int ID { get; set; }
+        public int id { get; set; }
         public string Title { get; set; }
         public string Subject { get; set; }
         public string theme { get; set; }

@@ -14,10 +14,10 @@ namespace AnlandProject.Models
     
     public partial class newsclass
     {
-        public int 識別碼 { get; set; }
+        public int id { get; set; }
         public Nullable<int> classid { get; set; }
         public string classname { get; set; }
         public string creuser { get; set; }
-        public string credate { get; set; }
+        public Nullable<System.DateTime> credate { get; set; }
     }
 }

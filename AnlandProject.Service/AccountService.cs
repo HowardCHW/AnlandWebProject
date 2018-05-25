@@ -35,9 +35,9 @@ namespace AnlandProject.Service
             {
                 result = new AccountModel()
                 {
-                    Account = data.name,
-                    Name = data.username
-                };                
+                    Account = data.username,
+                    Name = data.name
+                };
             }
             return result;
         }

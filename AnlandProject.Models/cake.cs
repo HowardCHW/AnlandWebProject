@@ -14,7 +14,7 @@ namespace AnlandProject.Models
     
     public partial class cake
     {
-        public int type_id { get; set; }
+        public int id { get; set; }
         public string sno { get; set; }
         public string cre_user { get; set; }
         public string typecode { get; set; }

@@ -43,11 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="BusinessModel\BackendUserModel.cs" />
+    <Compile Include="BusinessModel\NewsCategoryModel.cs" />
+    <Compile Include="BusinessModel\ClassificationModel.cs" />
     <Compile Include="BusinessModel\NewsModel.cs" />
     <Compile Include="BusinessModel\MainMenuModel.cs" />
     <Compile Include="BusinessModel\AccountModel.cs" />
     <Compile Include="BusinessModel\LogonViewModel.cs" />
+    <Compile Include="Interface\ICommonService.cs" />
     <Compile Include="Interface\INewsService.cs" />
+    <Compile Include="CommonService.cs" />
     <Compile Include="NewsService.cs" />
     <Compile Include="MenuService.cs" />
     <Compile Include="Interface\IMenuService.cs" />

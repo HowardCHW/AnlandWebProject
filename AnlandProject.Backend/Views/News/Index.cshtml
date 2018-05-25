@@ -20,7 +20,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="form-group col-xl-6">
-                    <a href="news-edit.html" class="btn btn-md btn-primary" style="margin-right:20px;">
+                    <a href='@Url.Action("CreateNews","News")' class="btn btn-md btn-primary" style="margin-right:20px;">
                         <i class="icon wb-plus" aria-hidden="true"></i> 新增訊息
                     </a>
                 </div>
@@ -44,44 +44,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @*@foreach (var item in Model)
-                        {
-                            <tr class="odd gradeX">
-                                <td>@item.ID</td>
-                                <td>@item.Theme</td>
-                                <td>@item.Cake</td>
-                                <td>@item.Service</td>
-                                <td>
-                                    <a href="news-view.html">@item.Subject</a>
-                                </td>
-                                <td>@item.PostOut</td>
-                                @if (item.PostDate.HasValue)
-                                {
-                                    <td>@item.PostDate.Value.ToString("yyyy/MM/dd")</td>
-                                }
-                                else
-                                {
-                                    <td></td>
-                                }
-                                @if (item.EndDate.HasValue)
-                                {
-                                    <td>@item.EndDate.Value.ToString("yyyy/MM/dd")</td>
-                                }
-                                else
-                                {
-                                    <td>無</td>
-                                }
-                                <td>@item.Hit</td>
-                                <td class="text-nowrap">
-                                    <a href="news-edit.html" class="btn btn-pure btn-default p-5 btn-primary">
-                                        <span class="icon wb-pencil" data-toggle="tooltip" data-placement="top" data-original-title="編輯"></span>
-                                    </a>
-                                    <a href="#delItem" class="btn btn-pure btn-default p-5 btn-warning" data-toggle="modal">
-                                        <span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                        }*@
                     </tbody>
                 </table>
             </div>

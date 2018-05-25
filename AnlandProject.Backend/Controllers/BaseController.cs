@@ -1,6 +1,9 @@
 ﻿using AnlandProject.Service;
+using AnlandProject.Service.BusinessModel;
 using AnlandProject.Service.Interface;
 using NLog;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AnlandProject.Backend.Controllers
@@ -10,8 +13,15 @@ namespace AnlandProject.Backend.Controllers
         protected static Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         [ChildActionOnly]
-        public ActionResult MainMenu()
+        public ActionResult MainHeader()
         {
+            ViewBag.UserName = UserInfo.UserName;
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult MainMenu()
+        {            
             IMenuService _menuService = new MenuService();
             var menuItems = _menuService.MenuQuery();
             if (menuItems != null || menuItems.Count > 0)
@@ -19,6 +29,26 @@ namespace AnlandProject.Backend.Controllers
                 return View(menuItems);
             }
             return View();
+        }
+
+        protected BackendUserModel UserInfo
+        {
+            get
+            {
+                var userModel = new BackendUserModel();
+                var authenticationManager = HttpContext.GetOwinContext().Authentication;
+                if (authenticationManager != null && authenticationManager.User != null && authenticationManager.User.Identity != null)
+                {
+                    if (authenticationManager.User.Identity.IsAuthenticated)
+                    { //是否已通過使用者驗證
+                        ClaimsIdentity identity = new ClaimsIdentity(authenticationManager.User.Identity);
+
+                        userModel.UserAccount = identity.FindFirst(ClaimTypes.NameIdentifier).Value;
+                        userModel.UserName = identity.FindFirst(ClaimTypes.Name).Value;
+                    }
+                }
+                return userModel;
+            }
         }
     }
 }

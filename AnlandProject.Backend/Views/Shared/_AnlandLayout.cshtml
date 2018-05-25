@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="~/global/vendor/intro-js/introjs.css">
     <link rel="stylesheet" href="~/global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="~/global/vendor/flag-icon-css/flag-icon.css">
-    <!-- <link rel="stylesheet" href="assets/examples/css/structure/pagination.css"> -->
     <link rel="stylesheet" href="~/global/vendor/formvalidation/formValidation.css">
     <link rel="stylesheet" href="~/base/assets/examples/css/forms/validation.css">
     <link rel="stylesheet" href="~/global/vendor/select2/select2.css">
@@ -35,10 +34,8 @@
     <link rel="stylesheet" href="~/base/assets/examples/css/forms/advanced.css">
 
     <!-- dataTables -->
-    <link rel="stylesheet" type="text/css" href="~/DataTables/datatables.min.css" />
-    <!--<link rel="stylesheet" href="~/global/plugins/datatables/datatables.min.css">
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css" />
     <link rel="stylesheet" href="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css">
-    <link rel="stylesheet" href="~/global/css/plugins.min.css">-->
 
     <!-- Fonts -->
     <link rel="stylesheet" href="~/global/fonts/font-awesome/font-awesome.css">
@@ -69,79 +66,7 @@
     <![endif]-->
 
     <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
-                    data-toggle="menubar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="hamburger-bar"></span>
-            </button>
-            <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-collapse"
-                    data-toggle="collapse">
-                <i class="icon wb-more-horizontal" aria-hidden="true"></i>
-            </button>
-            <div class="navbar-brand navbar-brand-center site-gridmenu-toggle">
-                <img class="navbar-brand-logo" src="~/base/assets/images/logo.png" title="Remark">
-                <span class="navbar-brand-text hidden-xs-down"> 基隆市安樂地政事務所</span>
-            </div>
-            <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
-                    data-toggle="collapse">
-                <span class="sr-only">Toggle Search</span>
-                <i class="icon wb-search" aria-hidden="true"></i>
-            </button>
-        </div>
-
-        <div class="navbar-container container-fluid">
-            <!-- Navbar Collapse -->
-            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
-                <!-- Navbar Toolbar -->
-                <ul class="nav navbar-toolbar">
-                    <li class="nav-item hidden-float" id="toggleMenubar">
-                        <a class="nav-link" data-toggle="menubar" href="#" role="button">
-                            <i class="icon hamburger hamburger-arrow-left">
-                                <span class="sr-only">Toggle menubar</span>
-                                <span class="hamburger-bar"></span>
-                            </i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- End Navbar Toolbar -->
-                <!-- Navbar Toolbar Right -->
-                <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
-                           data-animation="scale-up" role="button">
-                            您好：林大華 先生/小姐
-                            <span class="avatar avatar-online">
-                                <span class="icon wb-user" style="margin-left:10px;font-size:22px"></span>
-                            </span>
-                        </a>
-                        <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> 個人設定</a>
-                            <div class="dropdown-divider" role="presentation"></div>
-                            <a class="dropdown-item" href='@Url.Action("Logout","Account")' role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> 登出</a>
-                        </div>
-                    </li>
-                </ul>
-                <!-- End Navbar Toolbar Right -->
-            </div>
-            <!-- End Navbar Collapse -->
-            <!-- Site Navbar Seach -->
-            <div class="collapse navbar-search-overlap" id="site-navbar-search">
-                <form role="search">
-                    <div class="form-group">
-                        <div class="input-search">
-                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
-                            <input type="text" class="form-control" name="site-search" placeholder="Search...">
-                            <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
-                                    data-toggle="collapse" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- End Site Navbar Seach -->
-        </div>
+        @{ Html.RenderAction("MainHeader", "Base"); }
     </nav>
     <!-- 左選單 -->
     @{ Html.RenderAction("MainMenu", "Base"); }
@@ -178,11 +103,8 @@
 
     <!-- dataTables -->
     <script src="~/DataTables/datatables.min.js"></script>
-    <script src="~/DataTables/DataTables-1.10.16/js/dataTables.bootstrap.js"></script>
-    <!--<script src="~/global/scripts/datatable.js"></script>
-    <script src="~/global/plugins/datatables/datatables.min.js"></script>
-    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>-->
-
+    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+    
     <script src="~/global/vendor/bootstrap-select/bootstrap-select.js"></script>
 
     <script src="~/global/vendor/aspaginator/jquery-asPaginator.min.js"></script>
@@ -215,10 +137,6 @@
     <script src="~/global/js/Plugin/bootstrap-select.js"></script>
 
     <script src="~/global/js/Plugin/aspaginator.js"></script>
-
-    <!-- datatables -->
-    <!--<script src="~/global/scripts/app.js"></script>
-    <script src="~/base/assets/examples/js/pages/table-datatables-managed.min.js"></script> -->
 
     <script src="~/global/js/Plugin/jquery-placeholder.js"></script>
     <script src="~/global/js/Plugin/input-group-file.js"></script>

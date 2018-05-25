@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace AnlandProject.Service.BusinessModel
 {
-    public class AccountModel
+    public class BackendUserModel
     {
-        public string Account { get; set; }
-        public string PWD { get; set; }
-        public string Name { get; set; }
-        public string Rights { get; set; }
+        public int ID { get; set; }
+        public string UserAccount { get; set; }
+        public string UserName { get; set; }
         public List<int> MenuPermissions { get; set; }
         public string GroupName { get; set; }
         public string Action { get; set; }
