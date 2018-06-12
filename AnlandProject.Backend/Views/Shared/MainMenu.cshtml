@@ -1,5 +1,5 @@
 ﻿@model List<AnlandProject.Service.BusinessModel.MainMenuModel>
-
+@using AnlandProject.Backend.Helpers
 @{
     Layout = null;
 }
@@ -9,9 +9,9 @@
         <div>
             <ul class="site-menu" data-plugin="menu">
                 <li class="site-menu-category">網站管理項目</li>
-                @foreach (var item in Model.Where(m => m.Level == 1).OrderBy(m=>m.Order))
+                @foreach (var item in Model.Where(m => m.Level == 1).OrderBy(m => m.Order))
                 {
-                    <li class="site-menu-item has-sub active">
+                    <li class="site-menu-item has-sub">
                         <a href="javascript:void(0)">
                             <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
                             <span class="site-menu-title">@item.MenuName</span>
@@ -21,22 +21,7 @@
                         <ul class="site-menu-sub">
                             @foreach (var item2 in Model.Where(m => m.Level == 2 && m.ParentId == item.id).OrderBy(m => m.Order))
                             {
-                            <li class="site-menu-item">
-                                @if (string.IsNullOrWhiteSpace(item2.Action))
-                                {
-                                    <a href='#'>
-                                        <i class="site-menu-icon icon fa-dot-circle-o" aria-hidden="true"></i>
-                                        <span class="site-menu-title">@item2.MenuName</span>
-                                    </a>
-                                }
-                                else
-                                {
-                                    <a href='@Url.Action(item2.Action, item2.Controller)'>
-                                        <i class="site-menu-icon icon fa-dot-circle-o" aria-hidden="true"></i>
-                                        <span class="site-menu-title">@item2.MenuName</span>
-                                    </a>
-                                }
-                            </li>
+                                @Html.MenuLink(item2.MenuName, item2.Action, item2.Controller, "")
                             }
                         </ul>
                     </li>
@@ -45,3 +30,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('ul.site-menu li.active').closest('li.has-sub').addClass('open');
+    });
+</script>

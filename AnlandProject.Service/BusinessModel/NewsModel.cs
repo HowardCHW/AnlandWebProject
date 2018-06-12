@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace AnlandProject.Service.BusinessModel
 {
@@ -28,7 +29,7 @@ namespace AnlandProject.Service.BusinessModel
         public string PostName { get; set; }
         public DateTime? EndDate { get; set; }
         public string PostGroup { get; set; }
-        public string PostOut { get; set; }
+        public bool PostOut { get; set; }
         public string PostOutTxt { get; set; }
         public string PosterRight { get; set; }
         public string File1Momo { get; set; }
@@ -36,5 +37,19 @@ namespace AnlandProject.Service.BusinessModel
         public string File3Momo { get; set; }
         public string File4Momo { get; set; }
         public string File5Momo { get; set; }
+        public int? CreatedDepID { get; set; }
+        public string CreatedDepName { get; set; }
+        public string CreatedUser { get; set; }
+        public string CreatedUserPhone { get; set; }
+
+        public List<HttpPostedFileBase> Files { get; set; }
+
+        public List<GroupFile> GroupFile { get; set; }
+    }
+
+    public class GroupFile
+    {
+        public string fileName { get; set; }
+        public string fileMemo { get; set; }
     }
 }

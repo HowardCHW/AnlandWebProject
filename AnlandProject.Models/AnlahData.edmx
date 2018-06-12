@@ -46,7 +46,7 @@ warning 6002: The table/view 'anland.dbo.an_news' does not have a primary key de
           <Property Name="postname" Type="nvarchar" MaxLength="10" />
           <Property Name="end_date" Type="datetime" />
           <Property Name="post_group" Type="nvarchar" MaxLength="50" />
-          <Property Name="post_out" Type="nvarchar" MaxLength="2" />
+          <Property Name="post_out" Type="bit" />
           <Property Name="post_out_txt" Type="nvarchar" MaxLength="255" />
           <Property Name="poster_right" Type="nvarchar" MaxLength="1" />
           <Property Name="file1_momo" Type="nvarchar" MaxLength="200" />
@@ -54,6 +54,9 @@ warning 6002: The table/view 'anland.dbo.an_news' does not have a primary key de
           <Property Name="file3_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
+          <Property Name="created_dept_id" Type="int" />
+          <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
+          <Property Name="created_user_phone" Type="varchar" MaxLength="12" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'anland.dbo.board_setup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -163,14 +166,15 @@ warning 6002: The table/view 'anland.dbo.Categories' does not have a primary key
           <Property Name="openWindow" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="credate" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'anland.dbo.Config' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Config">
-          <Property Name="OKAr" Type="nvarchar(max)" />
-          <Property Name="OkSize" Type="int" />
-          <Property Name="AdminName" Type="nvarchar" MaxLength="50" />
-          <Property Name="AdminPass" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dep_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone_no" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="ext_no" Type="nchar" MaxLength="6" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'anland.dbo.director' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="director">
@@ -544,6 +548,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
         <EntityContainer Name="anlandModelStoreContainer">
           <EntitySet Name="cake" EntityType="Self.cake" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cate" EntityType="Self.Cate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="main_menu" EntityType="Self.main_menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="newsclass" EntityType="Self.newsclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
@@ -589,7 +594,10 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [an_news].[file2_momo] AS [file2_momo], 
     [an_news].[file3_momo] AS [file3_momo], 
     [an_news].[file4_momo] AS [file4_momo], 
-    [an_news].[file5_momo] AS [file5_momo]
+    [an_news].[file5_momo] AS [file5_momo], 
+    [an_news].[created_dept_id] AS [created_dept_id], 
+    [an_news].[created_user_name] AS [created_user_name], 
+    [an_news].[created_user_phone] AS [created_user_phone]
     FROM [dbo].[an_news] AS [an_news]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="board_setup" EntityType="Self.board_setup" store:Type="Tables" store:Schema="dbo">
@@ -942,40 +950,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="an_news">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postdate" Type="DateTime" Precision="3" />
-          <Property Name="posttime" Type="DateTime" Precision="3" />
-          <Property Name="hit" Type="Int32" />
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="post_out" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="board_setup">
           <Key>
@@ -1341,7 +1315,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
         </EntityType>
         <EntityContainer Name="anlandEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="admin" EntityType="Self.admin" />
-          <EntitySet Name="an_news" EntityType="Self.an_news" />
           <EntitySet Name="board_setup" EntityType="Self.board_setup" />
           <EntitySet Name="board1" EntityType="Self.board1" />
           <EntitySet Name="board1class" EntityType="Self.board1class" />
@@ -1369,6 +1342,8 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="service" EntityType="anlandModel.service" />
           <EntitySet Name="theme" EntityType="anlandModel.theme" />
           <EntitySet Name="newsclass" EntityType="anlandModel.newsclass" />
+          <EntitySet Name="Department" EntityType="anlandModel.Department" />
+          <EntitySet Name="an_news" EntityType="anlandModel.an_news" />
         </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1444,6 +1419,52 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="credate" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dep_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone_no" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="ext_no" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="an_news">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="Boolean" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_dept_id" Type="Int32" />
+          <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="created_user_phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1460,41 +1481,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="rights" ColumnName="rights" />
                 <ScalarProperty Name="group_name" ColumnName="group_name" />
                 <ScalarProperty Name="action" ColumnName="action" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="an_news">
-            <EntityTypeMapping TypeName="anlandModel.an_news">
-              <MappingFragment StoreEntitySet="an_news">
-                <ScalarProperty Name="obj" ColumnName="obj" />
-                <ScalarProperty Name="Theme" ColumnName="Theme" />
-                <ScalarProperty Name="Cake" ColumnName="Cake" />
-                <ScalarProperty Name="Service" ColumnName="Service" />
-                <ScalarProperty Name="subject" ColumnName="subject" />
-                <ScalarProperty Name="author" ColumnName="author" />
-                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
-                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
-                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
-                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
-                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
-                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
-                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="postdate" ColumnName="postdate" />
-                <ScalarProperty Name="posttime" ColumnName="posttime" />
-                <ScalarProperty Name="hit" ColumnName="hit" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="postname" ColumnName="postname" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="post_group" ColumnName="post_group" />
-                <ScalarProperty Name="post_out" ColumnName="post_out" />
-                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
-                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
-                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
-                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
-                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
-                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
-                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1951,6 +1937,54 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="classname" ColumnName="classname" />
                 <ScalarProperty Name="classid" ColumnName="classid" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="anlandModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="ext_no" ColumnName="ext_no" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="an_news">
+            <EntityTypeMapping TypeName="anlandModel.an_news">
+              <MappingFragment StoreEntitySet="an_news">
+                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
+                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
+                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="obj" ColumnName="obj" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

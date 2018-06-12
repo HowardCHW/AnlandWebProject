@@ -26,7 +26,6 @@ namespace AnlandProject.Models
         }
     
         public virtual DbSet<admin> admin { get; set; }
-        public virtual DbSet<an_news> an_news { get; set; }
         public virtual DbSet<board_setup> board_setup { get; set; }
         public virtual DbSet<board1> board1 { get; set; }
         public virtual DbSet<board1class> board1class { get; set; }
@@ -54,5 +53,7 @@ namespace AnlandProject.Models
         public virtual DbSet<service> service { get; set; }
         public virtual DbSet<theme> theme { get; set; }
         public virtual DbSet<newsclass> newsclass { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<an_news> an_news { get; set; }
     }
 }

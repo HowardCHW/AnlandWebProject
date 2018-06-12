@@ -21,7 +21,7 @@ namespace AnlandProject.Backend.Controllers
 
         [ChildActionOnly]
         public ActionResult MainMenu()
-        {            
+        {
             IMenuService _menuService = new MenuService();
             var menuItems = _menuService.MenuQuery();
             if (menuItems != null || menuItems.Count > 0)

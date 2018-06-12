@@ -175,10 +175,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\UnitItems\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ActiveMenuHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -4379,13 +4380,15 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_AnlandLayout.cshtml" />
     <Content Include="Views\Shared\MainMenu.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\NewsEdit.cshtml" />
+    <Content Include="Views\UnitItems\News\Index.cshtml" />
+    <Content Include="Views\UnitItems\News\NewsEdit.cshtml" />
     <Content Include="Views\Shared\MainHeader.cshtml" />
+    <Content Include="Views\UnitItems\News\NewsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="UploadedFiles\" />
     <Folder Include="Utility\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

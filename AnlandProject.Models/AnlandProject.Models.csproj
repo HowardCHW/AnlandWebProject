@@ -95,6 +95,9 @@
     <Compile Include="Categories.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
     <Compile Include="director.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>

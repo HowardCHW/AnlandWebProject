@@ -181,7 +181,7 @@
     }, {
       key: 'refresh',
       value: function refresh() {
-        this.$el.find('.open').filter(':not(.active)').removeClass('open');
+        //this.$el.find('.open').filter(':not(.active)').removeClass('open');
       }
     }, {
       key: 'position',

@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="463a1b266e4f4222a9ef0ab4d0063b6c" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="anlandModel.admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="anlandModel.an_news" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.board_setup" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.board1" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.board1class" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
@@ -34,6 +33,8 @@
         <EntityTypeShape EntityType="anlandModel.service" Width="1.5" PointX="15.375" PointY="13.75" />
         <EntityTypeShape EntityType="anlandModel.theme" Width="1.5" PointX="17.375" PointY="4.75" />
         <EntityTypeShape EntityType="anlandModel.newsclass" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="anlandModel.Department" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="anlandModel.an_news" Width="1.5" PointX="17.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

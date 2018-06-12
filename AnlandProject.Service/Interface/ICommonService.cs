@@ -18,5 +18,7 @@ namespace AnlandProject.Service.Interface
 
         List<NewsCategoryModel> NewsCategoryQueryAll();
 
+        List<DepartmentModel> DeptQueryAll();
+
     }
 }

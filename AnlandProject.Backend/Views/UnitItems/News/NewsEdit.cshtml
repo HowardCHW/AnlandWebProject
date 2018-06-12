@@ -1,0 +1,474 @@
+﻿@model AnlandProject.Service.BusinessModel.NewsModel
+@{
+    ViewBag.Title = "NewsEdit";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" href="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
+    <style>
+        .hide {
+            display: none !important;
+        }
+    </style>
+}
+
+<div class="page-header">
+    <h1 class="page-title">最新消息 - @ViewBag.Subtitle</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">最新消息</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+<div class="page-content container-fluid">
+    <form id="newsEditForm" class="FullForm" autocomplete="off">
+        <!-- 分類檢索設定 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    分類檢索設定
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 主題分類 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3" for="Theme">
+                                主題分類
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.DropDownList("Theme", null, "請選擇主題分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Theme", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /主題分類 -->
+                    </div>
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 施政分類 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3" for="Cake">
+                                施政分類
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.DropDownList("Cake", null, "請選擇施政分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Cake", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /施政分類 -->
+                    </div>
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 服務分類 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3" for="Service">
+                                服務分類
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.DropDownList("Service", null, "請選擇服務分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Service", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /服務分類 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /分類檢索設定 -->
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">內文編輯區</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-xl-5 form-horizontal">
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row" for="author">
+                                    新聞類別
+                                    <span class="required">*</span>
+                                </label>
+                                @Html.DropDownList("Author", null, "請選擇訊息類別", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "author", @required = "" })
+                            </div>
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row">
+                                    發布單位
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-group">
+                                    @Html.DropDownList("CreatedDepID", null, new { @class = "show-tick", @data_plugin = "selectpicker", @id = "office", @name = "office", @required = "" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row">
+                                    連絡人
+                                    <span class="required">*</span>
+                                </label>
+                                @Html.TextBoxFor(n => n.CreatedUser, new { @class = "form-control", @name = "owner", @placeholder = "訊息聯絡人姓名", @required = "" })
+                            </div>
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row">
+                                    連絡人電話
+                                    <span class="required">*</span>
+                                </label>
+                                @Html.TextBoxFor(n => n.CreatedUserPhone, new { @class = "form-control", @name = "ownerPhone", @placeholder = "訊息聯絡人電話", @required = "" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <div class="row">
+                                    <label class="form-control-label">
+                                        發布日期
+                                        <span class="required">*</span>
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                    @Html.TextBoxFor(n => n.PostDate, String.Format("{0:yyyy/MM/dd}", Model.PostDate), new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @name = "postdate", @placeholder = "YYYY/MM/DD", @required = "" })
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-9">
+                                <div class="row">
+                                    <label class="form-control-label">
+                                        公告期限
+                                        <span class="panel-desc">※ 若無期限請空白</span>
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                    @Html.TextBoxFor(n => n.EndDate, String.Format("{0:yyyy/MM/dd}", Model.EndDate), new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @name = "enddate", @placeholder = "YYYY/MM/DD" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                相關網址：
+                            </label>
+                            <div class="col-xl-12 col-md-9">
+                                @Html.TextBoxFor(n => n.Homepage1, new { @class = "form-control", @name = "homepage1", @placeholder = "請輸入網址" })
+                            </div>
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                相關網址文字說明：
+                                <span class="panel-desc">※ 如果有設定網址，說明必填</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9" style="padding-top:5px;">
+                                @Html.TextBoxFor(n => n.HomepageMomo, new { @class = "form-control", @name = "homepage_momo", @placeholder = "請輸入說明" })
+                            </div>
+                        </div>
+                        <div class="form-group upload-area row" GroupFile-index="0">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                檔案上傳
+                                <span class="panel-desc">※ 如果有上傳檔案，檔案說明必填</span>
+                            </label>
+                            <div class="col-xl-12 col-md-9">
+                                <div class="input-group input-group-file" data-plugin="inputGroupFile">
+                                    <input type="text" class="form-control" name="GroupFile[0].fileName" readonly="">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-success btn-file">
+                                            <i class="icon wb-upload" aria-hidden="true"></i>
+                                            <input type="file" name="" multiple="">
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class=" col-xl-12 col-md-9" style="padding-top:5px;">
+                                <input type="text" class="form-control" name="GroupFile[0].fileMemo" placeholder="請輸入檔案說明">
+                            </div>
+                        </div>
+                        <div class="form-group row" id="divAddUploadArea">
+                            <div class="col-xl-12 col-md-9">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" name="addUploadArea" type="button">+ 新增一組檔案上傳</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 form-horizontal">
+                        <div class="form-group row">
+                            <label class="form-control-label">首頁置頂</label>
+                            <div>
+                                <div class="d-flex flex-column">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        @Html.CheckBoxFor(n => n.PostOut, new { @id = "inputForProject" })
+                                        <label for="inputForProject"><span class="panel-desc">如在首頁要放在單元頂層，請打勾</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                置頂於入口首頁的說明：
+                                @*<span class="panel-desc">※ 如果有設定置頂，說明必填</span>*@
+                            </label>
+                            <div class=" col-xl-12 col-md-9" style="padding-top:5px;">
+                                @Html.TextBoxFor(n => n.PostOutTxt, new { @class = "form-control", @name = "post_out_txt", @placeholder = "請輸入說明" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                主標題
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBoxFor(n => n.Subject, new { @class = "form-control", @name = "subject", @placeholder = "請輸入主標題", @required = "" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                內文
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-xl-12 col-md-9">
+                                @Html.TextAreaFor(n => n.Body, new { @class = "form-control", @name = "skills", @rows = "10", @placeholder = "編輯內文請按「Enter」分段落", @required = "" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    <a href='@Url.Action("Index","News")' class="btn btn-default">取消</a>
+                    <button type="submit" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    </form>
+    <div class="form-group upload-area row hide" id="uploadTemplate">
+        <label class="col-xl-12 col-md-3 form-control-label">
+            檔案上傳
+        </label>
+        <div class="col-xl-12 col-md-9">
+            <div class="input-group input-group-file" data-plugin="inputGroupFile">
+                <input type="text" class="form-control" name="tempfileName" readonly="">
+                <span class="input-group-btn">
+                    <span class="btn btn-success btn-file">
+                        <i class="icon wb-upload" aria-hidden="true"></i>
+                        <input type="file" name="" multiple="">
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class=" col-xl-12 col-md-9" style="padding-top:5px;">
+            <input type="text" class="form-control" name="tempfileMemo" placeholder="請輸入檔案說明">
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.zh-TW.min.js"></script>
+    <script>
+        var EditType = '@Model.ID';
+
+        $(document).ready(function () {
+            var fileMemoValidators = {
+                validators: {
+                    callback: {
+                        message: '如果有上傳檔案，檔案說明必填',
+                        callback: function (value, validator, $field) {
+                            var currentInd = $field.closest('div.upload-area').attr('GroupFile-index');
+                            var t = ($('input[name="GroupFile[' + currentInd + '].fileName"]').val() == '') ? true : (value !== '');
+                            return t;
+                        }
+                    }
+                }
+            };
+
+            $('#newsEditForm').formValidation({
+                framework: "bootstrap4",
+                icon: null,
+                fields: {
+                    Theme: {
+                        validators: {
+                            notEmpty: {
+                                message: '請選擇主題分類代碼'
+                            }
+                        }
+                    },
+                    Cake: {
+                        validators: {
+                            notEmpty: {
+                                message: '請選擇施政分類代碼'
+                            }
+                        }
+                    },
+                    Service: {
+                        validators: {
+                            notEmpty: {
+                                message: '請選擇服務分類代碼'
+                            }
+                        }
+                    },
+                    Author: {
+                        validators: {
+                            notEmpty: {
+                                message: '請選擇訊息類別'
+                            }
+                        }
+                    },
+                    CreatedDepID: {
+                        validators: {
+                            notEmpty: {
+                                message: '請選擇訊息聯絡單位'
+                            }
+                        }
+                    },
+                    owner: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入聯絡人姓名'
+                            }
+                        }
+                    },
+                    ownerPhone: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入聯絡人電話'
+                            }
+                        }
+                    },
+                    Subject: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入標題名稱'
+                            }
+                        }
+                    },
+                    Body: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入內文'
+                            }
+                        }
+                    },
+                    PostDate: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入發布日期，格式範例：2018/10/05'
+                            }
+                        }
+                    },
+                    PostOutTxt: {
+                        validators: {
+                            callback: {
+                                message: '如果有設定置頂，說明必填',
+                                callback: function (value, validator, $field) {
+                                    var isChecked = $('#inputForProject').is(':checked');
+                                    return (!isChecked) ? true : (value !== '');
+                                }
+                            }
+                        }
+                    },
+                    HomepageMomo: {
+                        validators: {
+                            callback: {
+                                message: '如果有設定網址，說明必填',
+                                callback: function (value, validator, $field) {
+                                    return ($('#Homepage1').val() == '') ? true : (value !== '');
+                                }
+                            }
+                        }
+                    },
+                    'GroupFile[0].fileMemo': fileMemoValidators
+                },
+                err: {
+                    clazz: 'invalid-feedback'
+                },
+                control: {
+                    // The CSS class for valid control
+                    valid: 'is-valid',
+
+                    // The CSS class for invalid control
+                    invalid: 'is-invalid'
+                },
+                row: {
+                    invalid: 'has-danger'
+                }
+            })
+                .on('change', '.input-group-file', function (e) {
+                    var currentIndex = e.currentTarget.closest('div.upload-area').getAttribute('GroupFile-index');
+                    setTimeout(function () {
+                        $('#newsEditForm').formValidation('revalidateField', 'GroupFile[' + currentIndex + '].fileMemo');
+                    }, 0);
+                })
+                .on('change', '[id="inputForProject"],[id="Homepage1"]', function (e) {
+                    var elementID = $(this).attr('id');
+                    var validateFile = elementID == 'inputForProject' ? 'PostOutTxt' : 'HomepageMomo';
+                    $('#newsEditForm').formValidation('revalidateField', validateFile);
+                })
+                .on('click', '[name="addUploadArea"]', function () {
+                    var currentIndex = $('#newsEditForm').find('.upload-area:visible').length;
+                    var $template = $('#uploadTemplate');
+                    var $clone = $template
+                        .clone()
+                        .removeClass('hide')
+                        .removeAttr('id')
+                        .attr('GroupFile-index', currentIndex)
+                        .insertBefore($('#divAddUploadArea'));
+
+                    $clone
+                        .find('[name="tempfileName"]').attr('name', 'GroupFile[' + currentIndex + '].fileName').end()
+                        .find('[name="tempfileMemo"]').attr('name', 'GroupFile[' + currentIndex + '].fileMemo').end()
+                        .find('[name="tempfile"]').attr('name', 'Files[' + currentIndex + '].fileMemo').end();
+
+                    // Add new field
+                    $('#newsEditForm').formValidation('addField', 'GroupFile[' + currentIndex + '].fileMemo', fileMemoValidators);
+                })
+                .on('added.field.fv', function (e, data) {
+                    if (data.field.includes('fileMemo')) {
+                        if ($('#newsEditForm').find(':visible[name*="fileMemo"]').length >= 5) {
+                            $('#newsEditForm').find('[name = "addUploadArea"]').attr('disabled', 'disabled');
+                        }
+                    }
+                })
+                .on('success.form.fv', function (e) {
+                    // Prevent form submission
+                    e.preventDefault();
+
+                    var $form = $(e.target),
+                        formData = new FormData(),
+                        //fv = $form.data('formValidation');
+                        postData = $form.serializeArray(),
+                        filesObjs = $form.find('[type="file"]');
+
+                    $.each(filesObjs, function (i, file) {
+                        // Prefix the name of uploaded files with "uploadedFiles-"
+                        // Of course, you can change it to any string
+                        var getFile = file.files[0];
+                        if (getFile != undefined) {
+                            formData.append('Files[' + i + ']', getFile);
+                        }                        
+                    });
+
+                    formData.append('ID', EditType);
+                    $.each(postData, function (i, val) {
+                        formData.append(val.name, val.value);
+                    });
+
+                    // Use Ajax to submit form data
+                    $.ajax({
+                        url: '@Url.Action("NewsSave", "News")',
+                        type: "post",
+                        //data: $form.serialize(),
+                        //data: $form.serializeArray(),
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        //dataType: 'json',
+                        success: function (result) {
+                            alert(result);
+                        }
+                    });
+                });
+        });
+    </script>
+}

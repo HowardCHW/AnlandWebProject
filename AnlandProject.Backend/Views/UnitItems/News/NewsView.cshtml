@@ -1,0 +1,91 @@
+﻿@model AnlandProject.Service.BusinessModel.NewsModel
+@{
+    ViewBag.Title = "NewsView";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+
+<div class="page-header">
+    <h1 class="page-title">最新消息</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">最新消息</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+<div class="page-content container-fluid">
+
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Model.Subject</h3>
+        </div>
+        <div class="panel-body">
+            <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 發佈日期：</span>@Model.PostDate.Value.ToString("yyyy/MM/dd")</p>
+            <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 類  別：</span>@Model.Author</p>
+            <p>
+                <span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 內  容：</span><br>
+                <span class="infoText">
+                    @Model.Body                    
+                </span>
+            </p>
+            <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 聯絡人：</span>@Model.CreatedUser</p>
+            <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 聯絡單位：</span>@Model.CreatedDepName</p>
+            <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 聯絡電話：</span>@Model.CreatedUserPhone</p>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="example">
+                        <div class="card">
+                            <img class="card-img-top w-full img-bordered img-bordered-primary" src="https://api.fnkr.net/testimg/350x250/00CED1/FFF/?text=(url- homepage2)" alt="...">
+                            <div class="card-block">
+                                <p class="card-text">@Model.File1Momo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="example">
+                        <div class="card">
+                            <img class="card-img-top w-full img-bordered img-bordered-primary" src="https://api.fnkr.net/testimg/350x250/00CED1/FFF/?text=(url- homepage3)" alt="...">
+                            <div class="card-block">
+                                <p class="card-text">@Model.File2Momo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <h4>附件：</h4>
+                <ul>
+                    <li>
+                        <i class="icon wb-bookmark" aria-hidden="true"></i> 107年2月交易量統計 (標題欄位-file3_momo)(URL欄位- homepage4)
+                        <a href="#" target="_blank" title="(標題欄位-file3_momo)下載">
+                            <i class="icon wb-file" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="icon wb-bookmark" aria-hidden="true"></i> 107年2月交易量統計 (標題欄位-file4_momo)(URL欄位- homepage5)
+                        <a href="#" target="_blank" title="(標題欄位-file4_momo)下載">
+                            <i class="icon wb-file" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="icon wb-bookmark" aria-hidden="true"></i> 107年2月交易量統計 (標題欄位-file5_momo)(URL欄位- homepage6)
+                        <a href="#" target="_blank" title="(標題欄位-file5_momo)下載">
+                            <i class="icon wb-file" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="icon fa-globe" aria-hidden="true"></i>
+                        <a href="#" target="_blank" title="基隆市政府社會處網站 [開啟新視窗]">基隆市政府社會處網站 (URL欄位- homepage1)(標題欄位- homepage_momo)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="form-group col-xl-12 text-right padding-top-m">
+                <a href='@Url.Action("Index","News")' class="btn btn-primary" id="validateButton1">回上頁</a>
+            </div>
+        </div>
+    </div>
+</div>
+

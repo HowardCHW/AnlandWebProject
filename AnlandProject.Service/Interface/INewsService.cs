@@ -13,5 +13,7 @@ namespace AnlandProject.Service.Interface
         List<NewsModel> NewsQueryAll();
 
         NewsModel NewsQueryByID(int id);
+
+        bool NewsSave(NewsModel saveData);
     }
 }

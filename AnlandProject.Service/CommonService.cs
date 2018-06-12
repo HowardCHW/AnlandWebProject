@@ -17,6 +17,7 @@ namespace AnlandProject.Service
         private IRepository<cake> _cakeRepository = new GenericRepository<cake>();
         private IRepository<service> _serviceRepository = new GenericRepository<service>();
         private IRepository<newsclass> _newsCategoryRepository = new GenericRepository<newsclass>();
+        private IRepository<Department> _departmentRepository = new GenericRepository<Department>();
 
         public List<ClassificationModel> ThemeQueryAll()
         {
@@ -72,6 +73,19 @@ namespace AnlandProject.Service
                 ClassName = n.classname,
                 CreUser = n.creuser,
                 CreDate = n.credate
+            }).ToList();
+
+            return result;
+        }
+
+        public List<DepartmentModel> DeptQueryAll()
+        {
+            var result = _departmentRepository.GetAll().Select(d => new DepartmentModel()
+            {
+                ID = d.id,
+                DeptName = d.dep_name,
+                PhoneNo = d.phone_no,
+                ExtNo = d.ext_no
             }).ToList();
 
             return result;

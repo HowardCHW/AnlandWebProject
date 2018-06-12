@@ -15,7 +15,7 @@
 }
 
 @media (min-width: 768px) {
-  #exampleFullForm .form-horizontal .form-control-label {
+  form.FullForm .form-horizontal .form-control-label {
     text-align: inherit;
   }
 }

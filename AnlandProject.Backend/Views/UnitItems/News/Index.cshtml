@@ -4,6 +4,12 @@
     Layout = "~/Views/Shared/_AnlandLayout.cshtml";
 }
 
+@section styles{
+    <link rel="stylesheet" href="~/global/plugins/datatables/datatables.min.css">
+    <link rel="stylesheet" href="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css">
+    <link rel="stylesheet" href="~/global/css/plugins.min.css">
+}
+
 <div class="page-header">
     <h1 class="page-title">最新消息</h1>
     <ol class="breadcrumb">
@@ -43,8 +49,6 @@
                             <th style="width:60px;" class="nosort">管理模式</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
                 </table>
             </div>
 
@@ -77,111 +81,20 @@
 </div>
 
 @section scripts{
+    <script src="~/global/plugins/datatables/datatables.min.js"></script>
+    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
     <script>
         var urlQueryNews = '@Url.Action("NewsQuery", "News")';
 
         $(document).ready(function () {
             DatatableBinding();
-            //$('#newsTable').DataTable({
-            //    //"serverSide": true,
-            //    //"processing": true,
-            //    //ordering: false,
-            //    //searching: false,
-            //    "ajax": {
-            //        url: urlQueryNews,
-            //        type: 'POST'
-            //    },
-            //    "columns": [
-            //        { mDataProp: "ID" },
-            //        { mDataProp: "Theme" },
-            //        { mDataProp: "Cake" },
-            //        { mDataProp: "Service" },
-            //        {
-            //            mDataProp: "Subject",
-            //            render: function (data, type, full, meta) {
-            //                return '<a href="news-view.html">' + data + '</a>'
-            //            }
-            //        },
-            //        { mDataProp: "PostOut" },
-            //        {
-            //            mDataProp: "PostDate",
-            //            render: function (data, type, full, meta) {
-            //                return DateTimeFormatYYYYMMDD(data);
-            //            }
-            //        },
-            //        {
-            //            mDataProp: "EndDate",
-            //            render: function (data, type, full, meta) {
-            //                if (data == null) {
-            //                    return '';
-            //                }
-            //                return DateTimeFormatYYYYMMDD(data);
-            //            }
-            //        },
-            //        { mDataProp: "Hit" },
-            //        {
-            //            mDataProp: null,
-            //            render: function () {
-            //                var tag =
-            //                    '<a href="news-edit.html" class="btn btn-pure btn-default p-5 btn-primary">' +
-            //                    '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
-            //                    '</a >' +
-            //                    '<a href="#delItem" class="btn btn-pure btn-default p-5 btn-warning" data-toggle="modal">' +
-            //                    '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
-            //                    '</a>'
-            //                return tag;
-            //            }
-            //        }
-            //    ],
-            //    //language: {
-            //    //    aria: {
-            //    //        sortAscending: ": activate to sort column ascending",
-            //    //        sortDescending: ": activate to sort column descending"
-            //    //    },
-            //    //    emptyTable: "無資料",
-            //    //    info: "顯示 _START_ 到 _END_ 總共 _TOTAL_ 筆",
-            //    //    infoEmpty: "無資料",
-            //    //    infoFiltered: "(已篩選 1 至 _MAX_ 筆紀錄)",
-            //    //    lengthMenu: "每次顯示 _MENU_ 筆",
-            //    //    search: "篩選:",
-            //    //    zeroRecords: "沒有找到符合的資料",
-            //    //    paginate: {
-            //    //        previous: "上一頁",
-            //    //        next: "下一頁",
-            //    //        last: "最後一頁",
-            //    //        first: "第一頁",
-            //    //        page: "第",
-            //    //        pageOf: "頁，總頁數： "
-            //    //    }
-            //    //},
-            //    //bStateSave: !0,
-            //    //pagingType: "bootstrap_extended",
-            //    //paging: true,
-            //    //lengthMenu: [
-            //    //    [5, 10, 15, 20, -1],
-            //    //    [5, 10, 15, 20, "All"]
-            //    //],
-            //    //pageLength: 5,
-            //    //columnDefs: [{
-            //    //    orderable: !1,
-            //    //    targets: 'nosort'
-            //    //}, {
-            //    //    searchable: !1,
-            //    //    targets: [0]
-            //    //}],
-            //    //order: [
-            //    //    [1, "asc"]
-            //    //]
-            //});
         });
 
         function DatatableBinding() {
             var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
-            //_tmpOpts.processing = true;
-            //_tmpOpts.serverSide = true;
             _tmpOpts.ajax = {
                 "url": urlQueryNews,
-                "type": 'POST'                
+                "type": 'POST'
             };
             _tmpOpts.columns = [
                 { mDataProp: "ID" },
@@ -191,10 +104,15 @@
                 {
                     mDataProp: "Subject",
                     render: function (data, type, full, meta) {
-                        return '<a href="news-view.html">' + data + '</a>'
+                        return '<a href="../News/NewsView/' + full.ID + '">' + data + '</a>'
                     }
                 },
-                { mDataProp: "PostOut" },
+                {
+                    mDataProp: "PostOut",
+                    render: function (data, type, full, meta) {
+                        return data ? "是" : "否";
+                    }
+                },
                 {
                     mDataProp: "PostDate",
                     render: function (data, type, full, meta) {
@@ -213,9 +131,9 @@
                 { mDataProp: "Hit" },
                 {
                     mDataProp: null,
-                    render: function () {
+                    render: function (data, type, full, meta) {
                         var tag =
-                            '<a href="news-edit.html" class="btn btn-pure btn-default p-5 btn-primary">' +
+                            '<a href="../News/CreateNews/' + data.ID + '" class="btn btn-pure btn-default p-5 btn-primary">' +
                             '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
                             '</a >' +
                             '<a href="#delItem" class="btn btn-pure btn-default p-5 btn-warning" data-toggle="modal">' +

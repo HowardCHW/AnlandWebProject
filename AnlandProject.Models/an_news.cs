@@ -35,7 +35,7 @@ namespace AnlandProject.Models
         public string postname { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public string post_group { get; set; }
-        public string post_out { get; set; }
+        public Nullable<bool> post_out { get; set; }
         public string post_out_txt { get; set; }
         public string poster_right { get; set; }
         public string file1_momo { get; set; }
@@ -43,5 +43,8 @@ namespace AnlandProject.Models
         public string file3_momo { get; set; }
         public string file4_momo { get; set; }
         public string file5_momo { get; set; }
+        public Nullable<int> created_dept_id { get; set; }
+        public string created_user_name { get; set; }
+        public string created_user_phone { get; set; }
     }
 }
