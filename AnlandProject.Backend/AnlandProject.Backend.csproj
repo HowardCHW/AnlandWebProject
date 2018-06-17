@@ -176,6 +176,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UnitItems\LawsController.cs" />
+    <Compile Include="Controllers\UnitItems\IntroController.cs" />
     <Compile Include="Controllers\UnitItems\NewsController.cs" />
     <Compile Include="Filters\AjaxValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -4395,9 +4396,13 @@
     <Content Include="Views\UnitItems\Laws\LawsEdit.cshtml" />
     <Content Include="Views\UnitItems\Laws\LawsView.cshtml" />
     <Content Include="Views\Shared\AjaxDialog.cshtml" />
+    <Content Include="Views\UnitItems\Intro\Index.cshtml" />
+    <Content Include="Views\UnitItems\Intro\IntroEdit.cshtml" />
+    <Content Include="Views\UnitItems\Intro\IntroView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\intro10\" />
     <Folder Include="UploadedFiles\Laws\" />
     <Folder Include="UploadedFiles\News\" />
     <Folder Include="Utility\" />

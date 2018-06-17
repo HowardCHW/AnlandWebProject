@@ -56,6 +56,7 @@
     <Compile Include="BusinessModel\CategoryModel.cs" />
     <Compile Include="BusinessModel\ClassificationModel.cs" />
     <Compile Include="BusinessModel\GroupFile.cs" />
+    <Compile Include="BusinessModel\Intro10Model.cs" />
     <Compile Include="BusinessModel\LawsModel.cs" />
     <Compile Include="BusinessModel\NewsModel.cs" />
     <Compile Include="BusinessModel\MainMenuModel.cs" />
@@ -63,9 +64,11 @@
     <Compile Include="BusinessModel\LogonViewModel.cs" />
     <Compile Include="Interface\ICommonService.cs" />
     <Compile Include="Interface\ILawsService.cs" />
+    <Compile Include="Interface\IIntroService.cs" />
     <Compile Include="Interface\INewsService.cs" />
     <Compile Include="CommonService.cs" />
     <Compile Include="LawsService.cs" />
+    <Compile Include="IntroService.cs" />
     <Compile Include="NewsService.cs" />
     <Compile Include="MenuService.cs" />
     <Compile Include="Interface\IMenuService.cs" />

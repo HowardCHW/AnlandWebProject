@@ -19,6 +19,7 @@ namespace AnlandProject.Service
         private IRepository<newsclass> _newsCategoryRepository = new GenericRepository<newsclass>();
         private IRepository<Department> _departmentRepository = new GenericRepository<Department>();
         private IRepository<lawclass> _lawCategoryRepository = new GenericRepository<lawclass>();
+        private IRepository<post_group> _postGroupRepository = new GenericRepository<post_group>();
 
         public List<ClassificationModel> ThemeQueryAll()
         {
@@ -101,6 +102,17 @@ namespace AnlandProject.Service
                 ClassName = l.classname,
                 CreUser = l.creuser,
                 CreDate = l.credate
+            }).ToList();
+
+            return result;
+        }
+
+        public List<CategoryModel> PostGroupQueryAll()
+        {
+            var result = _postGroupRepository.GetAll().Select(p => new CategoryModel()
+            {
+                ID = p.ID,
+                ClassName = p.post_group1
             }).ToList();
 
             return result;

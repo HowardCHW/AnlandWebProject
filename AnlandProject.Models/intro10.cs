@@ -14,6 +14,7 @@ namespace AnlandProject.Models
     
     public partial class intro10
     {
+        public int ID { get; set; }
         public string obj { get; set; }
         public string Theme { get; set; }
         public string Cake { get; set; }
@@ -31,7 +32,6 @@ namespace AnlandProject.Models
         public Nullable<System.DateTime> postdate { get; set; }
         public Nullable<System.DateTime> posttime { get; set; }
         public Nullable<int> hit { get; set; }
-        public int ID { get; set; }
         public string postname { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public string post_group { get; set; }
@@ -43,5 +43,8 @@ namespace AnlandProject.Models
         public string file3_momo { get; set; }
         public string file4_momo { get; set; }
         public string file5_momo { get; set; }
+        public Nullable<int> created_dept_id { get; set; }
+        public string created_user_name { get; set; }
+        public string created_user_phone { get; set; }
     }
 }

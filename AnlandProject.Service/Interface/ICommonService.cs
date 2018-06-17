@@ -22,5 +22,7 @@ namespace AnlandProject.Service.Interface
 
         List<CategoryModel> LawsCategoryQueryAll();
 
+        List<CategoryModel> PostGroupQueryAll();
+
     }
 }
