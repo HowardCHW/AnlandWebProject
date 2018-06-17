@@ -14,6 +14,7 @@ namespace AnlandProject.Models
     
     public partial class an_news
     {
+        public int ID { get; set; }
         public string obj { get; set; }
         public string Theme { get; set; }
         public string Cake { get; set; }
@@ -31,7 +32,6 @@ namespace AnlandProject.Models
         public Nullable<System.DateTime> postdate { get; set; }
         public Nullable<System.DateTime> posttime { get; set; }
         public Nullable<int> hit { get; set; }
-        public int ID { get; set; }
         public string postname { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public string post_group { get; set; }

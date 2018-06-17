@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace AnlandProject.Service.Interface
 {
-    public interface INewsService : IDisposable
+    public interface ILawsService :  IDisposable
     {
-        List<NewsModel> NewsQueryAll();
+        List<LawsModel> LawsQueryAll();
 
-        NewsModel NewsQueryByID(int id);
+        LawsModel LawsQueryByID(int id);
 
-        bool NewsSave(NewsModel saveData);
+        bool LawsSave(LawsModel saveData);
 
-        bool NewsDelete(int id);
+        bool LawDelete(int id);
     }
 }

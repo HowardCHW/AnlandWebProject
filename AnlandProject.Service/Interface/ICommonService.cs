@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AnlandProject.Service.Interface
 {
-    public interface ICommonService
+    public interface ICommonService : IDisposable
     {
         List<ClassificationModel> ThemeQueryAll();
 
@@ -16,9 +16,11 @@ namespace AnlandProject.Service.Interface
 
         List<ClassificationModel> ServiceQueryAll();
 
-        List<NewsCategoryModel> NewsCategoryQueryAll();
+        List<CategoryModel> NewsCategoryQueryAll();
 
         List<DepartmentModel> DeptQueryAll();
+
+        List<CategoryModel> LawsCategoryQueryAll();
 
     }
 }

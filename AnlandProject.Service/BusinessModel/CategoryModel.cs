@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnlandProject.Service.BusinessModel
 {
-    public class NewsCategoryModel
+    public class CategoryModel
     {
         public int ID { get; set; }
         public int? ClassID { get; set; }

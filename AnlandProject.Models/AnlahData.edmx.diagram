@@ -14,8 +14,6 @@
         <EntityTypeShape EntityType="anlandModel.email" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.form" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.intro10" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="anlandModel.landlaw" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="anlandModel.lawclass" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.lawview" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.post_group" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.post_team" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
@@ -34,7 +32,9 @@
         <EntityTypeShape EntityType="anlandModel.theme" Width="1.5" PointX="17.375" PointY="4.75" />
         <EntityTypeShape EntityType="anlandModel.newsclass" Width="1.5" PointX="17.375" PointY="7.75" />
         <EntityTypeShape EntityType="anlandModel.Department" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="anlandModel.lawclass" Width="1.5" PointX="7.375" PointY="18.75" />
         <EntityTypeShape EntityType="anlandModel.an_news" Width="1.5" PointX="17.375" PointY="10.75" />
+        <EntityTypeShape EntityType="anlandModel.landlaw" Width="1.5" PointX="0.75" PointY="18.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

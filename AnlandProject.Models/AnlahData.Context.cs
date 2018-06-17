@@ -34,8 +34,6 @@ namespace AnlandProject.Models
         public virtual DbSet<email> email { get; set; }
         public virtual DbSet<form> form { get; set; }
         public virtual DbSet<intro10> intro10 { get; set; }
-        public virtual DbSet<landlaw> landlaw { get; set; }
-        public virtual DbSet<lawclass> lawclass { get; set; }
         public virtual DbSet<lawview> lawview { get; set; }
         public virtual DbSet<post_group> post_group { get; set; }
         public virtual DbSet<post_team> post_team { get; set; }
@@ -54,6 +52,8 @@ namespace AnlandProject.Models
         public virtual DbSet<theme> theme { get; set; }
         public virtual DbSet<newsclass> newsclass { get; set; }
         public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<lawclass> lawclass { get; set; }
         public virtual DbSet<an_news> an_news { get; set; }
+        public virtual DbSet<landlaw> landlaw { get; set; }
     }
 }

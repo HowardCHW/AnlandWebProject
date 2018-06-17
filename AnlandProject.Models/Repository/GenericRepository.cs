@@ -65,7 +65,7 @@ namespace AnlandProject.Models.Repository
             else
             {
                 _context.Set<TEntity>().Add(instance);
-                _context.SaveChanges();
+                resultRows = _context.SaveChanges();
             }
             return resultRows;
         }
@@ -80,7 +80,7 @@ namespace AnlandProject.Models.Repository
             else
             {
                 _context.Entry<TEntity>(instance).State = EntityState.Modified;
-                _context.SaveChanges();
+                resultRows = _context.SaveChanges();
             }
             return resultRows;
         }
@@ -95,7 +95,7 @@ namespace AnlandProject.Models.Repository
             else
             {
                 _context.Entry<TEntity>(instance).State = EntityState.Deleted;
-                _context.SaveChanges();
+                resultRows = _context.SaveChanges();
             }
             return resultRows;
         }

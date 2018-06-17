@@ -175,11 +175,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UnitItems\LawsController.cs" />
     <Compile Include="Controllers\UnitItems\NewsController.cs" />
+    <Compile Include="Filters\AjaxValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ActiveMenuHelper.cs" />
+    <Compile Include="Models\DialogViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3678,6 +3681,7 @@
     <Content Include="global\vendor\isotope\isotope.pkgd.js" />
     <Content Include="global\vendor\isotope\isotope.pkgd.min.js" />
     <Content Include="global\vendor\jquery-appear\jquery.appear.js" />
+    <Content Include="global\vendor\jquery-blockui\jquery.blockUI.js" />
     <Content Include="global\vendor\jquery-contextmenu\jquery-contextmenu.css" />
     <Content Include="global\vendor\jquery-contextmenu\jquery-contextmenu.min.css" />
     <Content Include="global\vendor\jquery-contextmenu\jquery.contextMenu.css" />
@@ -4310,6 +4314,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="global\plugins\datatables\images\Sorting icons.psd" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Content Include="App_Code\CommonRazorFunctions.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -4336,6 +4341,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -4384,11 +4391,15 @@
     <Content Include="Views\UnitItems\News\NewsEdit.cshtml" />
     <Content Include="Views\Shared\MainHeader.cshtml" />
     <Content Include="Views\UnitItems\News\NewsView.cshtml" />
+    <Content Include="Views\UnitItems\Laws\Index.cshtml" />
+    <Content Include="Views\UnitItems\Laws\LawsEdit.cshtml" />
+    <Content Include="Views\UnitItems\Laws\LawsView.cshtml" />
+    <Content Include="Views\Shared\AjaxDialog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="UploadedFiles\" />
+    <Folder Include="UploadedFiles\Laws\" />
+    <Folder Include="UploadedFiles\News\" />
     <Folder Include="Utility\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

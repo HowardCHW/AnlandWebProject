@@ -1,6 +1,6 @@
-﻿@model AnlandProject.Service.BusinessModel.NewsModel
+﻿@model AnlandProject.Service.BusinessModel.LawsModel
 @{
-    ViewBag.Title = "NewsEdit";
+    ViewBag.Title = "LawsEdit";
     Layout = "~/Views/Shared/_AnlandLayout.cshtml";
 }
 @section styles{
@@ -13,10 +13,10 @@
 }
 
 <div class="page-header">
-    <h1 class="page-title">最新消息 - @ViewBag.Subtitle</h1>
+    <h1 class="page-title">法令新訊 - @ViewBag.Subtitle</h1>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
-        <li class="breadcrumb-item active">最新消息</li>
+        <li class="breadcrumb-item active">法令新訊</li>
     </ol>
     <div class="page-header-actions"></div>
 </div>
@@ -85,10 +85,10 @@
                         <div class="form-group row">
                             <div class="col-xl-6 col-md-9">
                                 <label class="form-control-label row" for="author">
-                                    新聞類別
+                                    法令類別
                                     <span class="required">*</span>
                                 </label>
-                                @Html.DropDownList("Author", null, "請選擇訊息類別", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "author", @required = "" })
+                                @Html.DropDownList("Classfy", null, "請選擇訊息類別", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "classfy", @required = "" })
                             </div>
                             <div class="col-xl-6 col-md-9">
                                 <label class="form-control-label row">
@@ -96,7 +96,7 @@
                                     <span class="required">*</span>
                                 </label>
                                 <div class="input-group">
-                                    @Html.DropDownList("CreatedDeptID", null, new { @class = "show-tick", @data_plugin = "selectpicker", @id = "office", @name = "office", @required = "" })
+                                    @Html.DropDownList("CreatedDeptID", null, new { @class = "show-tick", @data_plugin = "selectpicker", @id = "office", @required = "" })
                                 </div>
                             </div>
                         </div>
@@ -106,14 +106,14 @@
                                     連絡人
                                     <span class="required">*</span>
                                 </label>
-                                @Html.TextBoxFor(n => n.CreatedUser, new { @class = "form-control", @name = "owner", @placeholder = "訊息聯絡人姓名", @required = "" })
+                                @Html.TextBoxFor(l => l.CreatedUser, new { @class = "form-control", @name = "owner", @placeholder = "訊息聯絡人姓名", @required = "" })
                             </div>
                             <div class="col-xl-6 col-md-9">
                                 <label class="form-control-label row">
                                     連絡人電話
                                     <span class="required">*</span>
                                 </label>
-                                @Html.TextBoxFor(n => n.CreatedUserPhone, new { @class = "form-control", @name = "ownerPhone", @placeholder = "訊息聯絡人電話", @required = "" })
+                                @Html.TextBoxFor(l => l.CreatedUserPhone, new { @class = "form-control", @name = "ownerPhone", @placeholder = "訊息聯絡人電話", @required = "" })
                             </div>
                         </div>
                         <div class="form-group row">
@@ -128,37 +128,8 @@
                                     <span class="input-group-addon">
                                         <i class="icon wb-calendar" aria-hidden="true"></i>
                                     </span>
-                                    @Html.TextBoxFor(n => n.PostDate, String.Format("{0:yyyy/MM/dd}", Model.PostDate), new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @name = "postdate", @placeholder = "YYYY/MM/DD", @required = "" })
+                                    @Html.TextBoxFor(l => l.LDate, String.Format("{0:yyyy/MM/dd}", Model.LDate), new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @name = "postdate", @placeholder = "YYYY/MM/DD", @required = "" })
                                 </div>
-                            </div>
-                            <div class="col-xl-6 col-md-9">
-                                <div class="row">
-                                    <label class="form-control-label">
-                                        公告期限
-                                        <span class="panel-desc">※ 若無期限請空白</span>
-                                    </label>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="icon wb-calendar" aria-hidden="true"></i>
-                                    </span>
-                                    @Html.TextBoxFor(n => n.EndDate, String.Format("{0:yyyy/MM/dd}", Model.EndDate), new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @name = "enddate", @placeholder = "YYYY/MM/DD" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-xl-12 col-md-3 form-control-label">
-                                相關網址：
-                            </label>
-                            <div class="col-xl-12 col-md-9">
-                                @Html.TextBoxFor(n => n.Homepage1, new { @class = "form-control", @name = "homepage1", @placeholder = "請輸入網址" })
-                            </div>
-                            <label class="col-xl-12 col-md-3 form-control-label">
-                                相關網址文字說明：
-                                <span class="panel-desc">※ 如果有設定網址，說明必填</span>
-                            </label>
-                            <div class=" col-xl-12 col-md-9" style="padding-top:5px;">
-                                @Html.TextBoxFor(n => n.HomepageMomo, new { @class = "form-control", @name = "homepage_momo", @placeholder = "請輸入說明" })
                             </div>
                         </div>
                         <div class="form-group upload-area row" GroupFile-index="0">
@@ -191,24 +162,12 @@
                     </div>
                     <div class="col-xl-7 form-horizontal">
                         <div class="form-group row">
-                            <label class="form-control-label">首頁置頂</label>
-                            <div>
-                                <div class="d-flex flex-column">
-                                    <div class="checkbox-custom checkbox-primary">
-                                        @Html.CheckBoxFor(n => n.PostOut, new { @id = "inputForProject" })
-                                        <label for="inputForProject"><span class="panel-desc">如在首頁要放在單元頂層，請打勾</span></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label class="col-xl-12 col-md-3 form-control-label">
-                                置頂於入口首頁的說明：
-                                @*<span class="panel-desc">※ 如果有設定置頂，說明必填</span>*@
+                                函文字號
+                                <span class="required">*</span>
                             </label>
                             <div class=" col-xl-12 col-md-9" style="padding-top:5px;">
-                                @Html.TextBoxFor(n => n.PostOutTxt, new { @class = "form-control", @name = "post_out_txt", @placeholder = "請輸入說明" })
+                                @Html.TextBoxFor(l=>l.LNumber, new { @class = "form-control", @placeholder = "請輸入函文字號" })
                             </div>
                         </div>
                         <div class="form-group row">
@@ -217,7 +176,7 @@
                                 <span class="required">*</span>
                             </label>
                             <div class=" col-xl-12 col-md-9">
-                                @Html.TextBoxFor(n => n.Subject, new { @class = "form-control", @name = "subject", @placeholder = "請輸入主標題", @required = "" })
+                                @Html.TextBoxFor(l => l.Subject, new { @class = "form-control", @name = "subject", @placeholder = "請輸入主標題", @required = "" })
                             </div>
                         </div>
                         <div class="form-group row">
@@ -227,9 +186,9 @@
                             </label>
                             <div class="col-xl-12 col-md-9">
                                 @{
-                                    Model.Body = HttpUtility.HtmlDecode(Model.Body);
+                                    Model.Content = HttpUtility.HtmlDecode(Model.Content);
                                 }
-                                @Html.TextAreaFor(n => n.Body, new { @class = "form-control", @name = "skills", @rows = "10", @placeholder = "編輯內文請按「Enter」分段落", @required = "" })
+                                @Html.TextAreaFor(l => l.Content, new { @class = "form-control", @name = "skills", @rows = "10", @placeholder = "編輯內文請按「Enter」分段落", @required = "" })
                             </div>
                         </div>
                     </div>
@@ -237,7 +196,7 @@
             </div>
             <div class="panel-footer">
                 <div class="form-group col-xl-12 text-right padding-top-m">
-                    <a href='@Url.Action("Index","News")' class="btn btn-default">取消</a>
+                    <a href='@Url.Action("Index","Laws")' class="btn btn-default">取消</a>
                     <button type="submit" class="btn btn-primary">確認</button>
                 </div>
             </div>
@@ -314,14 +273,14 @@
                             }
                         }
                     },
-                    Author: {
+                    Classfy: {
                         validators: {
                             notEmpty: {
                                 message: '請選擇訊息類別'
                             }
                         }
                     },
-                    CreatedDeptID: {
+                    CreatedDepID: {
                         validators: {
                             notEmpty: {
                                 message: '請選擇訊息聯絡單位'
@@ -342,6 +301,13 @@
                             }
                         }
                     },
+                    LNumber: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入函文字號'
+                            }
+                        }
+                    },
                     Subject: {
                         validators: {
                             notEmpty: {
@@ -356,31 +322,10 @@
                             }
                         }
                     },
-                    PostDate: {
+                    LDate: {
                         validators: {
                             notEmpty: {
                                 message: '請輸入發布日期，格式範例：2018/10/05'
-                            }
-                        }
-                    },
-                    PostOutTxt: {
-                        validators: {
-                            callback: {
-                                message: '如果有設定置頂，說明必填',
-                                callback: function (value, validator, $field) {
-                                    var isChecked = $('#inputForProject').is(':checked');
-                                    return (!isChecked) ? true : (value !== '');
-                                }
-                            }
-                        }
-                    },
-                    HomepageMomo: {
-                        validators: {
-                            callback: {
-                                message: '如果有設定網址，說明必填',
-                                callback: function (value, validator, $field) {
-                                    return ($('#Homepage1').val() == '') ? true : (value !== '');
-                                }
                             }
                         }
                     },
@@ -406,22 +351,8 @@
                         $('#newsEditForm').formValidation('revalidateField', 'GroupFile[' + currentIndex + '].fileMemo');
                     }, 0);
                 })
-                .on('change', '[id="inputForProject"],[id="Homepage1"],[id="PostDate"]', function (e) {
-                    var elementID = $(this).attr('id');
-                    var validateFile = '';
-                    switch (elementID) {
-                        case 'inputForProject':
-                            validateFile = 'PostOutTxt';
-                            break;
-                        case 'Homepage1':
-                            validateFile = 'HomepageMomo';
-                            break;
-                        case 'PostDate':
-                            validateFile = 'PostDate';
-                            break;
-                        default:
-                    }
-                    $('#newsEditForm').formValidation('revalidateField', validateFile);
+                .on('change', '[id="LDate"]', function (e) {
+                    $('#newsEditForm').formValidation('revalidateField', 'LDate');
                 })
                 .on('click', '[name="addUploadArea"]', function () {
                     var currentIndex = $('#newsEditForm').find('.upload-area:visible').length;
@@ -474,7 +405,7 @@
 
                     // Use Ajax to submit form data
                     $.ajax({
-                        url: '@Url.Action("NewsSave", "News")',
+                        url: '@Url.Action("LawsSave", "Laws")',
                         type: "post",
                         headers: {
                             'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
@@ -485,8 +416,8 @@
                         processData: false,
                         success: function (result) {
                             if (result) {
-                                var url = '/News';
-                                if (EditType > 0) {                                    
+                                var url = '/Laws';
+                                if (EditType > 0) {
                                     SuccessMSGAfterAction("更新成功", url, 1000);
                                 } else {
                                     SuccessMSGAfterAction("新增成功", url, 1000);

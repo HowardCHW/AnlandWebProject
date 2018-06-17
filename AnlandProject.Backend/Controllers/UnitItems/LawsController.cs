@@ -13,26 +13,26 @@ using AnlandProject.Backend.Models;
 namespace AnlandProject.Backend.Controllers.UnitItems
 {
     [Authorize]
-    public class NewsController : BaseController
+    public class LawsController : BaseController
     {
-        private INewsService _newsService;
+        private ILawsService _lawsService;
         private ICommonService _commonService;
         // GET: News
         public ActionResult Index()
         {
-            return View("~/Views/UnitItems/News/Index.cshtml");
+            return View("~/Views/UnitItems/Laws/Index.cshtml");
         }
 
-        public ActionResult CreateNews(int? id)
+        public ActionResult CreateLaws(int? id)
         {
             string subTitle = "新增";
+            using (_lawsService = new LawsService())
             using (_commonService = new CommonService())
             {
-                NewsModel result = new NewsModel();
+                LawsModel result = new LawsModel();
                 if (id.HasValue && id.Value > 0)
-                {
-                    _newsService = new NewsService();
-                    result = _newsService.NewsQueryByID(id.Value);
+                {                    
+                    result = _lawsService.LawsQueryByID(id.Value);
                     subTitle = "編輯";
                 }
 
@@ -48,9 +48,9 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                 SelectList serviceSelect = new SelectList(serviceData, "TypeCode", "TypeName", result.Service);
                 ViewBag.Service = serviceSelect;
 
-                var authorData = _commonService.NewsCategoryQueryAll();
-                SelectList authorSelect = new SelectList(authorData.OrderBy(a => a.ClassID), "ClassName", "ClassName", result.Author);
-                ViewBag.Author = authorSelect;
+                var classfyData = _commonService.LawsCategoryQueryAll();
+                SelectList classfySelect = new SelectList(classfyData.OrderBy(a => a.ID), "ClassID", "ClassName", result.Classfy);
+                ViewBag.Classfy = classfySelect;
 
                 var deptData = _commonService.DeptQueryAll();
                 SelectList deptSelect = new SelectList(deptData, "ID", "DeptName");
@@ -59,45 +59,53 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                 ViewBag.Subtitle = subTitle;
                 result.CreatedUser = UserInfo.UserName;
                 result.CreatedUserPhone = deptData.FirstOrDefault().PhoneNo;
-                return View("~/Views/UnitItems/News/NewsEdit.cshtml", result);
+                return View("~/Views/UnitItems/Laws/LawsEdit.cshtml", result);
             }
         }
 
-        public ActionResult NewsView(int? id)
+        public ActionResult LawsView(int? id)
         {
+            using (_lawsService = new LawsService())
             using (_commonService = new CommonService())
             {
-                NewsModel result = new NewsModel();
+                LawsModel result = new LawsModel();
                 if (id.HasValue && id.Value > 0)
-                {
-                    _newsService = new NewsService();
-                    result = _newsService.NewsQueryByID(id.Value);
+                {                    
+                    result = _lawsService.LawsQueryByID(id.Value);
                 }
+
+                var classfyData = _commonService.LawsCategoryQueryAll();
+                result.ClassfyName = classfyData.FirstOrDefault(c => c.ClassID == result.Classfy)?.ClassName;
 
                 var deptData = _commonService.DeptQueryAll();
                 string depName = deptData.FirstOrDefault(x => x.ID == result.CreatedDeptID)?.DeptName;
                 result.CreatedDeptName = depName;
 
-                return View("~/Views/UnitItems/News/NewsView.cshtml", result);
+                return View("~/Views/UnitItems/Laws/LawsView.cshtml", result);
             }
         }
 
         [HttpPost]
-        public ActionResult NewsQuery()
+        public ActionResult LawsQuery()
         {
-            using (_newsService = new NewsService())
+            using (_lawsService = new LawsService())
+            using (_commonService = new CommonService())
             {
-                List<NewsModel> result = _newsService.NewsQueryAll();
+                List<LawsModel> result = _lawsService.LawsQueryAll();
+                var classfyData = _commonService.LawsCategoryQueryAll();
+
+                result.ForEach(r => r.ClassfyName = classfyData.FirstOrDefault(c => c.ClassID == r.Classfy).ClassName);
+
                 return Json(new { data = result });
             }
         }
 
         [HttpPost]
         [AjaxValidateAntiForgeryToken]
-        public JsonResult NewsSave(NewsModel model)
+        public JsonResult LawsSave(LawsModel model)
         {
             bool saveStatus = false;
-            using (_newsService = new NewsService())
+            using (_lawsService = new LawsService())
             {
                 try
                 {
@@ -108,7 +116,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                             if (item.ContentLength > 0)
                             {
                                 string _FileName = Path.GetFileName(item.FileName);
-                                string _path = Path.Combine(Server.MapPath("~/UploadedFiles/News"), _FileName);
+                                string _path = Path.Combine(Server.MapPath("~/UploadedFiles/Laws"), _FileName);
                                 item.SaveAs(_path);
                             }
                         }
@@ -163,7 +171,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                         }
                     }
 
-                    saveStatus = _newsService.NewsSave(model);
+                    saveStatus = _lawsService.LawsSave(model);
                 }
                 catch (Exception ex)
                 {
@@ -173,17 +181,17 @@ namespace AnlandProject.Backend.Controllers.UnitItems
 
             return Json(saveStatus);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult NewsDelete(int id)
+        public JsonResult LawDelete(int id)
         {
             bool delStatus = false;
-            using (_newsService = new NewsService())
+            using (_lawsService = new LawsService())
             {
                 try
                 {
-                    delStatus = _newsService.NewsDelete(id);
+                    delStatus = _lawsService.LawDelete(id);
                 }
                 catch (Exception ex)
                 {
@@ -199,11 +207,11 @@ namespace AnlandProject.Backend.Controllers.UnitItems
             DialogViewModel model = new DialogViewModel()
             {
                 ID = "DeleteConfirmDialog",
-                Title = "刪除最新消息",
+                Title = "刪除法令新訊",
                 Content = @"您確定要刪除 [{0}] 嗎？",
                 ConfirmText = "確定",
-                ControllerName = "News",
-                ActionName = "NewsDelete",
+                ControllerName = "Laws",
+                ActionName = "LawDelete",
                 OnFailureFunction = "RequestFail",
                 OnSuccessFunction = "DeleteSuccess",
             };

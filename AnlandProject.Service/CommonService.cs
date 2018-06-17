@@ -18,6 +18,7 @@ namespace AnlandProject.Service
         private IRepository<service> _serviceRepository = new GenericRepository<service>();
         private IRepository<newsclass> _newsCategoryRepository = new GenericRepository<newsclass>();
         private IRepository<Department> _departmentRepository = new GenericRepository<Department>();
+        private IRepository<lawclass> _lawCategoryRepository = new GenericRepository<lawclass>();
 
         public List<ClassificationModel> ThemeQueryAll()
         {
@@ -64,9 +65,9 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public List<NewsCategoryModel> NewsCategoryQueryAll()
+        public List<CategoryModel> NewsCategoryQueryAll()
         {
-            var result = _newsCategoryRepository.GetAll().Select(n => new NewsCategoryModel()
+            var result = _newsCategoryRepository.GetAll().Select(n => new CategoryModel()
             {
                 ID = n.id,
                 ClassID = n.classid,
@@ -91,5 +92,46 @@ namespace AnlandProject.Service
             return result;
         }
 
+        public List<CategoryModel> LawsCategoryQueryAll()
+        {
+            var result = _lawCategoryRepository.GetAll().Select(l => new CategoryModel()
+            {
+                ID = l.ID,
+                ClassID = l.classid,
+                ClassName = l.classname,
+                CreUser = l.creuser,
+                CreDate = l.credate
+            }).ToList();
+
+            return result;
+        }
+
+        public void Dispose()
+        {
+            if (_themeRepository != null)
+            {
+                _themeRepository.Dispose();
+            }
+            if (_cakeRepository != null)
+            {
+                _cakeRepository.Dispose();
+            }
+            if (_serviceRepository != null)
+            {
+                _serviceRepository.Dispose();
+            }
+            if (_newsCategoryRepository != null)
+            {
+                _newsCategoryRepository.Dispose();
+            }
+            if (_departmentRepository != null)
+            {
+                _departmentRepository.Dispose();
+            }
+            if (_lawCategoryRepository != null)
+            {
+                _lawCategoryRepository.Dispose();
+            }
+        }        
     }
 }

@@ -1,4 +1,5 @@
-﻿using AnlandProject.Service;
+﻿using AnlandProject.Backend.Models;
+using AnlandProject.Service;
 using AnlandProject.Service.BusinessModel;
 using AnlandProject.Service.Interface;
 using NLog;
@@ -49,6 +50,11 @@ namespace AnlandProject.Backend.Controllers
                 }
                 return userModel;
             }
+        }
+
+        public ActionResult AjaxDialog(DialogViewModel model)
+        {
+            return PartialView("~/Views/Shared/AjaxDialog.cshtml", model);
         }
     }
 }

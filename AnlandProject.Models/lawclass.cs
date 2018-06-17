@@ -14,10 +14,10 @@ namespace AnlandProject.Models
     
     public partial class lawclass
     {
-        public int 識別碼 { get; set; }
-        public Nullable<int> classid { get; set; }
+        public int ID { get; set; }
+        public int classid { get; set; }
         public string classname { get; set; }
         public string creuser { get; set; }
-        public string credate { get; set; }
+        public Nullable<System.DateTime> credate { get; set; }
     }
 }

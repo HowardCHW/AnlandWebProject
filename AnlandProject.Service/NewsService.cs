@@ -16,7 +16,7 @@ namespace AnlandProject.Service
     {
         protected static Logger logger = LogManager.GetCurrentClassLogger();
         private IRepository<an_news> _newsRepository = new GenericRepository<an_news>();
-
+        
         public List<NewsModel> NewsQueryAll()
         {
             var result = _newsRepository.GetAll().Select(n => new NewsModel()
@@ -34,7 +34,7 @@ namespace AnlandProject.Service
                 Homepage4 = n.homepage4,
                 Homepage5 = n.homepage5,
                 Homepage6 = n.homepage6,
-                Body = n.Body,
+                Body = n.Body.Replace("<br>",""),
                 PostDate = n.postdate,
                 PostTime = n.posttime,
                 Hit = n.hit,
@@ -49,7 +49,7 @@ namespace AnlandProject.Service
                 File3Momo = n.file3_momo,
                 File4Momo = n.file4_momo,
                 File5Momo = n.file5_momo,
-                CreatedDepID = n.created_dept_id,
+                CreatedDeptID = n.created_dept_id,
                 CreatedUser = n.created_user_name,
                 CreatedUserPhone = n.created_user_phone
             }).ToList();
@@ -79,7 +79,7 @@ namespace AnlandProject.Service
                     Homepage4 = tempData.homepage4,
                     Homepage5 = tempData.homepage5,
                     Homepage6 = tempData.homepage6,
-                    Body = tempData.Body,
+                    Body = tempData.Body.Replace("<br>",""),
                     PostDate = tempData.postdate,
                     PostTime = tempData.posttime,
                     Hit = tempData.hit,
@@ -94,7 +94,7 @@ namespace AnlandProject.Service
                     File3Momo = tempData.file3_momo,
                     File4Momo = tempData.file4_momo,
                     File5Momo = tempData.file5_momo,
-                    CreatedDepID = tempData.created_dept_id,
+                    CreatedDeptID = tempData.created_dept_id,
                     CreatedUser = tempData.created_user_name,
                     CreatedUserPhone = tempData.created_user_phone
                 };
@@ -110,7 +110,6 @@ namespace AnlandProject.Service
                 if (saveData.ID > 0)
                 {
                     var originalData = _newsRepository.Get(n => n.ID == saveData.ID);
-                    originalData.ID = saveData.ID;
                     originalData.Theme = saveData.Theme;
                     originalData.Cake = saveData.Cake; ;
                     originalData.Service = saveData.Service;
@@ -138,7 +137,7 @@ namespace AnlandProject.Service
                     originalData.file3_momo = saveData.File3Momo;
                     originalData.file4_momo = saveData.File4Momo;
                     originalData.file5_momo = saveData.File5Momo;
-                    originalData.created_dept_id = saveData.CreatedDepID;
+                    originalData.created_dept_id = saveData.CreatedDeptID;
                     originalData.created_user_name = saveData.CreatedUser;
                     originalData.created_user_phone = saveData.CreatedUserPhone;
                     resultRow = _newsRepository.Update(originalData);
@@ -174,7 +173,7 @@ namespace AnlandProject.Service
                         file3_momo = saveData.File3Momo,
                         file4_momo = saveData.File4Momo,
                         file5_momo = saveData.File5Momo,
-                        created_dept_id = saveData.CreatedDepID,
+                        created_dept_id = saveData.CreatedDeptID,
                         created_user_name = saveData.CreatedUser,
                         created_user_phone = saveData.CreatedUserPhone
                     };
@@ -187,6 +186,30 @@ namespace AnlandProject.Service
             }
 
             return resultRow > 0;
+        }
+
+        public bool NewsDelete(int id)
+        {
+            int result = 0;
+            try
+            {
+                var deleteData = _newsRepository.Get(n => n.ID == id);
+                result = _newsRepository.Delete(deleteData);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+
+            return result > 0;
+        }
+
+        public void Dispose()
+        {
+            if (_newsRepository != null)
+            {
+                _newsRepository.Dispose();
+            }
         }
     }
 }

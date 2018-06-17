@@ -42,5 +42,8 @@ namespace AnlandProject.Models
         public string file4_momo { get; set; }
         public string file5_momo { get; set; }
         public Nullable<int> hit { get; set; }
+        public Nullable<int> created_dept_id { get; set; }
+        public string created_user_name { get; set; }
+        public string created_user_phone { get; set; }
     }
 }
