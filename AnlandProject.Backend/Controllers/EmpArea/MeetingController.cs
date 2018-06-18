@@ -66,19 +66,7 @@ namespace AnlandProject.Backend.Controllers.EmpArea
         {
             using (_meetingService = new MeetingService())
             {
-                List<DefaultDataModel> tempResult = _meetingService.MeetingQueryAll();
-
-                var serializer = new JavaScriptSerializer();
-
-                // For simplicity just use Int32's max value.
-                // You could always read the value from the config section mentioned above.
-                serializer.MaxJsonLength = Int32.MaxValue;
-
-                var result = new ContentResult
-                {
-                    Content = serializer.Serialize(tempResult),
-                    ContentType = "application/json"
-                };
+                List<DefaultDataModel> result = _meetingService.MeetingQueryAll();
                 return Json(new { data = result });
             }
         }

@@ -29,7 +29,7 @@ namespace AnlandProject.Service
                 Homepage4 = n.homepage4,
                 Homepage5 = n.homepage5,
                 Homepage6 = n.homepage6,
-                Body = n.Body.Replace("<br>",""),
+                //Body = n.Body.Replace("<br>",""),
                 PostDate = n.postdate,
                 Hit = n.hit,
                 EndDate = n.end_date,
