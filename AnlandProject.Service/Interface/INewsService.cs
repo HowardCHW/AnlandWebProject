@@ -10,11 +10,11 @@ namespace AnlandProject.Service.Interface
 {
     public interface INewsService : IDisposable
     {
-        List<NewsModel> NewsQueryAll();
+        List<DefaultDataModel> NewsQueryAll();
 
-        NewsModel NewsQueryByID(int id);
+        DefaultDataModel NewsQueryByID(int id);
 
-        bool NewsSave(NewsModel saveData);
+        bool NewsSave(DefaultDataModel saveData);
 
         bool NewsDelete(int id);
     }

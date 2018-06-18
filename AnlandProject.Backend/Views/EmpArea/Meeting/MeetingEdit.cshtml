@@ -1,6 +1,6 @@
 ﻿@model AnlandProject.Service.BusinessModel.DefaultDataModel
 @{
-    ViewBag.Title = "IntroEdit";
+    ViewBag.Title = "MeetingEdit";
     Layout = "~/Views/Shared/_AnlandLayout.cshtml";
 }
 @section styles{
@@ -13,67 +13,15 @@
 }
 
 <div class="page-header">
-    <h1 class="page-title">行政規章專區 - @ViewBag.Subtitle</h1>
+    <h1 class="page-title">會議紀錄 - @ViewBag.Subtitle</h1>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
-        <li class="breadcrumb-item active">行政規章專區</li>
+        <li class="breadcrumb-item active">會議紀錄</li>
     </ol>
     <div class="page-header-actions"></div>
 </div>
 <div class="page-content container-fluid">
-    <form id="introEditForm" class="FullForm" autocomplete="off">
-        <!-- 分類檢索設定 -->
-        <div class="panel panel-bordered">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    分類檢索設定
-                </h3>
-            </div>
-            <div class="panel-body">
-                <div class="row row-lg">
-                    <div class="col-md-4 form-horizontal">
-                        <!-- 主題分類 -->
-                        <div class="form-group row">
-                            <label class="col-xl-12 col-md-3" for="Theme">
-                                主題分類
-                                <span class="required">*</span>
-                            </label>
-                            <div class=" col-xl-12 col-md-9">
-                                @Html.DropDownList("Theme", null, "請選擇主題分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Theme", @required = "" })
-                            </div>
-                        </div>
-                        <!-- /主題分類 -->
-                    </div>
-                    <div class="col-md-4 form-horizontal">
-                        <!-- 施政分類 -->
-                        <div class="form-group row">
-                            <label class="col-xl-12 col-md-3" for="Cake">
-                                施政分類
-                                <span class="required">*</span>
-                            </label>
-                            <div class=" col-xl-12 col-md-9">
-                                @Html.DropDownList("Cake", null, "請選擇施政分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Cake", @required = "" })
-                            </div>
-                        </div>
-                        <!-- /施政分類 -->
-                    </div>
-                    <div class="col-md-4 form-horizontal">
-                        <!-- 服務分類 -->
-                        <div class="form-group row">
-                            <label class="col-xl-12 col-md-3" for="Service">
-                                服務分類
-                                <span class="required">*</span>
-                            </label>
-                            <div class=" col-xl-12 col-md-9">
-                                @Html.DropDownList("Service", null, "請選擇服務分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Service", @required = "" })
-                            </div>
-                        </div>
-                        <!-- /服務分類 -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /分類檢索設定 -->
+    <form id="meetingEditForm" class="FullForm" autocomplete="off">
         <!-- 內文編輯區 -->
         <div class="panel panel-bordered">
             <div class="panel-heading">
@@ -85,35 +33,10 @@
                         <div class="form-group row">
                             <div class="col-xl-6 col-md-9">
                                 <label class="form-control-label row" for="author">
-                                    新聞類別
+                                    類別
                                     <span class="required">*</span>
                                 </label>
-                                @Html.DropDownList("Author", null, "請選擇新聞類別", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "author", @required = "" })
-                            </div>
-                            <div class="col-xl-6 col-md-9">
-                                <label class="form-control-label row">
-                                    發布單位
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="input-group">
-                                    @Html.DropDownList("CreatedDeptID", null, new { @class = "show-tick", @data_plugin = "selectpicker", @id = "office", @name = "office", @required = "" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-xl-6 col-md-9">
-                                <label class="form-control-label row">
-                                    連絡人
-                                    <span class="required">*</span>
-                                </label>
-                                @Html.TextBoxFor(n => n.CreatedUser, new { @class = "form-control", @name = "owner", @placeholder = "訊息聯絡人姓名", @required = "" })
-                            </div>
-                            <div class="col-xl-6 col-md-9">
-                                <label class="form-control-label row">
-                                    連絡人電話
-                                    <span class="required">*</span>
-                                </label>
-                                @Html.TextBoxFor(n => n.CreatedUserPhone, new { @class = "form-control", @name = "ownerPhone", @placeholder = "訊息聯絡人電話", @required = "" })
+                                @Html.DropDownList("Author", null, "請選擇訊息類別", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "author", @required = "" })
                             </div>
                         </div>
                         <div class="form-group row">
@@ -201,7 +124,7 @@
             </div>
             <div class="panel-footer">
                 <div class="form-group col-xl-12 text-right padding-top-m">
-                    <a href='@Url.Action("Index","Intro")' class="btn btn-default">取消</a>
+                    <a href='@Url.Action("Index","Meeting")' class="btn btn-default">取消</a>
                     <button type="submit" class="btn btn-primary">確認</button>
                 </div>
             </div>
@@ -253,56 +176,14 @@
                 }
             };
 
-            $('#introEditForm').formValidation({
+            $('#meetingEditForm').formValidation({
                 framework: "bootstrap4",
                 icon: null,
                 fields: {
-                    Theme: {
-                        validators: {
-                            notEmpty: {
-                                message: '請選擇主題分類代碼'
-                            }
-                        }
-                    },
-                    Cake: {
-                        validators: {
-                            notEmpty: {
-                                message: '請選擇施政分類代碼'
-                            }
-                        }
-                    },
-                    Service: {
-                        validators: {
-                            notEmpty: {
-                                message: '請選擇服務分類代碼'
-                            }
-                        }
-                    },
                     Author: {
                         validators: {
                             notEmpty: {
-                                message: '請選擇新聞類別'
-                            }
-                        }
-                    },
-                    CreatedDeptID: {
-                        validators: {
-                            notEmpty: {
-                                message: '請選擇訊息聯絡單位'
-                            }
-                        }
-                    },
-                    owner: {
-                        validators: {
-                            notEmpty: {
-                                message: '請輸入聯絡人姓名'
-                            }
-                        }
-                    },
-                    ownerPhone: {
-                        validators: {
-                            notEmpty: {
-                                message: '請輸入聯絡人電話'
+                                message: '請選擇訊息類別'
                             }
                         }
                     },
@@ -346,14 +227,14 @@
                 .on('change', '.input-group-file', function (e) {
                     var currentIndex = e.currentTarget.closest('div.upload-area').getAttribute('GroupFile-index');
                     setTimeout(function () {
-                        $('#introEditForm').formValidation('revalidateField', 'GroupFile[' + currentIndex + '].fileMemo');
+                        $('#meetingEditForm').formValidation('revalidateField', 'GroupFile[' + currentIndex + '].fileMemo');
                     }, 0);
                 })
                 .on('change', '[id="PostDate"]', function (e) {
-                    $('#introEditForm').formValidation('revalidateField', 'PostDate');
+                    $('#meetingEditForm').formValidation('revalidateField', 'PostDate');
                 })
                 .on('click', '[name="addUploadArea"]', function () {
-                    var currentIndex = $('#introEditForm').find('.upload-area:visible').length;
+                    var currentIndex = $('#meetingEditForm').find('.upload-area:visible').length;
                     var $template = $('#uploadTemplate');
                     var $clone = $template
                         .clone()
@@ -368,12 +249,12 @@
                         .find('[name="tempfile"]').attr('name', 'Files[' + currentIndex + '].fileMemo').end();
 
                     // Add new field
-                    $('#introEditForm').formValidation('addField', 'GroupFile[' + currentIndex + '].fileMemo', fileMemoValidators);
+                    $('#meetingEditForm').formValidation('addField', 'GroupFile[' + currentIndex + '].fileMemo', fileMemoValidators);
                 })
                 .on('added.field.fv', function (e, data) {
                     if (data.field.includes('fileMemo')) {
-                        if ($('#introEditForm').find(':visible[name*="fileMemo"]').length >= 5) {
-                            $('#introEditForm').find('[name = "addUploadArea"]').attr('disabled', 'disabled');
+                        if ($('#meetingEditForm').find(':visible[name*="fileMemo"]').length >= 5) {
+                            $('#meetingEditForm').find('[name = "addUploadArea"]').attr('disabled', 'disabled');
                         }
                     }
                 })
@@ -403,7 +284,7 @@
 
                     // Use Ajax to submit form data
                     $.ajax({
-                        url: '@Url.Action("IntroSave", "Intro")',
+                        url: '@Url.Action("MeetingSave", "Meeting")',
                         type: "post",
                         headers: {
                             'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
@@ -414,7 +295,7 @@
                         processData: false,
                         success: function (result) {
                             if (result) {
-                                var url = '/Intro';
+                                var url = '/Meeting';
                                 if (EditType > 0) {                                    
                                     SuccessMSGAfterAction("更新成功", url, 1000);
                                 } else {

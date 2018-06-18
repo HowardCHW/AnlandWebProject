@@ -77,10 +77,10 @@
     <Compile Include="an_news.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
-    <Compile Include="board1.cs">
+    <Compile Include="board.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
-    <Compile Include="board1class.cs">
+    <Compile Include="boardclass.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="board_setup.cs">
@@ -99,6 +99,12 @@
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="director.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="document.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="documentclass.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="email.cs">
@@ -121,6 +127,12 @@
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="main_menu.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="meeting.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="meetingclass.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="newsclass.cs">

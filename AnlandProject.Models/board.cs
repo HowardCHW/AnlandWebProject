@@ -12,8 +12,9 @@ namespace AnlandProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class board1
+    public partial class board
     {
+        public int ID { get; set; }
         public string obj { get; set; }
         public string subject { get; set; }
         public string author { get; set; }
@@ -28,11 +29,10 @@ namespace AnlandProject.Models
         public Nullable<System.DateTime> postdate { get; set; }
         public Nullable<System.DateTime> posttime { get; set; }
         public Nullable<int> hit { get; set; }
-        public int ID { get; set; }
         public string postname { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public string post_group { get; set; }
-        public string post_out { get; set; }
+        public Nullable<bool> post_out { get; set; }
         public string post_out_txt { get; set; }
         public string poster_right { get; set; }
         public string file1_momo { get; set; }
@@ -40,5 +40,8 @@ namespace AnlandProject.Models
         public string file3_momo { get; set; }
         public string file4_momo { get; set; }
         public string file5_momo { get; set; }
+        public Nullable<int> created_dept_id { get; set; }
+        public string created_user_name { get; set; }
+        public Nullable<System.DateTime> created_date { get; set; }
     }
 }

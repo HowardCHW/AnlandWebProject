@@ -88,7 +88,7 @@
                                     法令類別
                                     <span class="required">*</span>
                                 </label>
-                                @Html.DropDownList("Classfy", null, "請選擇訊息類別", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "classfy", @required = "" })
+                                @Html.DropDownList("Classfy", null, "請選擇法令類別", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "classfy", @required = "" })
                             </div>
                             <div class="col-xl-6 col-md-9">
                                 <label class="form-control-label row">
@@ -276,7 +276,7 @@
                     Classfy: {
                         validators: {
                             notEmpty: {
-                                message: '請選擇訊息類別'
+                                message: '請選擇法令類別'
                             }
                         }
                     },
@@ -315,7 +315,7 @@
                             }
                         }
                     },
-                    Body: {
+                    Content: {
                         validators: {
                             notEmpty: {
                                 message: '請輸入內文'

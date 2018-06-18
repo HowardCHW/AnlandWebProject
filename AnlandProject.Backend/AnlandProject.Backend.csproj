@@ -174,7 +174,11 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EmpArea\DocumentController.cs" />
+    <Compile Include="Controllers\EmpArea\MeetingController.cs" />
+    <Compile Include="Controllers\EmpArea\BoardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UnitItems\QaController.cs" />
     <Compile Include="Controllers\UnitItems\LawsController.cs" />
     <Compile Include="Controllers\UnitItems\IntroController.cs" />
     <Compile Include="Controllers\UnitItems\NewsController.cs" />
@@ -4399,11 +4403,26 @@
     <Content Include="Views\UnitItems\Intro\Index.cshtml" />
     <Content Include="Views\UnitItems\Intro\IntroEdit.cshtml" />
     <Content Include="Views\UnitItems\Intro\IntroView.cshtml" />
+    <Content Include="Views\UnitItems\Qa\Index.cshtml" />
+    <Content Include="Views\UnitItems\Qa\QaEdit.cshtml" />
+    <Content Include="Views\UnitItems\Qa\QaView.cshtml" />
+    <Content Include="Views\EmpArea\Board\Index.cshtml" />
+    <Content Include="Views\EmpArea\Board\BoardEdit.cshtml" />
+    <Content Include="Views\EmpArea\Board\BoardView.cshtml" />
+    <Content Include="Views\EmpArea\Meeting\MeetingEdit.cshtml" />
+    <Content Include="Views\EmpArea\Meeting\MeetingView.cshtml" />
+    <Content Include="Views\EmpArea\Meeting\Index.cshtml" />
+    <Content Include="Views\EmpArea\Document\DocumentEdit.cshtml" />
+    <Content Include="Views\EmpArea\Document\DocumentView.cshtml" />
+    <Content Include="Views\EmpArea\Document\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\Board\" />
+    <Folder Include="UploadedFiles\Document\" />
     <Folder Include="UploadedFiles\intro10\" />
     <Folder Include="UploadedFiles\Laws\" />
+    <Folder Include="UploadedFiles\Meeting\" />
     <Folder Include="UploadedFiles\News\" />
     <Folder Include="Utility\" />
     <Folder Include="Views\Base\" />

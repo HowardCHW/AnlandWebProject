@@ -1,4 +1,4 @@
-﻿@model List<AnlandProject.Service.BusinessModel.Intro10Model>
+﻿@model List<AnlandProject.Service.BusinessModel.DefaultDataModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AnlandLayout.cshtml";
@@ -27,14 +27,14 @@
             <div class="row">
                 <div class="form-group col-xl-6">
                     <a href='@Url.Action("CreateIntro","Intro")' class="btn btn-md btn-primary" style="margin-right:20px;">
-                        <i class="icon wb-plus" aria-hidden="true"></i> 新增訊息
+                        <i class="icon wb-plus" aria-hidden="true"></i> 新增行政規章
                     </a>
                 </div>
                 <div class="form-group col-xl-3">
                 </div>
             </div>
             <div>
-                <table id="newsTable" class="table table-striped table-bordered table-hover table-checkable order-column">
+                <table id="introTable" class="table table-striped table-bordered table-hover table-checkable order-column">
                     <thead>
                         <tr>
                             <th style="width:40px;">編號</th>
@@ -105,11 +105,11 @@
                 }
             ];
 
-            if ($.fn.DataTable.isDataTable('#newsTable')) {
-                $('#newsTable').DataTable().destroy();
-                $('#newsTable  tbody tr').remove();
+            if ($.fn.DataTable.isDataTable('#introTable')) {
+                $('#introTable').DataTable().destroy();
+                $('#introTable  tbody tr').remove();
             }
-            $('#newsTable').DataTable(_tmpOpts);
+            $('#introTable').DataTable(_tmpOpts);
         }
 
         function RequestFail() {

@@ -12,12 +12,12 @@ namespace AnlandProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class board1class
+    public partial class meetingclass
     {
-        public int 識別碼 { get; set; }
+        public int ID { get; set; }
         public Nullable<int> classid { get; set; }
         public string classname { get; set; }
         public string creuser { get; set; }
-        public string credate { get; set; }
+        public Nullable<System.DateTime> credate { get; set; }
     }
 }

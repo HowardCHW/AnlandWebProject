@@ -20,6 +20,10 @@ namespace AnlandProject.Service
         private IRepository<Department> _departmentRepository = new GenericRepository<Department>();
         private IRepository<lawclass> _lawCategoryRepository = new GenericRepository<lawclass>();
         private IRepository<post_group> _postGroupRepository = new GenericRepository<post_group>();
+        private IRepository<qaclass> _qaCategoryRepository = new GenericRepository<qaclass>();
+        private IRepository<boardclass> _boardCategoryRepository = new GenericRepository<boardclass>();
+        private IRepository<meetingclass> _meetingCategoryRepository = new GenericRepository<meetingclass>();
+        private IRepository<documentclass> _documentCategoryRepository = new GenericRepository<documentclass>();
 
         public List<ClassificationModel> ThemeQueryAll()
         {
@@ -118,6 +122,62 @@ namespace AnlandProject.Service
             return result;
         }
 
+        public List<CategoryModel> QaCategoryQueryAll()
+        {
+            var result = _qaCategoryRepository.GetAll().Select(l => new CategoryModel()
+            {
+                ID = l.ID,
+                ClassID = l.classid,
+                ClassName = l.classname,
+                CreUser = l.creuser,
+                CreDate = l.credate
+            }).ToList();
+
+            return result;
+        }
+
+        public List<CategoryModel> BoardCategoryQueryAll()
+        {
+            var result = _boardCategoryRepository.GetAll().Select(l => new CategoryModel()
+            {
+                ID = l.ID,
+                ClassID = l.classid,
+                ClassName = l.classname,
+                CreUser = l.creuser,
+                CreDate = l.credate
+            }).ToList();
+
+            return result;
+        }
+
+        public List<CategoryModel> MeetingCategoryQueryAll()
+        {
+            var result = _meetingCategoryRepository.GetAll().Select(l => new CategoryModel()
+            {
+                ID = l.ID,
+                ClassID = l.classid,
+                ClassName = l.classname,
+                CreUser = l.creuser,
+                CreDate = l.credate
+            }).ToList();
+
+            return result;
+        }
+
+        public List<CategoryModel> DocumentCategoryQueryAll()
+        {
+            var result = _documentCategoryRepository.GetAll().Select(l => new CategoryModel()
+            {
+                ID = l.ID,
+                ClassID = l.classid,
+                ClassName = l.classname,
+                CreUser = l.creuser,
+                CreDate = l.credate
+            }).ToList();
+
+            return result;
+        }
+
         public void Dispose()
         {
             if (_themeRepository != null)
@@ -143,6 +203,26 @@ namespace AnlandProject.Service
             if (_lawCategoryRepository != null)
             {
                 _lawCategoryRepository.Dispose();
+            }
+            if (_postGroupRepository != null)
+            {
+                _postGroupRepository.Dispose();
+            }
+            if (_qaCategoryRepository != null)
+            {
+                _qaCategoryRepository.Dispose();
+            }
+            if (_boardCategoryRepository != null)
+            {
+                _boardCategoryRepository.Dispose();
+            }
+            if (_meetingCategoryRepository != null)
+            {
+                _meetingCategoryRepository.Dispose();
+            }
+            if (_documentCategoryRepository != null)
+            {
+                _documentCategoryRepository.Dispose();
             }
         }        
     }

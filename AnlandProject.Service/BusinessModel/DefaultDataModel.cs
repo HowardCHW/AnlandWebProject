@@ -7,7 +7,7 @@ using System.Web;
 
 namespace AnlandProject.Service.BusinessModel
 {
-    public class Intro10Model
+    public class DefaultDataModel
     {
         public int ID { get; set; }
         public string Obj { get; set; }
@@ -33,7 +33,7 @@ namespace AnlandProject.Service.BusinessModel
         public string PostName { get; set; }
         public DateTime? EndDate { get; set; }
         public string PostGroup { get; set; }
-        public string PostOut { get; set; }
+        public bool PostOut { get; set; }
         public string PostOutTxt { get; set; }
         public string PosterRight { get; set; }
         public string File1Momo { get; set; }
@@ -49,6 +49,5 @@ namespace AnlandProject.Service.BusinessModel
         public List<HttpPostedFileBase> Files { get; set; }
 
         public List<GroupFile> GroupFile { get; set; }
-
     }
 }

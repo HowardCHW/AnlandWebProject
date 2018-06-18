@@ -51,22 +51,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="DocumentService.cs" />
+    <Compile Include="Interface\IDocumentService.cs" />
+    <Compile Include="MeetingService.cs" />
     <Compile Include="BusinessModel\BackendUserModel.cs" />
     <Compile Include="BusinessModel\DepartmentModel.cs" />
     <Compile Include="BusinessModel\CategoryModel.cs" />
     <Compile Include="BusinessModel\ClassificationModel.cs" />
     <Compile Include="BusinessModel\GroupFile.cs" />
-    <Compile Include="BusinessModel\Intro10Model.cs" />
     <Compile Include="BusinessModel\LawsModel.cs" />
-    <Compile Include="BusinessModel\NewsModel.cs" />
+    <Compile Include="BusinessModel\QaModel.cs" />
+    <Compile Include="BusinessModel\DefaultDataModel.cs" />
     <Compile Include="BusinessModel\MainMenuModel.cs" />
     <Compile Include="BusinessModel\AccountModel.cs" />
     <Compile Include="BusinessModel\LogonViewModel.cs" />
+    <Compile Include="Interface\IMeetingService.cs" />
     <Compile Include="Interface\ICommonService.cs" />
+    <Compile Include="Interface\IBoardService.cs" />
+    <Compile Include="Interface\IQaService.cs" />
     <Compile Include="Interface\ILawsService.cs" />
     <Compile Include="Interface\IIntroService.cs" />
     <Compile Include="Interface\INewsService.cs" />
     <Compile Include="CommonService.cs" />
+    <Compile Include="BoardService.cs" />
+    <Compile Include="QaService.cs" />
     <Compile Include="LawsService.cs" />
     <Compile Include="IntroService.cs" />
     <Compile Include="NewsService.cs" />

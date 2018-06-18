@@ -25,5 +25,9 @@ namespace AnlandProject.Models
         public Nullable<System.DateTime> SubmitDate { get; set; }
         public string ModifyName { get; set; }
         public Nullable<System.DateTime> ModifyDate { get; set; }
+        public Nullable<int> hit { get; set; }
+        public Nullable<int> created_dept_id { get; set; }
+        public string created_user_name { get; set; }
+        public string created_user_phone { get; set; }
     }
 }

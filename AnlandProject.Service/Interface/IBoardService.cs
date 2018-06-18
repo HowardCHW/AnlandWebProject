@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace AnlandProject.Service.Interface
 {
-    public interface IIntroService : IDisposable
+    public interface IBoardService : IDisposable
     {
-        List<DefaultDataModel> IntroQueryAll();
+        List<DefaultDataModel> BoardQueryAll();
 
-        DefaultDataModel IntroQueryByID(int id);
+        DefaultDataModel BoardQueryByID(int id);
 
-        bool IntroSave(DefaultDataModel saveData);
+        bool BoardSave(DefaultDataModel saveData);
 
-        bool IntroDelete(int id);
+        bool BoardDelete(int id);
     }
 }

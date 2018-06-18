@@ -24,5 +24,13 @@ namespace AnlandProject.Service.Interface
 
         List<CategoryModel> PostGroupQueryAll();
 
+        List<CategoryModel> QaCategoryQueryAll();
+
+        List<CategoryModel> BoardCategoryQueryAll();
+
+        List<CategoryModel> MeetingCategoryQueryAll();
+
+        List<CategoryModel> DocumentCategoryQueryAll();
+
     }
 }

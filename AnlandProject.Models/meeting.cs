@@ -12,13 +12,10 @@ namespace AnlandProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class intro10
+    public partial class meeting
     {
         public int ID { get; set; }
         public string obj { get; set; }
-        public string Theme { get; set; }
-        public string Cake { get; set; }
-        public string Service { get; set; }
         public string subject { get; set; }
         public string author { get; set; }
         public string homepage_momo { get; set; }
@@ -45,6 +42,6 @@ namespace AnlandProject.Models
         public string file5_momo { get; set; }
         public Nullable<int> created_dept_id { get; set; }
         public string created_user_name { get; set; }
-        public string created_user_phone { get; set; }
+        public Nullable<System.DateTime> created_date { get; set; }
     }
 }

@@ -26,12 +26,12 @@ namespace AnlandProject.Backend.Controllers.UnitItems
         public ActionResult CreateNews(int? id)
         {
             string subTitle = "新增";
+            using (_newsService = new NewsService())
             using (_commonService = new CommonService())
             {
-                NewsModel result = new NewsModel();
+                DefaultDataModel result = new DefaultDataModel();
                 if (id.HasValue && id.Value > 0)
-                {
-                    _newsService = new NewsService();
+                {                    
                     result = _newsService.NewsQueryByID(id.Value);
                     subTitle = "編輯";
                 }
@@ -65,12 +65,12 @@ namespace AnlandProject.Backend.Controllers.UnitItems
 
         public ActionResult NewsView(int? id)
         {
+            using (_newsService = new NewsService())
             using (_commonService = new CommonService())
             {
-                NewsModel result = new NewsModel();
+                DefaultDataModel result = new DefaultDataModel();
                 if (id.HasValue && id.Value > 0)
                 {
-                    _newsService = new NewsService();
                     result = _newsService.NewsQueryByID(id.Value);
                 }
 
@@ -87,14 +87,14 @@ namespace AnlandProject.Backend.Controllers.UnitItems
         {
             using (_newsService = new NewsService())
             {
-                List<NewsModel> result = _newsService.NewsQueryAll();
+                List<DefaultDataModel> result = _newsService.NewsQueryAll();
                 return Json(new { data = result });
             }
         }
 
         [HttpPost]
         [AjaxValidateAntiForgeryToken]
-        public JsonResult NewsSave(NewsModel model)
+        public JsonResult NewsSave(DefaultDataModel model)
         {
             bool saveStatus = false;
             using (_newsService = new NewsService())

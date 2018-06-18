@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace AnlandProject.Service.Interface
 {
-    public interface IIntroService : IDisposable
+    public interface IQaService :  IDisposable
     {
-        List<DefaultDataModel> IntroQueryAll();
+        List<QaModel> QaQueryAll();
 
-        DefaultDataModel IntroQueryByID(int id);
+        QaModel QaQueryByID(int id);
 
-        bool IntroSave(DefaultDataModel saveData);
+        bool QaSave(QaModel saveData);
 
-        bool IntroDelete(int id);
+        bool QaDelete(int id);
     }
 }

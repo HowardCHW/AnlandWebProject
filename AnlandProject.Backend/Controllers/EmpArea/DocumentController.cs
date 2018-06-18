@@ -10,103 +10,72 @@ using System.IO;
 using AnlandProject.Backend.Filters;
 using AnlandProject.Backend.Models;
 
-namespace AnlandProject.Backend.Controllers.UnitItems
+namespace AnlandProject.Backend.Controllers.EmpArea
 {
     [Authorize]
-    public class IntroController : BaseController
+    public class DocumentController : BaseController
     {
-        private IIntroService _introService;
+        private IDocumentService _documentService;
         private ICommonService _commonService;
         // GET: News
         public ActionResult Index()
         {
-            return View("~/Views/UnitItems/Intro/Index.cshtml");
+            return View("~/Views/EmpArea/Document/Index.cshtml");
         }
 
-        public ActionResult CreateIntro(int? id)
+        public ActionResult CreateDocument(int? id)
         {
             string subTitle = "新增";
-            using (_introService = new IntroService())
+            using (_documentService = new DocumentService())
             using (_commonService = new CommonService())
             {
                 DefaultDataModel result = new DefaultDataModel();
                 if (id.HasValue && id.Value > 0)
                 {                    
-                    result = _introService.IntroQueryByID(id.Value);
+                    result = _documentService.DocumentQueryByID(id.Value);
                     subTitle = "編輯";
                 }
 
-                var themeData = _commonService.ThemeQueryAll();
-                SelectList themeSelect = new SelectList(themeData, "TypeCode", "TypeName", result.Theme);
-                ViewBag.Theme = themeSelect;
-
-                var cakeData = _commonService.CakeQueryAll();
-                SelectList cakeSelect = new SelectList(cakeData, "TypeCode", "TypeName", result.Cake);
-                ViewBag.Cake = cakeSelect;
-
-                var serviceData = _commonService.ServiceQueryAll();
-                SelectList serviceSelect = new SelectList(serviceData, "TypeCode", "TypeName", result.Service);
-                ViewBag.Service = serviceSelect;
-
-                var authorData = _commonService.PostGroupQueryAll();
+                var authorData = _commonService.DocumentCategoryQueryAll();
                 SelectList authorSelect = new SelectList(authorData.OrderBy(a => a.ClassID), "ClassName", "ClassName", result.Author);
                 ViewBag.Author = authorSelect;
-
-                var deptData = _commonService.DeptQueryAll();
-                SelectList deptSelect = new SelectList(deptData, "ID", "DeptName");
-                ViewBag.CreatedDeptID = deptSelect;
-
+ 
                 ViewBag.Subtitle = subTitle;
-                result.CreatedUser = UserInfo.UserName;
-                result.CreatedUserPhone = deptData.FirstOrDefault().PhoneNo;
-                return View("~/Views/UnitItems/Intro/IntroEdit.cshtml", result);
+                 return View("~/Views/EmpArea/Document/DocumentEdit.cshtml", result);
             }
         }
 
-        public ActionResult IntroView(int? id)
+        public ActionResult DocumentView(int? id)
         {
-            using (_introService = new IntroService())
+            using (_documentService = new DocumentService())
             using (_commonService = new CommonService())
             {
                 DefaultDataModel result = new DefaultDataModel();
                 if (id.HasValue && id.Value > 0)
                 {                    
-                    result = _introService.IntroQueryByID(id.Value);
+                    result = _documentService.DocumentQueryByID(id.Value);
                 }
 
-                var themeData = _commonService.ThemeQueryAll();
-                result.ThemeName = themeData.FirstOrDefault(t => t.TypeCode == result.Theme)?.TypeName;
-
-                var cakeData = _commonService.CakeQueryAll();
-                result.CakeName = cakeData.FirstOrDefault(c => c.TypeCode == result.Cake)?.TypeName;
-
-                var serviceData = _commonService.ServiceQueryAll();
-                result.ServiceName = serviceData.FirstOrDefault(s => s.TypeCode == result.Service)?.TypeName;
-                
-                var deptData = _commonService.DeptQueryAll();
-                string depName = deptData.FirstOrDefault(x => x.ID == result.CreatedDeptID)?.DeptName;
-                result.CreatedDeptName = depName;
-
-                return View("~/Views/UnitItems/Intro/IntroView.cshtml", result);
+                return View("~/Views/EmpArea/Document/DocumentView.cshtml", result);
             }
         }
 
         [HttpPost]
-        public ActionResult IntroQuery()
+        public ActionResult DocumentQuery()
         {
-            using (_introService = new IntroService())
+            using (_documentService = new DocumentService())
             {
-                List<DefaultDataModel> result = _introService.IntroQueryAll();
+                List<DefaultDataModel> result = _documentService.DocumentQueryAll();
                 return Json(new { data = result });
             }
         }
 
         [HttpPost]
         [AjaxValidateAntiForgeryToken]
-        public JsonResult IntroSave(DefaultDataModel model)
+        public JsonResult DocumentSave(DefaultDataModel model)
         {
             bool saveStatus = false;
-            using (_introService = new IntroService())
+            using (_documentService = new DocumentService())
             {
                 try
                 {
@@ -117,7 +86,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                             if (item.ContentLength > 0)
                             {
                                 string _FileName = Path.GetFileName(item.FileName);
-                                string _path = Path.Combine(Server.MapPath("~/UploadedFiles/intro10"), _FileName);
+                                string _path = Path.Combine(Server.MapPath("~/UploadedFiles/Document"), _FileName);
                                 item.SaveAs(_path);
                             }
                         }
@@ -171,8 +140,8 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                                 break;
                         }
                     }
-
-                    saveStatus = _introService.IntroSave(model);
+                    model.CreatedUser = UserInfo.UserName;
+                    saveStatus = _documentService.DocumentSave(model);
                 }
                 catch (Exception ex)
                 {
@@ -185,14 +154,14 @@ namespace AnlandProject.Backend.Controllers.UnitItems
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult IntroDelete(int id)
+        public JsonResult DocumentDelete(int id)
         {
             bool delStatus = false;
-            using (_introService = new IntroService())
+            using (_documentService = new DocumentService())
             {
                 try
                 {
-                    delStatus = _introService.IntroDelete(id);
+                    delStatus = _documentService.DocumentDelete(id);
                 }
                 catch (Exception ex)
                 {
@@ -208,11 +177,11 @@ namespace AnlandProject.Backend.Controllers.UnitItems
             DialogViewModel model = new DialogViewModel()
             {
                 ID = "DeleteConfirmDialog",
-                Title = "刪除行政規章",
+                Title = "刪除表單下載",
                 Content = @"您確定要刪除 [{0}] 嗎？",
                 ConfirmText = "確定",
-                ControllerName = "Intro",
-                ActionName = "IntroDelete",
+                ControllerName = "Document",
+                ActionName = "DocumentDelete",
                 OnFailureFunction = "RequestFail",
                 OnSuccessFunction = "DeleteSuccess",
             };

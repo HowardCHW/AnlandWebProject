@@ -1,4 +1,4 @@
-﻿@model AnlandProject.Service.BusinessModel.NewsModel
+﻿@model AnlandProject.Service.BusinessModel.DefaultDataModel
 @{
     ViewBag.Title = "NewsEdit";
     Layout = "~/Views/Shared/_AnlandLayout.cshtml";
@@ -208,7 +208,7 @@
                                 @*<span class="panel-desc">※ 如果有設定置頂，說明必填</span>*@
                             </label>
                             <div class=" col-xl-12 col-md-9" style="padding-top:5px;">
-                                @Html.TextBoxFor(n => n.PostOutTxt, new { @class = "form-control", @name = "post_out_txt", @placeholder = "請輸入說明" })
+                                @Html.TextBoxFor(n => n.PostOutTxt, new { @class = "form-control", @name = "post_out_txt", @placeholder = "如果有設定置頂，請輸入說明" })
                             </div>
                         </div>
                         <div class="form-group row">

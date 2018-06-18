@@ -15,9 +15,9 @@ namespace AnlandProject.Service
         protected static Logger logger = LogManager.GetCurrentClassLogger();
         private IRepository<intro10> _introRepository = new GenericRepository<intro10>();
         
-        public List<Intro10Model> IntroQueryAll()
+        public List<DefaultDataModel> IntroQueryAll()
         {
-            var result = _introRepository.GetAll().Select(i => new Intro10Model()
+            var result = _introRepository.GetAll().Select(i => new DefaultDataModel()
             {
                 ID = i.ID,
                 Obj = i.obj,
@@ -40,8 +40,6 @@ namespace AnlandProject.Service
                 PostName = i.postname,
                 EndDate = i.end_date,
                 PostGroup = i.post_group,
-                PostOut = i.post_out,
-                PostOutTxt = i.post_out_txt,
                 PosterRight = i.poster_right,
                 File1Momo = i.file1_momo,
                 File2Momo = i.file2_momo,
@@ -56,14 +54,14 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public Intro10Model IntroQueryByID(int id)
+        public DefaultDataModel IntroQueryByID(int id)
         {
             var tempData = _introRepository.Get(i => i.ID == id);
 
-            Intro10Model result = null;
+            DefaultDataModel result = null;
             if (tempData != null)
             {
-                result = new Intro10Model()
+                result = new DefaultDataModel()
                 {
                     ID = tempData.ID,
                     Obj = tempData.obj,
@@ -86,8 +84,6 @@ namespace AnlandProject.Service
                     PostName = tempData.postname,
                     EndDate = tempData.end_date,
                     PostGroup = tempData.post_group,
-                    PostOut = tempData.post_out,
-                    PostOutTxt = tempData.post_out_txt,
                     PosterRight = tempData.poster_right,
                     File1Momo = tempData.file1_momo,
                     File2Momo = tempData.file2_momo,
@@ -102,7 +98,7 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public bool IntroSave(Intro10Model saveData)
+        public bool IntroSave(DefaultDataModel saveData)
         {
             int resultRow = 0;
             try
@@ -130,8 +126,6 @@ namespace AnlandProject.Service
                     originalData.postname = saveData.PostName;
                     originalData.end_date = saveData.EndDate;
                     originalData.post_group = saveData.PostGroup;
-                    originalData.post_out = saveData.PostOut;
-                    originalData.post_out_txt = saveData.PostOutTxt;
                     originalData.poster_right = saveData.PosterRight;
                     originalData.file1_momo = saveData.File1Momo;
                     originalData.file2_momo = saveData.File2Momo;
@@ -167,8 +161,6 @@ namespace AnlandProject.Service
                         postname = saveData.PostName,
                         end_date = saveData.EndDate,
                         post_group = saveData.PostGroup,
-                        post_out = saveData.PostOut,
-                        post_out_txt = saveData.PostOutTxt,
                         poster_right = saveData.PosterRight,
                         file1_momo = saveData.File1Momo,
                         file2_momo = saveData.File2Momo,

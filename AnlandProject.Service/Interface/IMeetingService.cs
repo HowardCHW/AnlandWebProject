@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace AnlandProject.Service.Interface
 {
-    public interface IIntroService : IDisposable
+    public interface IMeetingService : IDisposable
     {
-        List<DefaultDataModel> IntroQueryAll();
+        List<DefaultDataModel> MeetingQueryAll();
 
-        DefaultDataModel IntroQueryByID(int id);
+        DefaultDataModel MeetingQueryByID(int id);
 
-        bool IntroSave(DefaultDataModel saveData);
+        bool MeetingSave(DefaultDataModel saveData);
 
-        bool IntroDelete(int id);
+        bool MeetingDelete(int id);
     }
 }

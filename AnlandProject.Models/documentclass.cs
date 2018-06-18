@@ -12,7 +12,7 @@ namespace AnlandProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class qaclass
+    public partial class documentclass
     {
         public int ID { get; set; }
         public Nullable<int> classid { get; set; }

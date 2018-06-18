@@ -27,8 +27,6 @@ namespace AnlandProject.Models
     
         public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<board_setup> board_setup { get; set; }
-        public virtual DbSet<board1> board1 { get; set; }
-        public virtual DbSet<board1class> board1class { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<director> director { get; set; }
         public virtual DbSet<email> email { get; set; }
@@ -36,8 +34,6 @@ namespace AnlandProject.Models
         public virtual DbSet<lawview> lawview { get; set; }
         public virtual DbSet<post_group> post_group { get; set; }
         public virtual DbSet<post_team> post_team { get; set; }
-        public virtual DbSet<qa> qa { get; set; }
-        public virtual DbSet<qaclass> qaclass { get; set; }
         public virtual DbSet<qaview> qaview { get; set; }
         public virtual DbSet<setup_smtp> setup_smtp { get; set; }
         public virtual DbSet<suggest> suggest { get; set; }
@@ -54,6 +50,14 @@ namespace AnlandProject.Models
         public virtual DbSet<lawclass> lawclass { get; set; }
         public virtual DbSet<an_news> an_news { get; set; }
         public virtual DbSet<landlaw> landlaw { get; set; }
+        public virtual DbSet<qaclass> qaclass { get; set; }
+        public virtual DbSet<qa> qa { get; set; }
+        public virtual DbSet<board> board { get; set; }
+        public virtual DbSet<document> document { get; set; }
         public virtual DbSet<intro10> intro10 { get; set; }
+        public virtual DbSet<meeting> meeting { get; set; }
+        public virtual DbSet<boardclass> boardclass { get; set; }
+        public virtual DbSet<documentclass> documentclass { get; set; }
+        public virtual DbSet<meetingclass> meetingclass { get; set; }
     }
 }
