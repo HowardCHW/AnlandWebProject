@@ -95,6 +95,9 @@
     <Compile Include="Categories.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
+    <Compile Include="copy.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Department.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
@@ -110,6 +113,9 @@
     <Compile Include="email.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
+    <Compile Include="engcopy.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
     <Compile Include="form.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
@@ -118,6 +124,9 @@
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="landlaw.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="landprice.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="lawclass.cs">
@@ -136,6 +145,9 @@
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="newsclass.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="onlineapp.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="post_group.cs">

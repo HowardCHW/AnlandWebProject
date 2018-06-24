@@ -178,6 +178,10 @@
     <Compile Include="Controllers\EmpArea\MeetingController.cs" />
     <Compile Include="Controllers\EmpArea\BoardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OnlineApplication\LandPriceController.cs" />
+    <Compile Include="Controllers\OnlineApplication\CopyController.cs" />
+    <Compile Include="Controllers\OnlineApplication\TranscriptController.cs" />
+    <Compile Include="Controllers\OnlineApplication\ReservationController.cs" />
     <Compile Include="Controllers\UnitItems\QaController.cs" />
     <Compile Include="Controllers\UnitItems\LawsController.cs" />
     <Compile Include="Controllers\UnitItems\IntroController.cs" />
@@ -4415,6 +4419,14 @@
     <Content Include="Views\EmpArea\Document\DocumentEdit.cshtml" />
     <Content Include="Views\EmpArea\Document\DocumentView.cshtml" />
     <Content Include="Views\EmpArea\Document\Index.cshtml" />
+    <Content Include="Views\OnlineApplication\Reservation\Index.cshtml" />
+    <Content Include="Views\OnlineApplication\Reservation\ReservationView.cshtml" />
+    <Content Include="Views\OnlineApplication\Transcript\Index.cshtml" />
+    <Content Include="Views\OnlineApplication\Transcript\TranscriptView.cshtml" />
+    <Content Include="Views\OnlineApplication\Copy\Index.cshtml" />
+    <Content Include="Views\OnlineApplication\Copy\CopyView.cshtml" />
+    <Content Include="Views\OnlineApplication\Landprice\LandPriceView.cshtml" />
+    <Content Include="Views\OnlineApplication\Landprice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

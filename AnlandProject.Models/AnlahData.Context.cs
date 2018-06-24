@@ -59,5 +59,9 @@ namespace AnlandProject.Models
         public virtual DbSet<boardclass> boardclass { get; set; }
         public virtual DbSet<documentclass> documentclass { get; set; }
         public virtual DbSet<meetingclass> meetingclass { get; set; }
+        public virtual DbSet<copy> copy { get; set; }
+        public virtual DbSet<engcopy> engcopy { get; set; }
+        public virtual DbSet<landprice> landprice { get; set; }
+        public virtual DbSet<onlineapp> onlineapp { get; set; }
     }
 }

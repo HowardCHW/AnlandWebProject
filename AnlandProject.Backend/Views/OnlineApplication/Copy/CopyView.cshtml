@@ -1,0 +1,718 @@
+﻿@model AnlandProject.Service.BusinessModel.OnlineApplicationModel
+@{
+    ViewBag.Title = "CopyView";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap admin template">
+    <meta name="author" content="">
+
+    <title>基隆市安樂地政事務所-網站管理系統</title>
+
+    <link rel="apple-touch-icon" href="~/base/assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="~/base/assets/images/apple-touch-icon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/global/css/bootstrap-extend.min.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="~/global/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="~/base/assets/css/site.css">
+
+    <style>
+        @@page {
+            margin: 1cm;
+            size: A4 portrait;
+        }
+
+        .print {
+            page-break-after: always;
+        }
+
+        @@media print {
+            body {
+                color: #000;
+                font-family: "標楷體";
+                padding: 0;
+                margin: 0;
+            }
+
+            h1, h2, h3, h4, h5 {
+                color: #000;
+                font-family: "標楷體";
+            }
+
+            .printbtn {
+                display: none;
+            }
+
+            .table-bordered {
+                border: 1px solid #000000 !important;
+            }
+
+                .table-bordered td,
+                .table-bordered th {
+                    border: 1px solid #000000 !important;
+                }
+
+            table.dataTable thead td,
+            table.dataTable thead th {
+                border-bottom: 2px solid #000000 !important;
+            }
+
+            .table-no-bordered {
+                border-width: 0 !important;
+            }
+
+                .table-no-bordered td,
+                .table-no-bordered th {
+                    border-width: 0 !important;
+                    padding: 0;
+                }
+        }
+
+        body {
+            color: #000;
+            padding-top: 20px !important;
+            margin: 0;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="global/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+    <script src="global/vendor/media-match/media.match.min.js"></script>
+    <script src="global/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="printbtn text-right">
+        <a href="javascript:print();" class="btn btn-primary">列印</a>
+    </div>
+
+    <!-- Page -->
+    <div class="page-content container-fluid" style="padding: 10px 30px">
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered" style="box-shadow: none">
+            <div class="panel-body">
+                <table class="table table-no-bordered">
+                    <tr>
+                        <td>
+                            <h3 class="text-center">基隆市安樂地政事務所檔案應用申請書</h3>
+                        </td>
+                        <td class="text-center" style="width:20%">
+                            編號：
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <th class="text-center">姓名</th>
+                        <th class="text-center">出生年月日</th>
+                        <th class="text-center">身分證明文件字號</th>
+                        <th colspan="2" class="text-center">住（居）所、聯絡電話</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            申請人
+                            <br>
+                            <br>
+                            <div class="text-center">
+                                @Model.ApplyName
+                            </div>
+                            <br>
+                        </td>
+                        <td class="text-center">
+                            @if (Model.ApplyBirth.HasValue)
+                            {@Model.ApplyBirth.Value.ToString("yyyy/MM/dd")}
+                        </td>
+                        <td class="text-center">
+                            @Model.ApplyID
+                        </td>
+                        <td colspan="2">
+                            <table class="table table-no-bordered">
+                                <tr>
+                                    <td>地址：</td>
+                                    <td>
+                                        @Model.ApplyAdd
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>電話：</td>
+                                    <td>
+                                        @Model.ApplyTel
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ※代理人姓名及與申請人之關係
+                            <br>
+                            <br> ( @Model.AgentRe ) @Model.AgentName
+                        </td>
+                        <td class="text-center">
+                            @if (Model.AgentBirth.HasValue)
+                            {@Model.AgentBirth.Value.ToString("yyyy/MM/dd")}
+                        </td>
+                        <td class="text-center">
+                            @Model.AgentID
+                        </td>
+                        <td colspan="2">
+                            <table class="table table-no-bordered">
+                                <tr>
+                                    <td>地址：</td>
+                                    <td>@Model.AgentAdd</td>
+                                </tr>
+                                <tr>
+                                    <td>電話：</td>
+                                    <td>@Model.AgentTel</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table class="table table-no-bordered">
+                                <tr>
+                                    <td rowspan="3" style="width:2%">※</td>
+                                    <td>法人、團體、事務所或營業所名稱：@Model.CompanyName</td>
+                                </tr>
+                                <tr>
+                                    <td>地址：@Model.CompanyAdd</td>
+                                </tr>
+                                <tr>
+                                    <td>(管理人或代表人資料請填於上項申請人欄位)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <th rowspan="2">
+                            序
+                            <br>號
+                        </th>
+                        <th colspan="5" class="text-center">請先查詢檔案目錄後填入</th>
+                    </tr>
+                    <tr>
+                        <th>檔號或收發文字號</th>
+                        <th colspan="3">檔案名稱或內容要旨</th>
+                        <th>申請項目（可複選）</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>@Model.DocNo1</td>
+                        <td colspan="3">@Model.DocName1</td>
+                        <td>
+                            @if (Model.DocItem1 == "閱覽抄錄" || Model.DocItem1 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            閱覽、抄錄
+                            @if (Model.DocItem1 == "複製" || Model.DocItem1 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            複製
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>rs("docno_2")</td>
+                        <td colspan="3">rs("docname_2")</td>
+                        <td>
+                            @if (Model.DocItem2 == "閱覽抄錄" || Model.DocItem2 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            閱覽、抄錄
+                            @if (Model.DocItem2 == "複製" || Model.DocItem2 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            複製
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td>rs("docno_3")</td>
+                        <td colspan="3">rs("docname_3")</td>
+                        <td>
+                            @if (Model.DocItem3 == "閱覽抄錄" || Model.DocItem3 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            閱覽、抄錄
+                            @if (Model.DocItem3 == "複製" || Model.DocItem3 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            複製
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">4</td>
+                        <td>rs("docno_4")</td>
+                        <td colspan="3">rs("docname_4")</td>
+                        <td>
+                            @if (Model.DocItem4 == "閱覽抄錄" || Model.DocItem4 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            閱覽、抄錄
+                            @if (Model.DocItem4 == "複製" || Model.DocItem4 == "全部")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            複製
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td>
+                            <table class="table table-no-bordered">
+                                <tr>
+                                    <td width="15%">※序號：</td>
+                                    <td>有使用檔案原件之必要，事由：</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table table-no-bordered">
+                                <tr>
+                                    <td rowspan="2" class="text-nowrap">申請目的：</td>
+                                    <td>
+                                        @if (Model.Purpose1.HasValue && Model.Purpose1.Value == 1)
+                                        {
+                                            <i class="icon fa-square" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="icon fa-square-o" aria-hidden="true"></i>
+                                        }
+                                        歷史考證
+                                        @if (Model.Purpose2.HasValue && Model.Purpose2.Value == 1)
+                                        {
+                                            <i class="icon fa-square" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="icon fa-square-o" aria-hidden="true"></i>
+                                        }
+                                        學術研究
+                                        @if (Model.Purpose3.HasValue && Model.Purpose3.Value == 1)
+                                        {
+                                            <i class="icon fa-square" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="icon fa-square-o" aria-hidden="true"></i>
+                                        }
+                                        事證稽憑
+                                        @if (Model.Purpose4.HasValue && Model.Purpose4.Value == 1)
+                                        {
+                                            <i class="icon fa-square" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="icon fa-square-o" aria-hidden="true"></i>
+                                        }
+                                        權益保障
+                                        @if (Model.Purpose5.HasValue && Model.Purpose5.Value == 1)
+                                        {
+                                            <i class="icon fa-square" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="icon fa-square-o" aria-hidden="true"></i>
+                                        }
+                                        業務參考
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @if (Model.Purpose6.HasValue && Model.Purpose6.Value == 1)
+                                        {
+                                            <i class="icon fa-square" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="icon fa-square-o" aria-hidden="true"></i>
+                                        }
+                                        其他：@Model.PurposeNote
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom-width: 0 !important">
+                            <h4>此致 基隆市安樂地政事務所</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-top-width: 0 !important">
+                            <table class="table table-no-bordered" style="margin-top:0;margin-bottom:0">
+                                <tr>
+                                    <td width="14%">申請人簽章：</td>
+                                    <td width="20%"></td>
+                                    <td width="16%">※代理人簽章：</td>
+                                    <td width="20%"></td>
+                                    <td width="12%">申請日期：</td>
+                                    <td class="text-center">
+                                        @if (Model.WDate.HasValue)
+                                        {@Model.WDate.Value.ToString("yyyy/MM/dd")}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <P class="print"></P>
+                <table class="table table-no-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td class="text-center">
+                            <h3>網路申請檔案閱覽抄錄複製服務網頁問卷</h3>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <th>1.請問您從何處得知本所「網路申請檔案閱覽抄錄複製服務」？</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa1 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            傳播媒體
+                            @if (Model.Qa1 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            報章雜誌
+                            @if (Model.Qa1 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            本所宣導品
+                            @if (Model.Qa1 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            親朋好友告知
+                            @if (Model.Qa1 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            自己發現
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>2.請問您對於本所「網路申請檔案閱覽抄錄複製服務」網頁操作介面是否滿意？</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @if (Model.Qa2 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常滿意
+                            @if (Model.Qa2 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            滿意
+                            @if (Model.Qa2 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            普通
+                            @if (Model.Qa2 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            不滿意
+                            @if (Model.Qa2 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常不滿意
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>3.請問您認為「網路申請檔案閱覽抄錄複製服務」此項服務，能節省您多少時間？</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa3 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            4小時以上
+                            @if (Model.Qa3 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            3-4小時
+                            @if (Model.Qa3 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            2-3小時
+                            @if (Model.Qa3 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            1-2小時
+                            @if (Model.Qa3 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            1小時以內
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>4.總體而言，請問您對於本所「網路申請檔案閱覽抄錄複製服務」此項服務，是否滿意？</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa4 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常滿意
+                            @if (Model.Qa4 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            滿意
+                            @if (Model.Qa4 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            普通
+                            @if (Model.Qa4 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            不滿意
+                            @if (Model.Qa4 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常不滿意
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>5.請問您的職業是：</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa5 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            地政士或不動產相關行業
+                            @if (Model.Qa5 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            銀行或金融業
+                            @if (Model.Qa5 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            軍公教
+                            @if (Model.Qa5 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            農漁商
+                            @if (Model.Qa5 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            自由業或其他
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            填寫日期：
+                            @if (Model.WDate.HasValue)
+                            {@Model.WDate.Value.ToString("yyyy/MM/dd")}
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    </div>
+    <!-- End Page -->
+    <!-- Core  -->
+    <script src="~/global/vendor/jquery/jquery.js"></script>
+    <script src="~/global/vendor/bootstrap/bootstrap.js"></script>
+</body>
+
+</html>
+

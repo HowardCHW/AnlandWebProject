@@ -51,8 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="BusinessModel\OnlineApplicationModel.cs" />
     <Compile Include="DocumentService.cs" />
     <Compile Include="Interface\IDocumentService.cs" />
+    <Compile Include="Interface\IOnlineApplicationService.cs" />
+    <Compile Include="OnlineApplicationService.cs" />
     <Compile Include="MeetingService.cs" />
     <Compile Include="BusinessModel\BackendUserModel.cs" />
     <Compile Include="BusinessModel\DepartmentModel.cs" />

@@ -1,0 +1,612 @@
+﻿@model AnlandProject.Service.BusinessModel.OnlineApplicationModel
+@{
+    ViewBag.Title = "LandPriceView";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap admin template">
+    <meta name="author" content="">
+
+    <title>基隆市安樂地政事務所-網站管理系統</title>
+
+    <link rel="apple-touch-icon" href="~/base/assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="~/base/assets/images/apple-touch-icon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/global/css/bootstrap-extend.min.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="~/global/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="~/base/assets/css/site.css">
+
+    <style>
+        @@page {
+            margin: 1cm;
+            size: A4 portrait;
+        }
+        .print {
+            page-break-after: always;
+        }
+        @@media print {
+            body {
+                color: #000;
+                font-family: "標楷體";
+                padding: 0;
+                margin: 0;
+            }
+            h1,h2,h3,h4,h5 {
+                color: #000;
+                font-family: "標楷體";
+            }
+            .printbtn {
+                display: none;
+            }
+            .table-bordered {
+                border: 1px solid #000000 !important;
+            }
+            .table-bordered td,
+            .table-bordered th {
+                border: 1px solid #000000 !important;
+            }
+            table.dataTable thead td,
+            table.dataTable thead th {
+                border-bottom: 2px solid #000000 !important;
+            }
+            .table-no-bordered {
+                border-width: 0 !important;
+            }
+
+            .table-no-bordered td,
+            .table-no-bordered th {
+                border-width: 0 !important;
+                padding:0;
+            }
+        }
+        body {
+            color: #000;
+            padding-top: 20px !important;
+            margin: 0;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="global/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+    <script src="global/vendor/media-match/media.match.min.js"></script>
+    <script src="global/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="printbtn text-right">
+        <a href="javascript:print();" class="btn btn-primary">列印</a>
+    </div>
+
+    <!-- Page -->
+    <div class="page-content container-fluid" style="padding: 10px 30px">
+
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered" style="box-shadow: none">
+            <div class="panel-body">
+                <table class="table table-no-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td class="text-center">
+                            <h3>基隆市安樂地政事務所公告地價申請書</h3>
+                        </td>
+                        <td class="text-left" style="width:20%">
+                            編號：
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <th class="text-center">申請目的</th>
+                        <th class="text-center">說明</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Model.Purpose
+                        </td>
+                        <td>
+                            請於左列欄位中填入下列申請目的代號：
+                            <br> (1)承租公司有土地 (2)申報地價參考 (3)司法訴訟或調解 &nbsp; (4)其他
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-no-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td class="text-center" style="line-height: 3em;">
+                            申請貴所所核發下列地段地號之「公告地價」資料
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <th>區名</th>
+                        <th>段名及小段名</th>
+                        <th>地號</th>
+                        <th>資料年度</th>
+                        <th colspan="2">說明</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Model.Area1
+                        </td>
+                        <td class="text-center">
+                            @Model.Sarea1
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaNo1
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaYear1
+                        </td>
+                        <td colspan="2" rowspan="5">
+                            請於左列「資料年度」欄位中，
+                            <br> 填入下列年度代號或公告地價
+                            <br> 年度：
+                            <br> (1) 59年度；(2) 63年度；
+                            <br> (3) 67年度；(4) 76年度；
+                            <br> (5) 80年度；(6) 83年度；
+                            <br> (7) 86年度；(8) 89年度；
+                            <br> (9) 93年度；(10)96年度；
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Model.Area2
+                        </td>
+                        <td class="text-center">
+                            @Model.Sarea2
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaNo2
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaYear2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Model.Area3
+                        </td>
+                        <td class="text-center">
+                            @Model.Sarea3
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaNo3
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaYear3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Model.Area4
+                        </td>
+                        <td class="text-center">
+                            @Model.Sarea4
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaNo4
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaYear4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Model.Area5
+                        </td>
+                        <td class="text-center">
+                            @Model.Sarea5
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaNo5
+                        </td>
+                        <td class="text-center">
+                            @Model.AreaYear5
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-no-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td style="line-height: 1.5;font-size:12px;padding:1em 0">說明：依據內政部89年9月4日台(89)內地字地8912764號函，上開地段號之公告地價資料將以公文書方式核發。 </td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td>
+                            <strong>申請人：</strong>
+                            @Model.ApplyName
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>申請人統一編號或身分證字號：</strong>
+                            @Model.ApplyID
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>申請人電話或行動電話：</strong>
+                            @Model.ApplyTel
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>申請人住址：</strong>
+                            @Model.ApplyAdd
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            @if (Model.WDate.HasValue)
+                            {
+                                @Html.Raw(string.Format("中華民國 {0} 年 {1:00} 月 {2:00} 日", Model.WDate.Value.Year - 1911, Model.WDate.Value.Month, Model.WDate.Value.Day))
+                            }
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-no-bordered" style="margin-bottom:0;margin-top:10px">
+                    <tr>
+                        <td class="text-center">
+                            <h5>---------------------- 以下欄位為機關作業處理使用，請勿填寫 ----------------------</h5>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td class="text-center">
+                            <h5 style="margin-bottom:0">處理情形</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table class="table table-no-bordered" style="margin-bottom:0">
+                                <tr>
+                                    <td style="width:2%">
+                                        <i class="icon fa-square-o" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        本申請案已於
+                                        <u>&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;時&nbsp;&nbsp;&nbsp;分</u>，經承辦人電話確認無誤。准予辦理，將發函回覆申請人。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="icon fa-square-o" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        本申請案因
+                                        <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>，不予受理。
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table table-no-bordered" style="margin-top:2em;margin-bottom:0">
+                                <tr>
+                                    <td width="14%">承辦人：</td>
+                                    <td width="20%"></td>
+                                    <td width="16%">課長：</td>
+                                    <td width="20%"></td>
+                                    <td width="12%">主任：</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+
+                <P class="print"></P>
+                <table class="table table-no-bordered" style="margin-bottom:0">
+                    <tr>
+                        <td class="text-center">
+                            <h3>網路申請公告地價資料服務網頁問卷</h3>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-striped table-bordered" style="margin-bottom:0">
+                    <tr>
+                        <th class="text-left">1.請問您從何處得知本所「網路申請公告地價資料服務」？</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa1 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            傳播媒體
+                            @if (Model.Qa1 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            報章雜誌
+                            @if (Model.Qa1 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            本所宣導品
+                            @if (Model.Qa1 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            親朋好友告知
+                            @if (Model.Qa1 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            自己發現
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">2.請問您對於本所「網路申請公告地價資料服務」網頁操作介面是否滿意？</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @if (Model.Qa2 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常滿意
+                            @if (Model.Qa2 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            滿意
+                            @if (Model.Qa2 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            普通
+                            @if (Model.Qa2 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            不滿意
+                            @if (Model.Qa2 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常不滿意
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-left">3.請問您認為「網路申請公告地價資料服務」此項服務，能節省您多少時間？</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa3 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            4小時以上
+                            @if (Model.Qa3 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            3-4小時
+                            @if (Model.Qa3 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            2-3小時
+                            @if (Model.Qa3 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            1-2小時
+                            @if (Model.Qa3 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            1小時以內
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">4.總體而言，請問您對於本所「網路申請公告地價資料服務」此項服務，是否滿意？</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa4 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常滿意
+                            @if (Model.Qa4 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            滿意
+                            @if (Model.Qa4 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            普通
+                            @if (Model.Qa4 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            不滿意
+                            @if (Model.Qa4 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            非常不滿意
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">5.請問您的職業是：</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Qa5 == "1")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            地政士或不動產相關行業
+                            @if (Model.Qa5 == "2")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            銀行或金融業
+                            @if (Model.Qa5 == "3")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            軍公教
+                            @if (Model.Qa5 == "4")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            農漁商
+                            @if (Model.Qa5 == "5")
+                            {
+                                <i class="icon fa-square" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="icon fa-square-o" aria-hidden="true"></i>
+                            }
+                            自由業或其他
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">
+                            填寫日期：
+                            @if (Model.WDate.HasValue)
+                            {@Model.WDate.Value.ToString("yyyy/MM/dd")}
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+
+    </div>
+    <!-- End Page -->
+    <!-- Core  -->
+    <script src="~/global/vendor/jquery/jquery.js"></script>
+    <script src="~/global/vendor/bootstrap/bootstrap.js"></script>
+</body>
+
+</html>
+

@@ -163,6 +163,53 @@ warning 6002: The table/view 'anland.dbo.Categories' does not have a primary key
           <Property Name="openWindow" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="credate" Type="datetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.copy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="copy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="apply_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_birth" Type="datetime" />
+          <Property Name="apply_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_add" Type="nvarchar" MaxLength="255" />
+          <Property Name="apply_email" Type="nvarchar" MaxLength="100" />
+          <Property Name="agent_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_birth" Type="datetime" />
+          <Property Name="agent_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_add" Type="nvarchar" MaxLength="255" />
+          <Property Name="agent_re" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_add" Type="nvarchar" MaxLength="255" />
+          <Property Name="docno_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="docno_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="docno_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="docno_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="docname_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="docname_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="docname_3" Type="nvarchar" MaxLength="255" />
+          <Property Name="docname_4" Type="nvarchar" MaxLength="255" />
+          <Property Name="docitem_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="purpose_1" Type="int" />
+          <Property Name="purpose_2" Type="int" />
+          <Property Name="purpose_3" Type="int" />
+          <Property Name="purpose_4" Type="int" />
+          <Property Name="purpose_5" Type="int" />
+          <Property Name="purpose_6" Type="int" />
+          <Property Name="purpose_note" Type="nvarchar" MaxLength="150" />
+          <Property Name="wdate" Type="datetime" />
+          <Property Name="qa_1" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_2" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_3" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_4" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_5" Type="nvarchar" MaxLength="2" />
+        </EntityType>
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="id" />
@@ -262,6 +309,51 @@ warning 6002: The table/view 'anland.dbo.email' does not have a primary key defi
           <Property Name="msg_type" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.engcopy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="engcopy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="apply_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_birth" Type="datetime" />
+          <Property Name="apply_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_add" Type="nvarchar" MaxLength="255" />
+          <Property Name="apply_email" Type="nvarchar" MaxLength="100" />
+          <Property Name="agent_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_birth" Type="datetime" />
+          <Property Name="agent_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_add" Type="nvarchar" MaxLength="255" />
+          <Property Name="agent_re" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_add" Type="nvarchar" MaxLength="255" />
+          <Property Name="sarea_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="sarea_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="areano_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="areano_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="docname_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="docname_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="docitem_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="purpose_1" Type="int" />
+          <Property Name="purpose_2" Type="int" />
+          <Property Name="purpose_3" Type="int" />
+          <Property Name="purpose_4" Type="int" />
+          <Property Name="purpose_5" Type="int" />
+          <Property Name="purpose_note" Type="nvarchar" MaxLength="150" />
+          <Property Name="wdate" Type="datetime" />
+          <Property Name="qa_1" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_2" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_3" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_4" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_5" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_note" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'anland.dbo.form' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="form">
           <Key>
@@ -350,6 +442,48 @@ warning 6002: The table/view 'anland.dbo.form' does not have a primary key defin
           <Property Name="created_dept_id" Type="int" />
           <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
           <Property Name="created_user_phone" Type="nchar" MaxLength="12" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.landprice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="landprice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="apply_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_add" Type="nvarchar" MaxLength="255" />
+          <Property Name="apply_email" Type="nvarchar" MaxLength="100" />
+          <Property Name="purpose" Type="nvarchar" MaxLength="50" />
+          <Property Name="purpose_note" Type="nvarchar" MaxLength="150" />
+          <Property Name="area_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="area_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="area_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="area_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="area_5" Type="nvarchar" MaxLength="50" />
+          <Property Name="sarea_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="sarea_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="sarea_3" Type="nvarchar" MaxLength="255" />
+          <Property Name="sarea_4" Type="nvarchar" MaxLength="255" />
+          <Property Name="sarea_5" Type="nvarchar" MaxLength="50" />
+          <Property Name="areano_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="areano_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="areano_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="areano_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="areano_5" Type="nvarchar" MaxLength="50" />
+          <Property Name="areayear_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="areayear_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="areayear_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="areayear_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="areayear_5" Type="nvarchar" MaxLength="50" />
+          <Property Name="note" Type="nvarchar" MaxLength="255" />
+          <Property Name="wdate" Type="datetime" />
+          <Property Name="qa_1" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_2" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_3" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_4" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_5" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="lawclass">
           <Key>
@@ -465,6 +599,53 @@ warning 6002: The table/view 'anland.dbo.lawview' does not have a primary key de
           <Property Name="classname" Type="nvarchar" MaxLength="50" />
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
           <Property Name="credate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'anland.dbo.onlineapp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="onlineapp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="apply_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_birth" Type="datetime" />
+          <Property Name="apply_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="apply_email" Type="nvarchar" MaxLength="100" />
+          <Property Name="agent_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_birth" Type="datetime" />
+          <Property Name="agent_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="agent_re" Type="nvarchar" MaxLength="5" />
+          <Property Name="app_item_1" Type="int" />
+          <Property Name="app_item_2" Type="int" />
+          <Property Name="app_item_3" Type="int" />
+          <Property Name="year_1" Type="nvarchar" MaxLength="5" />
+          <Property Name="year_2" Type="nvarchar" MaxLength="5" />
+          <Property Name="year_3" Type="nvarchar" MaxLength="5" />
+          <Property Name="docitem_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="docitem_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="no_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="no_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="no_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="copy_1" Type="nvarchar" MaxLength="5" />
+          <Property Name="copy_2" Type="nvarchar" MaxLength="5" />
+          <Property Name="purpose_1" Type="int" />
+          <Property Name="purpose_2" Type="int" />
+          <Property Name="purpose_3" Type="int" />
+          <Property Name="purpose_4" Type="int" />
+          <Property Name="purpose_5" Type="int" />
+          <Property Name="purpose_note" Type="nvarchar" MaxLength="150" />
+          <Property Name="wdate" Type="datetime" />
+          <Property Name="qa_1" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_2" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_3" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_4" Type="nvarchar" MaxLength="2" />
+          <Property Name="qa_5" Type="nvarchar" MaxLength="2" />
+          <Property Name="other_note" Type="nvarchar" MaxLength="150" />
+          <Property Name="get_appdate" Type="datetime" />
+          <Property Name="get_apptime" Type="nvarchar" MaxLength="50" />
+          <Property Name="qa_note" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'anland.dbo.post_group' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -687,6 +868,50 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [Categories].[credate] AS [credate]
     FROM [dbo].[Categories] AS [Categories]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="copy" EntityType="Self.copy" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [copy].[ID] AS [ID], 
+    [copy].[apply_name] AS [apply_name], 
+    [copy].[apply_birth] AS [apply_birth], 
+    [copy].[apply_id] AS [apply_id], 
+    [copy].[apply_tel] AS [apply_tel], 
+    [copy].[apply_add] AS [apply_add], 
+    [copy].[apply_email] AS [apply_email], 
+    [copy].[agent_name] AS [agent_name], 
+    [copy].[agent_birth] AS [agent_birth], 
+    [copy].[agent_id] AS [agent_id], 
+    [copy].[agent_tel] AS [agent_tel], 
+    [copy].[agent_add] AS [agent_add], 
+    [copy].[agent_re] AS [agent_re], 
+    [copy].[company_name] AS [company_name], 
+    [copy].[company_add] AS [company_add], 
+    [copy].[docno_1] AS [docno_1], 
+    [copy].[docno_2] AS [docno_2], 
+    [copy].[docno_3] AS [docno_3], 
+    [copy].[docno_4] AS [docno_4], 
+    [copy].[docname_1] AS [docname_1], 
+    [copy].[docname_2] AS [docname_2], 
+    [copy].[docname_3] AS [docname_3], 
+    [copy].[docname_4] AS [docname_4], 
+    [copy].[docitem_1] AS [docitem_1], 
+    [copy].[docitem_2] AS [docitem_2], 
+    [copy].[docitem_3] AS [docitem_3], 
+    [copy].[docitem_4] AS [docitem_4], 
+    [copy].[purpose_1] AS [purpose_1], 
+    [copy].[purpose_2] AS [purpose_2], 
+    [copy].[purpose_3] AS [purpose_3], 
+    [copy].[purpose_4] AS [purpose_4], 
+    [copy].[purpose_5] AS [purpose_5], 
+    [copy].[purpose_6] AS [purpose_6], 
+    [copy].[purpose_note] AS [purpose_note], 
+    [copy].[wdate] AS [wdate], 
+    [copy].[qa_1] AS [qa_1], 
+    [copy].[qa_2] AS [qa_2], 
+    [copy].[qa_3] AS [qa_3], 
+    [copy].[qa_4] AS [qa_4], 
+    [copy].[qa_5] AS [qa_5]
+    FROM [dbo].[copy] AS [copy]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="director" EntityType="Self.director" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [director].[no] AS [no], 
@@ -726,6 +951,48 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [email].[msg_type] AS [msg_type]
     FROM [dbo].[email] AS [email]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="engcopy" EntityType="Self.engcopy" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [engcopy].[ID] AS [ID], 
+    [engcopy].[apply_name] AS [apply_name], 
+    [engcopy].[apply_birth] AS [apply_birth], 
+    [engcopy].[apply_id] AS [apply_id], 
+    [engcopy].[apply_tel] AS [apply_tel], 
+    [engcopy].[apply_add] AS [apply_add], 
+    [engcopy].[apply_email] AS [apply_email], 
+    [engcopy].[agent_name] AS [agent_name], 
+    [engcopy].[agent_birth] AS [agent_birth], 
+    [engcopy].[agent_id] AS [agent_id], 
+    [engcopy].[agent_tel] AS [agent_tel], 
+    [engcopy].[agent_add] AS [agent_add], 
+    [engcopy].[agent_re] AS [agent_re], 
+    [engcopy].[company_name] AS [company_name], 
+    [engcopy].[company_add] AS [company_add], 
+    [engcopy].[sarea_1] AS [sarea_1], 
+    [engcopy].[sarea_2] AS [sarea_2], 
+    [engcopy].[areano_1] AS [areano_1], 
+    [engcopy].[areano_2] AS [areano_2], 
+    [engcopy].[docname_1] AS [docname_1], 
+    [engcopy].[docname_2] AS [docname_2], 
+    [engcopy].[docitem_1] AS [docitem_1], 
+    [engcopy].[docitem_2] AS [docitem_2], 
+    [engcopy].[docitem_3] AS [docitem_3], 
+    [engcopy].[docitem_4] AS [docitem_4], 
+    [engcopy].[purpose_1] AS [purpose_1], 
+    [engcopy].[purpose_2] AS [purpose_2], 
+    [engcopy].[purpose_3] AS [purpose_3], 
+    [engcopy].[purpose_4] AS [purpose_4], 
+    [engcopy].[purpose_5] AS [purpose_5], 
+    [engcopy].[purpose_note] AS [purpose_note], 
+    [engcopy].[wdate] AS [wdate], 
+    [engcopy].[qa_1] AS [qa_1], 
+    [engcopy].[qa_2] AS [qa_2], 
+    [engcopy].[qa_3] AS [qa_3], 
+    [engcopy].[qa_4] AS [qa_4], 
+    [engcopy].[qa_5] AS [qa_5], 
+    [engcopy].[qa_note] AS [qa_note]
+    FROM [dbo].[engcopy] AS [engcopy]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="form" EntityType="Self.form" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [form].[ID] AS [ID], 
@@ -739,6 +1006,45 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [form].[UploadTime] AS [UploadTime], 
     [form].[TpcDocNo] AS [TpcDocNo]
     FROM [dbo].[form] AS [form]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="landprice" EntityType="Self.landprice" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [landprice].[ID] AS [ID], 
+    [landprice].[apply_name] AS [apply_name], 
+    [landprice].[apply_id] AS [apply_id], 
+    [landprice].[apply_tel] AS [apply_tel], 
+    [landprice].[apply_add] AS [apply_add], 
+    [landprice].[apply_email] AS [apply_email], 
+    [landprice].[purpose] AS [purpose], 
+    [landprice].[purpose_note] AS [purpose_note], 
+    [landprice].[area_1] AS [area_1], 
+    [landprice].[area_2] AS [area_2], 
+    [landprice].[area_3] AS [area_3], 
+    [landprice].[area_4] AS [area_4], 
+    [landprice].[area_5] AS [area_5], 
+    [landprice].[sarea_1] AS [sarea_1], 
+    [landprice].[sarea_2] AS [sarea_2], 
+    [landprice].[sarea_3] AS [sarea_3], 
+    [landprice].[sarea_4] AS [sarea_4], 
+    [landprice].[sarea_5] AS [sarea_5], 
+    [landprice].[areano_1] AS [areano_1], 
+    [landprice].[areano_2] AS [areano_2], 
+    [landprice].[areano_3] AS [areano_3], 
+    [landprice].[areano_4] AS [areano_4], 
+    [landprice].[areano_5] AS [areano_5], 
+    [landprice].[areayear_1] AS [areayear_1], 
+    [landprice].[areayear_2] AS [areayear_2], 
+    [landprice].[areayear_3] AS [areayear_3], 
+    [landprice].[areayear_4] AS [areayear_4], 
+    [landprice].[areayear_5] AS [areayear_5], 
+    [landprice].[note] AS [note], 
+    [landprice].[wdate] AS [wdate], 
+    [landprice].[qa_1] AS [qa_1], 
+    [landprice].[qa_2] AS [qa_2], 
+    [landprice].[qa_3] AS [qa_3], 
+    [landprice].[qa_4] AS [qa_4], 
+    [landprice].[qa_5] AS [qa_5]
+    FROM [dbo].[landprice] AS [landprice]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="lawview" EntityType="Self.lawview" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -772,6 +1078,50 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [lawview].[hit] AS [hit], 
     [lawview].[classname] AS [classname]
     FROM [dbo].[lawview] AS [lawview]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="onlineapp" EntityType="Self.onlineapp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [onlineapp].[ID] AS [ID], 
+    [onlineapp].[apply_name] AS [apply_name], 
+    [onlineapp].[apply_birth] AS [apply_birth], 
+    [onlineapp].[apply_id] AS [apply_id], 
+    [onlineapp].[apply_tel] AS [apply_tel], 
+    [onlineapp].[apply_email] AS [apply_email], 
+    [onlineapp].[agent_name] AS [agent_name], 
+    [onlineapp].[agent_birth] AS [agent_birth], 
+    [onlineapp].[agent_id] AS [agent_id], 
+    [onlineapp].[agent_re] AS [agent_re], 
+    [onlineapp].[app_item_1] AS [app_item_1], 
+    [onlineapp].[app_item_2] AS [app_item_2], 
+    [onlineapp].[app_item_3] AS [app_item_3], 
+    [onlineapp].[year_1] AS [year_1], 
+    [onlineapp].[year_2] AS [year_2], 
+    [onlineapp].[year_3] AS [year_3], 
+    [onlineapp].[docitem_1] AS [docitem_1], 
+    [onlineapp].[docitem_2] AS [docitem_2], 
+    [onlineapp].[docitem_3] AS [docitem_3], 
+    [onlineapp].[no_1] AS [no_1], 
+    [onlineapp].[no_2] AS [no_2], 
+    [onlineapp].[no_3] AS [no_3], 
+    [onlineapp].[copy_1] AS [copy_1], 
+    [onlineapp].[copy_2] AS [copy_2], 
+    [onlineapp].[purpose_1] AS [purpose_1], 
+    [onlineapp].[purpose_2] AS [purpose_2], 
+    [onlineapp].[purpose_3] AS [purpose_3], 
+    [onlineapp].[purpose_4] AS [purpose_4], 
+    [onlineapp].[purpose_5] AS [purpose_5], 
+    [onlineapp].[purpose_note] AS [purpose_note], 
+    [onlineapp].[wdate] AS [wdate], 
+    [onlineapp].[qa_1] AS [qa_1], 
+    [onlineapp].[qa_2] AS [qa_2], 
+    [onlineapp].[qa_3] AS [qa_3], 
+    [onlineapp].[qa_4] AS [qa_4], 
+    [onlineapp].[qa_5] AS [qa_5], 
+    [onlineapp].[other_note] AS [other_note], 
+    [onlineapp].[get_appdate] AS [get_appdate], 
+    [onlineapp].[get_apptime] AS [get_apptime], 
+    [onlineapp].[qa_note] AS [qa_note]
+    FROM [dbo].[onlineapp] AS [onlineapp]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="post_group" EntityType="Self.post_group" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1126,6 +1476,10 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="boardclass" EntityType="anlandModel.boardclass" />
           <EntitySet Name="documentclass" EntityType="anlandModel.documentclass" />
           <EntitySet Name="meetingclass" EntityType="anlandModel.meetingclass" />
+          <EntitySet Name="copy" EntityType="anlandModel.copy" />
+          <EntitySet Name="engcopy" EntityType="anlandModel.engcopy" />
+          <EntitySet Name="landprice" EntityType="anlandModel.landprice" />
+          <EntitySet Name="onlineapp" EntityType="anlandModel.onlineapp" />
         </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1491,6 +1845,179 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="copy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="apply_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_birth" Type="DateTime" Precision="3" />
+          <Property Name="apply_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_add" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="apply_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="agent_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_birth" Type="DateTime" Precision="3" />
+          <Property Name="agent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_add" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agent_re" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_add" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="docno_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docno_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docno_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docno_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docname_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="docname_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="docname_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="docname_4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="purpose_1" Type="Int32" />
+          <Property Name="purpose_2" Type="Int32" />
+          <Property Name="purpose_3" Type="Int32" />
+          <Property Name="purpose_4" Type="Int32" />
+          <Property Name="purpose_5" Type="Int32" />
+          <Property Name="purpose_6" Type="Int32" />
+          <Property Name="purpose_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="wdate" Type="DateTime" Precision="3" />
+          <Property Name="qa_1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_3" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_4" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_5" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="engcopy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="apply_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_birth" Type="DateTime" Precision="3" />
+          <Property Name="apply_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_add" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="apply_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="agent_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_birth" Type="DateTime" Precision="3" />
+          <Property Name="agent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_add" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agent_re" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_add" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sarea_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sarea_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areano_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areano_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docname_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="docname_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="purpose_1" Type="Int32" />
+          <Property Name="purpose_2" Type="Int32" />
+          <Property Name="purpose_3" Type="Int32" />
+          <Property Name="purpose_4" Type="Int32" />
+          <Property Name="purpose_5" Type="Int32" />
+          <Property Name="purpose_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="wdate" Type="DateTime" Precision="3" />
+          <Property Name="qa_1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_3" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_4" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_5" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="landprice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="apply_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_add" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="apply_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="purpose_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="area_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="area_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="area_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="area_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="area_5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sarea_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sarea_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sarea_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sarea_4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sarea_5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areano_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areano_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areano_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areano_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areano_5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areayear_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areayear_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areayear_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areayear_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areayear_5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="wdate" Type="DateTime" Precision="3" />
+          <Property Name="qa_1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_3" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_4" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_5" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="onlineapp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="apply_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_birth" Type="DateTime" Precision="3" />
+          <Property Name="apply_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apply_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="agent_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_birth" Type="DateTime" Precision="3" />
+          <Property Name="agent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agent_re" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="app_item_1" Type="Int32" />
+          <Property Name="app_item_2" Type="Int32" />
+          <Property Name="app_item_3" Type="Int32" />
+          <Property Name="year_1" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="year_2" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="year_3" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docitem_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="no_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="no_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="no_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="copy_1" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="copy_2" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="purpose_1" Type="Int32" />
+          <Property Name="purpose_2" Type="Int32" />
+          <Property Name="purpose_3" Type="Int32" />
+          <Property Name="purpose_4" Type="Int32" />
+          <Property Name="purpose_5" Type="Int32" />
+          <Property Name="purpose_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="wdate" Type="DateTime" Precision="3" />
+          <Property Name="qa_1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_3" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_4" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="qa_5" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="other_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="get_appdate" Type="DateTime" Precision="3" />
+          <Property Name="get_apptime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="qa_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2116,6 +2643,183 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="creuser" ColumnName="creuser" />
                 <ScalarProperty Name="classname" ColumnName="classname" />
                 <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="copy">
+            <EntityTypeMapping TypeName="anlandModel.copy">
+              <MappingFragment StoreEntitySet="copy">
+                <ScalarProperty Name="qa_5" ColumnName="qa_5" />
+                <ScalarProperty Name="qa_4" ColumnName="qa_4" />
+                <ScalarProperty Name="qa_3" ColumnName="qa_3" />
+                <ScalarProperty Name="qa_2" ColumnName="qa_2" />
+                <ScalarProperty Name="qa_1" ColumnName="qa_1" />
+                <ScalarProperty Name="wdate" ColumnName="wdate" />
+                <ScalarProperty Name="purpose_note" ColumnName="purpose_note" />
+                <ScalarProperty Name="purpose_6" ColumnName="purpose_6" />
+                <ScalarProperty Name="purpose_5" ColumnName="purpose_5" />
+                <ScalarProperty Name="purpose_4" ColumnName="purpose_4" />
+                <ScalarProperty Name="purpose_3" ColumnName="purpose_3" />
+                <ScalarProperty Name="purpose_2" ColumnName="purpose_2" />
+                <ScalarProperty Name="purpose_1" ColumnName="purpose_1" />
+                <ScalarProperty Name="docitem_4" ColumnName="docitem_4" />
+                <ScalarProperty Name="docitem_3" ColumnName="docitem_3" />
+                <ScalarProperty Name="docitem_2" ColumnName="docitem_2" />
+                <ScalarProperty Name="docitem_1" ColumnName="docitem_1" />
+                <ScalarProperty Name="docname_4" ColumnName="docname_4" />
+                <ScalarProperty Name="docname_3" ColumnName="docname_3" />
+                <ScalarProperty Name="docname_2" ColumnName="docname_2" />
+                <ScalarProperty Name="docname_1" ColumnName="docname_1" />
+                <ScalarProperty Name="docno_4" ColumnName="docno_4" />
+                <ScalarProperty Name="docno_3" ColumnName="docno_3" />
+                <ScalarProperty Name="docno_2" ColumnName="docno_2" />
+                <ScalarProperty Name="docno_1" ColumnName="docno_1" />
+                <ScalarProperty Name="company_add" ColumnName="company_add" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="agent_re" ColumnName="agent_re" />
+                <ScalarProperty Name="agent_add" ColumnName="agent_add" />
+                <ScalarProperty Name="agent_tel" ColumnName="agent_tel" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="agent_birth" ColumnName="agent_birth" />
+                <ScalarProperty Name="agent_name" ColumnName="agent_name" />
+                <ScalarProperty Name="apply_email" ColumnName="apply_email" />
+                <ScalarProperty Name="apply_add" ColumnName="apply_add" />
+                <ScalarProperty Name="apply_tel" ColumnName="apply_tel" />
+                <ScalarProperty Name="apply_id" ColumnName="apply_id" />
+                <ScalarProperty Name="apply_birth" ColumnName="apply_birth" />
+                <ScalarProperty Name="apply_name" ColumnName="apply_name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="engcopy">
+            <EntityTypeMapping TypeName="anlandModel.engcopy">
+              <MappingFragment StoreEntitySet="engcopy">
+                <ScalarProperty Name="qa_note" ColumnName="qa_note" />
+                <ScalarProperty Name="qa_5" ColumnName="qa_5" />
+                <ScalarProperty Name="qa_4" ColumnName="qa_4" />
+                <ScalarProperty Name="qa_3" ColumnName="qa_3" />
+                <ScalarProperty Name="qa_2" ColumnName="qa_2" />
+                <ScalarProperty Name="qa_1" ColumnName="qa_1" />
+                <ScalarProperty Name="wdate" ColumnName="wdate" />
+                <ScalarProperty Name="purpose_note" ColumnName="purpose_note" />
+                <ScalarProperty Name="purpose_5" ColumnName="purpose_5" />
+                <ScalarProperty Name="purpose_4" ColumnName="purpose_4" />
+                <ScalarProperty Name="purpose_3" ColumnName="purpose_3" />
+                <ScalarProperty Name="purpose_2" ColumnName="purpose_2" />
+                <ScalarProperty Name="purpose_1" ColumnName="purpose_1" />
+                <ScalarProperty Name="docitem_4" ColumnName="docitem_4" />
+                <ScalarProperty Name="docitem_3" ColumnName="docitem_3" />
+                <ScalarProperty Name="docitem_2" ColumnName="docitem_2" />
+                <ScalarProperty Name="docitem_1" ColumnName="docitem_1" />
+                <ScalarProperty Name="docname_2" ColumnName="docname_2" />
+                <ScalarProperty Name="docname_1" ColumnName="docname_1" />
+                <ScalarProperty Name="areano_2" ColumnName="areano_2" />
+                <ScalarProperty Name="areano_1" ColumnName="areano_1" />
+                <ScalarProperty Name="sarea_2" ColumnName="sarea_2" />
+                <ScalarProperty Name="sarea_1" ColumnName="sarea_1" />
+                <ScalarProperty Name="company_add" ColumnName="company_add" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="agent_re" ColumnName="agent_re" />
+                <ScalarProperty Name="agent_add" ColumnName="agent_add" />
+                <ScalarProperty Name="agent_tel" ColumnName="agent_tel" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="agent_birth" ColumnName="agent_birth" />
+                <ScalarProperty Name="agent_name" ColumnName="agent_name" />
+                <ScalarProperty Name="apply_email" ColumnName="apply_email" />
+                <ScalarProperty Name="apply_add" ColumnName="apply_add" />
+                <ScalarProperty Name="apply_tel" ColumnName="apply_tel" />
+                <ScalarProperty Name="apply_id" ColumnName="apply_id" />
+                <ScalarProperty Name="apply_birth" ColumnName="apply_birth" />
+                <ScalarProperty Name="apply_name" ColumnName="apply_name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="landprice">
+            <EntityTypeMapping TypeName="anlandModel.landprice">
+              <MappingFragment StoreEntitySet="landprice">
+                <ScalarProperty Name="qa_5" ColumnName="qa_5" />
+                <ScalarProperty Name="qa_4" ColumnName="qa_4" />
+                <ScalarProperty Name="qa_3" ColumnName="qa_3" />
+                <ScalarProperty Name="qa_2" ColumnName="qa_2" />
+                <ScalarProperty Name="qa_1" ColumnName="qa_1" />
+                <ScalarProperty Name="wdate" ColumnName="wdate" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="areayear_5" ColumnName="areayear_5" />
+                <ScalarProperty Name="areayear_4" ColumnName="areayear_4" />
+                <ScalarProperty Name="areayear_3" ColumnName="areayear_3" />
+                <ScalarProperty Name="areayear_2" ColumnName="areayear_2" />
+                <ScalarProperty Name="areayear_1" ColumnName="areayear_1" />
+                <ScalarProperty Name="areano_5" ColumnName="areano_5" />
+                <ScalarProperty Name="areano_4" ColumnName="areano_4" />
+                <ScalarProperty Name="areano_3" ColumnName="areano_3" />
+                <ScalarProperty Name="areano_2" ColumnName="areano_2" />
+                <ScalarProperty Name="areano_1" ColumnName="areano_1" />
+                <ScalarProperty Name="sarea_5" ColumnName="sarea_5" />
+                <ScalarProperty Name="sarea_4" ColumnName="sarea_4" />
+                <ScalarProperty Name="sarea_3" ColumnName="sarea_3" />
+                <ScalarProperty Name="sarea_2" ColumnName="sarea_2" />
+                <ScalarProperty Name="sarea_1" ColumnName="sarea_1" />
+                <ScalarProperty Name="area_5" ColumnName="area_5" />
+                <ScalarProperty Name="area_4" ColumnName="area_4" />
+                <ScalarProperty Name="area_3" ColumnName="area_3" />
+                <ScalarProperty Name="area_2" ColumnName="area_2" />
+                <ScalarProperty Name="area_1" ColumnName="area_1" />
+                <ScalarProperty Name="purpose_note" ColumnName="purpose_note" />
+                <ScalarProperty Name="purpose" ColumnName="purpose" />
+                <ScalarProperty Name="apply_email" ColumnName="apply_email" />
+                <ScalarProperty Name="apply_add" ColumnName="apply_add" />
+                <ScalarProperty Name="apply_tel" ColumnName="apply_tel" />
+                <ScalarProperty Name="apply_id" ColumnName="apply_id" />
+                <ScalarProperty Name="apply_name" ColumnName="apply_name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="onlineapp">
+            <EntityTypeMapping TypeName="anlandModel.onlineapp">
+              <MappingFragment StoreEntitySet="onlineapp">
+                <ScalarProperty Name="qa_note" ColumnName="qa_note" />
+                <ScalarProperty Name="get_apptime" ColumnName="get_apptime" />
+                <ScalarProperty Name="get_appdate" ColumnName="get_appdate" />
+                <ScalarProperty Name="other_note" ColumnName="other_note" />
+                <ScalarProperty Name="qa_5" ColumnName="qa_5" />
+                <ScalarProperty Name="qa_4" ColumnName="qa_4" />
+                <ScalarProperty Name="qa_3" ColumnName="qa_3" />
+                <ScalarProperty Name="qa_2" ColumnName="qa_2" />
+                <ScalarProperty Name="qa_1" ColumnName="qa_1" />
+                <ScalarProperty Name="wdate" ColumnName="wdate" />
+                <ScalarProperty Name="purpose_note" ColumnName="purpose_note" />
+                <ScalarProperty Name="purpose_5" ColumnName="purpose_5" />
+                <ScalarProperty Name="purpose_4" ColumnName="purpose_4" />
+                <ScalarProperty Name="purpose_3" ColumnName="purpose_3" />
+                <ScalarProperty Name="purpose_2" ColumnName="purpose_2" />
+                <ScalarProperty Name="purpose_1" ColumnName="purpose_1" />
+                <ScalarProperty Name="copy_2" ColumnName="copy_2" />
+                <ScalarProperty Name="copy_1" ColumnName="copy_1" />
+                <ScalarProperty Name="no_3" ColumnName="no_3" />
+                <ScalarProperty Name="no_2" ColumnName="no_2" />
+                <ScalarProperty Name="no_1" ColumnName="no_1" />
+                <ScalarProperty Name="docitem_3" ColumnName="docitem_3" />
+                <ScalarProperty Name="docitem_2" ColumnName="docitem_2" />
+                <ScalarProperty Name="docitem_1" ColumnName="docitem_1" />
+                <ScalarProperty Name="year_3" ColumnName="year_3" />
+                <ScalarProperty Name="year_2" ColumnName="year_2" />
+                <ScalarProperty Name="year_1" ColumnName="year_1" />
+                <ScalarProperty Name="app_item_3" ColumnName="app_item_3" />
+                <ScalarProperty Name="app_item_2" ColumnName="app_item_2" />
+                <ScalarProperty Name="app_item_1" ColumnName="app_item_1" />
+                <ScalarProperty Name="agent_re" ColumnName="agent_re" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="agent_birth" ColumnName="agent_birth" />
+                <ScalarProperty Name="agent_name" ColumnName="agent_name" />
+                <ScalarProperty Name="apply_email" ColumnName="apply_email" />
+                <ScalarProperty Name="apply_tel" ColumnName="apply_tel" />
+                <ScalarProperty Name="apply_id" ColumnName="apply_id" />
+                <ScalarProperty Name="apply_birth" ColumnName="apply_birth" />
+                <ScalarProperty Name="apply_name" ColumnName="apply_name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

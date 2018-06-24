@@ -39,6 +39,10 @@
         <EntityTypeShape EntityType="anlandModel.boardclass" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="anlandModel.documentclass" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="anlandModel.meetingclass" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="anlandModel.copy" Width="1.5" PointX="19.375" PointY="16.75" />
+        <EntityTypeShape EntityType="anlandModel.engcopy" Width="1.5" PointX="13.375" PointY="20.75" />
+        <EntityTypeShape EntityType="anlandModel.landprice" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="anlandModel.onlineapp" Width="1.5" PointX="5.375" PointY="21.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
