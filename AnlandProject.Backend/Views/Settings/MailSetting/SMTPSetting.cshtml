@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+@section styles{
+
+}
+
+<div class="page-header">
+    <h1 class="page-title">Email 環境顯示設定</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href='@Url.Action("Index","Home")'>首頁</a>
+        </li>
+        <li class="breadcrumb-item active">Email 環境顯示設定</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+
+<div class="page-content container-fluid">
+    <form id="smptSetupForm" class="FullForm" autocomplete="off">
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-md-4 form-horizontal">
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row" for="author">
+                                    EMail類別
+                                    <span class="required">*</span>
+                                </label>
+                                <select class="show-tick" data-plugin="selectpicker" id="type" name="type" required="">
+                                    <option value="">請選擇EMail類別</option>
+                                    <option value="email">地政答客問</option>
+                                    <option value="director">主任信箱</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- 郵件伺服器 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                郵件伺服器
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBox("smtp", "", new { @class = "form-control", @id = "smtp", @placeholder = "", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /郵件伺服器 -->
+                        <!-- 寄件者信箱 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                寄件者信箱
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBox("smtpusername", "", new { @class = "form-control", @id = "smtpusername", @placeholder = "請輸入上列SMTP之完整信箱帳號", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /寄件者信箱 -->
+                        <!-- 密寄件者信箱密碼碼 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                寄件者信箱密碼
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.Password("smtppassword", "", new { @class = "form-control", @placeholder = "上列信箱之密碼" })
+                            </div>
+                        </div>
+                        <!-- /寄件者信箱密碼 -->
+                        <!-- 收件者信箱 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                收件者信箱
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBox("recipient", "", new { @class = "form-control", @id = "recipient", @placeholder = "請輸入收件者信箱", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /收件者信箱 -->
+                        <!-- 收件者抬頭 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                收件者抬頭
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBox("recipientname", "", new { @class = "form-control", @id = "recipientname", @placeholder = "請輸入收件者信箱", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /收件者抬頭 -->
+                        <!-- 信件主旨之前置詞 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                信件主旨之前置詞 (ssubject)
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBox("subject", "", new { @class = "form-control", @id= "subject", @placeholder = "信件主旨之前置詞", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /信件主旨之前置詞 -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    @*<a href="../news/news-main.html" class="btn btn-default" id="validateButton1">取消</a>*@
+                    <button type="submit" disabled class="btn btn-primary" id="validateButton1">確認</button>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    </form>
+
+</div>
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            $('#type').on('change', function () {
+                $.ajax({
+                    url: '@Url.Action("SMTPSetupQueryBuID", "SMTPSetup")',
+                    type: "post",
+                    headers: {
+                        'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
+                    },
+                    data: { type: $(this).val() },
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result) {
+                            $('#smtp').val(result.SMTP);
+                            $('#smtpusername').val(result.SMTPUserName);
+                            $('#recipient').val(result.Recipient);
+                            $('#recipientname').val(result.RecipientName);
+                            $('#subject').val(result.Subject);
+                            $('#validateButton1').attr('disabled', false);
+                        } else {
+                            ErrorMSG('查詢失敗');
+                        }
+                    }
+                });
+            });
+
+            $('#smptSetupForm').formValidation({
+                framework: "bootstrap4",
+                icon: null,
+                fields: {
+                    type: {
+                        validators: {
+                            notEmpty: {
+                                message: '請選擇EMail類別'
+                            }
+                        }
+                    },
+                    smtp: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入郵件伺服器'
+                            }
+                        }
+                    },
+                    smtpusername: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入寄件者信箱'
+                            },
+                            emailAddress: {
+                                message: '寄件者信箱格式不符'
+                            }
+                        }
+                    },
+                    recipient: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入收件者信箱'
+                            },
+                            emailAddress: {
+                                message: '收件者信箱格式不符'
+                            }
+                        }
+                    },
+                    recipientname: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入收件者抬頭'
+                            }
+                        }
+                    },
+                    subject: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入信件主旨之前置詞'
+                            }
+                        }
+                    }
+                },
+                err: {
+                    clazz: 'invalid-feedback'
+                },
+                control: {
+                    // The CSS class for valid control
+                    valid: 'is-valid',
+
+                    // The CSS class for invalid control
+                    invalid: 'is-invalid'
+                },
+                row: {
+                    invalid: 'has-danger'
+                }
+            })
+                .on('success.form.fv', function (e) {
+                    // Prevent form submission
+                    e.preventDefault();
+
+                    var $form = $(e.target),
+                        formData = new FormData(),
+                        postData = $form.serializeArray();
+
+                    $.each(postData, function (i, val) {
+                        formData.append(val.name, val.value);
+                    });
+
+                    // Use Ajax to submit form data
+                    $.ajax({
+                        url: '@Url.Action("SMTPSetupSave", "SMTPSetup")',
+                        type: "post",
+                        headers: {
+                            'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
+                        },
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (result) {
+                            if (result) {
+                                var url = '';
+                                SuccessMSGAfterAction("更新成功", url, 1000);
+                            } else {
+                                ErrorMSG('異動失敗');
+                            }
+                        }
+                    });
+                });
+        });
+    </script>
+}

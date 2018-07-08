@@ -1,0 +1,51 @@
+﻿@model AnlandProject.Service.BusinessModel.FAQModel
+    @{
+        ViewBag.Title = "DirectorFAQView";
+        Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+    }
+
+    <div class="page-header">
+        <h1 class="page-title">主任信箱</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
+            <li class="breadcrumb-item active">主任信箱</li>
+        </ol>
+        <div class="page-header-actions"></div>
+    </div>
+
+    <div class="page-content container-fluid">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.MsgSubject</h3>
+            </div>
+            <div class="panel-body">
+                <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 留言日期：</span>@Model.MsgDate.ToString("yyyy/MM/dd")</p>
+                <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 留言者：</span>@Model.MsgName</p>
+                <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 留言者email：</span>@Model.MsgEmail</p>
+                <p>
+                    <span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 留言內容：</span><br>
+                    <span class="infoText" style="white-space: pre-line">
+                        @HttpUtility.HtmlDecode(Model.MsgContent)
+                    </span>
+                </p>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <h4>回覆內容：</h4>
+                    <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 回覆單位：</span>@Model.RpyUnit</p>
+                    <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 回覆人：</span>@Model.RpyName</p>
+                    <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 聯絡電話：</span>@Model.RpyTel</p>
+                    <p>
+                        <span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 回覆內容：</span><br>
+                        <span class="infoText" style="white-space: pre-line">
+                            @HttpUtility.HtmlDecode(Model.RpyContent)
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    <a href='@Url.Action("Index","DirectorFAQ")' class="btn btn-primary" id="validateButton1">回上頁</a>
+                </div>
+            </div>
+        </div>
+    </div>
+

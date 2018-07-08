@@ -20,7 +20,7 @@ namespace AnlandProject.Backend.Controllers
 
         public AccountController()
         {
-            this._accountService = new AccountService();
+            //this._accountService = new AccountService();
         }
 
         // GET: Login
@@ -53,31 +53,18 @@ namespace AnlandProject.Backend.Controllers
                     Session.Remove("URL");
                     if (!Url.IsLocalUrl(returnUrl)) returnUrl = "~";
 
-                    var userInfo = _accountService.AccountQuery(logonModel);
-
-                    if (userInfo == null)
+                    using (_accountService = new AccountService())
                     {
-                        ModelState.AddModelError("", "帳號或密碼錯誤!");
-                        return View();
+                        var userInfo = _accountService.AccountQuery(logonModel);
+
+                        if (userInfo == null)
+                        {
+                            ModelState.AddModelError("", "帳號或密碼錯誤!");
+                            return View();
+                        }
+
+                        SetIdentity(userInfo);
                     }
-
-                    //var now = DateTime.Now;
-                    //var ticket = new FormsAuthenticationTicket(
-                    //        version: 1,
-                    //        name: userInfo.Account,
-                    //        issueDate: now,
-                    //        expiration: now.AddMinutes(30),
-                    //        isPersistent: false,
-                    //        userData: "",
-                    //        cookiePath: FormsAuthentication.FormsCookiePath
-                    //    );
-                    SetIdentity(userInfo);
-
-                    //FormsAuthentication.SetAuthCookie(userInfo.Account, false);
-
-                    //var encryptedTicket = FormsAuthentication.Encrypt(ticket);
-                    //var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                    //Response.Cookies.Add(cookie);
 
                     if (string.IsNullOrWhiteSpace(returnUrl))
                     {
@@ -103,6 +90,7 @@ namespace AnlandProject.Backend.Controllers
             identity.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "Active Directory"));
             identity.AddClaim(new Claim(ClaimTypes.Name, userModel.Name)); //使用者帳號全名
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userModel.Account)); //AD 帳號
+            identity.AddClaim(new Claim("MenuRight", userModel.Rights)); //Menu 權限
 
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.AuthenticationResponseGrant = new AuthenticationResponseGrant(identity, new AuthenticationProperties() { IsPersistent = false });
@@ -110,14 +98,6 @@ namespace AnlandProject.Backend.Controllers
 
         public ActionResult Logout()
         {
-            //FormsAuthentication.SignOut();
-
-            ////清除所有的 session
-            //Session.Abandon();
-            //Session.RemoveAll();
-
-            //Request.Cookies.Remove(FormsAuthentication.FormsCookieName);
-
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.SignOut(SiteAuthenticationSettings.ApplicationAuthenticationType);
 

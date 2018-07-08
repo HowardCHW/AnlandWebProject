@@ -1,0 +1,288 @@
+﻿@model AnlandProject.Service.BusinessModel.FAQModel
+@{
+    ViewBag.Title = "FAQEdit";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" href="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
+    <style>
+        .hide {
+            display: none !important;
+        }
+    </style>
+}
+
+<div class="page-header">
+    <h1 class="page-title">地政答客問 - @ViewBag.Subtitle</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">地政答客問</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+
+<div class="page-content container-fluid">
+    <form id="faqEditForm" class="FullForm" autocomplete="off">
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">網站 email 留言訊息</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-xl-5 form-horizontal">
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row">
+                                    留言者
+                                </label>
+                                @Html.TextBoxFor(n => n.MsgName, new { @class = "form-control", @readonly = true })
+                            </div>
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row">
+                                    留言者電話
+                                </label>
+                                @Html.TextBoxFor(n => n.MsgTel, new { @class = "form-control", @readonly = true })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <div class="row">
+                                    <label class="form-control-label">
+                                        留言者email
+                                    </label>
+                                </div>
+                                @Html.TextBoxFor(n => n.MsgEmail, new { @class = "form-control", @readonly = true })
+                            </div>
+                            <div class="col-xl-6 col-md-9">
+                                <div class="row">
+                                    <label class="form-control-label">
+                                        留言日期
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                    @Html.TextBoxFor(n => n.MsgDate, String.Format("{0:yyyy/MM/dd}", Model.MsgDate), new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @readonly = true, @disabled = true })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                主標題
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBoxFor(n => n.MsgSubject, new { @class = "form-control", @readonly = true })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                內文
+                            </label>
+                            <div class="col-xl-12 col-md-9">
+                                @Html.TextAreaFor(n => n.MsgContent, new { @class = "form-control", @readonly = true })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">網站 email 回覆訊息</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-xl-5 form-horizontal">
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row" for="author">
+                                    回覆單位
+                                    <span class="required">*</span>
+                                </label>
+                                <select class="show-tick" data-plugin="selectpicker" id="RpyUnit" name="RpyUnit" required="">
+                                    <option value="">請選擇回覆單位</option>
+                                    <option value="主任室">主任室</option>
+                                    <option value="秘書室">秘書室</option>
+                                    <option value="登記課">登記課</option>
+                                    <option value="測量課">測量課</option>
+                                    <option value="地價課">地價課</option>
+                                    <option value="地用課">地用課</option>
+                                    <option value="資訊課">資訊課</option>
+                                    <option value="人事室">人事室</option>
+                                    <option value="會計室">會計室</option>
+                                    <option value="總務">總務</option>
+                                    <option value="研考">研考</option>
+                                </select>
+                                @*@Html.DropDownList("RpyUnit", null, "請選擇回覆單位", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "RpyUnit", @required = "" })*@
+                            </div>
+                            <div class="col-xl-6 col-md-9">
+                                <div class="row">
+                                    <label class="form-control-label">
+                                        回覆日期
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                    @Html.TextBoxFor(n => n.RpyDate, String.Format("{0:yyyy/MM/dd}", Model.RpyDate), new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @placeholder = "YYYY/MM/DD", @required = "" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row">
+                                    回覆者
+                                </label>
+                                @Html.TextBoxFor(n => n.RpyName, new { @class = "form-control", @placeholder = "回覆者姓名", @required = "" })
+                            </div>
+                            <div class="col-xl-6 col-md-9">
+                                <label class="form-control-label row">
+                                    回覆者電話
+                                </label>
+                                @Html.TextBoxFor(n => n.RpyTel, new { @class = "form-control", @placeholder = "回覆者電話", @required = "" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                回覆內文
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-xl-12 col-md-9">
+                                @Html.TextAreaFor(n => n.RpyContent, new { @class = "form-control", @rows = "10", @placeholder = "編輯內文請按「Enter」分段落", @required = "" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    <a href='@Url.Action("Index","FAQ")' class="btn btn-default">取消</a>
+                    <button type="submit" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    </form>
+
+</div>
+
+@section scripts{
+    <script src="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.zh-TW.min.js"></script>
+    <script>
+        var EditType = '@Model.No';
+
+        $(document).ready(function () {
+            $('#RpyDate').on('changeDate', function (ev) {
+                $(this).datepicker('hide');
+            });
+
+            $('#faqEditForm').formValidation({
+                framework: "bootstrap4",
+                icon: null,
+                fields: {
+                    RpyUnit: {
+                        validators: {
+                            notEmpty: {
+                                message: '請選擇回覆單位'
+                            }
+                        }
+                    },
+                    RpyDate: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入回覆日期，格式範例：2018/10/05'
+                            }
+                        }
+                    },
+                    RpyName: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入回覆者姓名'
+                            }
+                        }
+                    },
+                    RpyTel: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入回覆者電話'
+                            }
+                        }
+                    },
+                    RpyContent: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入回覆內文'
+                            }
+                        }
+                    }
+                },
+                err: {
+                    clazz: 'invalid-feedback'
+                },
+                control: {
+                    // The CSS class for valid control
+                    valid: 'is-valid',
+
+                    // The CSS class for invalid control
+                    invalid: 'is-invalid'
+                },
+                row: {
+                    invalid: 'has-danger'
+                }
+            })
+                .on('change', '[id="RpyDate"]', function (e) {
+                    $('#faqEditForm').formValidation('revalidateField', 'RpyDate');
+                })
+                .on('success.form.fv', function (e) {
+                    // Prevent form submission
+                    e.preventDefault();
+
+                    var $form = $(e.target),
+                        formData = new FormData(),
+                        //fv = $form.data('formValidation');
+                        postData = $form.serializeArray();
+
+                    formData.append('No', EditType);
+                    $.each(postData, function (i, val) {
+                        formData.append(val.name, val.value);
+                    });
+
+                    // Use Ajax to submit form data
+                    $.ajax({
+                        url: '@Url.Action("FAQSave", "FAQ")',
+                        type: "post",
+                        headers: {
+                            'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
+                        },
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (result) {
+                            if (result) {
+                                var url = '/FAQ';
+                                if (EditType > 0) {
+                                    SuccessMSGAfterAction("回覆成功", url, 1000);
+                                }
+                                //} else {
+                                //    SuccessMSGAfterAction("回覆成功", url, 1000);
+                                //}
+                            } else {
+                                ErrorMSG('回覆失敗');
+                            }
+                        }
+                    });
+                });
+        });
+    </script>
+}

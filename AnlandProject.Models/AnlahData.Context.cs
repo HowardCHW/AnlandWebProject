@@ -25,17 +25,13 @@ namespace AnlandProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<board_setup> board_setup { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<director> director { get; set; }
-        public virtual DbSet<email> email { get; set; }
         public virtual DbSet<form> form { get; set; }
         public virtual DbSet<lawview> lawview { get; set; }
         public virtual DbSet<post_group> post_group { get; set; }
         public virtual DbSet<post_team> post_team { get; set; }
         public virtual DbSet<qaview> qaview { get; set; }
-        public virtual DbSet<setup_smtp> setup_smtp { get; set; }
         public virtual DbSet<suggest> suggest { get; set; }
         public virtual DbSet<suggest2> suggest2 { get; set; }
         public virtual DbSet<suggest3> suggest3 { get; set; }
@@ -63,5 +59,9 @@ namespace AnlandProject.Models
         public virtual DbSet<engcopy> engcopy { get; set; }
         public virtual DbSet<landprice> landprice { get; set; }
         public virtual DbSet<onlineapp> onlineapp { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
+        public virtual DbSet<setup_smtp> setup_smtp { get; set; }
+        public virtual DbSet<director> director { get; set; }
+        public virtual DbSet<email> email { get; set; }
     }
 }

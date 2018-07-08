@@ -8,6 +8,7 @@ namespace AnlandProject.Service.BusinessModel
 {
     public class AccountModel
     {
+        public int ID { get; set; }
         public string Account { get; set; }
         public string PWD { get; set; }
         public string Name { get; set; }

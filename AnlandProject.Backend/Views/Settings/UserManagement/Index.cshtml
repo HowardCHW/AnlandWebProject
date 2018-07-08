@@ -10,10 +10,10 @@
 }
 
 <div class="page-header">
-    <h1 class="page-title">會議紀錄</h1>
+    <h1 class="page-title">人員權限管理</h1>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
-        <li class="breadcrumb-item active">會議紀錄</li>
+        <li class="breadcrumb-item active">人員權限管理</li>
     </ol>
     <div class="page-header-actions"></div>
 </div>
@@ -25,23 +25,20 @@
         <div class="panel-body">
             <div class="row">
                 <div class="form-group col-xl-6">
-                    <a href='@Url.Action("CreateMeeting","Meeting")' class="btn btn-md btn-primary" style="margin-right:20px;">
-                        <i class="icon wb-plus" aria-hidden="true"></i> 新增會議紀錄
+                    <a href='@Url.Action("UserCreate","UserManagement")' class="btn btn-md btn-primary" style="margin-right:20px;">
+                        <i class="icon wb-plus" aria-hidden="true"></i> 新增人員
                     </a>
                 </div>
                 <div class="form-group col-xl-3">
                 </div>
             </div>
             <div>
-                <table id="meetingTable" class="table table-striped table-bordered table-hover table-checkable order-column">
+                <table id="userTable" class="table table-striped table-bordered table-hover table-checkable order-column">
                     <thead>
                         <tr>
-                            <th style="width:40px;">編號</th>
-                            <th style="width:60px;">類別</th>
-                            <th>主題</th>
-                            <th style="width:70px;">發佈日期</th>
-                            <th style="width:70px;">公告期限</th>
-                            <th style="width:60px;" class="nosort">管理模式</th>
+                            <th style="width:450px;" class="text-center">人員帳號</th>
+                            <th class="text-center">人員姓名</th>
+                            <th style="width:450px;" class="nosort">管理模式</th>
                         </tr>
                     </thead>
                 </table>
@@ -50,7 +47,7 @@
         </div>
     </div>
     <!-- model -->
-    @Html.Action("DeleteConfirmDialog", "Meeting")
+    @Html.Action("DeleteConfirmDialog", "UserManagement")
     <!-- /model -->
     <!-- /內文編輯區 -->
 
@@ -60,7 +57,7 @@
     <script src="~/global/plugins/datatables/datatables.min.js"></script>
     <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
     <script>
-        var urlQueryNews = '@Url.Action("MeetingQuery", "Meeting")';
+        var urlQueryUser = '@Url.Action("UserQuery", "UserManagement")';
 
         $(document).ready(function () {
             DatatableBinding();
@@ -69,41 +66,20 @@
         function DatatableBinding() {
             var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
             _tmpOpts.ajax = {
-                "url": urlQueryNews,
+                "url": urlQueryUser,
                 "type": 'POST'
             };
             _tmpOpts.columns = [
-                { mDataProp: "ID" },
-                { mDataProp: "Author" },
-                {
-                    mDataProp: "Subject",
-                    render: function (data, type, full, meta) {
-                        return '<a href="../Meeting/MeetingView/' + full.ID + '">' + data + '</a>'
-                    }
-                },
-                {
-                    mDataProp: "PostDate",
-                    render: function (data, type, full, meta) {
-                        return DateTimeFormatYYYYMMDD(data);
-                    }
-                },
-                {
-                    mDataProp: "EndDate",
-                    render: function (data, type, full, meta) {
-                        if (data == null) {
-                            return '無';
-                        }
-                        return DateTimeFormatYYYYMMDD(data);
-                    }
-                },
+                { mDataProp: "Account" },
+                { mDataProp: "Name" },
                 {
                     mDataProp: null,
                     render: function (data, type, full, meta) {
                         var tag =
-                            '<a href="../Meeting/CreateMeeting/' + data.ID + '" class="btn btn-pure btn-default p-5 btn-primary">' +
+                            '<a href="../UserManagement/UserCreate/' + data.ID + '" class="btn btn-pure btn-default p-5 btn-primary">' +
                             '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
                             '</a >' +
-                            '<a href="#DeleteConfirmDialog" class="btn btn-pure btn-default p-5 btn-warning" data-contentargs="[&quot;' + data.Subject + '&quot;]" data-id="' + data.ID + '" data-toggle="modal">' +
+                            '<a href="#DeleteConfirmDialog" class="btn btn-pure btn-default p-5 btn-warning" data-contentargs="[&quot;' + data.Account + '&quot;]" data-id="' + data.ID + '" data-toggle="modal">' +
                             '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
                             '</a>'
                         return tag;
@@ -111,11 +87,11 @@
                 }
             ];
 
-            if ($.fn.DataTable.isDataTable('#meetingTable')) {
-                $('#meetingTable').DataTable().destroy();
-                $('#meetingTable  tbody tr').remove();
+            if ($.fn.DataTable.isDataTable('#userTable')) {
+                $('#userTable').DataTable().destroy();
+                $('#userTable  tbody tr').remove();
             }
-            $('#meetingTable').DataTable(_tmpOpts);
+            $('#userTable').DataTable(_tmpOpts);
         }
 
         function RequestFail() {

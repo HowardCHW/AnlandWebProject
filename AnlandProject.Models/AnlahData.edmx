@@ -5,13 +5,11 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="anlandModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="admin">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="nvarchar" MaxLength="20" />
           <Property Name="passwd" Type="nvarchar" MaxLength="20" />
           <Property Name="name" Type="nvarchar" MaxLength="20" />
@@ -219,20 +217,18 @@ warning 6002: The table/view 'anland.dbo.copy' does not have a primary key defin
           <Property Name="phone_no" Type="nchar" MaxLength="12" Nullable="false" />
           <Property Name="ext_no" Type="nchar" MaxLength="6" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.director' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="director">
           <Key>
             <PropertyRef Name="no" />
           </Key>
-          <Property Name="no" Type="int" Nullable="false" />
-          <Property Name="msg_date" Type="datetime" />
+          <Property Name="no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="msg_date" Type="datetime" Nullable="false" />
           <Property Name="msg_name" Type="nvarchar" MaxLength="50" />
           <Property Name="msg_email" Type="nvarchar" MaxLength="50" />
           <Property Name="msg_subject" Type="nvarchar" MaxLength="80" />
           <Property Name="msg_content" Type="nvarchar(max)" />
           <Property Name="rpy_unit" Type="nvarchar" MaxLength="20" />
-          <Property Name="rpy_date" Type="datetime" />
+          <Property Name="rpy_date" Type="datetime" Nullable="false" />
           <Property Name="rpy_name" Type="nvarchar" MaxLength="50" />
           <Property Name="rpy_tel" Type="nvarchar" MaxLength="50" />
           <Property Name="rpy_content" Type="nvarchar(max)" />
@@ -285,20 +281,18 @@ warning 6002: The table/view 'anland.dbo.director' does not have a primary key d
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
           <Property Name="credate" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.email' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="email">
           <Key>
             <PropertyRef Name="no" />
           </Key>
-          <Property Name="no" Type="int" Nullable="false" />
-          <Property Name="msg_date" Type="datetime" />
+          <Property Name="no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="msg_date" Type="datetime" Nullable="false" />
           <Property Name="msg_name" Type="nvarchar" MaxLength="50" />
           <Property Name="msg_email" Type="nvarchar" MaxLength="50" />
           <Property Name="msg_subject" Type="nvarchar" MaxLength="80" />
           <Property Name="msg_content" Type="nvarchar(max)" />
           <Property Name="rpy_unit" Type="nvarchar" MaxLength="20" />
-          <Property Name="rpy_date" Type="datetime" />
+          <Property Name="rpy_date" Type="datetime" Nullable="false" />
           <Property Name="rpy_name" Type="nvarchar" MaxLength="50" />
           <Property Name="rpy_tel" Type="nvarchar" MaxLength="50" />
           <Property Name="rpy_content" Type="nvarchar(max)" />
@@ -727,8 +721,6 @@ warning 6002: The table/view 'anland.dbo.qaview' does not have a primary key def
           <Property Name="typename" Type="nvarchar" MaxLength="50" />
           <Property Name="cre_date" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.setup_smtp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="setup_smtp">
           <Key>
             <PropertyRef Name="ID" />
@@ -811,14 +803,17 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="cre_date" Type="datetime" />
         </EntityType>
         <EntityContainer Name="anlandModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="an_news" EntityType="Self.an_news" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="board" EntityType="Self.board" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="boardclass" EntityType="Self.boardclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cake" EntityType="Self.cake" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cate" EntityType="Self.Cate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="director" EntityType="Self.director" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="document" EntityType="Self.document" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="documentclass" EntityType="Self.documentclass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="email" EntityType="Self.email" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="intro10" EntityType="Self.intro10" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="landlaw" EntityType="Self.landlaw" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lawclass" EntityType="Self.lawclass" Schema="dbo" store:Type="Tables" />
@@ -829,18 +824,8 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="qa" EntityType="Self.qa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="qaclass" EntityType="Self.qaclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setup_smtp" EntityType="Self.setup_smtp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="theme" EntityType="Self.theme" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="admin" EntityType="Self.admin" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [admin].[ID] AS [ID], 
-    [admin].[username] AS [username], 
-    [admin].[passwd] AS [passwd], 
-    [admin].[name] AS [name], 
-    [admin].[rights] AS [rights], 
-    [admin].[group_name] AS [group_name], 
-    [admin].[action] AS [action]
-    FROM [dbo].[admin] AS [admin]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="board_setup" EntityType="Self.board_setup" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [board_setup].[ID] AS [ID], 
@@ -911,45 +896,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [copy].[qa_4] AS [qa_4], 
     [copy].[qa_5] AS [qa_5]
     FROM [dbo].[copy] AS [copy]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="director" EntityType="Self.director" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [director].[no] AS [no], 
-    [director].[msg_date] AS [msg_date], 
-    [director].[msg_name] AS [msg_name], 
-    [director].[msg_email] AS [msg_email], 
-    [director].[msg_subject] AS [msg_subject], 
-    [director].[msg_content] AS [msg_content], 
-    [director].[rpy_unit] AS [rpy_unit], 
-    [director].[rpy_date] AS [rpy_date], 
-    [director].[rpy_name] AS [rpy_name], 
-    [director].[rpy_tel] AS [rpy_tel], 
-    [director].[rpy_content] AS [rpy_content], 
-    [director].[attach1] AS [attach1], 
-    [director].[attach2] AS [attach2], 
-    [director].[attach3] AS [attach3], 
-    [director].[msg_tel] AS [msg_tel]
-    FROM [dbo].[director] AS [director]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="email" EntityType="Self.email" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [email].[no] AS [no], 
-    [email].[msg_date] AS [msg_date], 
-    [email].[msg_name] AS [msg_name], 
-    [email].[msg_email] AS [msg_email], 
-    [email].[msg_subject] AS [msg_subject], 
-    [email].[msg_content] AS [msg_content], 
-    [email].[rpy_unit] AS [rpy_unit], 
-    [email].[rpy_date] AS [rpy_date], 
-    [email].[rpy_name] AS [rpy_name], 
-    [email].[rpy_tel] AS [rpy_tel], 
-    [email].[rpy_content] AS [rpy_content], 
-    [email].[attach1] AS [attach1], 
-    [email].[attach2] AS [attach2], 
-    [email].[attach3] AS [attach3], 
-    [email].[msg_tel] AS [msg_tel], 
-    [email].[msg_type] AS [msg_type]
-    FROM [dbo].[email] AS [email]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="engcopy" EntityType="Self.engcopy" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1153,18 +1099,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [qaview].[classname] AS [classname]
     FROM [dbo].[qaview] AS [qaview]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="setup_smtp" EntityType="Self.setup_smtp" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [setup_smtp].[ID] AS [ID], 
-    [setup_smtp].[type] AS [type], 
-    [setup_smtp].[smtp] AS [smtp], 
-    [setup_smtp].[smtpusername] AS [smtpusername], 
-    [setup_smtp].[smtppassword] AS [smtppassword], 
-    [setup_smtp].[recipient] AS [recipient], 
-    [setup_smtp].[recipientname] AS [recipientname], 
-    [setup_smtp].[subject] AS [subject]
-    FROM [dbo].[setup_smtp] AS [setup_smtp]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="suggest" EntityType="Self.suggest" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [suggest].[question_id] AS [question_id], 
@@ -1212,18 +1146,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="anlandModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="admin">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="board_setup">
           <Key>
             <PropertyRef Name="ID" />
@@ -1254,47 +1176,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="openWindow" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="credate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="director">
-          <Key>
-            <PropertyRef Name="no" />
-          </Key>
-          <Property Name="no" Type="Int32" Nullable="false" />
-          <Property Name="msg_date" Type="DateTime" Precision="3" />
-          <Property Name="msg_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msg_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msg_subject" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="msg_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_date" Type="DateTime" Precision="3" />
-          <Property Name="rpy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="attach1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="attach2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="attach3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msg_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="email">
-          <Key>
-            <PropertyRef Name="no" />
-          </Key>
-          <Property Name="no" Type="Int32" Nullable="false" />
-          <Property Name="msg_date" Type="DateTime" Precision="3" />
-          <Property Name="msg_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msg_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msg_subject" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="msg_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_date" Type="DateTime" Precision="3" />
-          <Property Name="rpy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="rpy_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="attach1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="attach2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="attach3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msg_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msg_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="form">
           <Key>
@@ -1379,19 +1260,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
           <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="setup_smtp">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="smtp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="smtpusername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="smtppassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="recipient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="recipientname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="suggest">
           <Key>
             <PropertyRef Name="question_id" />
@@ -1442,17 +1310,13 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="cre_date" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="anlandEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="admin" EntityType="Self.admin" />
           <EntitySet Name="board_setup" EntityType="Self.board_setup" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
-          <EntitySet Name="director" EntityType="Self.director" />
-          <EntitySet Name="email" EntityType="Self.email" />
           <EntitySet Name="form" EntityType="Self.form" />
           <EntitySet Name="lawview" EntityType="Self.lawview" />
           <EntitySet Name="post_group" EntityType="Self.post_group" />
           <EntitySet Name="post_team" EntityType="Self.post_team" />
           <EntitySet Name="qaview" EntityType="Self.qaview" />
-          <EntitySet Name="setup_smtp" EntityType="Self.setup_smtp" />
           <EntitySet Name="suggest" EntityType="Self.suggest" />
           <EntitySet Name="suggest2" EntityType="Self.suggest2" />
           <EntitySet Name="suggest3" EntityType="Self.suggest3" />
@@ -1480,7 +1344,11 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="engcopy" EntityType="anlandModel.engcopy" />
           <EntitySet Name="landprice" EntityType="anlandModel.landprice" />
           <EntitySet Name="onlineapp" EntityType="anlandModel.onlineapp" />
-        </EntityContainer>
+          <EntitySet Name="admin" EntityType="anlandModel.admin" />
+          <EntitySet Name="setup_smtp" EntityType="anlandModel.setup_smtp" />
+          <EntitySet Name="director" EntityType="anlandModel.director" />
+          <EntitySet Name="email" EntityType="anlandModel.email" />
+          </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
             <PropertyRef Name="id" />
@@ -2019,25 +1887,78 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="get_apptime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="qa_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
-      </Schema>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="setup_smtp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="smtp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="smtpusername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="smtppassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipientname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="director">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="msg_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="msg_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_subject" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="msg_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="rpy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attach1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="msg_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="msg_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_subject" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="msg_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="rpy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rpy_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attach1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attach3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="anlandModelStoreContainer" CdmEntityContainer="anlandEntities">
-          <EntitySetMapping Name="admin">
-            <EntityTypeMapping TypeName="anlandModel.admin">
-              <MappingFragment StoreEntitySet="admin">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="passwd" ColumnName="passwd" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="rights" ColumnName="rights" />
-                <ScalarProperty Name="group_name" ColumnName="group_name" />
-                <ScalarProperty Name="action" ColumnName="action" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="board_setup">
             <EntityTypeMapping TypeName="anlandModel.board_setup">
               <MappingFragment StoreEntitySet="board_setup">
@@ -2066,49 +1987,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="openWindow" ColumnName="openWindow" />
                 <ScalarProperty Name="credate" ColumnName="credate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="director">
-            <EntityTypeMapping TypeName="anlandModel.director">
-              <MappingFragment StoreEntitySet="director">
-                <ScalarProperty Name="no" ColumnName="no" />
-                <ScalarProperty Name="msg_date" ColumnName="msg_date" />
-                <ScalarProperty Name="msg_name" ColumnName="msg_name" />
-                <ScalarProperty Name="msg_email" ColumnName="msg_email" />
-                <ScalarProperty Name="msg_subject" ColumnName="msg_subject" />
-                <ScalarProperty Name="msg_content" ColumnName="msg_content" />
-                <ScalarProperty Name="rpy_unit" ColumnName="rpy_unit" />
-                <ScalarProperty Name="rpy_date" ColumnName="rpy_date" />
-                <ScalarProperty Name="rpy_name" ColumnName="rpy_name" />
-                <ScalarProperty Name="rpy_tel" ColumnName="rpy_tel" />
-                <ScalarProperty Name="rpy_content" ColumnName="rpy_content" />
-                <ScalarProperty Name="attach1" ColumnName="attach1" />
-                <ScalarProperty Name="attach2" ColumnName="attach2" />
-                <ScalarProperty Name="attach3" ColumnName="attach3" />
-                <ScalarProperty Name="msg_tel" ColumnName="msg_tel" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="email">
-            <EntityTypeMapping TypeName="anlandModel.email">
-              <MappingFragment StoreEntitySet="email">
-                <ScalarProperty Name="no" ColumnName="no" />
-                <ScalarProperty Name="msg_date" ColumnName="msg_date" />
-                <ScalarProperty Name="msg_name" ColumnName="msg_name" />
-                <ScalarProperty Name="msg_email" ColumnName="msg_email" />
-                <ScalarProperty Name="msg_subject" ColumnName="msg_subject" />
-                <ScalarProperty Name="msg_content" ColumnName="msg_content" />
-                <ScalarProperty Name="rpy_unit" ColumnName="rpy_unit" />
-                <ScalarProperty Name="rpy_date" ColumnName="rpy_date" />
-                <ScalarProperty Name="rpy_name" ColumnName="rpy_name" />
-                <ScalarProperty Name="rpy_tel" ColumnName="rpy_tel" />
-                <ScalarProperty Name="rpy_content" ColumnName="rpy_content" />
-                <ScalarProperty Name="attach1" ColumnName="attach1" />
-                <ScalarProperty Name="attach2" ColumnName="attach2" />
-                <ScalarProperty Name="attach3" ColumnName="attach3" />
-                <ScalarProperty Name="msg_tel" ColumnName="msg_tel" />
-                <ScalarProperty Name="msg_type" ColumnName="msg_type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2196,20 +2074,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
                 <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
                 <ScalarProperty Name="classname" ColumnName="classname" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="setup_smtp">
-            <EntityTypeMapping TypeName="anlandModel.setup_smtp">
-              <MappingFragment StoreEntitySet="setup_smtp">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="smtp" ColumnName="smtp" />
-                <ScalarProperty Name="smtpusername" ColumnName="smtpusername" />
-                <ScalarProperty Name="smtppassword" ColumnName="smtppassword" />
-                <ScalarProperty Name="recipient" ColumnName="recipient" />
-                <ScalarProperty Name="recipientname" ColumnName="recipientname" />
-                <ScalarProperty Name="subject" ColumnName="subject" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2821,6 +2685,76 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="apply_birth" ColumnName="apply_birth" />
                 <ScalarProperty Name="apply_name" ColumnName="apply_name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="anlandModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="rights" ColumnName="rights" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="setup_smtp">
+            <EntityTypeMapping TypeName="anlandModel.setup_smtp">
+              <MappingFragment StoreEntitySet="setup_smtp">
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="recipientname" ColumnName="recipientname" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+                <ScalarProperty Name="smtppassword" ColumnName="smtppassword" />
+                <ScalarProperty Name="smtpusername" ColumnName="smtpusername" />
+                <ScalarProperty Name="smtp" ColumnName="smtp" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="director">
+            <EntityTypeMapping TypeName="anlandModel.director">
+              <MappingFragment StoreEntitySet="director">
+                <ScalarProperty Name="msg_tel" ColumnName="msg_tel" />
+                <ScalarProperty Name="attach3" ColumnName="attach3" />
+                <ScalarProperty Name="attach2" ColumnName="attach2" />
+                <ScalarProperty Name="attach1" ColumnName="attach1" />
+                <ScalarProperty Name="rpy_content" ColumnName="rpy_content" />
+                <ScalarProperty Name="rpy_tel" ColumnName="rpy_tel" />
+                <ScalarProperty Name="rpy_name" ColumnName="rpy_name" />
+                <ScalarProperty Name="rpy_date" ColumnName="rpy_date" />
+                <ScalarProperty Name="rpy_unit" ColumnName="rpy_unit" />
+                <ScalarProperty Name="msg_content" ColumnName="msg_content" />
+                <ScalarProperty Name="msg_subject" ColumnName="msg_subject" />
+                <ScalarProperty Name="msg_email" ColumnName="msg_email" />
+                <ScalarProperty Name="msg_name" ColumnName="msg_name" />
+                <ScalarProperty Name="msg_date" ColumnName="msg_date" />
+                <ScalarProperty Name="no" ColumnName="no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="email">
+            <EntityTypeMapping TypeName="anlandModel.email">
+              <MappingFragment StoreEntitySet="email">
+                <ScalarProperty Name="msg_type" ColumnName="msg_type" />
+                <ScalarProperty Name="msg_tel" ColumnName="msg_tel" />
+                <ScalarProperty Name="attach3" ColumnName="attach3" />
+                <ScalarProperty Name="attach2" ColumnName="attach2" />
+                <ScalarProperty Name="attach1" ColumnName="attach1" />
+                <ScalarProperty Name="rpy_content" ColumnName="rpy_content" />
+                <ScalarProperty Name="rpy_tel" ColumnName="rpy_tel" />
+                <ScalarProperty Name="rpy_name" ColumnName="rpy_name" />
+                <ScalarProperty Name="rpy_date" ColumnName="rpy_date" />
+                <ScalarProperty Name="rpy_unit" ColumnName="rpy_unit" />
+                <ScalarProperty Name="msg_content" ColumnName="msg_content" />
+                <ScalarProperty Name="msg_subject" ColumnName="msg_subject" />
+                <ScalarProperty Name="msg_email" ColumnName="msg_email" />
+                <ScalarProperty Name="msg_name" ColumnName="msg_name" />
+                <ScalarProperty Name="msg_date" ColumnName="msg_date" />
+                <ScalarProperty Name="no" ColumnName="no" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

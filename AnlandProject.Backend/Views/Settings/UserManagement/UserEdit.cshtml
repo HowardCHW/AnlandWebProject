@@ -1,0 +1,241 @@
+﻿@model AnlandProject.Service.BusinessModel.AccountModel
+@{
+    ViewBag.Title = "UserEdit";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" href="~/global/vendor/multi-select/multi-select.css">
+}
+
+<div class="page-header">
+    <h1 class="page-title">人員權限管理 - @ViewBag.Subtitle</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index", "Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">人員權限管理</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+<div class="page-content container-fluid">
+    <form id="userEditForm" class="FullForm" autocomplete="off">
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">人員帳號 </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 姓名 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">姓名<span class="required">*</span> </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBoxFor(u => u.Name, new { @class = "form-control", @placeholder = "請輸入姓名", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /姓名 -->
+                        <!-- 帳號 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">帳號<span class="required">*</span> </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBoxFor(u => u.Account, new { @class = "form-control", @placeholder = "請輸入帳號", @required = "" })
+                            </div>
+                        </div>
+                        <!-- /帳號 -->
+                        <!-- 密碼 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">密碼<span class="required">*</span> </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.PasswordFor(u => u.PWD, new { @class = "form-control", @id = "password", @placeholder = "請輸入密碼" })
+                            </div>
+                        </div>
+                        <!-- /密碼 -->
+                        <!-- 確認密碼 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">確認密碼<span class="required">*</span> </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <input type="password" class="form-control" name="passwordcheck" placeholder="請再次輸入密碼" >
+                            </div>
+                        </div>
+                        <!-- /確認密碼 -->
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <!-- 人員權限 -->
+                        @Html.Action("MenuRight")
+                        @Html.HiddenFor(u => u.Rights, new { @id = "hidMenuRight" })
+                        <!-- /人員權限 -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    <a href='@Url.Action("Index","UserManagement")' class="btn btn-default">取消</a>
+                    <button type="submit" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    </form>
+</div>
+
+@section scripts{
+    <script src="~/global/vendor/multi-select/jquery.multi-select.js"></script>
+    <script>
+        var UID = '@Model.ID';
+        var isInit = true;
+        $(document).ready(function () {
+            var dataarray = $('#hidMenuRight').val().split(",");            
+            $('#menuRight').multiSelect('refresh');
+            $('#menuRight').multiSelect('select', dataarray, 'init');
+
+            $('#userEditForm').formValidation({
+                framework: "bootstrap4",
+                icon: null,
+                fields: {
+                    Name: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入姓名'
+                            }
+                        }
+                    },
+                    Account: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入帳號'
+                            }
+                        }
+                    },
+                    PWD: {
+                        validators: {
+                            callback: {
+                                message: '請輸入密碼',
+                                callback: function (value, validator, $field) {
+                                    if (UID == 0 && value == '') {
+                                        return {
+                                            valid: false,
+                                            message: '請輸入密碼'
+                                        };
+                                    }
+                                    if (value != '' && value.length < 8) {
+                                        return {
+                                            valid: false,
+                                            message: '密碼不能少於8位數'
+                                        };
+                                    }
+                                    return true;
+                                }
+                            }
+                        }
+                    },
+                    passwordcheck: {
+                        validators: {
+                            callback: {
+                                message: '請輸入密碼',
+                                callback: function (value, validator, $field) {
+                                    if ((UID == 0 || $('#password').val() != '') && value == '') {
+                                        return {
+                                            valid: false,
+                                            message: '請輸入確認密碼'
+                                        };
+                                    }
+                                    if (value != '' && $('#password').val() != value) {
+                                        return {
+                                            valid: false,
+                                            message: '密碼與確認密碼不一致'
+                                        };
+                                    }
+                                    return true;
+                                }
+                            }
+                        }
+                    },
+                    menuSelect: {
+                        validators: {
+                            callback: {
+                                message: '請選擇人員權限',
+                                callback: function (value, validator, $field) {
+                                    return ($('#hidMenuRight').val() != '');
+                                }
+                            }
+                        }
+                    },
+                },
+                err: {
+                    clazz: 'invalid-feedback'
+                },
+                control: {
+                    // The CSS class for valid control
+                    valid: 'is-valid',
+
+                    // The CSS class for invalid control
+                    invalid: 'is-invalid'
+                },
+                row: {
+                    invalid: 'has-danger'
+                }
+            })
+                .on('keyup', '[id="password"]', function (e) {
+                    $('#userEditForm').formValidation('revalidateField', 'passwordcheck');
+                })
+                .on('success.form.fv', function (e) {
+                    // Prevent form submission
+                    e.preventDefault();
+
+                    var $form = $(e.target),
+                        formData = new FormData(),
+                        //fv = $form.data('formValidation');
+                        postData = $form.serializeArray();
+
+                    formData.append('ID', UID);
+                    $.each(postData, function (i, val) {
+                        formData.append(val.name, val.value);
+                    });
+
+                    // Use Ajax to submit form data
+                    $.ajax({
+                        url: '@Url.Action("UserSave", "UserManagement")',
+                        type: "post",
+                        headers: {
+                            'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
+                        },
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (result) {
+                            if (result) {
+                                var url = '/UserManagement';
+                                if (UID > 0) {
+                                    SuccessMSGAfterAction("更新成功", url, 1000);
+                                } else {
+                                    SuccessMSGAfterAction("新增成功", url, 1000);
+                                }
+                            } else {
+                                ErrorMSG('異動失敗');
+                            }
+                        }
+                    });
+                });
+        });
+
+        $('#menuRight').multiSelect({
+            afterSelect: function (values) {
+                if (isInit) {
+                    isInit = false;
+                } else {
+                    var tmpArray = $('#hidMenuRight').val().split(",");
+                    tmpArray = jQuery.grep(tmpArray, function (n) { return (n); });
+                    $.merge(tmpArray, values);
+                    $('#hidMenuRight').val(tmpArray.join());
+                    $('#userEditForm').formValidation('revalidateField', 'menuSelect');
+                }
+            },
+            afterDeselect: function (values) {
+                var tmpArray = $('#hidMenuRight').val().split(",");
+                tmpArray = jQuery.grep(tmpArray, function (value) { return value != values; });
+                $('#hidMenuRight').val(tmpArray.join());
+                $('#userEditForm').formValidation('revalidateField', 'menuSelect');
+            }
+        });
+    </script>
+}

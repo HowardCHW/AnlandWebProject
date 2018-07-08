@@ -182,10 +182,15 @@
     <Compile Include="Controllers\OnlineApplication\CopyController.cs" />
     <Compile Include="Controllers\OnlineApplication\TranscriptController.cs" />
     <Compile Include="Controllers\OnlineApplication\ReservationController.cs" />
+    <Compile Include="Controllers\Settings\SMTPSetupController.cs" />
+    <Compile Include="Controllers\Settings\UserManagementController.cs" />
+    <Compile Include="Controllers\UnitItems\DirectorFAQController.cs" />
+    <Compile Include="Controllers\UnitItems\FAQController.cs" />
     <Compile Include="Controllers\UnitItems\QaController.cs" />
     <Compile Include="Controllers\UnitItems\LawsController.cs" />
     <Compile Include="Controllers\UnitItems\IntroController.cs" />
     <Compile Include="Controllers\UnitItems\NewsController.cs" />
+    <Compile Include="Extensions\SendMailExtension.cs" />
     <Compile Include="Filters\AjaxValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -4427,6 +4432,16 @@
     <Content Include="Views\OnlineApplication\Copy\CopyView.cshtml" />
     <Content Include="Views\OnlineApplication\Landprice\LandPriceView.cshtml" />
     <Content Include="Views\OnlineApplication\Landprice\Index.cshtml" />
+    <Content Include="Views\Settings\UserManagement\Index.cshtml" />
+    <Content Include="Views\Settings\UserManagement\UserEdit.cshtml" />
+    <Content Include="Views\Settings\UserManagement\PersonnelRights.cshtml" />
+    <Content Include="Views\Settings\MailSetting\SMTPSetting.cshtml" />
+    <Content Include="Views\UnitItems\FAQ\Index.cshtml" />
+    <Content Include="Views\UnitItems\FAQ\FAQEdit.cshtml" />
+    <Content Include="Views\UnitItems\FAQ\FAQView.cshtml" />
+    <Content Include="Views\UnitItems\DirectorFAQ\DirectorFAQEdit.cshtml" />
+    <Content Include="Views\UnitItems\DirectorFAQ\DirectorFAQView.cshtml" />
+    <Content Include="Views\UnitItems\DirectorFAQ\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

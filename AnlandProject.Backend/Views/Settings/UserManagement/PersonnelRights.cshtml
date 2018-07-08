@@ -1,0 +1,21 @@
+﻿@model List<AnlandProject.Service.BusinessModel.MainMenuModel>
+@{
+    Layout = null;
+}
+
+<div class="form-group row">
+    <label class="col-xl-12 col-md-3 form-control-label">人員權限<span class="required">*</span> </label>
+    <div class=" col-xl-12 col-md-9">
+        <select class="form-control" data-plugin="multiSelect" id="menuRight" name="menuSelect">
+            @foreach (var item in Model.Where(m => m.Level == 1).OrderBy(m => m.Order))
+            {
+                <optgroup label="@item.MenuName">
+                    @foreach (var item2 in Model.Where(m => m.Level == 2 && m.ParentId == item.id).OrderBy(m => m.Order))
+                    {
+                        <option value="@item2.id">@item2.MenuName</option>
+                    }
+                </optgroup>
+            }
+        </select>
+    </div>
+</div>

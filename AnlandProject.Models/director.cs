@@ -15,13 +15,13 @@ namespace AnlandProject.Models
     public partial class director
     {
         public int no { get; set; }
-        public Nullable<System.DateTime> msg_date { get; set; }
+        public System.DateTime msg_date { get; set; }
         public string msg_name { get; set; }
         public string msg_email { get; set; }
         public string msg_subject { get; set; }
         public string msg_content { get; set; }
         public string rpy_unit { get; set; }
-        public Nullable<System.DateTime> rpy_date { get; set; }
+        public System.DateTime rpy_date { get; set; }
         public string rpy_name { get; set; }
         public string rpy_tel { get; set; }
         public string rpy_content { get; set; }

@@ -87,8 +87,8 @@
         })
       }
 
-      var selectedValues = ms.find('option:selected').map(function(){ return $(this).val(); }).get();
-      that.select(selectedValues, 'init');
+      //var selectedValues = ms.find('option:selected').map(function(){ return $(this).val(); }).get();
+      //that.select(selectedValues, 'init');  //取消預設選項
 
       if (typeof that.options.afterInit === 'function') {
         that.options.afterInit.call(this, this.$container);
