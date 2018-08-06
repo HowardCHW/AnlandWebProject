@@ -402,6 +402,7 @@ function SetDialog() {
             dialogID = $(this).data("target");// >>> button
         }
         $(dialogID + " .modal-footer #id").val($(this).data("id"));
+        $(dialogID + " .modal-footer #type").val($(this).data("type"));
 
         var contentArgs = $(this).data("contentargs");
 

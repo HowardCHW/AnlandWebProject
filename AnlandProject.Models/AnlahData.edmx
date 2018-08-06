@@ -110,7 +110,7 @@ warning 6002: The table/view 'anland.dbo.board_setup' does not have a primary ke
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="classid" Type="int" />
           <Property Name="classname" Type="nvarchar" MaxLength="50" />
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
@@ -120,7 +120,7 @@ warning 6002: The table/view 'anland.dbo.board_setup' does not have a primary ke
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sno" Type="nvarchar" MaxLength="50" />
           <Property Name="cre_user" Type="nvarchar" MaxLength="50" />
           <Property Name="typecode" Type="nvarchar" MaxLength="50" />
@@ -275,7 +275,7 @@ warning 6002: The table/view 'anland.dbo.copy' does not have a primary key defin
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="classid" Type="int" />
           <Property Name="classname" Type="nvarchar" MaxLength="50" />
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
@@ -483,7 +483,7 @@ warning 6002: The table/view 'anland.dbo.landprice' does not have a primary key 
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="classid" Type="int" Nullable="false" />
           <Property Name="classname" Type="nvarchar" MaxLength="50" />
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
@@ -578,7 +578,7 @@ warning 6002: The table/view 'anland.dbo.lawview' does not have a primary key de
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="classid" Type="int" />
           <Property Name="classname" Type="nvarchar" MaxLength="50" />
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
@@ -588,7 +588,7 @@ warning 6002: The table/view 'anland.dbo.lawview' does not have a primary key de
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="classid" Type="int" />
           <Property Name="classname" Type="nvarchar" MaxLength="50" />
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
@@ -641,13 +641,11 @@ warning 6002: The table/view 'anland.dbo.onlineapp' does not have a primary key 
           <Property Name="get_apptime" Type="nvarchar" MaxLength="50" />
           <Property Name="qa_note" Type="nvarchar" MaxLength="150" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.post_group' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="post_group">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="post_group" Type="nvarchar" MaxLength="20" />
           <Property Name="post_team_num" Type="int" />
         </EntityType>
@@ -685,7 +683,7 @@ warning 6002: The table/view 'anland.dbo.post_team' does not have a primary key 
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="classid" Type="int" />
           <Property Name="classname" Type="nvarchar" MaxLength="50" />
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
@@ -714,7 +712,7 @@ warning 6002: The table/view 'anland.dbo.qaview' does not have a primary key def
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sno" Type="nvarchar" MaxLength="50" />
           <Property Name="cre_user" Type="nvarchar" MaxLength="50" />
           <Property Name="typecode" Type="nvarchar" MaxLength="50" />
@@ -783,7 +781,7 @@ warning 6002: The table/view 'anland.dbo.suggest3' does not have a primary key d
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sno" Type="nvarchar" MaxLength="50" />
           <Property Name="cre_user" Type="nvarchar" MaxLength="50" />
           <Property Name="typecode" Type="nvarchar" MaxLength="50" />
@@ -821,6 +819,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="meeting" EntityType="Self.meeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="meetingclass" EntityType="Self.meetingclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="newsclass" EntityType="Self.newsclass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post_group" EntityType="Self.post_group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="qa" EntityType="Self.qa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="qaclass" EntityType="Self.qaclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
@@ -1069,13 +1068,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [onlineapp].[qa_note] AS [qa_note]
     FROM [dbo].[onlineapp] AS [onlineapp]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="post_group" EntityType="Self.post_group" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [post_group].[ID] AS [ID], 
-    [post_group].[post_group] AS [post_group], 
-    [post_group].[post_team_num] AS [post_team_num]
-    FROM [dbo].[post_group] AS [post_group]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="post_team" EntityType="Self.post_team" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [post_team].[id] AS [id], 
@@ -1227,14 +1219,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="hit" Type="Int32" />
           <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="post_group">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="post_group1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="post_team_num" Type="Int32" />
-        </EntityType>
         <EntityType Name="post_team">
           <Key>
             <PropertyRef Name="id" />
@@ -1314,7 +1298,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="form" EntityType="Self.form" />
           <EntitySet Name="lawview" EntityType="Self.lawview" />
-          <EntitySet Name="post_group" EntityType="Self.post_group" />
           <EntitySet Name="post_team" EntityType="Self.post_team" />
           <EntitySet Name="qaview" EntityType="Self.qaview" />
           <EntitySet Name="suggest" EntityType="Self.suggest" />
@@ -1322,24 +1305,15 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="suggest3" EntityType="Self.suggest3" />
           <EntitySet Name="type" EntityType="Self.type" />
           <EntitySet Name="main_menu" EntityType="anlandModel.main_menu" />
-          <EntitySet Name="cake" EntityType="anlandModel.cake" />
           <EntitySet Name="Cate" EntityType="anlandModel.Cate" />
-          <EntitySet Name="service" EntityType="anlandModel.service" />
-          <EntitySet Name="theme" EntityType="anlandModel.theme" />
-          <EntitySet Name="newsclass" EntityType="anlandModel.newsclass" />
           <EntitySet Name="Department" EntityType="anlandModel.Department" />
-          <EntitySet Name="lawclass" EntityType="anlandModel.lawclass" />
           <EntitySet Name="an_news" EntityType="anlandModel.an_news" />
           <EntitySet Name="landlaw" EntityType="anlandModel.landlaw" />
-          <EntitySet Name="qaclass" EntityType="anlandModel.qaclass" />
           <EntitySet Name="qa" EntityType="anlandModel.qa" />
           <EntitySet Name="board" EntityType="anlandModel.board" />
           <EntitySet Name="document" EntityType="anlandModel.document" />
           <EntitySet Name="intro10" EntityType="anlandModel.intro10" />
           <EntitySet Name="meeting" EntityType="anlandModel.meeting" />
-          <EntitySet Name="boardclass" EntityType="anlandModel.boardclass" />
-          <EntitySet Name="documentclass" EntityType="anlandModel.documentclass" />
-          <EntitySet Name="meetingclass" EntityType="anlandModel.meetingclass" />
           <EntitySet Name="copy" EntityType="anlandModel.copy" />
           <EntitySet Name="engcopy" EntityType="anlandModel.engcopy" />
           <EntitySet Name="landprice" EntityType="anlandModel.landprice" />
@@ -1348,6 +1322,16 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="setup_smtp" EntityType="anlandModel.setup_smtp" />
           <EntitySet Name="director" EntityType="anlandModel.director" />
           <EntitySet Name="email" EntityType="anlandModel.email" />
+          <EntitySet Name="cake" EntityType="anlandModel.cake" />
+          <EntitySet Name="service" EntityType="anlandModel.service" />
+          <EntitySet Name="theme" EntityType="anlandModel.theme" />
+          <EntitySet Name="boardclass" EntityType="anlandModel.boardclass" />
+          <EntitySet Name="documentclass" EntityType="anlandModel.documentclass" />
+          <EntitySet Name="lawclass" EntityType="anlandModel.lawclass" />
+          <EntitySet Name="meetingclass" EntityType="anlandModel.meetingclass" />
+          <EntitySet Name="newsclass" EntityType="anlandModel.newsclass" />
+          <EntitySet Name="qaclass" EntityType="anlandModel.qaclass" />
+          <EntitySet Name="post_group" EntityType="anlandModel.post_group" />
           </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1362,17 +1346,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="controller" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="createdate" Type="DateTime" Precision="0" />
           <Property Name="createuser" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="cake">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cre_date" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Cate">
           <Key>
@@ -1391,38 +1364,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="cake_typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="service_typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="service">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cre_date" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="theme">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cre_date" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="newsclass">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="classid" Type="Int32" />
-          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="credate" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="id" />
@@ -1431,16 +1372,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="dep_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="phone_no" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="ext_no" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="lawclass">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="classid" Type="Int32" Nullable="false" />
-          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="credate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="an_news">
           <Key>
@@ -1514,16 +1445,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="created_dept_id" Type="Int32" />
           <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="created_user_phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="qaclass">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="classid" Type="Int32" />
-          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="credate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="qa">
           <Key>
@@ -1683,36 +1604,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="created_dept_id" Type="Int32" />
           <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="created_date" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="boardclass">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="classid" Type="Int32" />
-          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="credate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="documentclass">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="classid" Type="Int32" />
-          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="credate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="meetingclass">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="classid" Type="Int32" />
-          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="credate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="copy">
           <Key>
@@ -1953,6 +1844,107 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="msg_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="msg_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="cake">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="theme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cre_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="boardclass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="documentclass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="lawclass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classid" Type="Int32" Nullable="false" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="meetingclass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="newsclass">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="qaclass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="post_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="post_group1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="post_team_num" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2038,15 +2030,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
                 <ScalarProperty Name="hit" ColumnName="hit" />
                 <ScalarProperty Name="classname" ColumnName="classname" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="post_group">
-            <EntityTypeMapping TypeName="anlandModel.post_group">
-              <MappingFragment StoreEntitySet="post_group">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="post_group1" ColumnName="post_group" />
-                <ScalarProperty Name="post_team_num" ColumnName="post_team_num" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2142,18 +2125,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="cake">
-            <EntityTypeMapping TypeName="anlandModel.cake">
-              <MappingFragment StoreEntitySet="cake">
-                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
-                <ScalarProperty Name="typename" ColumnName="typename" />
-                <ScalarProperty Name="typecode" ColumnName="typecode" />
-                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
-                <ScalarProperty Name="sno" ColumnName="sno" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Cate">
             <EntityTypeMapping TypeName="anlandModel.Cate">
               <MappingFragment StoreEntitySet="Cate">
@@ -2172,41 +2143,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="service">
-            <EntityTypeMapping TypeName="anlandModel.service">
-              <MappingFragment StoreEntitySet="service">
-                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
-                <ScalarProperty Name="typename" ColumnName="typename" />
-                <ScalarProperty Name="typecode" ColumnName="typecode" />
-                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
-                <ScalarProperty Name="sno" ColumnName="sno" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="theme">
-            <EntityTypeMapping TypeName="anlandModel.theme">
-              <MappingFragment StoreEntitySet="theme">
-                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
-                <ScalarProperty Name="typename" ColumnName="typename" />
-                <ScalarProperty Name="typecode" ColumnName="typecode" />
-                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
-                <ScalarProperty Name="sno" ColumnName="sno" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="newsclass">
-            <EntityTypeMapping TypeName="anlandModel.newsclass">
-              <MappingFragment StoreEntitySet="newsclass">
-                <ScalarProperty Name="credate" ColumnName="credate" />
-                <ScalarProperty Name="creuser" ColumnName="creuser" />
-                <ScalarProperty Name="classname" ColumnName="classname" />
-                <ScalarProperty Name="classid" ColumnName="classid" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Department">
             <EntityTypeMapping TypeName="anlandModel.Department">
               <MappingFragment StoreEntitySet="Department">
@@ -2214,17 +2150,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="phone_no" ColumnName="phone_no" />
                 <ScalarProperty Name="dep_name" ColumnName="dep_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="lawclass">
-            <EntityTypeMapping TypeName="anlandModel.lawclass">
-              <MappingFragment StoreEntitySet="lawclass">
-                <ScalarProperty Name="credate" ColumnName="credate" />
-                <ScalarProperty Name="creuser" ColumnName="creuser" />
-                <ScalarProperty Name="classname" ColumnName="classname" />
-                <ScalarProperty Name="classid" ColumnName="classid" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2299,17 +2224,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="Cake" ColumnName="Cake" />
                 <ScalarProperty Name="Theme" ColumnName="Theme" />
                 <ScalarProperty Name="Classfy" ColumnName="Classfy" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="qaclass">
-            <EntityTypeMapping TypeName="anlandModel.qaclass">
-              <MappingFragment StoreEntitySet="qaclass">
-                <ScalarProperty Name="credate" ColumnName="credate" />
-                <ScalarProperty Name="creuser" ColumnName="creuser" />
-                <ScalarProperty Name="classname" ColumnName="classname" />
-                <ScalarProperty Name="classid" ColumnName="classid" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2474,39 +2388,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="subject" ColumnName="subject" />
                 <ScalarProperty Name="obj" ColumnName="obj" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="boardclass">
-            <EntityTypeMapping TypeName="anlandModel.boardclass">
-              <MappingFragment StoreEntitySet="boardclass">
-                <ScalarProperty Name="credate" ColumnName="credate" />
-                <ScalarProperty Name="creuser" ColumnName="creuser" />
-                <ScalarProperty Name="classname" ColumnName="classname" />
-                <ScalarProperty Name="classid" ColumnName="classid" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="documentclass">
-            <EntityTypeMapping TypeName="anlandModel.documentclass">
-              <MappingFragment StoreEntitySet="documentclass">
-                <ScalarProperty Name="credate" ColumnName="credate" />
-                <ScalarProperty Name="creuser" ColumnName="creuser" />
-                <ScalarProperty Name="classname" ColumnName="classname" />
-                <ScalarProperty Name="classid" ColumnName="classid" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="meetingclass">
-            <EntityTypeMapping TypeName="anlandModel.meetingclass">
-              <MappingFragment StoreEntitySet="meetingclass">
-                <ScalarProperty Name="credate" ColumnName="credate" />
-                <ScalarProperty Name="creuser" ColumnName="creuser" />
-                <ScalarProperty Name="classname" ColumnName="classname" />
-                <ScalarProperty Name="classid" ColumnName="classid" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2755,6 +2636,117 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="msg_name" ColumnName="msg_name" />
                 <ScalarProperty Name="msg_date" ColumnName="msg_date" />
                 <ScalarProperty Name="no" ColumnName="no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cake">
+            <EntityTypeMapping TypeName="anlandModel.cake">
+              <MappingFragment StoreEntitySet="cake">
+                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service">
+            <EntityTypeMapping TypeName="anlandModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="theme">
+            <EntityTypeMapping TypeName="anlandModel.theme">
+              <MappingFragment StoreEntitySet="theme">
+                <ScalarProperty Name="cre_date" ColumnName="cre_date" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="cre_user" ColumnName="cre_user" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="boardclass">
+            <EntityTypeMapping TypeName="anlandModel.boardclass">
+              <MappingFragment StoreEntitySet="boardclass">
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="documentclass">
+            <EntityTypeMapping TypeName="anlandModel.documentclass">
+              <MappingFragment StoreEntitySet="documentclass">
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lawclass">
+            <EntityTypeMapping TypeName="anlandModel.lawclass">
+              <MappingFragment StoreEntitySet="lawclass">
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetingclass">
+            <EntityTypeMapping TypeName="anlandModel.meetingclass">
+              <MappingFragment StoreEntitySet="meetingclass">
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="newsclass">
+            <EntityTypeMapping TypeName="anlandModel.newsclass">
+              <MappingFragment StoreEntitySet="newsclass">
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qaclass">
+            <EntityTypeMapping TypeName="anlandModel.qaclass">
+              <MappingFragment StoreEntitySet="qaclass">
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="creuser" ColumnName="creuser" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post_group">
+            <EntityTypeMapping TypeName="anlandModel.post_group">
+              <MappingFragment StoreEntitySet="post_group">
+                <ScalarProperty Name="post_team_num" ColumnName="post_team_num" />
+                <ScalarProperty Name="post_group1" ColumnName="post_group" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -183,6 +183,7 @@
     <Compile Include="Controllers\OnlineApplication\TranscriptController.cs" />
     <Compile Include="Controllers\OnlineApplication\ReservationController.cs" />
     <Compile Include="Controllers\Settings\SMTPSetupController.cs" />
+    <Compile Include="Controllers\Settings\TypeSettingController.cs" />
     <Compile Include="Controllers\Settings\UserManagementController.cs" />
     <Compile Include="Controllers\UnitItems\DirectorFAQController.cs" />
     <Compile Include="Controllers\UnitItems\FAQController.cs" />
@@ -4442,6 +4443,11 @@
     <Content Include="Views\UnitItems\DirectorFAQ\DirectorFAQEdit.cshtml" />
     <Content Include="Views\UnitItems\DirectorFAQ\DirectorFAQView.cshtml" />
     <Content Include="Views\UnitItems\DirectorFAQ\Index.cshtml" />
+    <Content Include="Views\Settings\TypeSetting\TypeSetup.cshtml" />
+    <Content Include="Views\Settings\TypeSetting\_themeSetting.cshtml" />
+    <Content Include="Views\Settings\TypeSetting\_classificationSearch.cshtml" />
+    <Content Include="Views\Settings\TypeSetting\_classification.cshtml" />
+    <Content Include="Views\Settings\TypeSetting\_classificationAdm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

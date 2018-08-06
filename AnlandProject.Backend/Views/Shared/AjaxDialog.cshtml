@@ -22,6 +22,7 @@
                     }
                     <button type="submit" class="btn btn-primary" id="@(Model.ID)_ConfirmButton" onclick="$('#@Model.ID').modal('toggle');">@Model.ConfirmText</button>
                     @Html.Hidden("id", "")
+                    @Html.Hidden("type", "")
                 }
             </div>
         </div>

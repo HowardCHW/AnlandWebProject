@@ -1,0 +1,216 @@
+﻿<!-- 分類檢索設定 - 主題分類 -->
+<div class="col-md-4">
+    <div class="panel-heading">
+        <h3 class="panel-title">分類檢索設定 - 主題分類</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-xl-6">
+                <a href="#edittheme" class="btn btn-md btn-primary" style="margin-right:20px;" data-toggle="modal">
+                    <i class="icon wb-plus" aria-hidden="true"></i> 新增主題分類
+                </a>
+            </div>
+            <div class="form-group col-xl-3"> </div>
+        </div>
+        <div class="table-responsive">
+            <table id="themeTable" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">代碼</th>
+                        <th class="text-center">分類名稱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /分類檢索設定 - 主題分類 -->
+<!--EditModel-->
+<div class="modal fade" id="edittheme" aria-labelledby="edittheme" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-simple modal-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">新增分類檢索設定 - 主題分類</h4>
+            </div>
+            <form id="themeEditForm" class="FullForm" autocomplete="off">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            代碼
+                            <span class="required">*</span>
+                        </label>
+                        @*<input type="text" class="form-control" name="typecode" placeholder="請輸入代碼" required="" >*@
+                        @Html.TextBox("typecode", "", new { @class = "form-control", @placeholder = "請輸入主題代碼", @required = "" })
+                        @Html.Hidden("typeid")
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            分類名稱
+                            <span class="required">*</span>
+                        </label>
+                        @*<input type="text" class="form-control" name="typecode" placeholder="請輸入代碼" required="" data-fv-field="typecode">*@
+                        @Html.TextBox("typename", "", new { @class = "form-control", @placeholder = "請輸入主題分類名稱", @required = "" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">確定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--/EditModel-->
+<!-- DeleteModel -->
+@Html.Action("ThemeDeleteConfirmDialog", "TypeSetting")
+<!-- /DeleteModel -->
+
+<script>
+    var urlQueryTheme = '@Url.Action("ThemeQuery", "TypeSetting")';
+    var urlSaveTheme = '@Url.Action("ThemeSave", "TypeSetting")';
+
+        $(document).ready(function () {
+            DatatableBinding();
+
+            $('#themeTable').on('click', '#themeModal', function () {
+                var tds = $(this).parent().siblings();
+                $('#themeEditForm input[name=typeid]').val($(this).attr('typeid'));
+                $('#themeEditForm input[name=typecode]').val(tds[0].innerText);
+                $('#themeEditForm input[name=typename]').val(tds[1].innerText);
+            });
+
+            $('#edittheme').on('shown.bs.modal', function () {
+                $('#themeEditForm').formValidation('resetForm', false);
+            });
+
+            $('#edittheme').on('hidden.bs.modal', function () {                
+                $('#themeEditForm input[name=typeid]').val('');
+                $('#themeEditForm input[name=typecode]').val('');
+                $('#themeEditForm input[name=typename]').val('');
+            });
+
+            $('#themeEditForm').formValidation({
+                framework: "bootstrap4",
+                icon: null,
+                fields: {
+                    typecode: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入主題代碼'
+                            }
+                        }
+                    },
+                    typename: {
+                        validators: {
+                            notEmpty: {
+                                message: '請輸入主題分類名稱'
+                            }
+                        }
+                    }
+                },
+                err: {
+                    clazz: 'invalid-feedback'
+                },
+                control: {
+                    // The CSS class for valid control
+                    valid: 'is-valid',
+
+                    // The CSS class for invalid control
+                    invalid: 'is-invalid'
+                },
+                row: {
+                    invalid: 'has-danger'
+                }
+            })
+                .on('success.form.fv', function (e) {
+                    // Prevent form submission
+                    e.preventDefault();
+
+                    //var $form = $(e.target),
+                    //    formData = new FormData(),
+                    //    //fv = $form.data('formValidation');
+                    //    postData = $form.serializeArray();
+
+                    //formData.append('ID', UID);
+                    //$.each(postData, function (i, val) {
+                    //    formData.append(val.name, val.value);
+                    //});
+
+                    // Use Ajax to submit form data
+                    $.ajax({
+                        url: urlSaveTheme,
+                        type: "post",
+                        headers: {
+                            'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
+                        },
+                        data: {
+                            ID: $('#themeEditForm input[name=typeid]').val(),
+                            TypeCode: $('#themeEditForm input[name=typecode]').val(),
+                            TypeName: $('#themeEditForm input[name=typename]').val()
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result) {
+                                var url = '/TypeSetting';
+                                if (UID > 0) {
+                                    SuccessMSGAfterAction("更新成功", url, 1000);
+                                } else {
+                                    SuccessMSGAfterAction("新增成功", url, 1000);
+                                }
+                            } else {
+                                ErrorMSG('異動失敗');
+                            }
+                        }
+                    });
+                });
+        });
+
+
+        function DatatableBinding() {
+            var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+            _tmpOpts.ajax = {
+                "url": urlQueryTheme,
+                "type": 'POST'
+            };
+            _tmpOpts.columns = [
+                { mDataProp: "TypeCode", className: 'text-center' },
+                { mDataProp: "TypeName", className: 'text-center' },
+                {
+                    mDataProp: null,
+                    render: function (data, type, full, meta) {
+                        var tag =
+                            '<a href="#edittheme" id="themeModal" class="btn btn-pure btn-default p-5 btn-primary" typeid = "' + data.ID + '" data-toggle="modal" >' +
+                            '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
+                            '</a >' +
+                            '<a href="#ThemeDeleteConfirmDialog" class="btn btn-pure btn-default p-5 btn-warning" data-contentargs="[&quot;' + data.TypeCode + '&quot;]" data-id="' + data.ID + '" data-toggle="modal">' +
+                            '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
+                            '</a>'
+                        return tag;
+                    }
+                }
+            ];
+
+            if ($.fn.DataTable.isDataTable('#themeTable')) {
+                $('#themeTable').DataTable().destroy();
+                $('#themeTable  tbody tr').remove();
+            }
+            $('#themeTable').DataTable(_tmpOpts);
+        }
+
+        function RequestFail() {
+            msgResoure('other_msg', 'small', '錯誤', errMSGContent);
+        }
+
+        function DeleteSuccess(result) {
+            if (result) {
+                SuccessMSGAfterFun('刪除成功', DatatableBinding);
+            }
+            else {
+                ErrorMSG(result.Description);
+            }
+        }
+</script>

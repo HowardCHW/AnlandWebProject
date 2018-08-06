@@ -1,0 +1,204 @@
+﻿
+<div class="panel panel-bordered col-md-12">
+    <div class="row">
+        <!-- 行政規章專區 -->
+        <div class="col-md-6">
+            <div class="panel-heading">
+                <h3 class="panel-title">分類設定 - 行政規章專區</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-xl-6">
+                        <a href="#postgroupclass" class="btn btn-md btn-primary" style="margin-right:20px;" data-toggle="modal">
+                            <i class="icon wb-plus" aria-hidden="true"></i> 新增分類
+                        </a>
+                    </div>
+                    <div class="form-group col-xl-3"> </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="pgtable" class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">類別代號</th>
+                                <th class="text-center">類別名稱</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /行政規章專區-->
+    </div>
+</div>
+
+<!-- 分類設定 - 行政規章專區 -->
+<div class="modal fade" id="postgroupclass" aria-labelledby="postgroupclass" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-simple modal-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 id="modalPGTitle" class="modal-title">新增分類設定 - 行政規章專區</h4>
+            </div>
+            <form id="pgeditForm" class="FullForm" autocomplete="off">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            代號
+                            <span class="required">*</span>
+                        </label>
+                        @Html.TextBox("classid", "", new { @class = "form-control", @placeholder = "請輸入代號", @required = "" })
+                        @Html.Hidden("typeid")
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            類別名稱
+                            <span class="required">*</span>
+                        </label>
+                        @Html.TextBox("classname", "", new { @class = "form-control", @placeholder = "請輸入類別名稱", @required = "" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">確定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /分類設定 - 行政規章專區 -->
+<!-- DeleteModel -->
+@Html.Action("PGDeleteConfirmDialog", "TypeSetting")
+<!-- /DeleteModel -->
+
+<script>
+    var urlQueryPG = '@Url.Action("PGQuery", "TypeSetting")';
+    var urlSavePG = '@Url.Action("PGSave", "TypeSetting")';
+
+    $(document).ready(function () {
+        PGBinding();
+
+        $('#pgtable').on('click', '#PGModal', function () {
+            var tds = $(this).parent().siblings();
+            $('#pgeditForm input[name=typeid]').val($(this).attr('typeid'));
+            $('#pgeditForm input[name=classid]').val(tds[0].innerText);
+            $('#pgeditForm input[name=classname]').val(tds[1].innerText);
+        });
+
+        $('#postgroupclass').on('shown.bs.modal', function (e) {
+            var titleStr = '分類設定 - 行政規章專區';
+            var editStr = '新增';
+            if ($('#pgeditForm input[name=typeid]').val().length > 0) {
+                editStr = '編輯';
+            }
+            $('#modalPGTitle').html(editStr + titleStr);
+            $('#pgeditForm').formValidation('resetForm', false);
+        });
+
+        $('#postgroupclass').on('hidden.bs.modal', function () {
+            $('#pgeditForm input[name=typeid]').val('');
+            $('#pgeditForm input[name=classid]').val('');
+            $('#pgeditForm input[name=classname]').val('');
+        });
+
+        $('#pgeditForm').formValidation({
+            framework: "bootstrap4",
+            icon: null,
+            fields: {
+                classid: {
+                    validators: {
+                        notEmpty: {
+                            message: '請輸入代號'
+                        }
+                    }
+                },
+                classname: {
+                    validators: {
+                        notEmpty: {
+                            message: '請輸入類別名稱'
+                        }
+                    }
+                }
+            },
+            err: {
+                clazz: 'invalid-feedback'
+            },
+            control: {
+                // The CSS class for valid control
+                valid: 'is-valid',
+
+                // The CSS class for invalid control
+                invalid: 'is-invalid'
+            },
+            row: {
+                invalid: 'has-danger'
+            }
+        })
+            .on('success.form.fv', function (e) {
+                // Prevent form submission
+                e.preventDefault();
+
+                // Use Ajax to submit form data
+                $.ajax({
+                    url: urlSavePG,
+                    type: "post",
+                    headers: {
+                        'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
+                    },
+                    data: {
+                        ID: $('#pgeditForm input[name=typeid]').val(),
+                        ClassID: $('#pgeditForm input[name=classid]').val(),
+                        ClassName: $('#pgeditForm input[name=classname]').val()
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result) {
+                            $('#postgroupclass').modal('toggle');
+                            var url = '/TypeSetting';
+                            if ($('#pgeditForm input[name=typeid]').val() > 0) {
+                                SuccessMSGAfterAction("更新成功", url, 1000);
+                            } else {
+                                SuccessMSGAfterAction("新增成功", url, 1000);
+                            }
+                        } else {
+                            ErrorMSG('異動失敗');
+                        }
+                    }
+                });
+            });
+    });
+
+
+    function PGBinding() {
+        var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+        _tmpOpts.ajax = {
+            "url": urlQueryPG,            
+            "type": 'POST'
+        };
+        _tmpOpts.columns = [
+            { mDataProp: "ClassID", className: 'text-center' },
+            { mDataProp: "ClassName", className: 'text-center' },
+            {
+                mDataProp: null,
+                render: function (data, type, full, meta) {
+                    var tag =
+                        '<a href="#postgroupclass" id="PGModal" class="btn btn-pure btn-default p-5 btn-primary" typeid = "' + data.ID + '" data-toggle="modal" >' +
+                        '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
+                        '</a >' +
+                        '<a href="#PGDeleteConfirmDialog" class="btn btn-pure btn-default p-5 btn-warning" data-contentargs="[&quot;' + data.ClassID + '-' + data.ClassName + '&quot;]" data-id="' + data.ID + '" data-toggle="modal">' +
+                        '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
+                        '</a>'
+                    return tag;
+                }
+            }
+        ];
+
+        if ($.fn.DataTable.isDataTable('#pgtable')) {
+            $('#pgtable').DataTable().destroy();
+            $('#pgtable  tbody tr').remove();
+        }
+        $('#pgtable').DataTable(_tmpOpts);
+    }
+</script>

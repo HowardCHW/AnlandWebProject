@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="BusinessModel\ClassificationTypeEnum.cs" />
     <Compile Include="BusinessModel\FAQModel.cs" />
     <Compile Include="BusinessModel\OnlineApplicationModel.cs" />
     <Compile Include="BusinessModel\SMTPSetupModel.cs" />
