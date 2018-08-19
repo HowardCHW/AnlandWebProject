@@ -1,0 +1,123 @@
+﻿@model List<AnlandProject.Service.BusinessModel.DefaultDataModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/global/plugins/datatables/datatables.min.css">
+    <link rel="stylesheet" href="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css">
+    <link rel="stylesheet" href="~/global/css/plugins.min.css">
+}
+
+<div class="page-header">
+    <h1 class="page-title">問卷調查</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">問卷調查</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+
+<div class="page-content container-fluid">
+    <!-- 內文編輯區 -->
+    <div class="panel panel-bordered">
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group col-xl-6">
+                    <a href='@Url.Action("CreateQuestionnaire","Questionnaire")' class="btn btn-md btn-primary" style="margin-right:20px;">
+                        <i class="icon wb-plus" aria-hidden="true"></i> 新增問卷
+                    </a>
+                </div>
+                <div class="form-group col-xl-3">
+                </div>
+            </div>
+            <div>
+                <table id="questiontable" class="table table-striped table-bordered table-hover table-checkable order-column">
+                    <thead>
+                        <tr>
+                            <th style="width:80px;">編號</th>
+                            <th style="width:300px;">問卷名稱</th>
+                            <th >問卷狀態</th>
+                            <th >問卷資訊</th>
+                            <th style="width:60px;" class="nosort">管理模式</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- model -->
+    @Html.Action("DeleteConfirmDialog", "Questionnaire")
+    <!-- /model -->
+    <!-- /內文編輯區 -->
+</div>
+
+@section scripts{
+    <script src="~/global/plugins/datatables/datatables.min.js"></script>
+    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+    <script>
+        var urlQueryQuestionnaire = '@Url.Action("QuestionnaireQuery", "Questionnaire")';
+
+        $(document).ready(function () {
+            DatatableBinding();
+        });
+
+        function DatatableBinding() {
+            var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+            _tmpOpts.ajax = {
+                "url": urlQueryQuestionnaire,
+                "type": 'POST'
+            };
+            _tmpOpts.columns = [
+                { mDataProp: "QuestionID" },
+                {
+                    mDataProp: "QuestionName",
+                    render: function myfunction(data, type, full, meta) {
+                        return '<a href="../Questionnaire/QuestionnaireView/' + full.QuestionID + '">' + data + '</a>';
+                    }
+                },
+                { mDataProp: "QuestionStatus" },
+                {
+                    mDataProp: "IsOpen",
+                    render: function (data, type, full, meta) {
+                        return '[<a href="../Questionnaire/QuestionnaireAnswer/' + full.QuestionID + '">看結果</a>]' + (data ? "     公開" : "     不公開");
+                    }
+                },
+                {
+                    mDataProp: null,
+                    render: function (data, type, full, meta) {
+                        var tag =
+                            '<a href="../Questionnaire/QuestionEdit/' + data.QuestionID + '" class="btn btn-pure btn-default p-5 btn-primary">' +
+                            '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
+                            '</a >' +
+                            '<a href="#DeleteConfirmDialog" class="btn btn-pure btn-default p-5 btn-warning" data-contentargs="[&quot;' + data.QuestionName + '&quot;]" data-id="' + data.QuestionID + '" data-toggle="modal">' +
+                            '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
+                            '</a>'
+                        return tag;
+                    }
+                }
+            ];
+
+            if ($.fn.DataTable.isDataTable('#questiontable')) {
+                $('#questiontable').DataTable().destroy();
+                $('#questiontable  tbody tr').remove();
+            }
+            $('#questiontable').DataTable(_tmpOpts);
+        }
+
+        function RequestFail() {
+            msgResoure('other_msg', 'small', '錯誤', errMSGContent);
+        }
+
+
+        function DeleteSuccess(result) {
+            if (result) {
+                SuccessMSGAfterFun('刪除成功', DatatableBinding);
+            }
+            else {
+                ErrorMSG(result.Description);
+            }
+        }
+    </script>
+}

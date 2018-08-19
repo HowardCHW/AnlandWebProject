@@ -15,9 +15,11 @@ namespace AnlandProject.Models
     public partial class suggest3
     {
         public int answer_id { get; set; }
-        public Nullable<short> question_id { get; set; }
+        public Nullable<int> question_id { get; set; }
         public string writer { get; set; }
         public Nullable<System.DateTime> answer_date { get; set; }
         public string answer { get; set; }
+    
+        public virtual suggest suggest { get; set; }
     }
 }

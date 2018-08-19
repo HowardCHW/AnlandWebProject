@@ -11,9 +11,6 @@
         <EntityTypeShape EntityType="anlandModel.lawview" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.post_team" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.qaview" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="anlandModel.suggest" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="anlandModel.suggest2" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="anlandModel.suggest3" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.type" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.main_menu" Width="1.5" PointX="15.375" PointY="16.75" />
         <EntityTypeShape EntityType="anlandModel.Cate" Width="1.5" PointX="17.375" PointY="0.75" />
@@ -43,6 +40,11 @@
         <EntityTypeShape EntityType="anlandModel.newsclass" Width="1.5" PointX="7.75" PointY="21.75" />
         <EntityTypeShape EntityType="anlandModel.qaclass" Width="1.5" PointX="21.75" PointY="9.75" />
         <EntityTypeShape EntityType="anlandModel.post_group" Width="1.5" PointX="21.375" PointY="12.75" />
+        <EntityTypeShape EntityType="anlandModel.suggest" Width="1.5" PointX="21.375" PointY="17" />
+        <EntityTypeShape EntityType="anlandModel.suggest2" Width="1.5" PointX="23.625" PointY="18.875" />
+        <EntityTypeShape EntityType="anlandModel.suggest3" Width="1.5" PointX="23.625" PointY="16.125" />
+        <AssociationConnector Association="anlandModel.FK_suggest2_suggest" />
+        <AssociationConnector Association="anlandModel.FK_suggest3_suggest" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

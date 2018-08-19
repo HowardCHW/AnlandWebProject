@@ -1,0 +1,71 @@
+﻿.ajax-loading {
+    margin: 10px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.ajax-loading > div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.ajax-loading .item2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.ajax-loading .item3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.ajax-loading .item4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.ajax-loading .item5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.block--success {
+    width: 350px;
+    top: 60px;
+    left: auto;
+    right: 10px;
+    border: none;
+    color: #fff;
+    background-color: #333;
+    opacity: .8;
+    cursor: default;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.block--success .block__body {
+    position: relative;
+    padding-left: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+    font-size: 22px;
+}
+
+.block--success .block__body .ion-android-done {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 30px;
+    color: #8fdf31;
+    font-size: 36px;
+}

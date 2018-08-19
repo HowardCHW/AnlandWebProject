@@ -732,16 +732,11 @@ warning 6002: The table/view 'anland.dbo.qaview' does not have a primary key def
           <Property Name="recipientname" Type="nvarchar" MaxLength="50" />
           <Property Name="subject" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.suggest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="suggest">
           <Key>
             <PropertyRef Name="question_id" />
-            <PropertyRef Name="question_name" />
-            <PropertyRef Name="is_open" />
-            <PropertyRef Name="check_ok" />
           </Key>
-          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="question_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="question_name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="owner" Type="nvarchar" MaxLength="30" />
           <Property Name="startday" Type="datetime" />
@@ -752,27 +747,23 @@ warning 6002: The table/view 'anland.dbo.suggest' does not have a primary key de
           <Property Name="who" Type="nvarchar" MaxLength="50" />
           <Property Name="create_date" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.suggest2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="suggest2">
           <Key>
             <PropertyRef Name="id" />
           </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="question_id" Type="int" />
           <Property Name="question_number" Type="nvarchar" MaxLength="10" />
           <Property Name="question" Type="nvarchar" MaxLength="150" />
           <Property Name="type1" Type="nvarchar" MaxLength="10" />
           <Property Name="option1" Type="nvarchar(max)" />
-          <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.suggest3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="suggest3">
           <Key>
             <PropertyRef Name="answer_id" />
           </Key>
-          <Property Name="answer_id" Type="int" Nullable="false" />
-          <Property Name="question_id" Type="smallint" />
+          <Property Name="answer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question_id" Type="int" />
           <Property Name="writer" Type="nvarchar" MaxLength="20" />
           <Property Name="answer_date" Type="datetime" />
           <Property Name="answer" Type="nvarchar(max)" />
@@ -800,6 +791,30 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="typecode" Type="nvarchar" MaxLength="50" />
           <Property Name="cre_date" Type="datetime" />
         </EntityType>
+        <Association Name="FK_suggest2_suggest">
+          <End Role="suggest" Type="Self.suggest" Multiplicity="0..1" />
+          <End Role="suggest2" Type="Self.suggest2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suggest">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="suggest2">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_suggest3_suggest">
+          <End Role="suggest" Type="Self.suggest" Multiplicity="0..1" />
+          <End Role="suggest3" Type="Self.suggest3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suggest">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="suggest3">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="anlandModelStoreContainer">
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="an_news" EntityType="Self.an_news" Schema="dbo" store:Type="Tables" />
@@ -824,6 +839,9 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="qaclass" EntityType="Self.qaclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="setup_smtp" EntityType="Self.setup_smtp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suggest" EntityType="Self.suggest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suggest2" EntityType="Self.suggest2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suggest3" EntityType="Self.suggest3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="theme" EntityType="Self.theme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="board_setup" EntityType="Self.board_setup" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1091,39 +1109,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [qaview].[classname] AS [classname]
     FROM [dbo].[qaview] AS [qaview]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="suggest" EntityType="Self.suggest" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [suggest].[question_id] AS [question_id], 
-    [suggest].[question_name] AS [question_name], 
-    [suggest].[owner] AS [owner], 
-    [suggest].[startday] AS [startday], 
-    [suggest].[stopday] AS [stopday], 
-    [suggest].[is_open] AS [is_open], 
-    [suggest].[content] AS [content], 
-    [suggest].[check_ok] AS [check_ok], 
-    [suggest].[who] AS [who], 
-    [suggest].[create_date] AS [create_date]
-    FROM [dbo].[suggest] AS [suggest]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="suggest2" EntityType="Self.suggest2" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [suggest2].[question_id] AS [question_id], 
-    [suggest2].[question_number] AS [question_number], 
-    [suggest2].[question] AS [question], 
-    [suggest2].[type1] AS [type1], 
-    [suggest2].[option1] AS [option1], 
-    [suggest2].[id] AS [id]
-    FROM [dbo].[suggest2] AS [suggest2]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="suggest3" EntityType="Self.suggest3" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [suggest3].[answer_id] AS [answer_id], 
-    [suggest3].[question_id] AS [question_id], 
-    [suggest3].[writer] AS [writer], 
-    [suggest3].[answer_date] AS [answer_date], 
-    [suggest3].[answer] AS [answer]
-    FROM [dbo].[suggest3] AS [suggest3]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="type" EntityType="Self.type" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [type].[type_id] AS [type_id], 
@@ -1133,6 +1118,14 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [type].[cre_date] AS [cre_date]
     FROM [dbo].[type] AS [type]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_suggest2_suggest" Association="Self.FK_suggest2_suggest">
+            <End Role="suggest" EntitySet="suggest" />
+            <End Role="suggest2" EntitySet="suggest2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_suggest3_suggest" Association="Self.FK_suggest3_suggest">
+            <End Role="suggest" EntitySet="suggest" />
+            <End Role="suggest3" EntitySet="suggest3" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -1244,45 +1237,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
           <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="suggest">
-          <Key>
-            <PropertyRef Name="question_id" />
-            <PropertyRef Name="question_name" />
-            <PropertyRef Name="is_open" />
-            <PropertyRef Name="check_ok" />
-          </Key>
-          <Property Name="question_id" Type="Int32" Nullable="false" />
-          <Property Name="question_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="owner" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="startday" Type="DateTime" Precision="3" />
-          <Property Name="stopday" Type="DateTime" Precision="3" />
-          <Property Name="is_open" Type="Boolean" Nullable="false" />
-          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="check_ok" Type="Boolean" Nullable="false" />
-          <Property Name="who" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="create_date" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="suggest2">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="question_id" Type="Int32" />
-          <Property Name="question_number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="question" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="type1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="option1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="id" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="suggest3">
-          <Key>
-            <PropertyRef Name="answer_id" />
-          </Key>
-          <Property Name="answer_id" Type="Int32" Nullable="false" />
-          <Property Name="question_id" Type="Int16" />
-          <Property Name="writer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="answer_date" Type="DateTime" Precision="3" />
-          <Property Name="answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="type">
           <Key>
             <PropertyRef Name="type_id" />
@@ -1300,9 +1254,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="lawview" EntityType="Self.lawview" />
           <EntitySet Name="post_team" EntityType="Self.post_team" />
           <EntitySet Name="qaview" EntityType="Self.qaview" />
-          <EntitySet Name="suggest" EntityType="Self.suggest" />
-          <EntitySet Name="suggest2" EntityType="Self.suggest2" />
-          <EntitySet Name="suggest3" EntityType="Self.suggest3" />
           <EntitySet Name="type" EntityType="Self.type" />
           <EntitySet Name="main_menu" EntityType="anlandModel.main_menu" />
           <EntitySet Name="Cate" EntityType="anlandModel.Cate" />
@@ -1332,6 +1283,17 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="newsclass" EntityType="anlandModel.newsclass" />
           <EntitySet Name="qaclass" EntityType="anlandModel.qaclass" />
           <EntitySet Name="post_group" EntityType="anlandModel.post_group" />
+          <EntitySet Name="suggest" EntityType="anlandModel.suggest" />
+          <EntitySet Name="suggest2" EntityType="anlandModel.suggest2" />
+          <EntitySet Name="suggest3" EntityType="anlandModel.suggest3" />
+          <AssociationSet Name="FK_suggest2_suggest" Association="anlandModel.FK_suggest2_suggest">
+            <End Role="suggest" EntitySet="suggest" />
+            <End Role="suggest2" EntitySet="suggest2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_suggest3_suggest" Association="anlandModel.FK_suggest3_suggest">
+            <End Role="suggest" EntitySet="suggest" />
+            <End Role="suggest3" EntitySet="suggest3" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1945,6 +1907,70 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="post_group1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="post_team_num" Type="Int32" />
         </EntityType>
+        <EntityType Name="suggest">
+          <Key>
+            <PropertyRef Name="question_id" />
+          </Key>
+          <Property Name="question_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="owner" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="startday" Type="DateTime" Precision="3" />
+          <Property Name="stopday" Type="DateTime" Precision="3" />
+          <Property Name="is_open" Type="Boolean" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="check_ok" Type="Boolean" Nullable="false" />
+          <Property Name="who" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="suggest2" Relationship="anlandModel.FK_suggest2_suggest" FromRole="suggest" ToRole="suggest2" />
+          <NavigationProperty Name="suggest3" Relationship="anlandModel.FK_suggest3_suggest" FromRole="suggest" ToRole="suggest3" />
+        </EntityType>
+        <EntityType Name="suggest2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question_id" Type="Int32" />
+          <Property Name="question_number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="question" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="type1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="option1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="suggest" Relationship="anlandModel.FK_suggest2_suggest" FromRole="suggest2" ToRole="suggest" />
+        </EntityType>
+        <EntityType Name="suggest3">
+          <Key>
+            <PropertyRef Name="answer_id" />
+          </Key>
+          <Property Name="answer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question_id" Type="Int32" />
+          <Property Name="writer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="answer_date" Type="DateTime" Precision="3" />
+          <Property Name="answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="suggest" Relationship="anlandModel.FK_suggest3_suggest" FromRole="suggest3" ToRole="suggest" />
+        </EntityType>
+        <Association Name="FK_suggest2_suggest">
+          <End Type="anlandModel.suggest" Role="suggest" Multiplicity="0..1" />
+          <End Type="anlandModel.suggest2" Role="suggest2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suggest">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="suggest2">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_suggest3_suggest">
+          <End Type="anlandModel.suggest" Role="suggest" Multiplicity="0..1" />
+          <End Type="anlandModel.suggest3" Role="suggest3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suggest">
+              <PropertyRef Name="question_id" />
+            </Principal>
+            <Dependent Role="suggest3">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2057,45 +2083,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
                 <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
                 <ScalarProperty Name="classname" ColumnName="classname" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="suggest">
-            <EntityTypeMapping TypeName="anlandModel.suggest">
-              <MappingFragment StoreEntitySet="suggest">
-                <ScalarProperty Name="question_id" ColumnName="question_id" />
-                <ScalarProperty Name="question_name" ColumnName="question_name" />
-                <ScalarProperty Name="owner" ColumnName="owner" />
-                <ScalarProperty Name="startday" ColumnName="startday" />
-                <ScalarProperty Name="stopday" ColumnName="stopday" />
-                <ScalarProperty Name="is_open" ColumnName="is_open" />
-                <ScalarProperty Name="content" ColumnName="content" />
-                <ScalarProperty Name="check_ok" ColumnName="check_ok" />
-                <ScalarProperty Name="who" ColumnName="who" />
-                <ScalarProperty Name="create_date" ColumnName="create_date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="suggest2">
-            <EntityTypeMapping TypeName="anlandModel.suggest2">
-              <MappingFragment StoreEntitySet="suggest2">
-                <ScalarProperty Name="question_id" ColumnName="question_id" />
-                <ScalarProperty Name="question_number" ColumnName="question_number" />
-                <ScalarProperty Name="question" ColumnName="question" />
-                <ScalarProperty Name="type1" ColumnName="type1" />
-                <ScalarProperty Name="option1" ColumnName="option1" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="suggest3">
-            <EntityTypeMapping TypeName="anlandModel.suggest3">
-              <MappingFragment StoreEntitySet="suggest3">
-                <ScalarProperty Name="answer_id" ColumnName="answer_id" />
-                <ScalarProperty Name="question_id" ColumnName="question_id" />
-                <ScalarProperty Name="writer" ColumnName="writer" />
-                <ScalarProperty Name="answer_date" ColumnName="answer_date" />
-                <ScalarProperty Name="answer" ColumnName="answer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2747,6 +2734,45 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="post_team_num" ColumnName="post_team_num" />
                 <ScalarProperty Name="post_group1" ColumnName="post_group" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suggest">
+            <EntityTypeMapping TypeName="anlandModel.suggest">
+              <MappingFragment StoreEntitySet="suggest">
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="who" ColumnName="who" />
+                <ScalarProperty Name="check_ok" ColumnName="check_ok" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="is_open" ColumnName="is_open" />
+                <ScalarProperty Name="stopday" ColumnName="stopday" />
+                <ScalarProperty Name="startday" ColumnName="startday" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="question_name" ColumnName="question_name" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suggest2">
+            <EntityTypeMapping TypeName="anlandModel.suggest2">
+              <MappingFragment StoreEntitySet="suggest2">
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="type1" ColumnName="type1" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="question_number" ColumnName="question_number" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suggest3">
+            <EntityTypeMapping TypeName="anlandModel.suggest3">
+              <MappingFragment StoreEntitySet="suggest3">
+                <ScalarProperty Name="answer" ColumnName="answer" />
+                <ScalarProperty Name="answer_date" ColumnName="answer_date" />
+                <ScalarProperty Name="writer" ColumnName="writer" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="answer_id" ColumnName="answer_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

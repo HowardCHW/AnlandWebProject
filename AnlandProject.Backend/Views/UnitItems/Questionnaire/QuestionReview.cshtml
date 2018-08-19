@@ -1,0 +1,140 @@
+﻿@model AnlandProject.Service.BusinessModel.QuestionnaireDataModel
+
+@{
+    ViewBag.Title = "QuestionnaireReview";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+
+<div class="page-header">
+    <h1 class="page-title">問卷調查-問卷瀏覽</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">問卷調查</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+
+<div class="page-content container-fluid" id="questionnaireReviewArea">
+    <form class="FullForm" autocomplete="off">
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">問卷編號：@Model.QuestionID</h3>
+            </div>
+            <div class="panel-body">
+                @*<div class="row">
+                        <div class="col-md-6">
+                            IP：(writer) (直接帶入USER IP)
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-md-6">
+                        問卷名稱： @Model.QuestionName
+                    </div>
+                    <div class="col-md-6">
+                        本問卷結果 @if (!Model.IsOpen){@Html.Raw("不")}公開
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        問卷說明：@if (string.IsNullOrWhiteSpace(Model.Content)){@Html.Raw("無") } else { @Model.Content}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        有效時間： 自 @Model.StartDay.Value.ToString("yyyy/MM/dd") 至 @Model.StopDay.Value.ToString("yyyy/MM/dd")
+                    </div>
+                </div>
+                <div class="row row-lg" style="border-top:2px solid #ddd;padding-top: 5px;margin-top: 10px">
+                    <div class="col-md-6 form-horizontal">
+                        @foreach (var item in Model.Questions.Where(q => q.Type != "問答").OrderBy(q => q.QuestionNo))
+                        {
+                            <!-- 問卷名稱 -->
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 form-control-label">
+                                    選擇題 @item.QuestionNo
+                                </label>
+                                <div class="col-xl-12 col-md-9 form-inline" style="margin-bottom: 10px">
+                                    <ul class="list-unstyled list-inline">
+                                        <li class="list-inline-item">
+                                            <div class="radio-custom radio-primary">
+                                                @Html.RadioButtonFor(m => item.Type, "單選", new { @id = "rdbsingle", @disabled = "" })
+                                                <label for="rdbsingle">單選</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="radio-custom radio-primary">
+                                                @Html.RadioButtonFor(m => item.Type, "複選", new { @id = "rdbmultiple", @disabled = "" })
+                                                <label for="rdbmultiple">複選</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <label class="col-xl-2 col-md-3 form-control-label">題目：</label>
+                                    <div class=" col-xl-10 col-md-9">
+                                        <input type="text" class="form-control" name="select_question" placeholder="" value="@item.Question" readonly>
+                                    </div>
+                                    @for (int i = 0; i < item.Options.Count; i++)
+                                    {
+                                        <label class="col-xl-2 col-md-3 form-control-label">
+                                            選項 @i+1
+                                        </label>
+                                        <div class=" col-xl-10 col-md-9">
+                                            <input type="text" class="form-control" name="options<%=x%>" value="@item.Options[0]" readonly>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <!-- /問卷名稱 -->
+                        }
+                    </div>
+                    <div class="col-md-6 form-horizontal">
+                        @foreach (var item in Model.Questions.Where(q => q.Type == "問答").OrderBy(q => q.QuestionNo))
+                        {
+                            <!-- 選擇題數量 -->
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 form-control-label">
+                                    問答題 @item.QuestionNo
+                                </label>
+                                <label class="col-xl-2 col-md-3 form-control-label">題目:</label>
+                                <div class=" col-xl-10 col-md-9">
+                                    <input type="text" class="form-control" name="answer_question<%=i%>" placeholder="" value="@item.Question" readonly>
+                                </div>
+                            </div>
+                            <!-- /選擇題數量 -->
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    <a href='@Url.Action("Index","Questionnaire")' class="btn btn-default">回上頁</a>
+                    @*<button type="submit" class="btn btn-primary" id="validateButton1">送出問卷</button>*@
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    </form>
+</div>
+
+
+
+
+@section scripts{
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        //var reviewVue = new Vue({
+        //    el: '#questionnaireReviewArea',
+        //    data: {
+        //        questionCount: 1,
+        //        answerCount: 1,
+        //        optionCount: 2
+        //    }
+        //});
+
+        $(document).ready(function () {
+
+        });
+    </script>
+}

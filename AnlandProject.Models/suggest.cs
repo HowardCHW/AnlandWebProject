@@ -14,6 +14,13 @@ namespace AnlandProject.Models
     
     public partial class suggest
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public suggest()
+        {
+            this.suggest2 = new HashSet<suggest2>();
+            this.suggest3 = new HashSet<suggest3>();
+        }
+    
         public int question_id { get; set; }
         public string question_name { get; set; }
         public string owner { get; set; }
@@ -24,5 +31,10 @@ namespace AnlandProject.Models
         public bool check_ok { get; set; }
         public string who { get; set; }
         public Nullable<System.DateTime> create_date { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<suggest2> suggest2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<suggest3> suggest3 { get; set; }
     }
 }

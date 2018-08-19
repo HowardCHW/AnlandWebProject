@@ -23,5 +23,7 @@ namespace AnlandProject.Models.Interface
         IQueryable<TEntity> GetAll();
 
         int GetCount(Expression<Func<TEntity, bool>> predicate);
+
+        bool IsAny(Expression<Func<TEntity, bool>> predicate);
     }
 }

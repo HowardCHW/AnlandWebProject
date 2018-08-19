@@ -14,11 +14,13 @@ namespace AnlandProject.Models
     
     public partial class suggest2
     {
+        public int id { get; set; }
         public Nullable<int> question_id { get; set; }
         public string question_number { get; set; }
         public string question { get; set; }
         public string type1 { get; set; }
         public string option1 { get; set; }
-        public int id { get; set; }
+    
+        public virtual suggest suggest { get; set; }
     }
 }

@@ -31,9 +31,6 @@ namespace AnlandProject.Models
         public virtual DbSet<lawview> lawview { get; set; }
         public virtual DbSet<post_team> post_team { get; set; }
         public virtual DbSet<qaview> qaview { get; set; }
-        public virtual DbSet<suggest> suggest { get; set; }
-        public virtual DbSet<suggest2> suggest2 { get; set; }
-        public virtual DbSet<suggest3> suggest3 { get; set; }
         public virtual DbSet<type> type { get; set; }
         public virtual DbSet<main_menu> main_menu { get; set; }
         public virtual DbSet<Cate> Cate { get; set; }
@@ -63,5 +60,8 @@ namespace AnlandProject.Models
         public virtual DbSet<newsclass> newsclass { get; set; }
         public virtual DbSet<qaclass> qaclass { get; set; }
         public virtual DbSet<post_group> post_group { get; set; }
+        public virtual DbSet<suggest> suggest { get; set; }
+        public virtual DbSet<suggest2> suggest2 { get; set; }
+        public virtual DbSet<suggest3> suggest3 { get; set; }
     }
 }

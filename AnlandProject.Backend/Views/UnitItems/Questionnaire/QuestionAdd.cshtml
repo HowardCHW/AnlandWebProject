@@ -1,0 +1,343 @@
+﻿@{
+    ViewBag.Title = "QuestionnaireAdd";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" href="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            /*vertical-align: bottom;*/
+            color: red;
+        }
+
+        .hide {
+            display: none !important;
+        }
+    </style>
+}
+
+<div class="page-header">
+    <h1 class="page-title">問卷調查-新增問卷設定</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">問卷調查</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+<div class="page-content container-fluid" id="questionnaireArea">
+    @*<form id="addQuestionForm" class="FullForm" autocomplete="off">*@
+    @using (Ajax.BeginForm("QuestionnaireSave", "Questionnaire", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "addQuestionForm", @class = "FullForm", @autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">新增問卷</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-md-6 form-horizontal">
+                        <!-- 問卷名稱 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                問卷名稱
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBox("questionname", "", new { @class = "form-control", @placeholder = "", @required = "", @data_parsley_required_message = "請填問卷名稱", @data_parsley_samename = "" })
+                            </div>
+                        </div>
+                        <!-- /問卷名稱 -->
+                        <!-- 發起人 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                發起人
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBox("owner", "", new { @class = "form-control", @placeholder = "", @required = "", @data_parsley_required_message = "請填發起人" })
+                            </div>
+                        </div>
+                        <!-- /發起人 -->
+                        <!-- 起始時間 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                起始時間
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                    @Html.TextBox("startday", "", new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @id = "StartDay", @placeholder = "YYYY/MM/DD", @required = "", @data_parsley_required_message = "請選起始時間", @data_parsley_errors_container = "#startdayErr" })
+                                </div>
+                                <div id="startdayErr"></div>
+                            </div>
+                        </div>
+                        <!-- /起始時間 -->
+                        <!-- 截止時間 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                截止時間
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                    @Html.TextBox("stopday", "", new { @class = "form-control", @data_plugin = "datepicker", @data_Format = "yyyy/mm/dd", @data_language = "zh-TW", @id = "StopDay", @placeholder = "YYYY/MM/DD", @required = "", @data_parsley_required_message = "請選截止時間", @data_parsley_errors_container = "#stopdayErr" })
+                                </div>
+                                <div id="stopdayErr"></div>
+                            </div>
+                        </div>
+                        <!-- /截止時間 -->
+                    </div>
+                    <div class="col-md-6 form-horizontal">
+                        <!-- 選擇題數量 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                選擇題數量
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <select class="form-control" name="selectqty" size="1" v-model.number="questionCount" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /選擇題數量 -->
+                        <!-- 問答題數量 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                問答題數量
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <select class="form-control" name="answerqty" size="1" v-model.number="answerCount" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /問答題數量 -->
+                        <!-- 問卷說明 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                問卷說明
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextArea("content", "", new { @class = "form-control", @cols = "60", @rows = "3", @placeholder = "編輯內文請按「Enter」分段落", @required = "", @data_parsley_required_message = "請填問卷說明" })
+                            </div>
+                        </div>
+                        <!-- /問卷說明 -->
+                        <!-- 是否公開結果 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                是否公開結果
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item">
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" name="isopen" id="inputRadiosYes" value="True" checked="checked" />
+                                            <label for="inputRadiosYes">是 </label>
+                                        </div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" name="isopen" id="inputRadiosNo" value="False" />
+                                            <label for="inputRadiosNo">否</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /是否公開結果 -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg" style="border-top:2px solid #ddd;padding-top: 5px;margin-top: 10px">
+                    <div class="col-md-6 form-horizontal">
+                        <!-- 問卷名稱 -->
+                        <div class="form-group row" v-for="(item, index) in questionCount">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                選擇題 {{index + 1}}
+                            </label>
+                            <div class="col-xl-12 col-md-9 form-inline" style="margin-bottom: 10px">
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item">
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" :name="'questions[' + index + '].type'" :id="'single' + index" value="單選" checked="checked">
+                                            <label :for="'single' + index">單選</label>
+                                        </div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" :name="'questions[' + index + '].type'" :id="'multiple' + index" value="複選">
+                                            <label :for="'multiple' + index">複選</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12">(單/複選每題最多可填6組答案,單選最少也要有2個答案)</div>
+                            <div class="row">
+                                <label class="col-xl-2 col-md-3 form-control-label">題目：</label>
+                                <div class=" col-xl-10 col-md-9">
+                                    <input type="hidden" :name="'questions[' + index + '].questionno'" :value="index + 1" />
+                                    <input type="text" class="form-control" :name="'questions[' + index + '].question'" placeholder="" required="" data-parsley-required-message="選擇題目必填!" />
+                                </div>
+                                <label class="col-xl-2 col-md-3 form-control-label">
+                                    選項數
+                                </label>
+                                <div class=" col-xl-10 col-md-9">
+                                    <select class="form-control" name="optionqty" size="1" v-model.number="optionCount">
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                                <template v-for="ind in optionCount">
+                                    <label class="col-xl-2 col-md-3 form-control-label">
+                                        選項 {{ind}}
+                                    </label>
+                                    <div class="col-xl-10 col-md-9">
+                                        <input type="text" class="form-control" :name="'questions[' + index + '].Options['+ (ind-1) +']'" placeholder="" required="" data-parsley-required-message="選項必填!" />
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        <!-- /問卷名稱 -->
+                    </div>
+                    <div class="col-md-6 form-horizontal">
+                        <!-- 選擇題數量 -->
+                        <div class="form-group row" v-for="(item, index) in answerCount">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                問答題 {{index + 1}}
+                            </label>
+                            <label class="col-xl-2 col-md-3 form-control-label">題目:</label>
+                            <div class=" col-xl-10 col-md-9">
+                                <input type="hidden" :name="'questions[' + (questionCount + index) + '].questionno'" :value="questionCount + index + 1" />
+                                <input type="hidden" :name="'questions[' + (questionCount + index) + '].type'" value="問答" />
+                                <input type="text" class="form-control" :name="'questions[' + (questionCount + index) + '].question'" placeholder="" required="" data-parsley-required-message="問答題目必填!" />
+                            </div>
+                        </div>
+                        <!-- /選擇題數量 -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    <a href='@Url.Action("Index","Questionnaire")' class="btn btn-default">取消</a>
+                    <button type="button" class="btn btn-primary" id="btnNext">儲存</button>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    }
+
+    @*</form>*@
+</div>
+
+@section scripts{
+    <script src="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.zh-TW.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script>
+        var questionnaireVue = new Vue({
+            el: '#questionnaireArea',
+            data: {
+                questionCount: 1,
+                answerCount: 1,
+                optionCount: 2
+            }
+        });
+
+        window.Parsley.addValidator('samename', {
+            requirementType: 'string',
+            validateString: function (value) {
+                var isNotExit = false;
+                $.ajax({
+                    url: '@Url.Action("QuestionNameCheck", "Questionnaire")',
+                    type: "post",
+                    headers: {
+                        'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
+                    },
+                    data: { qaName: value },
+                    dataType: 'json',
+                    async: false,
+                    success: function (result) {
+                        isNotExit = !result;
+                    }
+                });
+                return isNotExit;
+            },
+            messages: {
+                'zh-tw': '問卷名稱已經存在!'
+            }
+        });
+
+        $(document).ready(function () {
+            $('#StartDay,#StopDay').on('changeDate', function (ev) {
+                $(this).parsley().validate();
+                $(this).datepicker('hide');
+            });
+
+            $('#btnNext').on('click', function myfunction() {
+                //觸發該欄位的表單驗證 (Parsley Validation)
+                $('#addQuestionForm').parsley().validate();
+                if ($('#addQuestionForm').parsley().isValid()) {
+                    $('#addQuestionForm').submit();
+                }
+            });
+        });
+
+        function SuccessMessage(result) {
+            if (result) {
+                var url = '/Questionnaire';
+                SuccessMSGAfterAction("新增成功", url, 1000);
+            } else {
+                ErrorMSG('異動失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('新增失敗');
+        }
+    </script>
+}

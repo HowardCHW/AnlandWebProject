@@ -143,6 +143,11 @@ namespace AnlandProject.Models.Repository
             }
         }
 
+        public bool IsAny(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _context.Set<TEntity>().Any(predicate);
+        }
+
         /// <summary>
         /// 回收資源
         /// </summary>
