@@ -1,42 +1,64 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="zh-Hant-TW">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 分類檢索 Start -->
+    @RenderSection("AdditionalMeta", false)
+    <!-- 分類檢索 End -->
+    <meta name="Accessible_website" content="本網站通過通過AAA優先等級無障礙網頁檢測">
+    <title>基隆市安樂地政事務所全球資訊網</title>
+    <link rel="apple-touch-icon" href="~/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="~/images/logo.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/base/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/base/icon-css/all.min.css">
+    <link rel="stylesheet" href="~/Content/base/css/datatables.min.css">
+    <link rel="stylesheet" href="~/Content/base/plugin/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Content/base/css/base.min.css">
+    @RenderSection("styles", false)
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- 表頭 -->
+    @Html.Partial("~/Views/Shared/_Header.cshtml")
+    <!-- /表頭 -->
+    <!-- 主選單 -->
+    @Html.Partial("~/Views/Shared/_MainMenu.cshtml")
+    <!-- /主選單 -->
+    <div>
+        @RenderBody()
+    </div>
+    <!-- 胖頁尾 -->
+    @Html.Partial("~/Views/Shared/_FatFooter.cshtml")
+    <!-- /胖頁尾 -->
+    <!-- 頁尾 -->
+    @Html.Partial("~/Views/Shared/_Footer.cshtml")
+    <!-- /頁尾 -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Scripts/base/js/jquery.min.js"></script>
+    <script src="~/Scripts/base/js/popper.min.js"></script>
+    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
+    <script src="/Scripts/base/js/datatables.min.js"></script>
+    <script src="/Scripts/base/plugin/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Scripts/base/js/base.js"></script>
+    <noscript>
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <div class="row">
+                <div class="card m-3 banner">
+                    <div class="card-body p-3">
+                        您的瀏覽器不支援javascript，但不影響網頁內容陳述，如開啟JavaScript，可得到視覺與特效的最佳瀏覽
+                        <br>列印功能：請按下ctrl+P開啟列印視窗,或由工具列中選擇列印功能
+                        <br>如需要選擇字級大小，IE6請利用鍵盤按住ALT鍵+ V → X → (G)最大(L)較大(M)中(S)較小(A)小，來選擇適合您的文字大小， 而IE7或Firefox瀏覽器則可利用鍵盤 Ctrl + (+)放大(-)縮小來改變字型大小，如需要回到上一頁可使用瀏覽器提供的
+                        Alt+左方向鍵(←)
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </noscript>
 </body>
 </html>

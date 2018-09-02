@@ -1,0 +1,206 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 申請須知-附繳證件來源機關";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 地政便利包 - 附繳證件來源機關" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="地政便利包 - 附繳證件來源機關" />
+    <meta name="DC.Description" content="地政便利包 - 附繳證件來源機關" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CK2" />
+    <meta name="Category.Service" content="C10" />
+    <meta name="Keywords" content="地政便利包 , 附繳證件來源機關" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        申請須知
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">附繳證件來源機關</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>附繳證件來源機關</h2>
+                <div class="container pl-5 pt-3">
+                    <div class="row">
+                        <div class="col-lg-12" id="sec02">
+                            <table class="table table-hover border-bottom rwd-table" summary="附繳證件來源機關表，第一直欄為流程，第二直欄為應備文件，第三直欄為備註">
+                                <caption class="sr-only">
+                                    附繳證件來源機關表
+                                </caption>
+                                <thead>
+                                    <tr class="bg-brown">
+                                        <th class="text-nowrap">項次</th>
+                                        <th class="text-nowrap">證件名稱</th>
+                                        <th class="text-nowrap">來源機關</th>
+                                        <th class="text-nowrap">土地建物登記、測量申請案件項目</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">1</td>
+                                        <td data-th="證件名稱">戶籍謄本 </td>
+                                        <td data-th="來源機關" class="text-center text-nowrap">戶政事務所 </td>
+                                        <td data-th="申請項目">繼承登記 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">2</td>
+                                        <td data-th="證件名稱">印鑑證明書 </td>
+                                        <td data-th="來源機關" class="text-center">(戶籍地)<br> 戶政事務所 </td>
+                                        <td data-th="申請項目">
+                                            權利變更、分割繼承、他項權利移轉、設定、他項權利內容變更、預告、塗銷預告、書狀補給、塗銷、更正等登記、土地建物合併、時效取得地上權勘測與登記（
+                                            出具四鄰證明時，證明人須檢附）、建物第一次登記及測量(檢附基地所有權人同意書時，基地所有權人須檢附)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">3</td>
+                                        <td data-th="證件名稱">門牌增編、編釘證明書 </td>
+                                        <td data-th="來源機關" class="text-center">(戶籍地)<br> 戶政事務所 </td>
+                                        <td data-th="申請項目">建物分割、建物門牌勘查、建物門牌變更或更正登記、實施建築管理前之建物辦理第一次測量及登記 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">4</td>
+                                        <td data-th="證件名稱" class="text-nowrap">土地增值稅繳納(免稅)證明 </td>
+                                        <td data-th="來源機關" class="text-center">稅務局 </td>
+                                        <td data-th="申請項目">土地權利變更、土地典權設定登記 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">5</td>
+                                        <td data-th="證件名稱" class="text-nowrap">契稅繳納(免稅)證明 </td>
+                                        <td data-th="來源機關" class="text-center">稅務局 </td>
+                                        <td data-th="申請項目">建物權利變更、建物典權設定登記 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">6</td>
+                                        <td data-th="證件名稱" class="text-nowrap">房屋稅起課稅籍證明文件 </td>
+                                        <td data-th="來源機關" class="text-center">稅務局 </td>
+                                        <td data-th="申請項目">實施建築管理前之建物辦理第一次測量及登記、未登記建物基地號勘查(自用住宅)</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">7</td>
+                                        <td data-th="證件名稱">遺產稅繳(免)納證明書 </td>
+                                        <td data-th="來源機關" class="text-center">國稅局 </td>
+                                        <td data-th="申請項目">繼承登記 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">8</td>
+                                        <td data-th="證件名稱">贈與稅繳(免)納證明書 </td>
+                                        <td data-th="來源機關" class="text-center">國稅局 </td>
+                                        <td data-th="申請項目">贈與登記 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">9</td>
+                                        <td data-th="證件名稱">建築使用執照及竣工圖 </td>
+                                        <td data-th="來源機關" class="text-center">都市發展處 <br> (建築管理科)</td>
+                                        <td data-th="申請項目">建物第一次測量及登記、土地分割、土地合併、地目變更 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">10</td>
+                                        <td data-th="證件名稱">法定空地證明書 </td>
+                                        <td data-th="來源機關" class="text-center text-nowrap">都市發展處 <br> (建築管理科)</td>
+                                        <td data-th="申請項目">土地分割(建築基地法定空地分割)</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">11</td>
+                                        <td data-th="證件名稱">國宅轉售、贈與證明書 </td>
+                                        <td data-th="來源機關" class="text-center">都市發展處 <br> (住宅管理科)</td>
+                                        <td data-th="申請項目">國宅及基地移轉 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">12</td>
+                                        <td data-th="證件名稱">使用分區證明 </td>
+                                        <td data-th="來源機關" class="text-center">都市發展處 <br> (都市計畫科)</td>
+                                        <td data-th="申請項目">所有權移轉權利人為外國人時 <br> 土地合併 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">13</td>
+                                        <td data-th="證件名稱">權利移轉證書 </td>
+                                        <td data-th="來源機關" class="text-center">法院 </td>
+                                        <td data-th="申請項目">拍賣登記 </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="項次" class="text-center">14</td>
+                                        <td data-th="證件名稱">法院核准備查之拋棄繼承之證明文件 </td>
+                                        <td data-th="來源機關" class="text-center">法院 </td>
+                                        <td data-th="申請項目">繼承登記(拋棄繼承時須檢附)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <p class="text-primary pl-1">
+                            更新日期：2018/08/01
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

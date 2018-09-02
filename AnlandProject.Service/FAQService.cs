@@ -79,6 +79,7 @@ namespace AnlandProject.Service
             {
                 if (saveData.No > 0)
                 {
+                    //地政答客問官方回覆儲存
                     var originalData = _faqRepository.Get(n => n.no == saveData.No);
                     //originalData.no = saveData.No;
                     //originalData.msg_date = saveData.MsgDate;
@@ -100,7 +101,18 @@ namespace AnlandProject.Service
                 }
                 else
                 {
-                    //目前沒有新增
+                    //地政答客問民眾意見儲存
+                    email newData = new email
+                    {
+                        msg_date = saveData.MsgDate,
+                        msg_name = saveData.MsgName,
+                        msg_email = saveData.MsgEmail,
+                        msg_subject = saveData.MsgSubject,
+                        msg_content = saveData.MsgContent,
+                        msg_tel = saveData.MsgTel,
+                        msg_type = saveData.MsgType
+                    };
+                    resultRow = _faqRepository.Create(newData);
                 }
             }
             catch (Exception ex)

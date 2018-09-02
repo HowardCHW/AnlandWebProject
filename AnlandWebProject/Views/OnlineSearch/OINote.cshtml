@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "OINote";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
+    <meta name="DC.Subject" content="資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Description" content="資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所">
+    <meta name="DC.Type" content="文字">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Source" content="基隆市安樂地政事務所">
+    <meta name="DC.Language" content="中文">
+    <meta name="DC.Coverage.t.max" content="2015-04-26">
+    <meta name="DC.Coverage.t.min" content="2010-04-26">
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所">
+    <meta name="DC.Date" content="2010-04-26 10:00 ">
+    <meta name="DC.Identifier" content="376570600A">
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/">
+    <meta name="DC.Rights" content="基隆市安樂地政事務所">
+    <meta name="Category.Theme" content="140">
+    <meta name="Category.Cake" content="CK2">
+    <meta name="Category.Service" content="C12">
+    <meta name="Keywords" content="資料查詢, 繼承, 登記, 宣導">
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        線上查詢
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">未辦繼承登記宣導</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>未辦繼承登記自身權益說帖</h2>
+                <ol class="textOl-layout1">
+                    <li>
+                        您是否因龐大的代管費用、遺產稅費及部分繼承人行蹤不明失去聯絡．．．而遲未辦理繼承登記？針對上述難題，內政部已擬具解套措施：
+                        <br>
+                        <span class="red">
+                            自89年3月30日起，代管規費免收了。
+                            <br> 繼承人可僅就本身應繼分繳納遺產稅。
+                            <br> 部分繼承人因行蹤不明失去聯絡，未能檢附其現戶戶籍謄本者，可以檢附除戶謄本及出具理由書辦理之。
+                        </span>
+                    </li>
+                    <li>
+                        為確保所承襲之遺產免被政府標售，以保障己身財產權益，請提出土地登記規則第一百十九條規定證明文件，儘速申辦繼承登記，另提醒您
+                        <span class="red">繼承人無分男女一律平等，均可繼承遺產。</span>
+                    </li>
+                    <li>
+                        倘仍有繼承登記之申辦難題，請逕洽本所服務台詢問。
+                    </li>
+                    <li>
+                        茲將本所轄區內歷年列冊管理之土地資料詳列於下，敬請查詢利用。
+                    </li>
+                    <li>
+                        89年1月26日修正後之土地法第七十三條之一全部條文內容：
+                        <ul class="textUl-list">
+                            <li> 土地或建築改良物，自繼承開始之日起逾一年未辦理繼承登記者，經該管直轄市或縣市地政機關查明後，應即公告繼承人於三個月內聲請登記；逾期仍未聲請者，得由地政機關予以列冊管理。但有不可歸責於聲請人之事由，其期間應予扣除。</li>
+                            <li> 前項列冊管理期間為十五年，逾期仍未聲請登記者，由地政機關將該土地或建築改良物清冊移請國有財產署公開標售。繼承人占有或第三人占有無合法使用權者，於標售後喪失其占有之權利；土地或建築改良物租賃期間超過五年者，於標售後以五年為限。</li>
+                            <li> 依第二項規定標售土地或建築改良物前應公告三十日，繼承人、合法使用人或其他共有人就其使用範圍依序有優先購買權。但優先購買權人未於決標後十日內表示優先購買者，其優先購買權視為放棄。</li>
+                            <li> 標售所得之價款應於國庫設立專戶儲存，繼承人得依其法定應繼分領取。逾十年無繼承人申請提領該價款者，歸屬國庫。</li>
+                            <li> 第二項標售之土地或建築改良物無人應買或應買人所出最高價未達標售之最低價額者，由國有財產署定期再標售，於再行標售時，國有財產署應酌減拍賣最低價額，酌減數額不得逾百分之二十。經五次標售而未標出者，登記為國有並準用第二項後段喪失占有權及租賃期限之規定。自登記完畢之日起十年內，原權利人得檢附證明文件按其法定應繼分，向國有財產署申請就第四項專戶提撥發給價金；經審查無誤，公告九十日期滿無人異議時，按該土地或建築改良物第五次標售底價分算發給之。</li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        申請人身分證明文件如本所得以電腦處理達成查詢者，得免提出。
+                    </li>
+                </ol>
+                <p class="text-primary">
+                    更新日期：2018/08/01
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("OInheritance","OnlineSearch")">
+                <span class="fal fa-external-link-square"></span> 逾期未辦繼承公告查詢
+            </a>
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("InheritanceLand","OnlineSearch")">
+                <span class="fal fa-external-link-square"></span> 未辦繼承列管土地資料
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

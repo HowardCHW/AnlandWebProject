@@ -56,7 +56,8 @@ namespace AnlandProject.Backend.Extensions
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential("hwchan67@gmail.com", "Vivian19850929");
 
-                using (var message = new MailMessage("hwchan67@gmail.com", "hwchan67@gmail.com"))
+                //using (var message = new MailMessage(smtpData.Recipient, toMailAdd))
+                using (var message = new MailMessage(smtpData.Recipient, "hwchan67@gmail.com"))
                 {
                     message.Subject = smtpData.Subject;
                     message.Body = htmlBody;

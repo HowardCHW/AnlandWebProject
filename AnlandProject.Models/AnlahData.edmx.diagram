@@ -28,8 +28,6 @@
         <EntityTypeShape EntityType="anlandModel.onlineapp" Width="1.5" PointX="5.375" PointY="21.75" />
         <EntityTypeShape EntityType="anlandModel.admin" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="anlandModel.setup_smtp" Width="1.5" PointX="5.375" PointY="7.75" />
-        <EntityTypeShape EntityType="anlandModel.director" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="anlandModel.email" Width="1.5" PointX="7.75" PointY="4.75" />
         <EntityTypeShape EntityType="anlandModel.cake" Width="1.5" PointX="11.75" PointY="9.75" />
         <EntityTypeShape EntityType="anlandModel.service" Width="1.5" PointX="0.75" PointY="12.75" />
         <EntityTypeShape EntityType="anlandModel.theme" Width="1.5" PointX="13.75" PointY="0.75" />
@@ -45,6 +43,8 @@
         <EntityTypeShape EntityType="anlandModel.suggest3" Width="1.5" PointX="23.625" PointY="16.125" />
         <AssociationConnector Association="anlandModel.FK_suggest2_suggest" />
         <AssociationConnector Association="anlandModel.FK_suggest3_suggest" />
+        <EntityTypeShape EntityType="anlandModel.email" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="anlandModel.director" Width="1.5" PointX="0.75" PointY="7.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

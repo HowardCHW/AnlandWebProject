@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "AppBackup";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 線上申辦 - 檔案閱覽抄錄複製服務" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 線上申辦 - 檔案閱覽抄錄複製服務" />
+    <meta name="DC.Description" content="線上申辦 - 檔案閱覽抄錄複製服務" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="C11" />
+    <meta name="Keywords" content="線上申辦, 檔案閱覽抄錄複製服務" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        線上申辦
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">檔案閱覽抄錄複製</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>檔案閱覽抄錄複製</h2>
+                <p class="darkblue">為節省民眾臨櫃申請時間並擴大檔案應用範圍，利用網路傳輸技術，提供網路申請檔案閱覽抄錄複製服務。</p>
+                <p class="sienna">A.服務時間：</p>
+                <ol class="textOl-layout1">
+                    <li>網路受理申請時間：二十四小時。</li>
+                    <li>現場閱覽、抄錄、複製時間：上班日 8時30分至12時、13時30分至17時。</li>
+                </ol>
+                <p class="sienna">B.申請人注意事項：</p>
+                <ol class="textOl-layout1">
+                    <li>本項服務僅限於本所現管之檔案資料並經審核通過後為之。</li>
+                    <li>申請作業係透過網路連線方式傳輸作業，如遇網路連線壅塞、中斷等不確定因素影響，致使資料無法順利送達本所之情形，尚請見諒。</li>
+                    <li>申請人需逐項填妥申請資料，本所服務人員接獲申請後將以電話連繫確認，未詳填申請資料或資料錯誤無法聯繫確認時，無法受理申領。</li>
+                    <li>如有資料填寫不實或異常申請時，本地所得拒絕受理申請人以網路申請作業。</li>
+                    <li>代理人如係意定代理者，請檢具委任書到場；如係法定代理者，請檢具相關證明文件影本。申請案件屬個人隱私資料者，請檢具身分關係證明文件到場；法人、團體、事務所或營業所請附登記證影本到場。</li>
+                    <li>申請人資料檔案法第18條所定情形之一者，本機關得予駁回；閱覽、抄錄或複製檔案，應於本所檔案閱覽規則所定時間及場所為之。</li>
+                    <li>閱覽、抄錄或複製檔案，應遵守檔案應用規範等有關規定，並不得有添註、塗改、更換、抽取、圈點、污損、拆散、破壞、變更檔案之行為。</li>
+                    <li>閱覽、抄錄或複製檔案收費標準：依「土地法第67條及第79條之規定之書狀費、工本費及閱覽費收費基準」之收費項目收取費用，其餘項目則依檔案管理局訂定之「檔案閱覽抄錄複製收費標準」收取費用。</li>
+                </ol>
+                <p class="sienna">C.檔案室檔案管理人員：</p>
+                <ol class="textOl-layout1">
+                    <li>電話：(02)24324001分機319</li>
+                    <li>傳真：(02)24316054</li>
+                </ol>
+
+                <div class="alert alert-secondary bg-lightreay" role="alert">
+                    <p>
+                        <span class="fas fa-caret-right"></span>
+                        <span>申請書下載：</span>
+                        <a href="~/DownloadFile/AppBackup/檔案閱覽抄錄複製申請書.doc" target="_blank" title="Word擋(開啟新視窗)">
+                            檔案閱覽抄錄複製申請書
+                            <i class="fas fa-file-word"></i>
+                        </a> |
+                        <a href="~/DownloadFile/AppBackup/檔案閱覽抄錄複製申請書.pdf" target="_blank" title="PDF擋(開啟新視窗)">
+                            檔案閱覽抄錄複製申請書
+                            <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </p>
+                    <p class=" text-center">
+                        <a href="#" target="_blank" title="開啟新的導覽視窗" class="btn btn-primary btn-lg" role="button" aria-pressed="true">
+                            <span class="fas fa-file-signature"></span> 網路申請檔案閱覽抄錄複製
+                        </a>
+                    </p>
+                </div>
+                <p class="text-primary">
+                    更新日期：2018/08/01
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

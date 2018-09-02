@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 最新消息">
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
+    <meta name="DC.Subject" content="最新消息總覽頁">
+    <meta name="DC.Description" content="最新消息">
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所">
+    <meta name="DC.Type" content="文字">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Source" content="基隆市安樂地政事務所">
+    <meta name="DC.Language" content="中文">
+    <meta name="DC.Coverage.t.max" content="2015-04-26">
+    <meta name="DC.Coverage.t.min" content="2010-04-26">
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所">
+    <meta name="DC.Date" content="2010-04-26 10:00 ">
+    <meta name="DC.Identifier" content="376570600A">
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/">
+    <meta name="DC.Rights" content="基隆市安樂地政事務所">
+    <meta name="Category.Theme" content="140">
+    <meta name="Category.Cake" content="CK0">
+    <meta name="Category.Service" content="I40">
+    <meta name="Keywords" content="最新消息, 公告">
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        公告資訊
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">最新消息</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <div class="pl-5 pr-0">
+                    <h2 class="pl-0">最新消息</h2>
+                    <table id="newstable" class="table table-hover border-bottom rwd-table" summary="最新消息列表，為二直欄設計，第一直欄為標題，第二直欄為張公告日期。">
+                        <caption class="sr-only">
+                            最新消息列表
+                        </caption>
+                        <thead>
+                            <tr class="bg-brown ">
+                                <th scope="col">標題</th>
+                                <th scope="col">公告日期</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->
+
+@section scripts{
+    <script>
+        var urlQueryNews = '@Url.Action("NewsQuery", "Announcement")';
+        $(document).ready(function () {
+            DatatableBinding();
+        });
+
+        function DatatableBinding() {
+            $('#newstable').DataTable({
+                ajax: {
+                    "url": urlQueryNews,
+                    "type": 'POST'
+                },
+                language: {
+                    "processing": "處理中...",
+                    "loadingRecords": "載入中...",
+                    "lengthMenu": "顯示 _MENU_ 筆結果",
+                    "zeroRecords": "沒有符合的結果",
+                    "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                    "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                    "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                    "infoPostFix": "",
+                    "search": "搜尋:",
+                    "searchPlaceholder": "請輸入關鍵字",
+                    "paginate": {
+                        "first": "第一頁",
+                        "previous": "上一頁",
+                        "next": "下一頁",
+                        "last": "最後一頁"
+                    },
+                    "aria": {
+                        "sortAscending": ": 升冪排列",
+                        "sortDescending": ": 降冪排列"
+                    }
+                },
+                pagingType: "full_numbers",
+                ordering: false,
+                columns: [
+                    {
+                        mDataProp: "Subject",
+                        render: function (data, type, full, meta) {
+                            return '<a href="../Announcement/NewsDetail/' + full.ID + '">' + data + '</a>'
+                        }
+                    },
+                    {
+                        mDataProp: "PostDate",
+                        render: function (data, type, full, meta) {
+                            if (data == null) {
+                                return '無';
+                            }
+                            return moment(data).format('YYYY/MM/DD');
+                        }
+                    }
+                ]
+            });
+        }
+    </script>
+}

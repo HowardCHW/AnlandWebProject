@@ -1,0 +1,203 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 機關簡介-組織編制";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 機關簡介 - 組織編制">
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
+    <meta name="DC.Subject" content="機關簡介 - 組織編制">
+    <meta name="DC.Description" content="基隆市安樂地政事務所組織編制">
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所">
+    <meta name="DC.Type" content="文字">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Source" content="基隆市安樂地政事務所">
+    <meta name="DC.Language" content="中文">
+    <meta name="DC.Coverage.t.max" content="2015-04-26">
+    <meta name="DC.Coverage.t.min" content="2010-04-26">
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所">
+    <meta name="DC.Date" content="2010-04-26 10:00 ">
+    <meta name="DC.Identifier" content="376570600A">
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/">
+    <meta name="DC.Rights" content="基隆市安樂地政事務所">
+    <meta name="Category.Theme" content="140">
+    <meta name="Category.Cake" content="CKZ">
+    <meta name="Category.Service" content="I60">
+    <meta name="Keywords" content="機關簡介, 組織編制, 安樂">
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        機關簡介
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">組織編制</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>組織編制</h2>
+                <div class="col-lg-9 mx-auto d-block text-center">
+                    <figure class="figure">
+                        <img src="/images/organization.gif" class="col-lg-12 figure-img img-fluid" alt="基隆市安樂地政事務所組織系統圖">
+                        <figcaption class="figure-caption text-left">
+                            本所設第一課、第二課、第三課、人事管理員及會計員共 5 個單位。 並置主任 1 人、課長3人、人事管理員 1 人、會計員 1 人、課員 18 人、測量員 6 人及書記 1 人，合計 31
+                            人。
+                        </figcaption>
+                    </figure>
+                </div>
+                <ul class="col-lg-8 nav nav-pills nav-fill justify-content-center mx-auto" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#org01">登記課</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#org02">測量課</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#org03">地價課</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#org04">人事管理員</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#org05">會計員</a>
+                    </li>
+                </ul>
+                <div class="container pl-5 pt-3">
+                    <div class="row">
+                        <div class="col-lg-12" id="org01">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span>
+                                登記課
+                            </h3>
+                            <ul class="textUl">
+                                <li>土地建物登記審查</li>
+                                <li>登錄校對作業</li>
+                                <li>各類謄本核發</li>
+                                <li>核算規費</li>
+                                <li>地政資訊作業規畫及執行</li>
+                                <li>電腦設備及機房之管理與維護</li>
+                                <li>土地登記複丈地價地用電腦作業系統</li>
+                                <li>及資料庫維護管理</li>
+                                <li>地籍倉庫及檔案室管理</li>
+                                <li>研考</li>
+                                <li>便民服務</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-12" id="org02">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span>
+                                測量課
+                            </h3>
+                            <ul class="textUl">
+                                <li>土地複丈</li>
+                                <li>建物複丈</li>
+                                <li>地目變更勘查</li>
+                                <li>未登錄地勘測</li>
+                                <li>政策性測量工作</li>
+                                <li>地籍圖查閱</li>
+                                <li>建物基地、門牌號勘查</li>
+                                <li>法院囑託測量</li>
+                                <li>各級單位會勘</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-12" id="org03">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span>
+                                地價課
+                            </h3>
+                            <ul class="textUl">
+                                <li>地價動態及市價調查</li>
+                                <li>公告土地現值</li>
+                                <li>公告地價</li>
+                                <li>地價指數查價作業</li>
+                                <li>地籍地價異動通報稅捐稽徵單位</li>
+                                <li>基準地估價作業</li>
+                                <li>公共設施用地價格計算</li>
+                                <li>土地稅賦減免會勘</li>
+                                <li>地價謄本核發</li>
+                                <li>地價冊籍訂正整理</li>
+                                <li>非都市土地使用編定</li>
+                                <li>總務</li>
+                                <li>出納</li>
+                                <li>公文收發</li>
+                                <li>檔案管理</li>
+                                <li>實價登錄查核作業</li>
+                                <li>監印</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-12">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span>
+                                人事管理員
+                            </h3>
+                            <p class="pl-3">辦理人員任免調遷、訓練進修及退休撫卹、福利待遇等業務。</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span>
+                                會計員
+                            </h3>
+                            <p class="pl-3">辦理預算籌編、決算及有關會計業務。</p>
+                        </div>
+                    </div>
+
+                    <p class="text-primary">
+                        更新日期：2018/08/01
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

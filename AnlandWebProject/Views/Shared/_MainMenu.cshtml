@@ -1,0 +1,147 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="container-fluid mainMenu">
+    <div class="row">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand d-lg-none" href="#">
+                    <img src="/images/index_logo.png" height="45" alt="基隆市安樂地政事務所全球資訊網">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuIntro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                機關簡介
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuIntro">
+                                <a class="dropdown-item" href="@Url.Action("Intro","Organs")">本所沿革</a>
+                                <a class="dropdown-item" href="@Url.Action("Precinct","Organs")">轄區簡介</a>
+                                <a class="dropdown-item" href="@Url.Action("Organization","Organs")">組織職掌</a>
+                                <a class="dropdown-item" href="@Url.Action("FloorIntro","Organs")">樓層介紹</a>
+                                <a class="dropdown-item" href="@Url.Action("ContactInfo","Organs")">聯絡資訊</a>
+                                <a class="dropdown-item" href="@Url.Action("GeoTraffic","Organs")">地理交通</a>
+                                <a class="dropdown-item" href="@Url.Action("AdmRegulation","Organs")">行政規章專區</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuInfo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                公告資訊
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuInfo">
+                                <a class="dropdown-item" href="@Url.Action("News","Announcement")">最新消息</a>
+                                <a class="dropdown-item" href="@Url.Action("Laws","Announcement")">法令新訊</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                線上查詢
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuSearch">
+                                <h6 class="dropdown-header">登記類</h6>
+                                <a class="dropdown-item pl-5" href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="開啟新的導覽視窗">區段代碼對照</a>
+                                <a class="dropdown-item pl-5" href="https://landquery.klcg.gov.tw/query/oldnew.jsp" target="_blank" title="開啟新的導覽視窗">新舊地、建號查詢</a>
+                                <a class="dropdown-item pl-5" href="https://landquery.klcg.gov.tw/query/opendata1.jsp" target="_blank" title="開啟新的導覽視窗">第一次登記公告</a>
+                                <a class="dropdown-item pl-5" href="https://landquery.klcg.gov.tw/query/opendata2.jsp" target="_blank" title="開啟新的導覽視窗">書狀補給公告</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("OInheritance","OnlineSearch")">逾期未辦繼承公告查詢</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("InheritanceLand","OnlineSearch")">未辦繼承列管土地資料</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="https://landquery.klcg.gov.tw/query/casedo.jsp?menu=true&type=M" target="_blank" title="開啟新的導覽視窗">測量類</a>
+                                <a class="dropdown-item" href="https://landquery.klcg.gov.tw/query/valueprice.jsp" target="_blank" title="開啟新的導覽視窗">地價類</a>
+                                <a class="dropdown-item" href="https://landquery.klcg.gov.tw/query/calc1.jsp?menu=true" target="_blank" title="開啟新的導覽視窗">登記規費試算</a>
+                                <a class="dropdown-item" href="https://landquery.klcg.gov.tw/query/calc7.jsp?menu=true" target="_blank" title="開啟新的導覽視窗">測量規費試算</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuApp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                線上申辦
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuApp">
+                                <a class="dropdown-item" href="@Url.Action("AppCopy","OnlineApplication")">網路申領電子謄本</a>
+                                <a class="dropdown-item" href="@Url.Action("InfoService","OnlineApplication")">地政電傳資訊服務</a>
+                                <a class="dropdown-item" href="@Url.Action("AppOnline","OnlineApplication")">地政線上申辦系統</a>
+                                <a class="dropdown-item" href="@Url.Action("AppBackup","OnlineApplication")">檔案閱覽抄錄複製</a>
+                                <a class="dropdown-item" href="@Url.Action("PriceInfo","OnlineApplication")">歷年公告地價資料</a>
+                                <a class="dropdown-item" href="@Url.Action("EngEstate","OnlineApplication")">英文不動產權利登記證明</a>
+                                <a class="dropdown-item" href="@Url.Action("OnlineBooking","OnlineApplication")">線上預約</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuNote" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                申請須知
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuNote">
+                                <a class="dropdown-item" href="@Url.Action("AppRegister","ApplicationNotes")">登記類</a>
+                                <a class="dropdown-item" href="@Url.Action("AppMeasure","ApplicationNotes")">測量類</a>
+                                <a class="dropdown-item" href="@Url.Action("AppLandPrice","ApplicationNotes")">地價類</a>
+                                <a class="dropdown-item" href="@Url.Action("AppDuplicate","ApplicationNotes")">謄本類</a>
+                                <a class="dropdown-item" href="@Url.Action("AppLandData","ApplicationNotes")">土地基本資料庫</a>
+                                <a class="dropdown-item" href="@Url.Action("AppHandy","ApplicationNotes")">地政便利包</a>
+                                <a class="dropdown-item" href="@Url.Action("AppDocument","ApplicationNotes")">附繳證件來源機關</a>
+                                <a class="dropdown-item" href="@Url.Action("AppCorrection","ApplicationNotes")">常見補正事項</a>
+                                <a class="dropdown-item" href="@Url.Action("AppDownload","ApplicationNotes")">下載專區</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuService" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                便民服務
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuService">
+                                <h6 class="dropdown-header">臨櫃服務</h6>
+                                <a class="dropdown-item pl-5" href="@Url.Action("OneStop","PublicServices")">單一窗口服務</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("ServiceVolunteers","PublicServices")">服務台及志工服務</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("TwoWay","PublicServices")">謄本櫃檯雙向服務</a>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header">通信服務</h6>
+                                <a class="dropdown-item pl-5" href="@Url.Action("AppEmail","PublicServices")">通信申請</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("MailToHome","PublicServices")">案件郵寄到家</a>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header">網路服務</h6>
+                                <a class="dropdown-item pl-5" href="@Url.Action("AppCopy","OnlineApplication")">網路申領電子謄本</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("InfoService","OnlineApplication")">地政電傳資訊服務</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("AppOnline","OnlineApplication")">地政線上申辦系統</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("EngEstate","OnlineApplication")">英文不動產權利登記證明</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("OnlineBooking","OnlineApplication")">線上預約</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("WebATM","PublicServices")">網路ATM</a>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header">自動化服務</h6>
+                                <a class="dropdown-item pl-5" href="@Url.Action("TelVoice","PublicServices")">電話語音查詢</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("AutoReply","PublicServices")">辦理情形自動回復</a>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header">跨所跨縣市服務</h6>
+                                <a class="dropdown-item pl-5" href="@Url.Action("CrossCopy","PublicServices")">跨縣市申領謄本</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("CrossApplication","PublicServices")">跨所申辦登記案件</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("CrossEnglishApplication","PublicServices")">跨所申請英文不動產權利登記證明</a>
+                                <a class="dropdown-item pl-5" href="@Url.Action("CrossCollection","PublicServices")">跨縣市代收案件</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="@Url.Action("OtherService","PublicServices")">其他服務</a>
+
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuSuggest" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                民意交流
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuSuggest">
+                                <a class="dropdown-item" href="@Url.Action("EmailSuggest","OpinionExchange")">地政答客問</a>
+                                <a class="dropdown-item" href="@Url.Action("SuggestDirector","OpinionExchange")">主任信箱</a>
+                                <a class="dropdown-item" href="@Url.Action("","")">網路投票</a>
+                                <a class="dropdown-item" href="@Url.Action("","")">民眾參與創新提案</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                分類檢索
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("","")">主題分類</a>
+                                <a class="dropdown-item" href="@Url.Action("","")">施政分類</a>
+                                <a class="dropdown-item" href="@Url.Action("","")">服務分類</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

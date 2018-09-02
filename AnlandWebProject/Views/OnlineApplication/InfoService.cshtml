@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "InfoService";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 線上申辦 - 地政電傳資訊服務">
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 線上申辦 - 地政電傳資訊服務">
+    <meta name="DC.Description" content="線上申辦 - 地政電傳資訊服務">
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所">
+    <meta name="DC.Type" content="文字">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Source" content="基隆市安樂地政事務所">
+    <meta name="DC.Language" content="中文">
+    <meta name="DC.Coverage.t.max" content="2015-04-26">
+    <meta name="DC.Coverage.t.min" content="2010-04-26">
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所">
+    <meta name="DC.Date" content="2010-04-26 10:00 ">
+    <meta name="DC.Identifier" content="376570600A">
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/">
+    <meta name="DC.Rights" content="基隆市安樂地政事務所">
+    <meta name="Category.Theme" content="140">
+    <meta name="Category.Cake" content="CKA">
+    <meta name="Category.Service" content="C11">
+    <meta name="Keywords" content="線上申辦, 地政電傳資訊服務">
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        線上申辦
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">地政電傳資訊服務</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>地政電傳資訊服務</h2>
+                <p class="darkblue">為使地籍資料庫能發揮效益充分運用，擴大簡政便民措施及提高為民服務品質，利用網際網路科技提供快速便利之地籍資料查詢服務，期能以電子化、網路化之資訊科技，建立安全之地政資訊流通網路環境，提供民眾及行政機關二十四小時線上查詢地籍資料服務，並達成「無紙化政府」之願景。</p>
+                <ol class="textOl-layout1">
+                    <li>
+                        電傳資訊作業項目：
+                        <ul class="textUl-list">
+                            <li>提供全國各縣市土地登記、地價資料檢索。</li>
+                            <li>提供全國各縣市地價資料檢索。</li>
+                            <li>提供全國各縣市地籍圖資料檢索。</li>
+                            <li>提供全國各縣市建物平面圖資料檢索。</li>
+                        </ul>
+                    </li>
+                    <li>作業時間：二十四小時提供服務。</li>
+                    <li>
+                        計費及繳費方式：
+                        <ul class="textUl-list">
+                            <li>計費方式 ：依內政部九一年台內中地字第０九一００八三二二五０號令修訂。自九一年二月一日起，每人每筆(棟)十元計收。</li>
+                            <li>
+                                繳費方式：併入中華電信每月各項電信服務費用帳單計收，必須持有HiNet月繳制帳號。
+                                <br> 可選擇下列方式繳費：
+                                <ul class="textUl-list">
+                                    <li>至中華電信各地營業窗口、銀行、超商繳費。</li>
+                                    <li>透過數據語音專線412-6666、412-1111服務代碼899#。</li>
+                                    <li>
+                                        網路繳費：
+                                        <a href="https://info.hinet.net/account/tele_fee_New.asp" target="_blank" title="開啟新的導覽視窗">中華電信網路繳費</a>。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        HiNet帳號申請須知：
+                        <ul class="textUl-list">
+                            <li>
+                                登入帳號：
+                                <br> 所有HiNet客戶（包含各種接續方式如ADSL、撥接、專線之個人及企業用戶）均可使用其HN帳號及密碼登入地政電子謄本系統申請電子謄本。
+                            </li>
+                            <li>
+                                HiNet帳號申請：
+                                <br> 至中華電信各地營業服務處所、便利超商（僅申請ADSL+HiNet）、代理商即可受理申請HiNet帳號，
+                                <br> 或至
+                                <a href="http://land.hinet.net/apply02.asp" target="_blank" title="開啟新的導覽視窗">如何申請HiNet帳號</a> 上網申請。
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="alert alert-secondary bg-lightreay" role="alert">
+                    <p class="text-center mt-3">
+                        <a href="http://land.hinet.net/information.asp" target="_blank" title="開啟新的導覽視窗" class="btn btn-primary btn-lg" role="button"
+                           aria-pressed="true">
+                            <span class="far fa-globe-asia"></span> 地政電傳資訊服務
+                        </a>
+                    </p>
+                </div>
+                <p class="text-primary">
+                    更新日期：2018/08/01
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

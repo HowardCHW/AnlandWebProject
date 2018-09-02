@@ -46,13 +46,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.9\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -142,33 +155,245 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
+    <Compile Include="Controllers\ApplicationNotesController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OnlineApplicationController.cs" />
+    <Compile Include="Controllers\OnlineSearchController.cs" />
+    <Compile Include="Controllers\OpinionExchangeController.cs" />
+    <Compile Include="Controllers\OrgansController.cs" />
+    <Compile Include="Controllers\PublicServicesController.cs" />
+    <Compile Include="Extensions\SendMailExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\base\css\base.css" />
+    <Content Include="Content\base\css\base.min.css" />
+    <Content Include="Content\base\css\bootstrap.min.css" />
+    <Content Include="Content\base\css\datatables.min.css" />
+    <Content Include="Content\base\icon-css\all.css" />
+    <Content Include="Content\base\icon-css\all.min.css" />
+    <Content Include="Content\base\icon-css\brands.css" />
+    <Content Include="Content\base\icon-css\brands.min.css" />
+    <Content Include="Content\base\icon-css\fontawesome.css" />
+    <Content Include="Content\base\icon-css\fontawesome.min.css" />
+    <Content Include="Content\base\icon-css\light.css" />
+    <Content Include="Content\base\icon-css\light.min.css" />
+    <Content Include="Content\base\icon-css\regular.css" />
+    <Content Include="Content\base\icon-css\regular.min.css" />
+    <Content Include="Content\base\icon-css\solid.css" />
+    <Content Include="Content\base\icon-css\solid.min.css" />
+    <Content Include="Content\base\icon-css\svg-with-js.css" />
+    <Content Include="Content\base\icon-css\svg-with-js.min.css" />
+    <Content Include="Content\base\icon-css\v4-shims.css" />
+    <Content Include="Content\base\icon-css\v4-shims.min.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.bootstrap.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.foundation.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.foundation.min.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.jqueryui.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.semanticui.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\jquery.dataTables.css" />
+    <Content Include="Content\base\plugin\DataTables-1.10.18\css\jquery.dataTables.min.css" />
+    <Content Include="Content\base\sass\base.css" />
+    <Content Include="Content\base\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\base\webfonts\fa-light-300.svg" />
+    <Content Include="Content\base\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\base\webfonts\fa-solid-900.svg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\parsley.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="iconfont\material-icons.css" />
+    <Content Include="iconfont\MaterialIcons-Regular.svg" />
+    <Content Include="images\3f_1.gif" />
+    <Content Include="images\3f_1_s.gif" />
+    <Content Include="images\3f_2.gif" />
+    <Content Include="images\3f_2_s.gif" />
+    <Content Include="images\4f_1.gif" />
+    <Content Include="images\4f_1_s.gif" />
+    <Content Include="images\4f_2.gif" />
+    <Content Include="images\aaa.png" />
+    <Content Include="images\apple-touch-icon.png" />
+    <Content Include="images\bootstrap-solid.svg" />
+    <Content Include="images\egov.png" />
+    <Content Include="images\index_bg.gif" />
+    <Content Include="images\index_logo.png" />
+    <Content Include="images\index_pic.jpg" />
+    <Content Include="images\index_pic_content.jpg" />
+    <Content Include="images\intro_01_pic.jpg" />
+    <Content Include="images\location.gif" />
+    <Content Include="images\logo%402x.png" />
+    <Content Include="images\logo-blue%402x.png" />
+    <Content Include="images\logo-colored%402x.png" />
+    <Content Include="images\logo-colored.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\map.gif" />
+    <Content Include="images\note_01.gif" />
+    <Content Include="images\note_02.gif" />
+    <Content Include="images\note_03.gif" />
+    <Content Include="images\note_04.gif" />
+    <Content Include="images\organization.gif" />
+    <Content Include="images\suggest_01.gif" />
+    <Content Include="Scripts\AnlandFrontend.js" />
+    <Content Include="Scripts\base\js\base.js" />
+    <Content Include="Scripts\base\js\bootstrap.min.js" />
+    <Content Include="Scripts\base\js\datatables.min.js" />
+    <Content Include="Scripts\base\js\jquery.min.js" />
+    <Content Include="Scripts\base\js\popper.min.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\images\sort_asc.png" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\images\sort_both.png" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\images\sort_desc.png" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.foundation.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\jquery.dataTables.js" />
+    <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\base\css\base.css.map" />
+    <Content Include="Content\base\css\base.min.css.map" />
+    <Content Include="Content\base\sass\base.css.map" />
+    <Content Include="Content\base\sass\base.scss" />
+    <Content Include="Content\base\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\base\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\base\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\base\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\base\webfonts\fa-light-300.eot" />
+    <Content Include="Content\base\webfonts\fa-light-300.ttf" />
+    <Content Include="Content\base\webfonts\fa-light-300.woff" />
+    <Content Include="Content\base\webfonts\fa-light-300.woff2" />
+    <Content Include="Content\base\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\base\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\base\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\base\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\base\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\base\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\base\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\base\webfonts\fa-solid-900.woff2" />
+    <Content Include="iconfont\codepoints" />
+    <Content Include="iconfont\MaterialIcons-Regular.eot" />
+    <Content Include="iconfont\MaterialIcons-Regular.ijmap" />
+    <Content Include="iconfont\MaterialIcons-Regular.ttf" />
+    <Content Include="iconfont\MaterialIcons-Regular.woff" />
+    <Content Include="iconfont\MaterialIcons-Regular.woff2" />
+    <Content Include="iconfont\README.md" />
+    <Content Include="DownloadFile\AppBackup\檔案閱覽抄錄複製申請書.doc" />
+    <Content Include="DownloadFile\AppBackup\檔案閱覽抄錄複製申請書.pdf" />
+    <Content Include="DownloadFile\PriceInfo\公告地價申請書.doc" />
+    <Content Include="DownloadFile\PriceInfo\公告地價申請書.pdf" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\Parsley\i18n\al.js" />
+    <Content Include="Scripts\Parsley\i18n\ar.js" />
+    <Content Include="Scripts\Parsley\i18n\bg.js" />
+    <Content Include="Scripts\Parsley\i18n\ca.js" />
+    <Content Include="Scripts\Parsley\i18n\cs.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\cs.js" />
+    <Content Include="Scripts\Parsley\i18n\da.js" />
+    <Content Include="Scripts\Parsley\i18n\de.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\de.js" />
+    <Content Include="Scripts\Parsley\i18n\el.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\el.js" />
+    <Content Include="Scripts\Parsley\i18n\en.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\en.js" />
+    <Content Include="Scripts\Parsley\i18n\es.js" />
+    <Content Include="Scripts\Parsley\i18n\et.js" />
+    <Content Include="Scripts\Parsley\i18n\eu.js" />
+    <Content Include="Scripts\Parsley\i18n\fa.js" />
+    <Content Include="Scripts\Parsley\i18n\fi.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\fi.js" />
+    <Content Include="Scripts\Parsley\i18n\fr.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\fr.js" />
+    <Content Include="Scripts\Parsley\i18n\he.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\he.js" />
+    <Content Include="Scripts\Parsley\i18n\hr.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\hr.js" />
+    <Content Include="Scripts\Parsley\i18n\hu.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\hu.js" />
+    <Content Include="Scripts\Parsley\i18n\id.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\id.js" />
+    <Content Include="Scripts\Parsley\i18n\it.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\it.js" />
+    <Content Include="Scripts\Parsley\i18n\ja.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\ja.js" />
+    <Content Include="Scripts\Parsley\i18n\ko.js" />
+    <Content Include="Scripts\Parsley\i18n\lt.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\lt.js" />
+    <Content Include="Scripts\Parsley\i18n\lv.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\lv.js" />
+    <Content Include="Scripts\Parsley\i18n\ms.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\ms.js" />
+    <Content Include="Scripts\Parsley\i18n\nl.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\nl.js" />
+    <Content Include="Scripts\Parsley\i18n\no.js" />
+    <Content Include="Scripts\Parsley\i18n\pl.js" />
+    <Content Include="Scripts\Parsley\i18n\pt-br.js" />
+    <Content Include="Scripts\Parsley\i18n\pt-pt.js" />
+    <Content Include="Scripts\Parsley\i18n\ro.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\ro.js" />
+    <Content Include="Scripts\Parsley\i18n\ru.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\ru.js" />
+    <Content Include="Scripts\Parsley\i18n\sk.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\sk.js" />
+    <Content Include="Scripts\Parsley\i18n\sl.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\sl.js" />
+    <Content Include="Scripts\Parsley\i18n\sq.js" />
+    <Content Include="Scripts\Parsley\i18n\sr.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\sr.js" />
+    <Content Include="Scripts\Parsley\i18n\sv.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\sv.js" />
+    <Content Include="Scripts\Parsley\i18n\th.js" />
+    <Content Include="Scripts\Parsley\i18n\tk.js" />
+    <Content Include="Scripts\Parsley\i18n\tr.js" />
+    <Content Include="Scripts\Parsley\i18n\ua.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\ua.js" />
+    <Content Include="Scripts\Parsley\i18n\uk.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\uk.js" />
+    <Content Include="Scripts\Parsley\i18n\zh_cn.extra.js" />
+    <Content Include="Scripts\Parsley\i18n\zh_cn.js" />
+    <Content Include="Scripts\Parsley\i18n\zh_tw.js" />
+    <Content Include="Scripts\Parsley\parsley.js" />
+    <Content Include="Scripts\Parsley\parsley.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
@@ -182,9 +407,65 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_MainMenu.cshtml" />
+    <Content Include="Views\Shared\_FatFooter.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_HeaderContent.cshtml" />
+    <Content Include="Views\Organs\Intro.cshtml" />
+    <Content Include="Views\Organs\Precinct.cshtml" />
+    <Content Include="Views\Organs\Organization.cshtml" />
+    <Content Include="Views\Shared\_LayoutContent.cshtml" />
+    <Content Include="Views\Organs\FloorIntro.cshtml" />
+    <Content Include="Views\Organs\ContactInfo.cshtml" />
+    <Content Include="Views\Organs\GeoTraffic.cshtml" />
+    <Content Include="Views\Organs\AdmRegulation.cshtml" />
+    <Content Include="Views\Organs\RegulationDetail.cshtml" />
+    <Content Include="Views\Announcement\News.cshtml" />
+    <Content Include="Views\Announcement\NewsDetail.cshtml" />
+    <Content Include="Views\Announcement\Laws.cshtml" />
+    <Content Include="Views\Announcement\LawsDetail.cshtml" />
+    <Content Include="Views\OnlineSearch\OverInherited.cshtml" />
+    <Content Include="Views\OnlineSearch\OINote.cshtml" />
+    <Content Include="Views\OnlineSearch\OIRights.cshtml" />
+    <Content Include="Views\OnlineSearch\InheritanceLand.cshtml" />
+    <Content Include="Views\OnlineApplication\AppCopy.cshtml" />
+    <Content Include="Views\OnlineApplication\InfoService.cshtml" />
+    <Content Include="Views\OnlineApplication\AppOnline.cshtml" />
+    <Content Include="Views\OnlineApplication\AppBackup.cshtml" />
+    <Content Include="Views\OnlineApplication\PriceInfo.cshtml" />
+    <Content Include="Views\OnlineApplication\EngEstate.cshtml" />
+    <Content Include="Views\OnlineApplication\OnlineBooking.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppRegister.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppMeasure.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppLandPrice.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppDuplicate.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppLandData.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppHandy.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppDocument.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppCorrection.cshtml" />
+    <Content Include="Views\ApplicationNotes\AppDownload.cshtml" />
+    <Content Include="Views\PublicServices\OneStop.cshtml" />
+    <Content Include="Views\PublicServices\ServiceVolunteers.cshtml" />
+    <Content Include="Views\PublicServices\TwoWay.cshtml" />
+    <Content Include="Views\PublicServices\AppEmail.cshtml" />
+    <Content Include="Views\PublicServices\MailToHome.cshtml" />
+    <Content Include="Views\PublicServices\WebATM.cshtml" />
+    <Content Include="Views\PublicServices\TelVoice.cshtml" />
+    <Content Include="Views\PublicServices\AutoReply.cshtml" />
+    <Content Include="Views\PublicServices\CrossCopy.cshtml" />
+    <Content Include="Views\PublicServices\CrossApplication.cshtml" />
+    <Content Include="Views\PublicServices\CrossEnglishApplication.cshtml" />
+    <Content Include="Views\PublicServices\CrossCollection.cshtml" />
+    <Content Include="Views\PublicServices\OtherService.cshtml" />
+    <Content Include="Views\Home\SiteMap.cshtml" />
+    <Content Include="Views\OpinionExchange\EmailSuggest.cshtml" />
+    <Content Include="Scripts\Parsley\parsley.js.map" />
+    <Content Include="Scripts\Parsley\parsley.min.js.map" />
+    <Content Include="Views\OpinionExchange\EmailSuggestDetail.cshtml" />
+    <Content Include="Views\OpinionExchange\SuggestDirector.cshtml" />
+    <Content Include="Views\OpinionExchange\SuggestDirectorDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -202,6 +483,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnlandProject.Models\AnlandProject.Models.csproj">
+      <Project>{903bbb87-3340-41b7-8dc8-bc1484a7c8f5}</Project>
+      <Name>AnlandProject.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnlandProject.Service\AnlandProject.Service.csproj">
+      <Project>{3eeeaa2c-c986-4f64-8eca-6a333fe7c4b0}</Project>
+      <Name>AnlandProject.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

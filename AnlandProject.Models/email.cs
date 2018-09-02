@@ -21,7 +21,7 @@ namespace AnlandProject.Models
         public string msg_subject { get; set; }
         public string msg_content { get; set; }
         public string rpy_unit { get; set; }
-        public System.DateTime rpy_date { get; set; }
+        public Nullable<System.DateTime> rpy_date { get; set; }
         public string rpy_name { get; set; }
         public string rpy_tel { get; set; }
         public string rpy_content { get; set; }

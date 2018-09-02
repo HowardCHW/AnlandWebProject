@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "AppOnline";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 線上申辦 - 地政線上申辦系統">
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 線上申辦 - 地政線上申辦系統">
+    <meta name="DC.Description" content="線上申辦 - 地政線上申辦系統">
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所">
+    <meta name="DC.Type" content="文字">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Source" content="基隆市安樂地政事務所">
+    <meta name="DC.Language" content="中文">
+    <meta name="DC.Coverage.t.max" content="2015-04-26">
+    <meta name="DC.Coverage.t.min" content="2010-04-26">
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所">
+    <meta name="DC.Date" content="2010-04-26 10:00 ">
+    <meta name="DC.Identifier" content="376570600A">
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/">
+    <meta name="DC.Rights" content="基隆市安樂地政事務所">
+    <meta name="Category.Theme" content="140">
+    <meta name="Category.Cake" content="CKA">
+    <meta name="Category.Service" content="C11">
+    <meta name="Keywords" content="線上申辦, 地政線上申辦系統">
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        線上申辦
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">地政線上申辦系統</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>地政線上申辦系統</h2>
+                <p class="darkblue">為配合網路時代來臨，減少民眾往返奔波，以網路代替馬路，利用網際網路便利快捷的環境，提供民眾線上案件申辦服務，以延伸服務據點，達成電子化政府「一處收件、全程服務」之目標，讓民眾不必出門，即能申辦地政業務，提昇為民服務品質及效益。</p>
+                <p class="sienna">A、作業時間：</p>
+                <ol class="textOl-layout1">
+                    <li>星期一至星期五 08：30～17：00，中午不休息</li>
+                    <li>週休二日及例假日，停止提供服務。</li>
+                </ol>
+                <p class="sienna">B、作業項目：</p>
+                <ol class="textOl-layout1">
+                    <li>
+                        <span class="sienna">登記類：</span>
+                        <ul class="textUl-list">
+                            <li>住址變更</li>
+                            <li>住址更正</li>
+                            <li>建物門牌整編</li>
+                            <li>姓名變更</li>
+                            <li>姓名更正</li>
+                            <li>出生日期更正</li>
+                            <li>統一編號更正</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="sienna">測量類：</span>
+                        <ul class="textUl-list">
+                            <li>土地鑑界</li>
+                            <li>未登記建築改良物勘測-勘查建物坐落位置</li>
+                            <li>未登記建築改良物勘測-勘查建物位置及平面圖測量</li>
+                            <li>土地流失勘測</li>
+                            <li>建物門牌勘查及登記</li>
+                            <li>建物基地號勘查及登記</li>
+                            <li>建物滅失勘查及登記</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="sienna">地價類：</span>
+                        <ul class="textUl-list">
+                            <li>申報地價</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="sienna">作業方式：</span>
+                        <br> 配合自然人憑證核發作業，民眾只要持憑自然人憑證，即可在家利用網路辦理簡易登記案件作業。
+                        <br>
+                        <br> 各地政事務所專責人員每日定時接收網路申辦案件，將接收之案件列印成書面(client端需安裝Acrobat Reader)，並依地所收件流程辦理收件、配件作業。
+                        <br>
+                        <br> 地所審查人員利用戶役政電子閘門系統及各縣市之戶役政連接介面程式，查詢設籍本直轄市、縣市轄區或其他直轄市、縣市之民眾相關戶籍資料，辦理審查作業。經核准登記之案件，依登記處理流程辦理登錄、校對作業；線上複丈案件則視繳費完成後依序辦理外業作業、成果整理暨檢查、歸檔等作業，惟建物門牌、建物基地號及建物滅失勘查及登記，涉及辦理標示變更勘查及登記，除應檢附之申請書及位置圖說可經由系統網際網路傳送外，申請人應將相關權利證明文件親送、郵寄到地政事務所或勘查時交付測量人員。
+                        <br>
+                        <br> 各地所專責人員應依案件處理情形（辦理中、完成、補正或駁回），修改網站案件辦理情形內容，並於案件辦理完竣回覆民眾案件辦理情形。
+                    </li>
+                </ol>
+                <div class="alert alert-secondary bg-lightreay" role="alert">
+                    <p class="text-center mt-3">
+                        <a href="https://clir.land.moi.gov.tw/cap/" target="_blank" title="開啟新的導覽視窗" class="btn btn-primary btn-lg" role="button"
+                           aria-pressed="true">
+                            <span class="far fa-globe-asia"></span> 地政線上申辦系統
+                        </a>
+                    </p>
+                </div>                
+                <p class="text-primary">
+                    更新日期：2018/08/01
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

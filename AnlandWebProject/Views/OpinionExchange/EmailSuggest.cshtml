@@ -1,0 +1,364 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 民意交流-地政答客問";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 意見交流 - 地政答客問" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 意見交流 - 地政答客問" />
+    <meta name="DC.Description" content="意見交流 - 地政答客問" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="I60" />
+    <meta name="Keywords" content="意見交流, 地政答客問" />
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            /*vertical-align: bottom;*/
+            color: red;
+        }
+
+        .hide {
+            display: none !important;
+        }
+    </style>
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        民意交流
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">地政答客問</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>地政答客問</h2>
+                <div class="container pl-5 pt-3">
+                    <div class="row">
+                        <div class="col-lg-12" id="sec02">
+                            <ul class="nav nav-pills justify-content-end" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link link-success active" id="correct1-tab" data-toggle="tab" href="#correct1" role="tab" aria-controls="correct1"
+                                       aria-selected="false">
+                                        <span class="fas fa-file-check"></span> 民眾意見答覆情形
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-success" id="correct2-tab" data-toggle="tab" href="#correct2" role="tab" aria-controls="correct2"
+                                       aria-selected="false">
+                                        <span class="fas fa-edit"></span> 民眾意見填送
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-success" id="correct3-tab" data-toggle="tab" href="#correct3" role="tab" aria-controls="correct3"
+                                       aria-selected="false">
+                                        <span class="fas fa-info-square"></span> 民眾意見處理程序說明
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="correct1" role="tabpanel" aria-labelledby="correct1-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 民眾意見答覆情形
+                                    </h3>
+                                    <div class="col-md-12 pl-0">
+                                        <table id="emailtable" class="table table-striped table-hover border-bottom rwd-table" summary="民眾意見答覆情形列表，為5直欄設計，第1直欄為列管編號，第2直欄為主題，第3直欄為寄信日期，第4直欄為回覆情形，第5直欄為回覆日期。">
+                                            <caption class="sr-only">
+                                                民眾意見答覆情形列表
+                                            </caption>
+                                            <thead>
+                                                <tr class="bg-brown">
+                                                    <th class="text-nowrap" scope="col">列管編號</th>
+                                                    <th class="text-nowrap" scope="col">主題</th>
+                                                    <th class="text-nowrap" scope="col">留言日期</th>
+                                                    <th class="text-nowrap" scope="col">回覆情形</th>
+                                                    <th class="text-nowrap" scope="col">回覆日期</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                        <p class="darkblue pl-0">注意事項：</p>
+                                        <ol class="textOl-list1">
+                                            <li>所傳信件內容為廣告、或未留正確E-MAIL帳號、或惡意謾罵攻訐者，皆不予以處理。</li>
+                                            <li>詳細回覆內容皆由相關承辦人員以電子郵件回覆，惟內容如涉及個人隱私者，除由承辦人另行審慎處理外，本網站不予刊登。</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="correct2" role="tabpanel" aria-labelledby="correct2-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 民眾意見填送
+                                    </h3>
+                                    <p class="pl-0">您若對本所有任何建議，或本所有需改進的地方，請留下您的寶貴建言，我們將竭誠為您服務。</p>
+                                    <div class="col-md-12pl-0">
+                                        @*<form name="suggestForm" action="suggest.html" onsubmit="return validateSuggestForm()" method="post">*@
+                                        @using (Ajax.BeginForm("EmailSuggestSave", "OpinionExchange", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "sendSuggestForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <table class="table table-hover border-bottom rwd-table" summary="民意信箱填送表格，為6橫欄設計，第1橫欄為主題，第2橫欄為真實姓名，第3橫欄為電話，第4橫欄為電子信箱，第5橫欄為問題類型，第6橫欄為內容。">
+                                                <caption class="sr-only">
+                                                    民眾意見填送
+                                                </caption>
+                                                <tr>
+                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                        <label for="topic">主　　題</label>
+                                                    </th>
+                                                    <td data-th="主題">
+                                                        <input name="MsgSubject" type="text" class="form-control" id="topic" placeholder="主題" title="請填寫意見標題" required data-parsley-required-message="請填寫意見標題！">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                        <label for="name">真實姓名</label>
+                                                    </th>
+                                                    <td data-th="真實姓名">
+                                                        <input name="MsgName" type="text" class="form-control" size="15" id="name" placeholder="姓名" title="請填寫真實姓名" required data-parsley-required-message="請填寫真實姓名！">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                        <label for="tel">電　　話</label>
+                                                    </th>
+                                                    <td data-th="電話">
+                                                        <input name="MsgTel" type="text" class="form-control" size="15" id="tel" placeholder="電話" title="請填寫電話">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                        <label for="email">電子信箱</label>
+                                                    </th>
+                                                    <td data-th="電子信箱">
+                                                        <input name="MsgEmail" type="text" class="form-control" size="40" id="email" placeholder="電子信箱" title="請填寫電子信箱" required data-parsley-required-message="請填寫電子郵件！" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                        <label for="mailkind">問題類型</label>
+                                                    </th>
+                                                    <td data-th="問題類型">
+                                                        <select name="MsgType" class="form-control" id="mailkind">
+                                                            <option value="建議" selected>建議</option>
+                                                            <option value="詢問">詢問</option>
+                                                            <option value="投訴">投訴</option>
+                                                            <option value="檢舉">檢舉</option>
+                                                            <option value="感謝">感謝</option>
+                                                            <option value="其他">其他</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                        <label for="contents">內　　文</label>
+                                                    </th>
+                                                    <td data-th="內文">
+                                                        <textarea name="MsgContent" cols="60" rows="6" class="form-control" id="contents" placeholder="內文" title="請填寫您的問題或建議" required data-parsley-required-message="請填寫內文！"></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="text-nowrap text-right" scope="row">
+                                                        <button type="reset" class="btn btn-default">重填</button>
+                                                        <button id="btnSave" type="button" class="btn btn-primary">
+                                                            寄出
+                                                            <span class="fab fa-telegram-plane"></span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        }
+                                        @*</form>*@
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="correct3" role="tabpane3" aria-labelledby="correct3-tab">
+                                    <div class="col-lg-12" id="org02">
+                                        <h3 class="pl-0">
+                                            <span class="fas fa-bookmark"></span> 民眾意見處理程序說明
+                                        </h3>
+                                        <div class="col-lg-9 mx-auto d-block text-center">
+                                            <figure class="figure">
+                                                <img src="~/images/suggest_01.gif" class="col-lg-12 figure-img img-fluid" alt="基隆市安樂地政事務所民眾陳情案件處理程序">
+                                            </figure>
+                                        </div>
+                                        <h3 class="pl-0">
+                                            <span class="fas fa-bookmark"></span> 說明：
+                                        </h3>
+                                        <ol>
+                                            <li>本所於收到民眾陳情案件後，填載民眾陳情案件處理紀錄、送收發掛號登錄並加蓋人民陳情案戳記。</li>
+                                            <li>通知業務單位指派承辦人、並交研考人員影印登錄列管，再分文交付承辦人處理相關案件。</li>
+                                            <li>承辦人員處理意見陳奉核可後予以回復或不回復，資料影本送研考結案銷號。</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /內文區 -->
+
+@section scripts{
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script>
+        var urlQueryNews = '@Url.Action("EmailSuggestQuery", "OpinionExchange")';
+        $(document).ready(function () {
+            DatatableBinding();
+
+            $('#btnSave').on('click', function () {
+                $('#sendSuggestForm').parsley().validate();
+                if ($('#sendSuggestForm').parsley().isValid()) {
+                    $('#sendSuggestForm').submit();
+                }
+            });
+        });
+
+        function DatatableBinding() {
+            $('#emailtable').DataTable({
+                ajax: {
+                    "url": urlQueryNews,
+                    "type": 'POST'
+                },
+                language: {
+                    "processing": "處理中...",
+                    "loadingRecords": "載入中...",
+                    "lengthMenu": "顯示 _MENU_ 筆結果",
+                    "zeroRecords": "沒有符合的結果",
+                    "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                    "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                    "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                    "infoPostFix": "",
+                    "search": "搜尋:",
+                    "searchPlaceholder": "請輸入關鍵字",
+                    "paginate": {
+                        "first": "第一頁",
+                        "previous": "上一頁",
+                        "next": "下一頁",
+                        "last": "最後一頁"
+                    },
+                    "aria": {
+                        "sortAscending": ": 升冪排列",
+                        "sortDescending": ": 降冪排列"
+                    }
+                },
+                pagingType: "full_numbers",
+                ordering: false,
+                columns: [
+                    { mDataProp: "No" },
+                    {
+                        mDataProp: "MsgSubject",
+                        render: function (data, type, full, meta) {
+                            return '<a href="../OpinionExchange/SuggestDetail/' + full.No + '">' + data + '</a>'
+                        }
+                    },
+                    {
+                        mDataProp: "MsgDate",
+                        render: function (data, type, full, meta) {
+                            return moment(data).format('YYYY/MM/DD');
+                        }
+                    },
+                    {
+                        mDataProp: "RpyDate",
+                        render: function (data, type, full, meta) {
+                            if (data == null) {
+                                return '未回覆';
+                            } else {
+                                return '<span class="red">已回覆</span>';
+                            }
+                        }
+                    },
+                    {
+                        mDataProp: "RpyDate",
+                        render: function (data, type, full, meta) {
+                            if (data == null) {
+                                return '';
+                            }
+                            return moment(data).format('YYYY/MM/DD');
+                        }
+                    }
+                ]
+            });
+        }
+
+        function SuccessMessage(result) {
+            if (result) {
+                var url = '/OpinionExchange/EmailSuggest';
+                SuccessMSGAfterAction("送出成功", url, 1000);
+            } else {
+                ErrorMSG('送出失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('送出失敗');
+        }
+    </script>
+}

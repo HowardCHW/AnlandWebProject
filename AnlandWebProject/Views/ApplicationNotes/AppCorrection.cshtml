@@ -1,0 +1,215 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 申請須知-常見補正事項";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 地政便利包 - 常見補正事項" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="地政便利包 - 常見補正事項" />
+    <meta name="DC.Description" content="地政便利包 - 常見補正事項" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CK2" />
+    <meta name="Category.Service" content="C10" />
+    <meta name="Keywords" content="地政便利包 , 常見補正事項" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        申請須知
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">常見補正事項</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>常見補正事項</h2>
+                <div class="container pl-5 pt-3">
+                    <div class="row">
+                        <div class="col-lg-12" id="sec02">
+                            <ul class="nav nav-pills justify-content-end" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="correct1-tab" data-toggle="tab" href="#correct1" role="tab" aria-controls="correct1" aria-selected="true">
+                                        <i class="fas fa-file-edit"></i> 登記案件
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="correct2-tab" data-toggle="tab" href="#correct2" role="tab" aria-controls="correct2" aria-selected="false">
+                                        <i class="fas fa-prescription-bottle"></i> 測量案件
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="correct1" role="tabpanel" aria-labelledby="correct1-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 登記案件
+                                    </h3>
+                                    <h4 class="pl-0">
+                                        》申請書
+                                    </h4>
+                                    <ol>
+                                        <li>登記申請書有增、刪、修文字處請由申請人或代理人簽名或蓋章。(土地登記規則第56條)</li>
+                                        <li>登記申請書附繳證件欄請依所附文件填明名稱及份數。(土地登記規則第56條)</li>
+                                        <li>本案更換代理人或複代理人，應請申請人認章。(地政士法第17條、民法第167條、第531條、第537條、內政部96年8月9日內授中辦地字第0960049221號函)</li>
+                                        <li>本案土地有無出租情事，請釐明，倘無出租情事，請義務人於申請書備註欄內簽註並認章。(土地法第104條、第107條)</li>
+                                        <li>本案優先購買權人放棄優先購買權者，請檢附切結書或於登記申請書適當欄註明：「優先購買權人確已放棄優先購買權，如有不實，出賣人願負法律責任。」等字樣，並由義務人認章。(土地登記規則第97條)</li>
+                                        <li>本案義務人為法人，應於登記申請書備註欄記明「確依有關法令規定完成處分程序，如有不實，願負法律責任。」等字樣並蓋章。(土地登記規則第42條)</li>
+                                        <li>本案父母處分未成年子女所有之土地權利，請於登記申請書備註欄記明「本案確為未成年子女之利益處分，如有不實，願負法律責任。」等字樣並簽章。(土地登記規則第39條)</li>
+                                        <li>本案係限制行為能力之未成年人受贈不動產，其意思表示應得法定代理人之允許(或同意)，始為有效，或由法定代理人(贈與人)切結，「本案贈與係無負擔，未成年人(受贈人)乃純獲法律上之利益者」，方得由其未成年人以自己之名義為受贈之意思表示，無須得其法定代理人之同意，請補正。(民法第13條、第77條、內政部92年4月9日內授中辦地字第0920004814號函)</li>
+                                        <li>登記申請書不敷填寫加附清冊，騎縫處請蓋申請人之印章。(公文程式條例第11條)</li>
+                                    </ol>
+
+                                    <h4 class="pl-0">
+                                        》登記原因證明文件
+                                    </h4>
+                                    <ol>
+                                        <li>本案權利人為二人以上，請於契約書(清冊)內記明應有部分。(土地登記規則第43條)</li>
+                                        <li>本案係同一義務人同時移轉不同標的予不同權利人，因屬個別不同之法律行為，應分別訂立契約，並分件辦理。(內政部89.11.24台內地字第8971943號函)</li>
+                                        <li>案附登記原因證明文件增、刪、修改處請簽名或蓋章。(土地登記規則第56條)</li>
+                                        <li>契約書土地或建物標示與登記簿記載不符，請補正。(土地登記規則第56條)</li>
+                                        <li>契約書不敷填寫加附清冊，騎縫處請蓋訂立契約人之印章。(公文程式條例第11條)</li>
+                                        <li>案附書表所蓋義務人印章與印鑑證明不符，請重新用印，或請親自到場提出國民身分證正本(未領有國民身分證者，請依土地登記規則第40條第2項規定檢附足資證明身分之文件)經本所指定人員核符後，當場於申請書或登記原因證明文件簽名，或依土地登記規則第41條其他各款規定擇符辦理。(土地登記規則第56、40、41條)</li>
+                                        <li>本案抵押人非債務人，契約書及登記申請書應經債務人簽名或蓋章。(土地登記規則第111條)</li>
+                                        <li>本案係農舍與其坐落用地併同辦理移轉，承受人資格應符合無自用農舍條件，承受人請檢具稅捐稽徵單位開具申請人之房屋財產歸戶查詢清單、申請人房屋財產歸戶查詢清單之所有房屋使用執照影本、申請人切結無自用農舍文件。(行政院農業委員會96年3月14日農授水保字第0961848173號函)</li>
+                                        <li>本案建物(土地)請併同建築基地地號(地上建物)辦理所有權移轉或抵押權設定。(公寓大廈管理條例第4條、民法第799條)</li>
+                                        <li>本案為普通抵押權設定，案附契約書填寫有誤，請依內政部96年8月30日內授中辦地字第0960727097號函填寫說明補正。(土地登記規則第111條之1、民法第861條)</li>
+                                        <li>本案為最高限額抵押權設定，案附契約書填寫有誤，請依內政部96年8月30日內授中辦地字第0960727097號函填寫說明補正。(土地登記規則115條之1、民法第881條之1)</li>
+                                        <li>本案申請人原以其所有權一部設定抵押權，現將所有權一部交換移轉(或全部移轉)與數人，為釐清權利關係，請於所有權移轉契約載明抵押權負擔承受關係。(內政部82年4月13日台內地字第8274609號函)</li>
+                                        <li>本案○○○地號(或○○○建號)係增加共同擔保標示之設定，除就增加部分辦理抵押權設定登記外，並請就原設定部分辦理抵押權內容變更登記。(土地登記規則第113條)</li>
+                                        <li>本案係法定代理人代未成年子女與自己訂定契約(遺產分割協議)，有違民法第106條禁止自己代理之規定，請依民法第1086條第2項規定，由法院為子女選任特別代理人後，檢附法院裁定書及裁定確定證明書辦理。(民法第1086條、非訟事件法第39條、民事訴訟法第399條</li>
+                                    </ol>
+
+                                    <h4 class="pl-0">
+                                        》其他
+                                    </h4>
+                                    <ol>
+                                        <li>案附影本請簽註「本影本與正本相符，如有不實申請人願負法律上一切責任。」等字樣並由申請人或代理人(複代理人)簽章。(申請土地登記應附文件法令補充規定第41點第3款、第4款)</li>
+                                        <li>本案土地增值稅(或契稅、贈與稅)繳(免)納證明書所載與契約書不符，請洽核發機關更正後憑辦。(土地登記規則第56條)</li>
+                                        <li>本案特別授權書授權處理事項(地號、持分、事由等)不明確，請另檢附之。(民法第532條、土地登記規則第38條)</li>
+                                        <li>本案權利人為金融機構，銀行印鑑卡暨銀行法人有關資料、經理人異動尚未函文備查，無法辦理登記，請另行檢附。(申請土地登記應附文件法令補充規定第28點、內政部96年9月13日內授中地字第0960727243號函)</li>
+                                        <li>請檢附登記原因發生日期前一年以後核發之義務人印鑑證明或請親自到場提出國民身分證正本(未領有國民身分證者，請依土地登記規則第40條第2項規定檢附足資證明身分之文件)經本所指定人員核符後，當場於申請書或登記原因證明文件簽名，或依土地登記規則第41條其他各款規定擇符辦理。(土地登記規則第40、41條)</li>
+                                        <li>本案申請人為公司法人，請依土地登記規則第42條規定檢附公司登記主管機關核發之設立、變更登記表正本、其影本或100年3月前核發之抄錄本；抄錄本或影本應由法人簽註所登記之資料現仍為有效，如有不實，申請人願負法律責任，並簽章。上開文件得由申請人自行複印，影本由法人簽註本影本與案附正本(公司登記主管機關核發之抄錄本或影本)相符，所登記之資料現仍為有效，如有不實，申請人願負法律責任，並簽章。(土地登記規則第42條、申請土地登記應附文件法令補充規定第41點第5款)</li>
+                                        <li>本案因登記名義人於登記簿無登載統一編號，請檢附登記名義人原登記住址之身分證明文件。(土地登記規則第152條)</li>
+                                        <li>本案權利人取得他共有人之應有部分，請檢附權利人原有持分所有權狀辦理持分合併，其所有權狀遺失無法檢附者，請連件申請書狀補給登記。(土地登記規則第66條第2項、第154條、第155條、內政部76年1月19日台內地字第469926號函、內政部67年5月15日台內地字第792259號函)</li>
+                                        <li>本案係區分所有建物共有部分移轉(或權利範圍變更)，因主建物設定有抵押權，是否影響該善意第三人權益，請檢附抵押權人同意書。(內政部79年7月16日台內地字第819823號函、內政部83年8月2日台內地字第8309551號函)</li>
+                                    </ol>
+
+                                </div>
+                                <div class="tab-pane fade" id="correct2" role="tabpanel" aria-labelledby="correct2-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 測量案件
+                                    </h3>
+                                    <h4 class="pl-0">
+                                        》申請書
+                                    </h4>
+                                    <ol>
+                                        <li>請申請人攜帶印章補辦認章手續。(地籍測量實施規則第215、267、295條)</li>
+                                        <li>申請書記載之申請原因與登記簿冊或其證明文件不符，請補正。(地籍測量實施規則第212、265條)</li>
+                                        <li>申請人之資格不符或其代理人之代理權欠缺，請補正。(地籍測量實施規則第212、265條)</li>
+                                    </ol>
+
+                                    <h4 class="pl-0">
+                                        》原因證明文件
+                                    </h4>
+                                    <ol>
+                                        <li>本案委託代理人申請，請檢附委託書憑辦。(地籍測量實施規則第205、261條)</li>
+                                        <li>設定有抵押權之土地申請合併，請檢附土地所有權人與抵押權人之協議書。(地籍測量實施規則第224條第2項第2款)</li>
+                                        <li>請檢附土地使用分區證明書憑辦。(地籍測量實施規則第224條)</li>
+                                        <li>請檢附調整地形協議書及工務局核發合於建築基地最小面積之寬、深度且非屬法定空地之文件及圖說辦理。(地籍測量實施規則第229條)</li>
+                                        <li>本案未能依規定自行埋設界樁，請檢附分割位置圖說，加繳土地複丈費半數，一併申請確定界址。(地籍測量實施規則第210條)</li>
+                                        <li>土地分割地上有合法建物請檢附法定空地分割證明憑辦。(依據內政部訂頒建築基地法定空地分割辦法第二條、第五條)</li>
+                                        <li>土地分割檢附之分割略圖尺寸不符或條件不足，請補正。(地籍測量實施規則第212條第1項第2款)</li>
+                                        <li>請檢附建物使用執造及竣工平面圖正本及其影本憑辦。(地籍測量實施規則第279條)</li>
+                                        <li>本案區分所有建物，請檢具全體起造人就專有部分所屬各共有部分之分配協議書憑辦。(地籍測量實施規則第279條)</li>
+                                        <li>本案為實施建築管理前建造之建物，請提出主管機關或鄉(鎮、市、區）公所之證明文件，或繳納房屋稅、水費、電費憑證辦理。(地籍測量實施規則第279條)</li>
+                                        <li>申請合併之建物設定有抵押權，請檢附建物所有權與抵押權人之協議書辦理。(地籍測量實施規則第290條)</li>
+                                        <li>申請建物分割，請檢附建物分割位置圖說、戶政事務所編列門牌證明及權利證明文件。(依據地籍測量實施規則第288條)</li>
+                                        <li>申請人非起造人，請檢附移轉契約書或其他證明文件辦理。(依據地籍測量實施規則第279條)</li>
+                                    </ol>
+
+                                    <h4 class="pl-0">
+                                        》其他
+                                    </h4>
+                                    <ol>
+                                        <li>土地複丈(建物測量)費未繳(或不足)，請補繳新台幣○○○○元整。(內政部訂頒土地複丈費及建築改良物測量費收費標準)</li>
+                                        <li>本案因現場有障礙物無法施測，請申請人排除。(地籍測量實施規則第212條)</li>
+                                        <li>竣工平面圖無標示牆厚尺寸或計算式尺寸與圖上尺寸不符，請補正。(地籍測量實施規則第265條第1項第2款)</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="text-primary pl-1 ">
+                            更新日期：2018/08/01
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

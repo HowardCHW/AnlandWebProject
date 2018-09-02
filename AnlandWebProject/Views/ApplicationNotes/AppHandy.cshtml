@@ -1,0 +1,1166 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 申請須知-地政便利包";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 地政便利包" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="地政便利包" />
+    <meta name="DC.Description" content="地政便利包" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CK2" />
+    <meta name="Category.Service" content="C10" />
+    <meta name="Keywords" content="地政便利包, 買賣, 贈與, 書狀補給, 繼承, 附繳證件來源機關, 常見補正事項" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        申請須知
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">地政便利包</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>地政便利包</h2>
+                <div class="container pl-5 pt-3">
+                    <div class="row">
+                        <div class="col-lg-12" id="sec02">
+                            <ul class="nav nav-pills justify-content-end" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link link-success active" id="correct2-tab" data-toggle="tab" href="#correct2" role="tab" aria-controls="correct2"
+                                       aria-selected="false">
+                                        <span class="fas fa-usd-circle"></span> 買賣
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-success" id="correct3-tab" data-toggle="tab" href="#correct3" role="tab" aria-controls="correct3"
+                                       aria-selected="false">
+                                        <span class="fas fa-hand-holding-box"></span> 贈與
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-success" id="correct4-tab" data-toggle="tab" href="#correct4" role="tab" aria-controls="correct4"
+                                       aria-selected="false">
+                                        <span class="fas fa-paste"></span> 書狀補給
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-success" id="correct5-tab" data-toggle="tab" href="#correct5" role="tab" aria-controls="correct5"
+                                       aria-selected="false">
+                                        <span class="fas fa-project-diagram"></span> 繼承
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="alert alert-secondary bg-lightreay pb-0 ml-0" role="alert">
+                                <p class="p-0">
+                                    <span class="red">注意：</span>本所提供之表單文件，皆有線上版閱覽器可供開啟檔案，若您需要單機版PDF閱覽器，請下載軟體：
+                                    <a href="https://get.adobe.com/tw/reader/" target="_blank" title="開啟新的導覽視窗">
+                                        Adobe Reader
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="correct2" role="tabpanel" aria-labelledby="correct2-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 買賣
+                                    </h3>
+                                    <table class="table table-striped border-bottom rwd-table file-download" summary="買賣流程及應附文件，第一直欄為流程，第二直欄為應備文件，第三直欄為備註">
+                                        <caption class="sr-only">
+                                            買賣流程及應附文件
+                                        </caption>
+                                        <thead>
+                                            <tr class="bg-brown">
+                                                <th nowrap scope="col">流程</th>
+                                                <th scope="col">應備文件</th>
+                                                <th scope="col">備註</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body orange text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">1</span>站
+                                                                <br>戶政事務所
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                申請印鑑證明
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>申請人身分證及印鑑章。</li>
+                                                        <li>
+                                                            委託代辦者另檢附代理人身分證正本、印章及委託書。
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/400" target="_blank" title="開啟新視窗">
+                                                                        印鑑證明申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/399" target="_blank" title="開啟新視窗">
+                                                                        印鑑登記申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            請洽
+                                                            <span class="text-danger">戶籍所在地</span>戶政事務所申辦。
+                                                        </li>
+                                                        <li>
+                                                            初次請領應由
+                                                            <span class="text-danger">本人親自</span>申請。
+                                                        </li>
+                                                        <li>
+                                                            有下列情事者，免至戶政事務所申請印鑑證明：
+                                                            <ul>
+                                                                <li>出賣人於申請登記時親自到場，提出身分證正本，供登記機關人員核符身分。</li>
+                                                                <li>契約書經依法公證、認證。</li>
+                                                                <li>契約書經依法由地政士簽證者。</li>
+                                                                <li>出賣人於土地所在地之登記機關設置土地登記印鑑者。</li>
+                                                            </ul>
+                                                        <li>
+                                                            基隆市戶政事務所聯絡資訊：
+                                                            <ul>
+                                                                <li>安樂區戶政事務所 (02)2431-2159</li>
+                                                                <li>中山區戶政事務所 (02)2424-2426</li>
+                                                                <li>七堵區戶政事務所 (02)2456-8430</li>
+                                                                <li>暖暖區戶政事務所 (02)2457-5228</li>
+                                                                <li>信義區戶政事務所 (02)2426-1535</li>
+                                                                <li>仁愛區戶政事務所 (02)2432-8669</li>
+                                                                <li>中正區戶政事務所 (02)2463-4911</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body bg-info text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">2</span> 站
+                                                                <br>稅務局
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                申報土地增值稅
+                                                                <br>及契稅
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <a href="http://www.etax.nat.gov.tw/etwmain/front/ETW118W/CON/442/7466126281624690803?tagCode" target="_blank" title="開啟新視窗">
+                                                                土地增值稅申報書
+                                                                <span class="fas fa-file-alt"></span>
+                                                                </span>
+                                                            </a>。
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://www.etax.nat.gov.tw/etwmain/front/ETW118W/CON/442/8847762249408503745?tagCode" target="_blank" title="開啟新視窗">
+                                                                契稅申報書
+                                                                <span class="fas fa-file-alt"></span>
+                                                                </span>
+                                                            </a>。
+                                                        </li>
+                                                        <li>買賣雙方身分證明文件1份。</li>
+                                                        <li>買賣移轉契約書正、影本各1份(正本依權利價值千分之一貼印花稅票，申報完竣後，併契約書副本送地政事務所申辦登記)。</li>
+                                                        <li>買賣雙方印章。</li>
+                                                        <li>代理人(申請人)身分證正本、印章</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>請洽土地/建物所在地稅務局申辦。</li>
+                                                        <li>
+                                                            請於
+                                                            <span class="text-danger">增值稅單上查欠地價稅、契稅單上查欠房屋稅</span>。
+                                                        </li>
+                                                        <li>
+                                                            基隆市稅務局聯絡資訊：
+                                                            <ul>
+                                                                <li>總局(安樂、中山、仁愛) (02)2433-1888</li>
+                                                                <li>七堵分局(七堵、暖暖) (02)2455-4221</li>
+                                                                <li>信義分局(中正、信義) (02)2428-6030</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            財政部北區國稅局聯絡資訊：
+                                                            <ul>
+                                                                <li>基隆分局(安樂、中山、仁愛) (02)2433-1900</li>
+                                                                <li>七堵稽徵所(七堵、暖暖) (02)2455-1242</li>
+                                                                <li>信義稽徵所(中正、信義) (02)2428-6511</li>
+                                                            </ul>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body light-purple text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">3</span>站
+                                                                <br>地政事務所
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                辦理產權移轉登記
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <span class="text-danger">土地登記申請書：</span>
+
+                                                            <a href="files/f_01/register.doc" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a>
+                                                            |
+                                                            <a href="files/f_01/register.pdf" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                            |
+                                                            <a href="files/f_01/register.odt" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">土地登記申請書填寫範例：</span>
+                                                            <a href="files/f_01/register_sample.pdf" target="_blank" title="土地登記申請書範例檔案下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="text-danger">買賣移轉契約書</span> 正、副本各1份：
+                                                            <br>
+
+                                                            <a href="files/f_01/contract.doc" target="_blank" title="買賣移轉契約書載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a>
+                                                            |
+                                                            <a href="files/f_01/contract.pdf" target="_blank" title="買賣移轉契約書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                            |
+                                                            <a href="files/f_01/contract.odt" target="_blank" title="買賣移轉契約書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">買賣移轉契約書填寫範例：</span>
+
+                                                            <a href="files/f_01/contract_sample.pdf" target="_blank" title="買賣移轉契約書範例檔案下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>各項完稅證明。</li>
+                                                        <li>買賣雙方身分證明文件1份。</li>
+                                                        <li>出賣人印鑑證明1份。</li>
+                                                        <li>土地、建物所有權狀正本。</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    基隆市任一地政事務所皆可跨所受理申請。
+                                                    <br> 申請人身分證明文件：
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>自然人，請檢附戶籍謄本正本、身分證影本或戶口名簿影本(能以電腦處理達成查詢者，得免提出)。</li>
+                                                        <li>公司，應檢附公司設立（變更）登記表或影印本本正本、複印本。</li>
+                                                        <li>華僑，請檢附華僑身分證明書。</li>
+                                                        <li>外國人，請檢附國籍證明文件，如護照、居留證等。</li>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="p-0">※注意事項：</p>
+                                    <ol class="textOl-layout1 p-0">
+                                        <li>代理人送件時請攜帶身分證(或駕照)、印章，以便核對身分。</li>
+                                        <li>
+                                            請於
+                                            <span class="text-danger">立約日起1個月內</span>申辦，逾期者，每逾1個月處應納登記費額1倍罰鍰，最高不得超過20 倍。
+                                        </li>
+                                        <li>依內政部102年12月27日內授中辦地字1026652564號函規定，非地政士代理案件同1年於同一登記機關申請超過2件，或曾於同一登記機關申請超過5件者，不予受理。</li>
+                                        <li>非地政士代理送件時，請由申請人及代理人於土地登記申請書第九欄備註欄分別切結「本人未給付報酬予代理人，如有虛偽不實，願負法律責任」、「本人並非以代理申請土地登記為業，且未收取報酬如有虛偽不實，願負法律責任」，並蓋章。</li>
+                                        <li>
+                                            除下列情形者外，均可向本市任一地政事務所跨所申辦。
+                                            <ul>
+                                                <li>依土地法第34條之1辦理者。</li>
+                                                <li>未檢附權利書狀者(無須檢附權利書狀者除外)。</li>
+                                                <li>登記名義人為無統一編號或統一編號為流水編者。</li>
+                                                <li>屬祭祀公業條例或地籍清理條例公告清理之標的。</li>
+                                                <li>超過10連任之大宗案件。</li>
+                                                <li>與非屬跨所登記項目連件辦理者。</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="tab-pane fade" id="correct3" role="tabpanel" aria-labelledby="correct3-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 贈與
+                                    </h3>
+                                    <table class="table table-striped border-bottom rwd-table file-download" summary="贈與流程及應附文件，第一直欄為流程，第二直欄為應備文件，第三直欄為備註">
+                                        <caption class="sr-only">
+                                            贈與流程及應附文件
+                                        </caption>
+                                        <thead>
+                                            <tr class="bg-brown">
+                                                <th nowrap scope="col">流程</th>
+                                                <th scope="col">應備文件</th>
+                                                <th scope="col">備註</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body orange text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">1</span>站
+                                                                <br>戶政事務所
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                申請印鑑證明
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>申請人身分證及印鑑章。</li>
+                                                        <li>
+                                                            委託代辦者另檢附代理人身分證正本、印章及委託書。
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/400" target="_blank" title="開啟新視窗">
+                                                                        印鑑證明申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/399" target="_blank" title="開啟新視窗">
+                                                                        印鑑登記申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            請洽
+                                                            <span class="text-danger">戶籍所在地</span>戶政事務所申辦。
+                                                        </li>
+                                                        <li>
+                                                            初次請領應由
+                                                            <span class="text-danger">本人親自</span>申請。
+                                                        </li>
+                                                        <li>
+                                                            有下列情事者，免至戶政事務所申請印鑑證明：
+                                                            <ul>
+                                                                <li>出賣人於申請登記時親自到場，提出身分證正本，供登記機關人員核符身分。</li>
+                                                                <li>契約書經依法公證、認證。</li>
+                                                                <li>契約書經依法由地政士簽證者。</li>
+                                                                <li>出賣人於土地所在地之登記機關設置土地登記印鑑者。</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            基隆市戶政事務所聯絡資訊：
+                                                            <ul>
+                                                                <li>安樂區戶政事務所 (02)2431-2159</li>
+                                                                <li>中山區戶政事務所 (02)2424-2426</li>
+                                                                <li>七堵區戶政事務所 (02)2456-8430</li>
+                                                                <li>暖暖區戶政事務所 (02)2457-5228</li>
+                                                                <li>信義區戶政事務所 (02)2426-1535</li>
+                                                                <li>仁愛區戶政事務所 (02)2432-8669</li>
+                                                                <li>中正區戶政事務所 (02)2463-4911</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body bg-info text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">2</span> 站
+                                                                <br>稅務局
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                申報土地增值稅
+                                                                <br>及契稅
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <a href="http://www.etax.nat.gov.tw/etwmain/front/ETW118W/CON/442/7466126281624690803?tagCode" target="_blank" title="開啟新視窗">
+                                                                土地增值稅申報書
+                                                                <span class="fas fa-file-alt"></span>
+                                                            </a>。
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://www.etax.nat.gov.tw/etwmain/front/ETW118W/CON/442/8847762249408503745?tagCode" target="_blank" title="開啟新視窗">
+                                                                契稅申報書
+                                                                <span class="fas fa-file-alt"></span>
+                                                            </a>。
+                                                        </li>
+                                                        <li>贈與雙方身分證明文件1份。</li>
+                                                        <li>贈與移轉契約書正、影本各1份(正本依權利價值千分之一貼印花稅票)。</li>
+                                                        <li>贈與雙方印章。</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            請洽土地/建物
+                                                            <span class="text-danger">所在地</span>稅務局申辦。
+                                                        </li>
+                                                        <li>
+                                                            請於
+                                                            <span class="text-danger">增值稅單上查欠地價稅、契稅單上查欠房屋稅</span>。
+                                                        </li>
+                                                        <li>
+                                                            基隆市稅務局聯絡資訊：
+                                                            <ul class="textUl-list">
+                                                                <li>總局(安樂、中山、仁愛) (02)2433-1888</li>
+                                                                <li>七堵分局(七堵、暖暖) (02)2455-4221</li>
+                                                                <li>信義分局(中正、信義) (02)2428-6030</li>
+                                                            </ul>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body light-green text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">3</span>站
+                                                                <br>國稅局
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                申報贈與稅
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <a href="http://www.etax.nat.gov.tw/etwmain/front/ETW118W/VIEW/441?tagCode=NDownload4&showCategory=&category=" target="_blank"
+                                                               title="開啟新視窗">
+                                                                贈與稅申報書
+                                                                <span class="fas fa-file-alt"></span>
+                                                            </a>。
+                                                        </li>
+                                                        <li>贈與移轉契約書影本。</li>
+                                                        <li>贈與雙方身分證明各1份。</li>
+                                                        <li>各項完稅證明。</li>
+                                                        <li>贈與雙方印章。</li>
+                                                        <li>代理人(申請人)身分證正本、印章。</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    請洽
+                                                    <span class="text-danger">贈與人戶籍所在地</span>國稅局辦理。
+                                                    <br>財政部北區國稅局聯絡資訊：
+                                                    <ul class="textUl-layout p-0">
+                                                        <li>基隆分局(安樂、中山、仁愛) (02)2433-1900</li>
+                                                        <li>七堵稽徵所(七堵、暖暖) (02)2455-1242</li>
+                                                        <li>信義稽徵所(中正、信義) (02)2428-6511</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body light-purple text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">4</span>站
+                                                                <br>地政事務所
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                辦理產權移轉登記
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <span class="text-danger">土地登記申請書：</span>
+                                                            <br>
+                                                            <a href="files/f_02/register.doc" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_02/register.pdf" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_02/register.odt" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">土地登記申請書填寫範例：</span>
+                                                            <a href="files/f_02/register_sample.pdf" target="_blank" title="土地登記申請書範例檔案下載[開啟新視窗]">
+                                                                <img src="/images/pdf.gif" border="0" alt="" align="absmiddle">PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="text-danger">贈與移轉契約書</span> 正、副本各1份：
+                                                            <br>
+                                                            <a href="files/f_02/contract.doc" target="_blank" title="贈與移轉契約書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_02/contract.pdf" target="_blank" title="贈與移轉契約書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_02/contract.odt" target="_blank" title="贈與移轉契約書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">贈與移轉契約書填寫範例：</span>
+                                                            <a href="files/f_02/contract_sample.pdf" target="_blank" title="贈與移轉契約書範例檔案PDF檔下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>各項完稅證明。</li>
+                                                        <li>贈與雙方身分證明文件1份。</li>
+                                                        <li>贈與人印鑑證明1份。</li>
+                                                        <li>土地、建物所有權狀正本。</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    基隆市任一地政事務所皆可跨所受理申請。
+                                                    <br> 申請人身分證明文件：
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>自然人，請檢附戶籍謄本正本、身分證影本或戶口名簿影本(能以電腦處理達成查詢者，得免提出)。</li>
+                                                        <li>公司，應檢附公司設立（變更）登記表或影印本本正本、複印本。</li>
+                                                        <li>華僑，請檢附華僑身分證明書。</li>
+                                                        <li>外國人，請檢附國籍證明文件，如護照、居留證等。</li>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="p-0">※注意事項：</p>
+                                    <ol class="textOl-layout1 p-0">
+                                        <li>代理人送件時請攜帶身分證(或駕照)、印章，以便核對身分。</li>
+                                        <li>
+                                            請於
+                                            <span class="text-danger">立約日起1個月內</span>申辦，逾期者，每逾1個月處應納登記費額1倍罰鍰，最高不得超過20 倍。
+                                        </li>
+                                        <li>依內政部102年12月27日內授中辦地字1026652564號函規定，非地政士代理案件同1年於同一登記機關申請超過2件，或曾於同一登記機關申請超過5件者，不予受理。</li>
+                                        <li>非地政士代理送件時，請由申請人及代理人於土地登記申請書第九欄備註欄分別切結「本人未給付報酬予代理人，如有虛偽不實，願負法律責任」、「本人並非以代理申請土地登記為業，且未收取報酬如有虛偽不實，願負法律責任」，並蓋章。</li>
+                                        <li>
+                                            除下列情形者外，均可向本市任一地政事務所跨所申辦。
+                                            <ul>
+                                                <li>未檢附權利書狀者(無須檢附權利書狀者除外)。</li>
+                                                <li>登記名義人為無統一編號或統一編號為流水編者。</li>
+                                                <li>屬祭祀公業條例或地籍清理條例公告清理之標的。</li>
+                                                <li>超過10連任之大宗案件。</li>
+                                                <li>與非屬跨所登記項目連件辦理者。</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="tab-pane fade" id="correct4" role="tabpanel" aria-labelledby="correct4-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 書狀補給
+                                    </h3>
+                                    <table class="table table-striped border-bottom rwd-table file-download" summary="書狀補給流程及應附文件，第一直欄為流程，第二直欄為應備文件，第三直欄為備註">
+                                        <caption class="sr-only">
+                                            書狀補給流程及應附文件
+                                        </caption>
+                                        <thead>
+                                            <tr class="bg-brown">
+                                                <th nowrap scope="col">流程</th>
+                                                <th scope="col">應備文件</th>
+                                                <th scope="col">備註</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center" style="width: 10rem;">
+                                                        <div class="card-body orange text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">1</span>站
+                                                                <br>地政事務所
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                辦理書狀補給登記
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <span class="text-danger">土地登記申請書：</span>
+                                                            <br>
+                                                            <a href="files/f_03/register.doc" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_03/register.pdf" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_03/register.odt" target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">土地登記申請書填寫範例：</span>
+                                                            <a href="files/f_03/register_sample.pdf" target="_blank" title="土地登記申請書範例檔案下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="text-danger">登記清冊</span>：
+                                                            <br>(切結書如已載明申請標的者，得免檢附)
+                                                            <a href="files/f_03/register_list.doc" target="_blank" title="登記清冊下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_03/register_list.pdf" target="_blank" title="登記清冊下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_03/register_list.odt" target="_blank" title="登記清冊下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>申請人身分證正本、影本各１份、印章 (能以電腦處理達成查詢者，得免提出)。</li>
+                                                        <li>
+                                                            <span class="text-danger">權狀遺失切結書：</span>
+                                                            <br>
+                                                            <a href="files/f_03/lost_ffidavit.doc" target="_blank" title="權狀遺失切結書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_03/lost_ffidavit.pdf" target="_blank" title="權狀遺失切結書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_03/lost_ffidavit.odt" target="_blank" title="權狀遺失切結書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">權狀遺失切結書填寫範例：</span>
+                                                            <a href="files/f_03/lost_ffidavit_sample.pdf" target="_blank" title="權狀遺失切結書填寫範例下載[開啟新視窗]>
+                                                                PDF
+                                                                <span class=" fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                    </ol>
+                                                </td>
+                                                <td>
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            委託代辦者請另檢附申請人印鑑證明１份、印鑑章，或該切結書經依法公證、認證者，免檢附印鑑證明
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/400 " target="_blank"
+                                                                       title="開啟新視窗">
+                                                                        印鑑證明申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/399 " target="_blank"
+                                                                       title="開啟新視窗">
+                                                                        印鑑登記申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            基隆市戶政事務所聯絡資訊：
+                                                            <ul>
+                                                                <li>安樂區戶政事務所 (02)2431-2159</li>
+                                                                <li>中山區戶政事務所 (02)2424-2426</li>
+                                                                <li>七堵區戶政事務所 (02)2456-8430</li>
+                                                                <li>暖暖區戶政事務所 (02)2457-5228</li>
+                                                                <li>信義區戶政事務所 (02)2426-1535</li>
+                                                                <li>仁愛區戶政事務所 (02)2432-8669</li>
+                                                                <li>中正區戶政事務所 (02)2463-4911</li>
+                                                            </ul>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3 " class="dline01">
+                                                    收件審核無誤後，
+                                                    <span class="text-danger">公告30天</span>，公告期滿無人提出異議後，登記補給權利書狀。
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="p-0">※注意事項：</p>
+                                    <ol class="textOl-layout1 p-0">
+                                        <li>代理人送件時請攜帶身分證(或駕照)、印章，以便核對身分。</li>
+                                        <li>
+                                            依內政部102年12月27日內授中辦地字1026652564號函規定，非地政士代理案件同1年於同一登記機關申請超過2件，或曾於同一登記機關申請超過5件者，不予受理。
+                                        </li>
+                                        <li>
+                                            非地政士代理送件時，請由申請人及代理人於土地登記申請書第九欄備註欄分別切結「本人未給付報酬予代理人，如有虛偽不實，願負法律責任」、「本人並非以代理申請土地登記為業，且未收取報酬如有虛偽不實，願負法律責任」，並蓋章。
+                                        </li>
+                                        <li>
+                                            依行政程序法及加強防範偽造土地登記證明文件注意事項第7點規定，本所(雙掛號)通知之地址為：
+                                            <span class="text-danger">(1)戶籍地。(2)登記簿登記之住所。(3)最近2個月於本所辦竣住址變更其變更前地址</span>。
+                                        </li>
+                                        <li>
+                                            如
+                                            <u>本所未收到雙掛號回執或遭郵局退件時</u>，申請人須
+                                            <span class="text-danger">持身分證正本親自簽名</span>後領件（如有代理人須一併會同）。
+                                        </li>
+                                        <li>
+                                            如果於
+                                            <u>公告期間找到權利書狀</u>，請攜帶
+                                            <span class="text-danger">權利書狀正本、身分證正本、原印章及繳納規費收據</span>至本所辦理撤銷原書狀補發登記案。
+                                        </li>
+                                    </ol>
+
+                                </div>
+                                <div class="tab-pane fade" id="correct5" role="tabpanel" aria-labelledby="correct5-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 繼承
+                                    </h3>
+                                    <table class="table table-striped border-bottom rwd-table file-download
+                                                                    " summary="繼承流程及應附文件，第一直欄為流程，第二直欄為應備文件，第三直欄為備註">
+                                        <caption class="sr-only">
+                                            繼承流程及應附文件
+                                        </caption>
+                                        <thead>
+                                            <tr class="bg-brown">
+                                                <th nowrap scope="col">流程</th>
+                                                <th scope="col">應備文件</th>
+                                                <th scope="col">備註</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center " style="width: 10rem;">
+                                                        <div class="card-body orange text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">1</span>站
+                                                                <br>戶政事務所
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                申請印鑑證明
+                                                                <br> 及印鑑證明
+                                                            </p>
+                                                        </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>申請人身分證及印鑑章。</li>
+                                                        <li>
+                                                            委託代辦者另檢附代理人身分證正本、印章及委託書。
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/400" target="_blank" title="開啟新視窗">
+                                                                        印鑑證明申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://www.ris.gov.tw/zh_TW/399" target="_blank" title="開啟新視窗">
+                                                                        印鑑登記申請須知
+                                                                        <span class="fas fa-file-alt"></span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>申請被繼承人死亡除戶戶籍謄本、全體繼承人現在戶籍謄本(能以電腦處理達成查詢者，得免提出)</li>
+                                                        <li>欲辦理遺產協議分割繼承者，須加附全體繼承人印鑑證明。</li>
+                                                        <li>印鑑證明請洽<span class="text-danger">戶籍所在地</span>戶政事務所申辦。</li>
+                                                        <li>初次請領印鑑證明應由<span class="text-danger">本人親自</span>申請。</li>
+                                                        <li>
+                                                            基隆市戶政事務所聯絡資訊：
+                                                            <ul>
+                                                                <li>安樂區戶政事務所 (02)2431-2159</li>
+                                                                <li>中山區戶政事務所 (02)2424-2426</li>
+                                                                <li>七堵區戶政事務所 (02)2456-8430</li>
+                                                                <li>暖暖區戶政事務所 (02)2457-5228</li>
+                                                                <li>信義區戶政事務所 (02)2426-1535</li>
+                                                                <li>仁愛區戶政事務所 (02)2432-8669</li>
+                                                                <li>中正區戶政事務所 (02)2463-4911</li>
+                                                            </ul>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center " style="width: 10rem;">
+                                                        <div class="card-body bg-info text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">2</span> 站
+                                                                <br>稅務局
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                申報遺產稅
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <a href="http://www.etax.nat.gov.tw/etwmain/front/ETW118W/VIEW/441?tagCode=NDownload4&showCategory=&category="
+                                                               target=" _blank " title="遺產稅申報書下載[開啟新視窗]">遺產稅申報書</a>。
+                                                        </li>
+                                                        <li>被繼承人死亡除戶戶籍謄本及全體繼承人現在戶籍謄本各1份</li>
+                                                        <li><u>繼承系統表</u>1份。</li>
+                                                        <li>其他相關財產資料(如土地、建物登記謄本)。</li>
+                                                        <li>申請人身分證正本、印章。</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>請洽被<span class="text-danger">繼承人死亡時戶籍所在地</span>國稅局申辦。</li>
+                                                        <li>委託申報者，應另附委任書(授權書)及受任人身分證明文件。</li>
+                                                        <li>
+                                                            財政部北區國稅局聯絡資訊：
+                                                            <ul>
+                                                                <li>基隆分局(安樂、中山、仁愛) (02)2433-1900</li>
+                                                                <li>七堵稽徵所(七堵、暖暖) (02)2455-1242</li>
+                                                                <li>信義稽徵所(中正、信義) (02)2428-6511</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center " style="width: 10rem;">
+                                                        <div class="card-body light-green text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">3</span>站
+                                                                <br>稅務局
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                查註無欠繳
+                                                                <br> 地價稅、房屋稅
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>持遺產稅繳（免）納證明書至不動產所在地之稅務局查欠地價稅及房屋稅，並加蓋稅捐承辦人員之查欠章。</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    <p>如辦理分割繼承者，請一併辦理印花稅繳納作業。</p>
+                                                    <p>基隆市稅務局聯絡資訊：</p>
+                                                    <ul class="textUl-list">
+                                                        <li>總局(安樂、中山、仁愛) (02)2433-1888</li>
+                                                        <li>七堵分局(七堵、暖暖) (02)2455-4221</li>
+                                                        <li>信義分局(中正、信義) (02)2428-6030</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-th="流程">
+                                                    <div class="card text-center " style="width: 10rem;">
+                                                        <div class="card-body light-purple text-white p-0 pt-3 pb-3">
+                                                            <h5 class="card-title">
+                                                                第
+                                                                <span class="display-4">4</span>站
+                                                                <br>地政事務所
+                                                            </h5>
+                                                            <p class="pl-0 mb-0 text-nowrap">
+                                                                辦理產權移轉登記
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="應備文件">
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            <span class="text-danger">土地登記申請書：</span><br>
+                                                            <a href="files/f_04/register.doc " target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/register.pdf " target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/register.odt " target="_blank" title="土地登記申請書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">土地登記申請書填寫範例：</span><br>
+                                                            繼承PDF檔：
+                                                            <a href="files/f_04/register_sample.pdf " target="_blank" title="土地登記申請書範例下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/register_part_sample.pdf " target="_blank" title="土地登記申請書範例下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="text-danger">土地登記清冊：</span><br>
+                                                            <a href="files/f_04/register_list.doc " target="_blank" title="贈與移轉契約書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/register_list.pdf " target="_blank" title="贈與移轉契約書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/register_list.odt " target="_blank" title="贈與移轉契約書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">土地登記清冊填寫範例：</span><br>
+                                                            (遺產分割協議書已載明申請標的者，得免檢附)<br>
+                                                            繼承PDF檔：
+                                                            <a href="files/f_04/register_list_sample.pdf " target="_blank" title="土地登記清冊填寫範例下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="text-danger">繼承系統表：</span>
+                                                            <a href="files/f_04/inherit_list.doc " target="_blank" title="繼承系統表下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/inherit_list.pdf " target="_blank" title="繼承系統表下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/inherit_list.odt " target="_blank" title="繼承系統表下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">繼承系統表填寫範例：</span>
+                                                            <a href="files/f_04/inherit_list_sample.pdf " target="_blank" title="繼承系統表填寫範例下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a></a>
+                                                        </li>
+                                                        <li>
+                                                            土地、建物所有權狀正本。<br>(所有權狀遺失者請檢附<u>切結書</u>)
+                                                            <br>
+                                                            <span class="text-danger">切結書：</span>
+                                                            <a href="files/f_04/lost_ffidavit.doc " target="_blank" title="權狀遺失切結書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/lost_ffidavit.pdf " target="_blank" title="權狀遺失切結書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/lost_ffidavit.odt " target="_blank" title="權狀遺失切結書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">權狀遺失切結書填寫範例：</span>
+                                                            <a href="files/f_04/lost_ffidavit_sample.pdf " target="_blank" title="權狀遺失切結書填寫範例PDF檔下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>被繼承死亡除戶戶籍謄本1份。</li>
+                                                        <li>全體繼承人現在戶籍謄本各1份。</li>
+                                                        <li>遺產稅繳清(免稅)證明書正、影本各1份。</li>
+                                                        <li>代理人身分證正本、印章。</li>
+                                                    </ol>
+                                                </td>
+                                                <td data-th="備註">
+                                                    其中一筆標的為受理機關所轄，即可於基隆市任一地政事務所跨所申請。
+                                                    <ol class="textOl-layout1 p-0">
+                                                        <li>
+                                                            欲辦理協議遺產分割繼承者請另檢附全體繼承人之印鑑證明及<u>遺產分割協議書</u> </u>正、副本各1份(正本請貼足不動產價值千分之一印花)
+                                                            <br>
+                                                            <span class="text-danger">遺產分割協議書：</span>
+                                                            <a href="files/f_04/feritage_split.doc " target="_blank" title="遺產分割協議書下載[開啟新視窗]">
+                                                                Word
+                                                                <span class="fas fa-file-word"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/feritage_split.pdf " target="_blank" title="遺產分割協議書下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a> |
+                                                            <a href="files/f_04/feritage_split.odt " target="_blank" title="遺產分割協議書下載[開啟新視窗]">
+                                                                ODF
+                                                                <span class="fas fa-file"></span>
+                                                            </a>
+                                                            <br>
+                                                            <span class="text-danger">遺產分割協議書填寫範例：</span>
+                                                            <a href="files/f_04/feritage_split_sample.pdf" target="_blank" title="遺產分割協議書填寫範例PDF檔下載[開啟新視窗]">
+                                                                PDF
+                                                                <span class="fas fa-file-pdf"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li>有下列情事者，辦理協議遺產分割免至戶政事務所申請印鑑證明：</li>
+                                                        <ul class="textUl-layout">
+                                                            <li>全體繼承人於申請登記時親自到場，提出身分證正本，供登記機關人員核符身分。</li>
+                                                            <li>遺產分割協議書經依法公證、認證。</li>
+                                                        </ul>
+                                                    </ol>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="p-0">※注意事項：</p>
+                                    <ol class="textOl-layout1 p-0">
+                                        <li>代理人送件時請攜帶身分證(或駕照)、印章，以便核對身分。</li>
+                                        <li>依內政部102年12月27日內授中辦地字1026652564號函規定，非地政士代理案件同1年於同一登記機關申請超過2件，或曾於同一登記機關申請超過5件者，不予受理。</li>
+                                        <li>非地政士代理送件時，請由申請人及代理人於土地登記申請書第九欄備註欄分別切結「本人未給付報酬予代理人，如有虛偽不實，願負法律責任」、「本人並非以代理申請土地登記為業，且未收取報酬如有虛偽不實，願負法律責任」，並蓋章。</li>
+                                        <li>請於<span class="text-danger">繼承事實發生(被繼承人死亡)之日起6個月內</span>申辦登記，逾期者，每逾1個月處應納登記費額1倍罰鍰，最高不得超過20 倍。</li>
+                                        <li>
+                                            除下列情形者外，均可向本市任一地政事務所跨所申辦。
+                                            <ul>
+                                                <li>未檢附權利書狀者(無須檢附權利書狀者除外)。</li>
+                                                <li>登記名義人為無統一編號或統一編號為流水編者。</li>
+                                                <li>屬祭祀公業條例或地籍清理條例公告清理之標的。</li>
+                                                <li>超過10連任之大宗案件。</li>
+                                                <li>與非屬跨所登記項目連件辦理者。</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="text-primary pl-1">
+                            更新日期：2018/08/01
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

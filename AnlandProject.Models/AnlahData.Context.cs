@@ -48,8 +48,6 @@ namespace AnlandProject.Models
         public virtual DbSet<onlineapp> onlineapp { get; set; }
         public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<setup_smtp> setup_smtp { get; set; }
-        public virtual DbSet<director> director { get; set; }
-        public virtual DbSet<email> email { get; set; }
         public virtual DbSet<cake> cake { get; set; }
         public virtual DbSet<service> service { get; set; }
         public virtual DbSet<theme> theme { get; set; }
@@ -63,5 +61,7 @@ namespace AnlandProject.Models
         public virtual DbSet<suggest> suggest { get; set; }
         public virtual DbSet<suggest2> suggest2 { get; set; }
         public virtual DbSet<suggest3> suggest3 { get; set; }
+        public virtual DbSet<email> email { get; set; }
+        public virtual DbSet<director> director { get; set; }
     }
 }

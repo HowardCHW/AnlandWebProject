@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "OIRights";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
+    <meta name="DC.Subject" content="資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Description" content="資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所">
+    <meta name="DC.Type" content="文字">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Source" content="基隆市安樂地政事務所">
+    <meta name="DC.Language" content="中文">
+    <meta name="DC.Coverage.t.max" content="2015-04-26">
+    <meta name="DC.Coverage.t.min" content="2010-04-26">
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所">
+    <meta name="DC.Date" content="2010-04-26 10:00 ">
+    <meta name="DC.Identifier" content="376570600A">
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/">
+    <meta name="DC.Rights" content="基隆市安樂地政事務所">
+    <meta name="Category.Theme" content="140">
+    <meta name="Category.Cake" content="CK2">
+    <meta name="Category.Service" content="C12">
+    <meta name="Keywords" content="資料查詢, 繼承, 登記, 宣導">
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        線上查詢
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">未辦繼承登記宣導</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>未辦繼承登記自身權益說帖</h2>
+                <p>速辦繼承登記確保自身權益說帖 (參考內政部編印)</p>
+                <h3>
+                    <span class="fas fa-bookmark"></span>
+                    一、 繼承不動產權利如不辦理登記對權益有何影響？
+                </h3>
+                <ol class="textOl-layout1">
+                    <li>
+                        聲請逾期，除不可歸責當事人之事由外，將處以罰鍰：
+                        <br> 繼承登記自繼承開始之日起，六個月內為之。聲請逾期者，每逾一個月得處應納登記費額一倍之罰鍰。但最高不得超過二十倍。（參照土地法第七十三條規定）
+                    </li>
+                    <li>
+                        不能處分所繼承之不動產權利：
+                        <br> 繼承，於登記前已取得不動產物權，非經登記，不得處分其物權（參照民法第七百五十九條）。故繼承人如不辦理繼承登記，則不能出售所繼承之不動產或向銀行抵押貸款等。
+                    </li>
+                    <li>
+                        恐被地政機關列冊管理，管理十五年期滿，仍未辦繼承登記者，將移請國有財產署標售：
+                        <br> 土地或建築改良物，自繼承開始之日起逾一年未辦理繼承登記者，經該管直轄市或縣市地政機關查明後，應即公告繼承人於三個月內聲請登記；逾期仍未聲請者，由地政機關予以列冊管理，但有不可歸責於聲請人之事由，其期間應予扣除。列冊管理期間為十五年，逾期仍未聲請登記者，由地政機關將該土地或建築改良物清冊移請國有財產署公開標售（參照土地法第七十三條之一規定）。
+                    </li>
+                </ol>
+                <h3>
+                    <span class="fas fa-bookmark"></span>
+                    二、申辦繼承登記的時機為何？
+                </h3>
+                <p>凡已登記之土地、建築改良物或他項權利，如登記名義人死亡，應由繼承人自繼承開始之日起六個月內向土地所在地政事務所申辦繼承登記。</p>
+                <p>已逾期或已被列冊管理的未辦繼承登記土地或建物，仍可在列冊管理期滿前趕快申辦繼承登記，只要在列冊管理期滿前申辦，就不會被國有財產署公開標售。</p>
+                <h3>
+                    <span class="fas fa-bookmark"></span>
+                    三、土地法第七十三條之一之立法意旨為何？
+                </h3>
+                <p>土地法第七十三條之一之立法意旨係在督促民眾儘速辦理不動產繼承登記，並非以將人民土地收歸國有為目的。地政機關執行時係以協助民眾申辦繼承登記來保障其土地權利並促進土地利用，使地籍與稅籍資料正確，進而避免因長期土地權屬不明而造成繼承人間更大的糾紛問題而影響土地之開發及利用。</p>
+                <h3>
+                    <span class="fas fa-bookmark"></span>
+                    四、土地法第七十三條之一修正後，未辦繼承登記土地及建物處理之主要差異為何？
+                </h3>
+                <div class="pl-5">
+                    <table class="table table-striped table-hover border-bottom rwd-table" summary="土地法修正後之主要差異">
+                        <captionclass ="sr-only">
+                            土地法第七十三條之一修正後，未辦繼承登記土地及建物處理之主要差異
+                            </caption>
+                            <thead>
+                                <tr class="bg-brown">
+                                    <th scope="col">規定事項</th>
+                                    <th scope="col">修正前</th>
+                                    <th scope="col">修正後</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-th="規定事項">公告3個月後仍未申請繼承登記者</td>
+                                    <td data-th="修正前">由地政機關予以代管</td>
+                                    <td data-th="修正後">由地政機關列冊管理</td>
+                                </tr>
+                                <tr>
+                                    <td data-th="規定事項">管理期間</td>
+                                    <td data-th="修正前">代管9年</td>
+                                    <td data-th="修正後">列冊管理15年</td>
+                                </tr>
+                                <tr>
+                                    <td data-th="規定事項">代管費用</td>
+                                    <td data-th="修正前">收取代管費用</td>
+                                    <td data-th="修正後">不收取代管費用</td>
+                                </tr>
+                                <tr>
+                                    <td data-th="規定事項">管理期間屆滿仍未申請繼承登記者</td>
+                                    <td data-th="修正前">由地政機關逕為國有登記</td>
+                                    <td data-th="修正後">移請國有財產署公開標售</td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+                <p class="darkblue">其他有關規定：</p>
+                <ol class="textOl-layout1">
+                    <li>
+                        土地法第七十三條之一修正前已執行代管之未辦繼承登記土地或建物，於修正後申請繼承登記者，是否收取代管費用，業經內政部八十九年三月二日台內地字第八九六四三四七號函核示，得由直轄市.縣市政府視其有無實質代管行為自行決定收取與否，但修正前已申請繼承登記並已收取代管費用者，因法律程序已完成，故不宜退費。
+                    </li>
+                    <li>土地法第七十三條之一修正前，台北縣全縣之已執行代管之未辦繼承登記土地或建物，業經台北縣政府八十九年三月三十日北府地籍字第一一二０一四號函核示，免予收取代管費用。</li>
+                </ol>
+                <h3>
+                    <span class="fas fa-bookmark"></span> 五、申辦繼承登記應檢附那些文件？
+                </h3>
+                <p>申請繼承登記，應提出下列文件：</p>
+                <ol class="textOl-layout1">
+                    <li>登記申請書。</li>
+                    <li>所有權狀或他項權利證明書。</li>
+                    <li>載有被繼承人死亡記事時之戶籍謄本。</li>
+                    <li>繼承人現在之戶籍謄本。</li>
+                    <li>繼承系統表。</li>
+                    <li>遺產稅繳(免)納證明書或其他有關證明文件。</li>
+                    <li>繼承人如有拋棄繼承，另檢附合法之拋棄證明文件。</li>
+                    <li>
+                        其他由中央地政機關依法規定應提出之證明文件。
+                        <br> 前項第五款之繼承系統表，由申請人依民法有關規定自行訂定，註明如有遺漏或錯誤致他人受損害者，申請人願負法律責任，並簽名或蓋章。
+                        <br> 因法院確定判決申請繼承登記者，得不提出第一項第三款、第五款及第七款之文件。
+                    </li>
+                    <li>申請人身分證明文件如本所得以電腦處理達成查詢者，得免提出。</li>
+                </ol>
+                <h3>
+                    <span class="fas fa-bookmark"></span> 六、繼承人未能全體會同申請繼承登記時該怎麼辦？
+                </h3>
+                <ol class="textOl-layout1">
+                    <li>
+                        如部分繼承人因行蹤不明、感情不睦、意見不一致：等原因，致無法全體達成協議申辦分割繼承登記或分別共有登記，可由繼承人中之一人或數人依遺產及贈與稅法第四十一條之一、相關稅法及登記函令規定，按其法定應繼分比例繳納遺產稅款、登記規費、罰鍰、加徵之滯納金、利息等有關費用後，依土地登記規則第三十一條規定，由其為全體繼承人之利益，就被繼承人之土地申請登記為公同共有。
+                    </li>
+                    <li>如繼承人彼此間之應繼分有爭執，亦得訴請法院判決分割繼承，並依法院之判決繳納有關稅費後辦理分割繼承登記</li>
+                </ol>
+                <br>
+                <h3>
+                    <span class="fas fa-bookmark"></span> 七、未能於規定期間內申辦繼承登記時繼承人要如何保障自己權益？
+                </h3>
+                <p>繼承人如有下列事由未能於繼承開始之日起一年辦理繼承登記者，應於該管直轄市或縣市地政機關公告繼承人於三個月內聲請登記之期間內，檢附證明文件向土地所在地政事務所提出，經審查符合者，暫不予實施列冊管理：</p>
+                <ol class="textOl-layout1">
+                    <li>已申報相關賦稅而稅捐機關尚未完成核定或已核定而稅額因行政救濟尚未確定者、或經稅捐機關同意其分期繳納而尚未完稅者。</li>
+                    <li>部分繼承人為大陸地區人士，依臺灣地區與大陸地區人民關係條例第六十六條規定，於大陸地區繼承人未表示繼承之期間。</li>
+                    <li>已向地政機關申辦繼承證記，因所提戶籍資料與登記簿記載不符，須向戶政機關查明更正者。</li>
+                    <li>因繼承而涉訟者。</li>
+                    <li>其他不可抗力事故，經該管地政機關認定者。</li>
+                </ol>
+                <h3>
+                    <span class="fas fa-bookmark"></span>
+                    八、未辦理繼承登記之土地或建築改良物移請國有財產署標售後，繼承人之權益將有何影響？
+                </h3>
+                <ol class="textOl-layout1">
+                    <li>未辦繼承登記之土地或建物移請國有財產署標售後，繼承人即喪失占有該土地或建物之權利。</li>
+                    <li>繼承人對標售之土地或建物就其使用範圍有優先購買權，但如其未於決標後十日內表示優先購買者，其優先購買權視為放棄。</li>
+                    <li>對於已標售之土地或建物，繼承人得按其法定應繼分向國有財產署申請提領標售價金。但逾十年無繼承人申請提領該價款者，即歸屬國庫。</li>
+                    <li>經五次標售而未標出之土地或建物，即登記為國有。自登記完畢之日起十年內，繼承人得檢附證明文件按該土地或建物第五次標售底價及其法定應繼分向國有財產署申請提領價金。</li>
+                </ol>
+                <h3>
+                    <span class="fas fa-bookmark"></span>
+                    九、對繼承登記手續或標售作業相關規定還有疑問時，該怎麼辦？
+                </h3>
+                <p>
+                    按土地登記依法係由土地所在管轄之地政事務所辦理，故繼承人如對申辦繼承登記手續仍有疑問時，得檢附具體案情及敘明土地坐落，逕向土地所在管轄之地政事務所洽詢。
+                    <br> 有關標售作業係由國有財產署辦理，故如對標售作業有疑問，得向土地所在地國有財產署之辦事處洽詢。
+                </p>
+
+                <p class="text-primary">
+                    更新日期：2018/08/01
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("OInheritance","OnlineSearch")">
+                <span class="fal fa-external-link-square"></span> 逾期未辦繼承公告查詢
+            </a>
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("InheritanceLand","OnlineSearch")">
+                <span class="fal fa-external-link-square"></span> 未辦繼承列管土地資料
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

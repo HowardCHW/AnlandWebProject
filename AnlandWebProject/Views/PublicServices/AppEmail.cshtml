@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 便民服務-通信申請";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 便民服務 - 通信申請" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 便民服務 - 通信申請" />
+    <meta name="DC.Description" content="便民服務 - 通信申請" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKZ" />
+    <meta name="Category.Service" content="C11" />
+    <meta name="Keywords" content="便民服務, 服務台, 志工服務, word, PDF" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        便民服務
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">通信申請</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>通信申請</h2>
+                <div class="container pl-5 pt-3">
+                    <div class="row">
+                        <div class="col-lg-12" id="sec01">
+                            <p class="darkblue pl-0">讓民眾不必出門也可以申辦登記案件及請領相關謄本資料，節省往返地政事務所的時間。</p>
+
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span> 受理案件項目如下：
+                            </h3>
+                            <ol class="textOl-layout1 p-2">
+                                <li>住址變更登記</li>
+                                <li>更名登記(限戶籍資料記載姓名變更者)</li>
+                                <li>更正登記(限戶籍資料記載姓名、出生日期、身分證統一編號、門牌及住址等錯誤，經戶政關更正有案者)</li>
+                                <li>抵押權全部塗銷登記(限抵押權人為金融機構)</li>
+                                <li>書狀換給登記</li>
+                                <li>建物門牌整編登記</li>
+                                <li>土地建物登記謄本(限第二類)</li>
+                                <li>地籍圖謄本</li>
+                                <li>建物測量成果圖</li>
+                                <li>地價謄本</li>
+                            </ol>
+                            <p class="pl-0">前項第一款至第六款之登記案件免納登記費，非因除行政機關之行政措施所為變更或依權責逕行變更，致權利內容有異動須重新列印書狀者，仍應繳納由申請人繳納書狀工本費。</p>
+                            <p class="darkblue p-0">※注意事項：</p>
+                            <ol class="textOl-layout1 p-0">
+                                <li>郵寄申請案時，請於信封左上角註明「通信申請案件」字樣。隨案申請書務必註明聯絡電話及申辦事由；檢附文件為影本者，請簽註「本影本核與正本相符如有不實願負法律責任」字樣並認章。</li>
+                                <li>登記案件如有應補正事項，依土地登記規則第五十六條、第五十七條規定辦理。</li>
+                                <li>規費不足時，經本所通知後應於三日內補足，未依限補足者，視為放棄申請不 予受理，原寄規費併予檢還。</li>
+                            </ol>
+                        </div>
+                        <p class="text-primary pl-1">
+                            更新日期：2018/08/01
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

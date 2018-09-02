@@ -15,7 +15,7 @@ namespace AnlandProject.Service.BusinessModel
         public string MsgSubject { get; set; }
         public string MsgContent { get; set; }
         public string RpyUnit { get; set; }
-        public DateTime RpyDate { get; set; }
+        public DateTime? RpyDate { get; set; }
         public string RpyName { get; set; }
         public string RpyTel { get; set; }
         public string RpyContent { get; set; }

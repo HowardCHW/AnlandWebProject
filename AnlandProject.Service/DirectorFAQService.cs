@@ -77,6 +77,7 @@ namespace AnlandProject.Service
             {
                 if (saveData.No > 0)
                 {
+                    //主任信箱官方回覆儲存
                     var originalData = _directorfaqRepository.Get(n => n.no == saveData.No);
                     //originalData.no = saveData.No;
                     //originalData.msg_date = saveData.MsgDate;
@@ -97,7 +98,17 @@ namespace AnlandProject.Service
                 }
                 else
                 {
-                    //目前沒有新增
+                    //主任信箱民眾意見儲存
+                    director newData = new director()
+                    {
+                        msg_date = saveData.MsgDate,
+                        msg_name = saveData.MsgName,
+                        msg_email = saveData.MsgEmail,
+                        msg_subject = saveData.MsgSubject,
+                        msg_content = saveData.MsgContent,
+                        msg_tel = saveData.MsgTel
+                    };
+                    resultRow = _directorfaqRepository.Create(newData);
                 }
             }
             catch (Exception ex)
