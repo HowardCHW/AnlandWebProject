@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "OnlineBooking";
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 線上申辦-線上預約服務";
     Layout = "~/Views/Shared/_LayoutContent.cshtml";
 }
 
@@ -121,7 +121,7 @@
 
                 <div class="alert alert-secondary bg-lightreay" role="alert">
                     <p class="text-center mt-3">
-                        <a href="#" target="_blank" title="開啟新的導覽視窗" class="btn btn-primary btn-lg" role="button" aria-pressed="true">
+                        <a href="@Url.Action("OnlineBookingApplication","OnlineApplication")" target="_blank" title="開啟新的導覽視窗" class="btn btn-primary btn-lg" role="button" aria-pressed="true">
                             <span class="fas fa-file-signature"></span> 線上預約服務申請表
                         </a>
                     </p>

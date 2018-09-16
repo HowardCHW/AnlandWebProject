@@ -1,0 +1,111 @@
+﻿@model List<AnlandProject.Service.BusinessModel.DefaultDataModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/global/plugins/datatables/datatables.min.css">
+    <link rel="stylesheet" href="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css">
+    <link rel="stylesheet" href="~/global/css/plugins.min.css">
+}
+
+<div class="page-header">
+    <h1 class="page-title">民眾參與創新提案</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">首頁</a></li>
+        <li class="breadcrumb-item active">民眾參與創新提案</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+
+<div class="page-content container-fluid">
+    <!-- 內文編輯區 -->
+    <div class="panel panel-bordered">
+        <div class="panel-body">
+            <div>
+                <table id="proposaltable" class="table table-striped table-bordered table-hover table-checkable order-column">
+                    <thead>
+                        <tr>
+                            <th style="width:5%">編號</th>
+                            <th>主題</th>
+                            <th style="width:15%">提案日期</th>
+                            <th style="width:15%" class="nosort">提案人</th>
+                            <th style="width:15%" class="nosort">管理模式</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- model -->
+    @Html.Action("DeleteConfirmDialog", "Proposal")
+    <!-- /model -->
+    <!-- /內文編輯區 -->
+</div>
+
+@section scripts{
+    <script src="~/global/plugins/datatables/datatables.min.js"></script>
+    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+    <script>
+        var urlQueryProposal = '@Url.Action("ProposalQuery", "Proposal")';
+
+        $(document).ready(function () {
+            DatatableBinding();
+        });
+
+        function DatatableBinding() {
+            var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+            _tmpOpts.ajax = {
+                "url": urlQueryProposal,
+                "type": 'POST'
+            };
+            _tmpOpts.columns = [
+                { mDataProp: "ID" },
+                {
+                    mDataProp: "ProposalSubject",
+                    render: function (data, type, full, meta) {
+                        return '<a href="../Proposal/ProposalView/' + full.ID + '">' + data + '</a>'
+                    }
+                },
+                {
+                    mDataProp: "ProposalDate",
+                    render: function (data, type, full, meta) {
+                        return moment(data).format('YYYY/MM/DD');
+                    }
+                },
+                { mDataProp: "Proposer" },
+                {
+                    mDataProp: null,
+                    render: function (data, type, full, meta) {
+                        var tag =
+                            '<a href="#DeleteConfirmDialog" class="btn btn-pure btn-default p-5 btn-warning" data-contentargs="[&quot;' + data.ProposalSubject + '&quot;]" data-id="' + data.ID + '" data-toggle="modal">' +
+                            '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
+                            '</a>'
+                        return tag;
+                    }
+                }
+            ];
+
+            if ($.fn.DataTable.isDataTable('#proposaltable')) {
+                $('#proposaltable').DataTable().destroy();
+                $('#proposaltable  tbody tr').remove();
+            }
+            $('#proposaltable').DataTable(_tmpOpts);
+        }
+
+        function RequestFail() {
+            msgResoure('other_msg', 'small', '錯誤', errMSGContent);
+        }
+
+
+        function DeleteSuccess(result) {
+            if (result) {
+                SuccessMSGAfterFun('刪除成功', DatatableBinding);
+            }
+            else {
+                ErrorMSG(result.Description);
+            }
+        }
+    </script>
+}

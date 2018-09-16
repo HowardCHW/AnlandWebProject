@@ -12,7 +12,7 @@ namespace AnlandProject.Service.Interface
     {
         List<LawsModel> LawsQueryAll();
 
-        LawsModel LawsQueryByID(int id);
+        LawsModel LawsQueryByID(int id, bool isFront = false);
 
         bool LawsSave(LawsModel saveData);
 

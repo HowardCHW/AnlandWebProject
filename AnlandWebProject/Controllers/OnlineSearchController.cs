@@ -25,7 +25,7 @@ namespace AnlandProject.Web.Controllers
 
         public ActionResult InheritanceLand()
         {
-            return View("~/Views/OnlineSearch/OverInherited.cshtml");
+            return View("~/Views/OnlineSearch/InheritanceLand.cshtml");
         }
     }
 }

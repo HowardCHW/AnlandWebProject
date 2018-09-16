@@ -48,7 +48,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                 SelectList serviceSelect = new SelectList(serviceData, "TypeCode", "TypeName", result.Service);
                 ViewBag.Service = serviceSelect;
 
-                var classfyData = _commonService.LawsCategoryQueryAll();
+                var classfyData = _commonService.QaCategoryQueryAll();
                 SelectList classfySelect = new SelectList(classfyData.OrderBy(a => a.ID), "ClassID", "ClassName", result.Classfy);
                 ViewBag.Classfy = classfySelect;
 

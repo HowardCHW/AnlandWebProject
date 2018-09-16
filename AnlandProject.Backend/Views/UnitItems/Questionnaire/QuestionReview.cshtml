@@ -47,24 +47,23 @@
                 </div>
                 <div class="row row-lg" style="border-top:2px solid #ddd;padding-top: 5px;margin-top: 10px">
                     <div class="col-md-6 form-horizontal">
-                        @foreach (var item in Model.Questions.Where(q => q.Type != "問答").OrderBy(q => q.QuestionNo))
+                        @for (int i = 0; i < Model.Questions.Where(q => q.Type != "問答").OrderBy(q => q.QuestionNo).Count(); i++)
                         {
-                            <!-- 問卷名稱 -->
                             <div class="form-group row">
                                 <label class="col-xl-12 col-md-3 form-control-label">
-                                    選擇題 @item.QuestionNo
+                                    選擇題 @Model.Questions[i].QuestionNo
                                 </label>
                                 <div class="col-xl-12 col-md-9 form-inline" style="margin-bottom: 10px">
                                     <ul class="list-unstyled list-inline">
                                         <li class="list-inline-item">
                                             <div class="radio-custom radio-primary">
-                                                @Html.RadioButtonFor(m => item.Type, "單選", new { @id = "rdbsingle", @disabled = "" })
+                                                @Html.RadioButtonFor(m=>m.Questions[i].Type, "單選", new { @id = "rdbsingle", @disabled = "" })
                                                 <label for="rdbsingle">單選</label>
                                             </div>
                                         </li>
                                         <li class="list-inline-item">
                                             <div class="radio-custom radio-primary">
-                                                @Html.RadioButtonFor(m => item.Type, "複選", new { @id = "rdbmultiple", @disabled = "" })
+                                                @Html.RadioButtonFor(m => m.Questions[i].Type, "複選", new { @id = "rdbmultiple", @disabled = "" })
                                                 <label for="rdbmultiple">複選</label>
                                             </div>
                                         </li>
@@ -73,26 +72,24 @@
                                 <div class="row">
                                     <label class="col-xl-2 col-md-3 form-control-label">題目：</label>
                                     <div class=" col-xl-10 col-md-9">
-                                        <input type="text" class="form-control" name="select_question" placeholder="" value="@item.Question" readonly>
+                                        <input type="text" class="form-control" name="select_question" placeholder="" value="@Model.Questions[i].Question" readonly>
                                     </div>
-                                    @for (int i = 0; i < item.Options.Count; i++)
+                                    @for (int j = 0; j < Model.Questions[i].Options.Count; j++)
                                     {
                                         <label class="col-xl-2 col-md-3 form-control-label">
-                                            選項 @i+1
+                                            選項 @(j + 1)
                                         </label>
                                         <div class=" col-xl-10 col-md-9">
-                                            <input type="text" class="form-control" name="options<%=x%>" value="@item.Options[0]" readonly>
+                                            <input type="text" class="form-control" name="options<%=x%>" value="@Model.Questions[i].Options[j]" readonly>
                                         </div>
                                     }
                                 </div>
                             </div>
-                            <!-- /問卷名稱 -->
                         }
                     </div>
                     <div class="col-md-6 form-horizontal">
                         @foreach (var item in Model.Questions.Where(q => q.Type == "問答").OrderBy(q => q.QuestionNo))
                         {
-                            <!-- 選擇題數量 -->
                             <div class="form-group row">
                                 <label class="col-xl-12 col-md-3 form-control-label">
                                     問答題 @item.QuestionNo
@@ -102,7 +99,6 @@
                                     <input type="text" class="form-control" name="answer_question<%=i%>" placeholder="" value="@item.Question" readonly>
                                 </div>
                             </div>
-                            <!-- /選擇題數量 -->
                         }
                     </div>
                 </div>
@@ -122,7 +118,7 @@
 
 
 @section scripts{
-    <script src="~/Scripts/vue.js"></script>
+    @*<script src="~/Scripts/vue.js"></script>*@
     <script>
         //var reviewVue = new Vue({
         //    el: '#questionnaireReviewArea',

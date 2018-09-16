@@ -1,6 +1,6 @@
 ﻿@model AnlandProject.Service.BusinessModel.DefaultDataModel
 @{
-    ViewBag.Title = "NewsDetail";
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 最新消息";
     Layout = "~/Views/Shared/_LayoutContent.cshtml";
 }
 
@@ -158,6 +158,7 @@
                     <li>聯絡人：基隆市安樂地政事務所</li>
                     <li>聯絡電話：02-24324001</li>
                     <li>更新日期：2018/08/01</li>
+                    <li>瀏覽人數：@string.Format("{0} 人", Model.Hit)</li>
                 </ul>
             </div>
         </div>

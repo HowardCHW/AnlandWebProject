@@ -17,6 +17,7 @@ namespace AnlandProject.Service.BusinessModel
     public class OptionAnswerDataModel
     {
         public string Option { get; set; }
+        public int AnswerCount { get; set; }
         public string AnswerPercent { get; set; }
     }
 }

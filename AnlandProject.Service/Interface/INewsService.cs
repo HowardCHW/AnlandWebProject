@@ -12,7 +12,7 @@ namespace AnlandProject.Service.Interface
     {
         List<DefaultDataModel> NewsQueryAll();
 
-        DefaultDataModel NewsQueryByID(int id);
+        DefaultDataModel NewsQueryByID(int id, bool isFront = false);
 
         bool NewsSave(DefaultDataModel saveData);
 

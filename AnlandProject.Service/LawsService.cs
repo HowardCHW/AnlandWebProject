@@ -57,9 +57,16 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public LawsModel LawsQueryByID(int id)
+        public LawsModel LawsQueryByID(int id, bool isFront = false)
         {
             var tempData = _lawsRepository.Get(x => x.ID == id);
+
+            //紀錄前台使用者點擊次數
+            if (isFront)
+            {
+                tempData.hit += 1;
+                _lawsRepository.Update(tempData);
+            }
 
             LawsModel result = null;
             if (tempData != null)

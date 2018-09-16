@@ -1,0 +1,172 @@
+﻿@model List<AnlandProject.Service.BusinessModel.QuestionnaireDataModel>
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 網路問卷分析";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 民意交流 - 網路問卷分析" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 民意交流 - 網路問卷分析" />
+    <meta name="DC.Description" content="民意交流 - 網路問卷分析" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="I60" />
+    <meta name="Keywords" content="民意交流, 網路問卷分析" />
+}
+
+<!-- 公告區 -->
+    <div class="container d-print-none">
+        <div class="pl-3">
+            <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+            <span class="sr-only">|</span>
+            <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+        </div>
+        <div class="row justify-content-between align-items-center">
+            <!-- 麵包屑麵包屑 -->
+            <div class="col-lg-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item pathTitle">現在位置</li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">首頁</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            民意交流
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">網路問卷分析分析</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end align-items-center">
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                    <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                       href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                        <span class="fab fa-facebook-square"></span>
+                    </a>
+                    <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                        <span class="far fa-print"></span>
+                    </a>
+                    <span class="fontSizeSet">字級設定：</span>
+                    <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                            <span class="sr-only">小字型</span>
+                            <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                            <span class="sr-only">中字型</span>
+                            <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                            <span class="sr-only">大字型</span>
+                            <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- /麵包屑 -->
+        </div>
+        <!-- 內文區 -->
+        <div class="container">
+            <div class="row">
+                <div class="card ml-3 mr-3 mt-3 subContent">
+                    <div class="card-body" id="analyzeArea">
+                        <div class="markTag"></div>
+                        <div class="pl-5 pr-0">
+                            <h2 class="pl-0">網路問卷分析</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    問卷名稱： {{originalData.QuestionName}} ( 回收 {{originalData.TotalReceivedAnswers}} 份 )
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    問卷說明：
+                                    <template v-if="originalData.Content == ''">無</template>
+                                    <template v-else>{{originalData.Content}}</template>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    有效時間： 自  {{moment(originalData.StartDay).format('YYYY/MM/DD') }} 至 {{moment(originalData.StopDay).format('YYYY/MM/DD') }}
+                                </div>
+                                <div class="col-md-6">
+                                    本問卷結果：公開
+                                </div>
+                            </div>
+                            <div class="row row-lg" style="padding-top: 5px;margin-top: 10px">
+                                <div class="col-md-12 form-horizontal">
+                                    <div class="row">
+                                        <table class="table border-bottom" summary="問卷分析編排用表單">
+                                            <tbody v-for="(item, index) in originalData.Answers">
+                                                <tr>
+                                                    <td>
+                                                        <strong>{{item.QuestionNo}}.題目：<span class="darkblue">{{item.Question}}</span></strong> ({{item.QuestionType}})
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="dline05">
+                                                        <table class="table table-borderless" summary="問卷分析編排用表單">
+                                                            <tbody>
+                                                                <tr v-for="(opt, ind) in item.AllAnswers">
+                                                                    <td>{{ind+1}}. {{opt.Option}}</td>
+                                                                    <td class="w-25">
+                                                                        <div class="progress">
+                                                                            <div class="progress-bar progress-bar-warning" v-bind:style="{width: opt.AnswerPercent}" role="progressbar"></div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style="width:15%">({{opt.AnswerCount}}，佔{{opt.AnswerPercent}} )</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+                <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Questionnaire","OpinionExchange")">
+                    <span class="fal fa-external-link-square" aria-hidden="true"></span> 回網路問卷
+                </a>
+            </div>
+        </div>
+        <!-- /內文區 -->
+
+        @section scripts{        
+            <script src="~/Scripts/Vue/vue.min.js"></script>            
+            <script src="~/Scripts/moment/moment.min.js"></script>
+            <script>
+                var analyzeDataSource = @Html.Raw(ViewBag.AnalyzeViewData);
+                var analyzeVue = new Vue({
+                    el: '#analyzeArea',
+                    data: {
+                        originalData: analyzeDataSource
+                    },
+                    methods: {
+                        moment: function (date) {
+                            return moment(date);
+                        },
+                    }
+                });
+            </script>
+        }

@@ -9,7 +9,7 @@
     @RenderSection("AdditionalMeta", false)
     <!-- 分類檢索 End -->
     <meta name="Accessible_website" content="本網站通過通過AAA優先等級無障礙網頁檢測">
-    <title>基隆市安樂地政事務所全球資訊網</title>
+    <title>@ViewBag.Title</title>
     <link rel="apple-touch-icon" href="~/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="~/images/logo.png">
 
@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="~/Content/base/plugin/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/Content/base/css/base.min.css">
     @RenderSection("styles", false)
+
+    <script src="~/Scripts/base/js/jquery.min.js"></script>
+    <script src="~/Scripts/base/js/popper.min.js"></script>
+    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
+    <script src="/Scripts/base/js/datatables.min.js"></script>
+    <script src="/Scripts/base/plugin/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Scripts/base/js/base.js"></script>
 </head>
 
 <body>
@@ -40,12 +47,6 @@
     <!-- /頁尾 -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="~/Scripts/base/js/jquery.min.js"></script>
-    <script src="~/Scripts/base/js/popper.min.js"></script>
-    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
-    <script src="/Scripts/base/js/datatables.min.js"></script>
-    <script src="/Scripts/base/plugin/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/Scripts/base/js/base.js"></script>
     <noscript>
         <div class="container">
             <div class="row">

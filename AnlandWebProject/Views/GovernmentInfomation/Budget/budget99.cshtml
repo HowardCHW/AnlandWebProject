@@ -1,0 +1,181 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 預算與決算書";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 預算與決算書" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 預算與決算書" />
+    <meta name="DC.Description" content="預算與決算書" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字, 檔案" />
+    <meta name="DC.Format" content="text/html, Word/file, PDF/file" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CK2" />
+    <meta name="Category.Service" content="C10" />
+    <!-- 主題分類:140地政/施政分類:CK2 地籍管理/服務分類:C10買賣房屋 -->
+    <meta name="Keywords" content="預算與決算書, word, PDF" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        政府資訊公開
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">預算與決算書</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <div class="pl-5 pr-0">
+                    <h2 class="pl-0">99年預算與決算書</h2>
+                    <div class="alert alert-secondary bg-lightreay pb-0 ml-0" role="alert">
+                        <p class="p-0">
+                            <span class="red">注意：</span>本所提供之表單文件，皆有線上版閱覽器可供開啟檔案，若您需要單機版PDF閱覽器，請下載軟體：
+                            <a href="https://get.adobe.com/tw/reader/" target="_blank" title="開啟新的導覽視窗">
+                                Adobe Reader
+                                <span class="fas fa-file-pdf"></span>
+                            </a>
+                        </p>
+                    </div>
+
+                    <table id="myTable" class="table table-hover border-bottom rwd-table" summary="99年預算與決算書表格，為3直欄設計，第1直欄為檔案名稱，第2直欄為日期，第3直欄為檔案下載。">
+                        <caption class="sr-only">
+                            99年預算書
+                        </caption>
+                        <thead>
+                            <tr class="bg-brown">
+                                <th scope="col">檔案名稱</th>
+                                <th scope="col">日期</th>
+                                <th scope="col">檔案下載</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-th="檔案名稱">99年歲出機關別預算表</td>
+                                <td data-th="日期">99/02/08</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/budget/99年歲出機關別預算表.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年歲入來源別預算表</td>
+                                <td data-th="日期">99/02/08</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/budget/99年歲入來源別預算表.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Index","GovernmentInfomation")">
+                <span class="fal fa-external-link-square" aria-hidden="true"></span> 回政府資訊公開
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->
+
+<script>
+    $(document).ready(function () {
+        // Data Table
+        $('#myTable').DataTable({
+            "language": {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 筆結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                "infoPostFix": "",
+                "search": "搜尋:",
+                "searchPlaceholder": "請輸入關鍵字",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            },
+            "pagingType": "full_numbers",
+            "ordering": false
+            // ,
+            // "searching": false
+        });
+    });
+</script>

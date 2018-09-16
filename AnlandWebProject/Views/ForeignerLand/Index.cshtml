@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 線上申辦-網路申請公告地價資料服務";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 外籍人士地權專區" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 外籍人士地權專區" />
+    <meta name="DC.Description" content="外籍人士地權專區" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="C11" />
+    <!-- 主題分類:140地政/施政分類:CKA 地政資訊系統/服務分類:C11土地建物登記 -->
+    <meta name="Keywords" content="外籍人士地權專區" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index", "Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">外籍人士地權專區</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>外籍人士地權專區</h2>
+                <h3>
+                    <span class="fas fa-bookmark"></span> 外籍人士地權業務專區：
+                </h3>
+                <ol class="textOl-layout1">
+                    <li>
+                        外國人為供自用、投資或公益之目的使用，取得下列各款用途之土地，無需先經各中央目的事業主管機關核准：
+                        <ul class="textUl-list">
+                            <li>住宅。</li>
+                            <li>營業處所、辦公場所、商店及工廠。</li>
+                            <li>教堂。</li>
+                            <li>醫院。</li>
+                            <li>外僑子弟學校。</li>
+                            <li>使領館及公益團體之會所。</li>
+                            <li>墳場。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        外國人申請取得、移轉土地建物權利作業流程 <a href="http://www.land.moi.gov.tw/onlinebill/161-n.pdf" target="_blank" title="作業流程[開啟新視窗]">
+                            PDF
+                            <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li>
+                        外國人平等互惠一覽表 <a href="http://www.land.moi.gov.tw/onlinebill/705-n1.pdf" target="_blank" title="一覽表[開啟新視窗]">
+                            PDF
+                            <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.land.moi.gov.tw/chhtml/content.asp?cid=1015&mcid=1138" target="_blank" title="內政部地政司全球資訊網[開啟新視窗]">外國人在我國取得土地權利作業要點</a>
+                    </li>
+                    <li><a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=D0060048" target="_blank" title="內政部地政司全球資訊網[開啟新視窗]">外國人投資國內重大建設整體經濟或農牧經營取得土地辦法</a></li>
+                    <li>
+                        外國人於本所轄區取得不動產情形分析
+                        <ul class="textUl-list">
+                            <li>
+                                103年 <a href="~/DownloadFile/s_01_05/103年.pdf" target="_blank" title="開啟新視窗">
+                                    PDF
+                                    <span class="fas fa-file-pdf"></span>
+                                </a>
+                            </li>
+                            <li>
+                                98~102年 <a href="~/DownloadFile/s_01_05/98-102年.pdf" target="_blank" title="開啟新視窗">
+                                    PDF
+                                    <span class="fas fa-file-pdf"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="clear:both;">
+                        <a href="http://www.land.moi.gov.tw/chhtml/content.asp?cid=1028" target="_blank" title="內政部全球資訊網[開啟新視窗]">內政部問與答專區</a>
+                    </li>
+                </ol>
+
+                <h3>
+                    <span class="fas fa-bookmark"></span> 大陸人士地權業務專區：
+                </h3>
+                <p>依臺灣地區與大陸地區人民關係條例地69條：大陸地區人民、法人、團體或其他機構，或其於第三地區投資之公司，非經主管機關許可，不得在臺灣地區取得、設定或移轉不動產物權。但土地法第十七條第一項所列各款土地，不得取得、設定負擔或承租。</p>
+                <ol class="textOl-layout1">
+                    <li>
+                        大陸地區人民取得、設定或移轉不動產物權辦理流程表 <a href="http://www.land.moi.gov.tw/onlinebill/841-n1.pdf" target="_blank" title="開啟新視窗">
+                            PDF
+                            <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li>
+                        大陸地區人民取得、移轉不動產物權申請書 
+                        <a href="~/DownloadFile/s_01_05/s15.doc" target="_blank" title="申請書下載[開啟新視窗]">
+                            Word
+                            <span class="fas fa-file-word"></span>
+                        </a> | <a href="~/DownloadFile/s_01_05/s15.pdf" target="_blank" title="開啟新視窗">
+                            PDF
+                            <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li>
+                        大陸地區人民取得、移轉不動產物權申請書填寫範例 <a href="http://www.land.moi.gov.tw/onlinebill/623-n1.pdf" target="_blank" title="開啟新視窗">
+                            PDF
+                            <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li><a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=Q0010001" target="_blank" title="全國法規資料庫[開啟新視窗]">臺灣地區與大陸地區人民關係條例</a></li>
+                    <li><a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=Q0010002" target="_blank" title="全國法規資料庫[開啟新視窗]">臺灣地區與大陸地區人民關係條例施行細則</a></li>
+                    <li><a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=D0060049" target="_blank" title="全國法規資料庫[開啟新視窗]">大陸地區人民在臺灣地區取得設定或移轉不動產物權許可辦法</a></li>
+                    <li>
+                        問與答 <a href="~/DownloadFile/s_01_05/開放陸資來台問與答.pdf" target="_blank" title="開啟新視窗">
+                            PDF
+                            <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                </ol>
+
+                <p class="text-primary">
+                    更新日期：2018/08/01
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /內文區 -->

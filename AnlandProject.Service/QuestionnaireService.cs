@@ -88,13 +88,36 @@ namespace AnlandProject.Service
                     }).ToList()
                 };
 
-                foreach (var item in result.Answers)
+                List<AnswerDataModel> single = result.Answers.Where(a => a.QuestionType == "單選").ToList();
+                if (single.Count > 0)
                 {
-                    List<string> answers = tempData.suggest3.Select(s3 => s3.answer.Split(new string[] { "||" }, StringSplitOptions.None)[int.Parse(item.QuestionNo) - 1]).ToList();
-                    for (int i = 0; i < item.AllAnswers.Count; i++)
+                    for (var i = 0; i < single.Count; i++)
                     {
-                        double answerCount = (double)answers.Count(a => a.Trim() == (i + 1).ToString()) / (double)result.TotalReceivedAnswers;
-                        item.AllAnswers[i].AnswerPercent = answerCount.ToString("P0");
+                        List<string> answers = tempData.suggest3.Select(s3 => s3.answer.Split(new string[] { "||" }, StringSplitOptions.None)[i]).ToList();
+                        for (int j = 0; j < single[i].AllAnswers.Count; j++)
+                        {
+                            double answerCount = answers.Count(a => a.Trim() == (j + 1).ToString()) / (double)result.TotalReceivedAnswers;
+                            single[i].AllAnswers[j].AnswerCount = answers.Count(a => a.Trim() == (j + 1).ToString());
+                            single[i].AllAnswers[j].AnswerPercent = answerCount.ToString("P0");
+                        }
+                    }
+                }
+
+                List<AnswerDataModel> multiple = result.Answers.Where(a => a.QuestionType == "複選").ToList();
+                if (multiple.Count > 0)
+                {
+                    for (var i = 0; i < multiple.Count; i++)
+                    {
+                        List<string> tempAnswers = tempData.suggest3.Select(s3 => s3.answer.Split(new string[] { "||" }, StringSplitOptions.None)[i + single.Count]).ToList();
+                        List<string> splitAns = new List<string>();
+                        tempAnswers.ForEach(a => splitAns.AddRange(a.Split(',').ToList()));
+
+                        for (int j = 0; j < multiple[i].AllAnswers.Count; j++)
+                        {
+                            double answerCount = splitAns.Count(a => a.Trim() == (j + 1).ToString()) / (double)result.TotalReceivedAnswers;
+                            multiple[i].AllAnswers[j].AnswerCount = splitAns.Count(a => a.Trim() == (j + 1).ToString());
+                            multiple[i].AllAnswers[j].AnswerPercent = answerCount.ToString("P0");
+                        }
                     }
                 }
             }
@@ -150,6 +173,31 @@ namespace AnlandProject.Service
                     };
                     resultRow = _suggestRepository.Create(newData);
                 }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+
+            return resultRow > 0;
+        }
+
+        public bool QuestionnaireAnswerSave(QuestionnaireAnswerModel saveData)
+        {
+            int resultRow = 0;
+            try
+            {
+                var originalData = _suggestRepository.Get(n => n.question_id == saveData.QuestionID);
+                originalData.suggest3 = new List<suggest3>{
+                    new suggest3()
+                    {
+                        writer = saveData.SenderIP,
+                        answer_date = saveData.FillInDate,
+                        answer = saveData.AllAnswers
+                    }
+                };
+
+                resultRow = _suggestRepository.Update(originalData);
             }
             catch (Exception ex)
             {

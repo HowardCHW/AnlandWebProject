@@ -18,6 +18,8 @@ namespace AnlandProject.Service.Interface
 
         bool QuestionnaireSave(QuestionnaireDataModel saveData);
 
+        bool QuestionnaireAnswerSave(QuestionnaireAnswerModel saveData);
+
         bool QuestionnaireDelete(int id);
 
         bool QuestionNameCheck(string name);

@@ -1,0 +1,408 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 政府資訊公開服務";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 政府資訊公開服務" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 政府資訊公開服務" />
+    <meta name="DC.Description" content="政府資訊公開服務" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CK2" />
+    <meta name="Category.Service" content="C11" />
+    <!-- 主題分類:140地政/施政分類:CK2 地籍管理/服務分類:C11土地建物登記 -->
+    <meta name="Keywords" content="政府資訊公開服務, 服務" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">政府資訊公開服務</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>政府資訊公開服務</h2>
+                <h3>
+                    <span class="fas fa-bookmark"></span> 中央與地方法規命令
+                </h3>
+                <p>欲查詢有關條約、對外關係文書、法律、緊急命令、中央法規標準法所定之命令、法規命令及地方自治法規等之內容。請至下列網站查詢：</p>
+                <ul class="textUl-list">
+                    <li><a href="http://law.moj.gov.tw/" target="_blank" title="開啟新的導覽視窗">全國法規資料庫</a></li>
+                    <li><a href="http://gazette.nat.gov.tw/egFront/index.jsp" target="_blank" title="開啟新的導覽視窗">行政院公報資訊網</a></li>
+                    <li><a href="http://lis.ly.gov.tw/lgcgi/lglaw" target="_blank" title="開啟新的導覽視窗">立法院法律檢索系統</a></li>
+                    <li><a href="http://jirs.judicial.gov.tw/Index.htm" target="_blank" title="開啟新的導覽視窗">司法院法學資料檢索系統</a></li>
+                    <li><a href="http://www.land.moi.gov.tw/law/CHhtml/index.asp" target="_blank" title="開啟新的導覽視窗">內政部地政司地政法規全球資訊網</a></li>
+                </ul>
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 解釋性規定及裁量基準
+                </h3>
+                <p>
+                    解釋性規定及裁量基準係政府機關為協助下級機關或屬官統一解釋法令、認定事實、及行使裁量權而訂頒，與地政相關之解釋性規定與裁量基準請至
+                    「<a href="http://www.land.moi.gov.tw/law/CHhtml/newexplain.asp" target="_blank" title="開啟新的導覽視窗">內政部地政司法規解釋函令新訊</a>」查閱
+                </p>
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 組織執掌與聯絡
+                </h3>
+                <p>基隆市安樂地政事務所組織執掌與聯絡資訊</p>
+                <ul class="textUl-list">
+                    <li><a href="@Url.Action("Organization","Organs")">組織編制與執掌圖</a></li>
+                    <li><a href="@Url.Action("GeoTraffic","Organs")">地理位置及交通資訊</a></li>
+                    <li><a href="@Url.Action("ContactInfo","Organs")">業務聯繫電話與電子郵件信箱帳號</a></li>
+                </ul>
+
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 行政指導有關文書
+                </h3>
+                <h4 class="pl-5 pt-1 font-weight-bold text-success">
+                    》為民服務白皮書
+                </h4>
+                <ul class="textUl-list d-flex flex-row flex-wrap">
+                    <li class="w-40">
+                        安樂地政96年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/安樂地政96年為民服務白皮書960102.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政97年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/97年白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政98年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/98年白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政99年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/99年為民服務白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政100年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/100年為民服務白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政101年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/101年為民服務白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政102年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/102年為民服務白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政103年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/103年為民服務白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政104年為民服務白皮書 
+                        <a href="~/DownloadFile/govService/104年為民服務白皮書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                </ul>
+                <h4 class="pl-5 pt-1 font-weight-bold text-success">
+                    》政府服務品質計畫
+                </h4>
+                <ul class="textUl-list d-flex flex-row flex-wrap">
+                    <li class="w-40">
+                        政府服務品質獎評獎實施計畫 
+                        <a href="~/DownloadFile/govService/政府服務品質獎評獎實施計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        106年度政府服務獎實施計畫 
+                        <a href="~/DownloadFile/govService/106年度政府服務獎實施計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        基隆市政府97年度提升服務品質實施計畫 
+                        <a href="~/DownloadFile/govService/基隆市政府97年度提升服務品質實施計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政97年度提升政府服務品質執行計畫 
+                        <a href="~/DownloadFile/govService/97年度提升政府服務品質執行計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政98年度提升政府服務品質執行計畫 
+                        <a href="~/DownloadFile/govService/98年度提升服務品質.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政99年度提升政府服務品質執行計畫 
+                        <a href="~/DownloadFile/govService/99年度提升服務品質.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政100年度提升政府服務品質實施計畫 
+                        <a href="~/DownloadFile/govService/100年度政府服務品質獎實施計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政101年度提升政府服務品質實施計畫 
+                        <a href="~/DownloadFile/govService/101年度政府服務品質執行計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政102年度提升政府服務品質實施計畫 
+                        <a href="~/DownloadFile/govService/102年度提升服務品質實施計畫_(修正版).pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政103年度提升政府服務品質實施計畫 
+                        <a href="~/DownloadFile/govService/103年度提升服務品質實施計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-40">
+                        安樂地政104年度提升政府服務品質實施計畫
+                        <a href="~/DownloadFile/govService/104年度提升服務品質實施計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                </ul>
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 施政計畫、業務統計及研究報告
+                </h3>
+                <h4 class="pl-5 pt-1 font-weight-bold text-success">
+                    》施政計畫
+                </h4>
+                <ul class="textUl-list d-flex flex-row flex-wrap">
+                    <li class="w-20">
+                        96年施政計畫 
+                        <a href="~/DownloadFile/govService/96計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        97年施政計畫 
+                        <a href="~/DownloadFile/govService/97計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        98年施政計畫 
+                        <a href="~/DownloadFile/govService/98年施政計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        99年施政計畫 
+                        <a href="~/DownloadFile/govService/99年施政計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        100年施政計畫 
+                        <a href="~/DownloadFile/govService/100年施政計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        101年施政計畫 
+                        <a href="~/DownloadFile/govService/101年施政計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        102年施政計畫 
+                        <a href="~/DownloadFile/govService/102施政計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        103年施政計畫 
+                        <a href="~/DownloadFile/govService/103施政計畫.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                </ul>
+                <h4 class="pl-5 pt-1 font-weight-bold text-success">》業務統計</h4>
+                <ul class="textUl-list">
+                    <li><a href="@Url.Action("MonthlyReport","GovernmentInfomation")">規費收入月報表</a></li>
+                    <li><a href="@Url.Action("Statistical","GovernmentInfomation")">登記測量辦理案件數及轄內買賣成交案件數</a></li>
+                    <li><a href="@Url.Action("Training","GovernmentInfomation")">教育訓練成果、參訪心得、研究報告、受訓心得</a></li>
+                    <li><a href="@Url.Action("CreateReport","GovernmentInfomation")">創新檢討報告</a></li>
+                </ul>
+
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 預算與決算書
+                </h3>
+                <p>欲查詢本市相關預算資料，請連結至 <a href="https://accounting.klcg.gov.tw/" target="_blank" title="開啟新的導覽視窗">基隆市政府主計處</a></p>
+                <ul class="textUl-list d-flex flex-row flex-wrap">
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 96 })">96年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 97 })">97年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 98 })">98年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 99 })">99年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 100 })">100年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 101 })">101年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 102 })">102年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 103 })">103年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 104 })">104年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 105 })">105年預算與決算書</a></li>
+                    <li class="w-20"><a href="@Url.Action("Budget", "GovernmentInfomation", new { id = 106 })">106年預算與決算書</a></li>
+                </ul>
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 訴願之處理結果及訴願之決定
+                </h3>
+                <ul class="textUl-list d-flex flex-row flex-wrap">
+                    <li class="w-20">
+                        98/08/27訴願決定書
+                        <a href="~/DownloadFile/appeal/980827訴願決定書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        101/10/16訴願決定書
+                        <a href="~/DownloadFile/appeal/1011016訴願決定書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        102/04/09訴願決定書
+                        <a href="~/DownloadFile/appeal/1020409訴願決定書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        102/09/24訴願決定書
+                        <a href="~/DownloadFile/appeal/1020924訴願決定書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        103/03/24訴願決定書
+                        <a href="~/DownloadFile/appeal/1030324訴願決定書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        103/06/06訴願決定書
+                        <a href="~/DownloadFile/appeal/1030606訴願決定書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li class="w-20">
+                        104/02/06訴願決定書
+                        <a href="~/DownloadFile/appeal/1040206訴願決定書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                </ul>
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 公共工程及採購契約
+                </h3>
+                <h4 class="pl-5 pt-1 font-weight-bold text-success">》採購契約</h4>
+                <ul class="textUl-list">
+                    <li>
+                        地政資訊系統及週邊軟硬體設備暨整合作業系統維護契約
+                        <a href="~/DownloadFile/govService/契約書.pdf" target="_blank" title="開啟新的導覽視窗">
+                            PDF <span class="fas fa-file-pdf"></span>
+                        </a>
+                    </li>
+                    <li><a href="http://web.pcc.gov.tw/" target="_blank" title="開啟新的導覽視窗">政府電子採購網</a></li>
+                </ul>
+
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 支付或接受之補助
+                </h3>
+                <p>本所目前尚無相關資料。</p>
+                <h3 class="pt-3">
+                    <span class="fas fa-bookmark"></span> 合議制機關之會議記錄
+                </h3>
+                <p>本所目前尚無相關資料。</p>
+
+                <p class="text-primary">
+                    更新日期：2018/08/01
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /內文區 -->

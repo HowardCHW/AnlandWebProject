@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 分類檢索 Start -->
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 線上申辦 - 處理結果" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 線上申辦 - 檔案閱覽抄錄複製服務" />
+    <meta name="DC.Description" content="線上申辦 - 檔案閱覽抄錄複製服務" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="C11" />
+    <!-- 主題分類:140地政/施政分類:CKA 地政資訊系統/服務分類:C11土地建物登記 -->
+    <meta name="Keywords" content="線上申辦" />
+
+
+    <!-- 分類檢索 End -->
+    <meta name="Accessible_website" content="本網站通過通過AAA優先等級無障礙網頁檢測">
+    <title>基隆市安樂地政事務所全球資訊網 - 線上申辦-處理結果</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/base/css/bootstrap.min.css">
+    <link href="~/Content/base/icon-css/all.min.css" rel="stylesheet">
+    <link href="~/Content/base/css/base.min.css" rel="stylesheet">
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- 內文區 -->
+    <div class="mt-3">
+        <div class="row">
+            <div class="card m-auto w-50 p-3 text-center">
+                <h4 class="text-info text-center">處理結果</h4>
+                <p>謝謝您！您的申請已經送出</p>
+                <p>我們會儘快受理您的申請</p>
+
+                <div class="mt-3 mb-3">
+                    <button type="button" class="btn btn-primary" onClick="javascript:window.close();">
+                        關閉視窗
+                        <span class="fas fa-times"></span>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- /內文區 -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Scripts/base/js/jquery.min.js"></script>
+    <script src="~/Scripts/base/js/popper.min.js"></script>
+    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/base/js/datatables.min.js"></script>
+    <script src="~/Scripts/base/plugin/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Scripts/base/js/base.js"></script>
+    <script>
+        $(document).ready(function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+
+        });
+    </script>
+    <noscript>
+        <div class="container">
+            <div class="row">
+                <div class="card m-3 banner">
+                    <div class="card-body p-3">
+                        您的瀏覽器不支援javascript，但不影響網頁內容陳述，如開啟JavaScript，可得到視覺與特效的最佳瀏覽
+                        <br>列印功能：請按下ctrl+P開啟列印視窗,或由工具列中選擇列印功能
+                        <br>如需要選擇字級大小，IE6請利用鍵盤按住ALT鍵+ V → X → (G)最大(L)較大(M)中(S)較小(A)小，來選擇適合您的文字大小，
+                        而IE7或Firefox瀏覽器則可利用鍵盤 Ctrl
+                        + (+)放大(-)縮小來改變字型大小，如需要回到上一頁可使用瀏覽器提供的 Alt+左方向鍵(←)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </noscript>
+</body>
+
+</html>
+

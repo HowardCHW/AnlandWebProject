@@ -192,55 +192,7 @@
                 <div class="row row-lg" style="border-top:2px solid #ddd;padding-top: 5px;margin-top: 10px">
                     <div class="col-md-6 form-horizontal">
                         <!-- 問卷名稱 -->
-                        <div class="form-group row" v-for="(item, index) in questionCount">
-                            <label class="col-xl-12 col-md-3 form-control-label">
-                                選擇題 {{index + 1}}
-                            </label>
-                            <div class="col-xl-12 col-md-9 form-inline" style="margin-bottom: 10px">
-                                <ul class="list-unstyled list-inline">
-                                    <li class="list-inline-item">
-                                        <div class="radio-custom radio-primary">
-                                            <input type="radio" :name="'questions[' + index + '].type'" :id="'single' + index" value="單選" checked="checked">
-                                            <label :for="'single' + index">單選</label>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <div class="radio-custom radio-primary">
-                                            <input type="radio" :name="'questions[' + index + '].type'" :id="'multiple' + index" value="複選">
-                                            <label :for="'multiple' + index">複選</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-12">(單/複選每題最多可填6組答案,單選最少也要有2個答案)</div>
-                            <div class="row">
-                                <label class="col-xl-2 col-md-3 form-control-label">題目：</label>
-                                <div class=" col-xl-10 col-md-9">
-                                    <input type="hidden" :name="'questions[' + index + '].questionno'" :value="index + 1" />
-                                    <input type="text" class="form-control" :name="'questions[' + index + '].question'" placeholder="" required="" data-parsley-required-message="選擇題目必填!" />
-                                </div>
-                                <label class="col-xl-2 col-md-3 form-control-label">
-                                    選項數
-                                </label>
-                                <div class=" col-xl-10 col-md-9">
-                                    <select class="form-control" name="optionqty" size="1" v-model.number="optionCount">
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                    </select>
-                                </div>
-                                <template v-for="ind in optionCount">
-                                    <label class="col-xl-2 col-md-3 form-control-label">
-                                        選項 {{ind}}
-                                    </label>
-                                    <div class="col-xl-10 col-md-9">
-                                        <input type="text" class="form-control" :name="'questions[' + index + '].Options['+ (ind-1) +']'" placeholder="" required="" data-parsley-required-message="選項必填!" />
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
+                        <multiple-choice v-for="(item, index) in questionCount" :index="item" :key="index"></multiple-choice>                        
                         <!-- /問卷名稱 -->
                     </div>
                     <div class="col-md-6 form-horizontal">
@@ -279,12 +231,72 @@
     <script src="~/Scripts/vue.js"></script>
     <script src="~/Scripts/Parsley/parsley.js"></script>
     <script>
+        Vue.component('multiple-choice', {
+            data: function () {
+                return {
+                    optionCount: 2
+                }
+            },
+            props: ['index'],
+            template: `
+            <div class="form-group row">
+                <label class="col-xl-12 col-md-3 form-control-label">
+                    選擇題 {{index}}
+                </label>
+                <div class="col-xl-12 col-md-9 form-inline" style="margin-bottom: 10px">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <div class="radio-custom radio-primary">
+                                <input type="radio" :name="'questions[' + (index - 1) + '].type'" :id="'single' + index" value="單選" checked="checked">
+                                <label :for="'single' + index">單選</label>
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="radio-custom radio-primary">
+                                <input type="radio" :name="'questions[' + (index - 1) + '].type'" :id="'multiple' + index" value="複選">
+                                <label :for="'multiple' + index">複選</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12">(單/複選每題最多可填6組答案,單選最少也要有2個答案)</div>
+                <div class="row">
+                    <label class="col-xl-2 col-md-3 form-control-label">題目：</label>
+                    <div class=" col-xl-10 col-md-9">
+                        <input type="hidden" :name="'questions[' + (index - 1) + '].questionno'" :value="index" />
+                        <input type="text" class="form-control" :name="'questions[' + (index - 1) + '].question'" placeholder="" required="" data-parsley-required-message="選擇題目必填!" />
+                    </div>
+                    <label class="col-xl-2 col-md-3 form-control-label">
+                        選項數
+                    </label>
+                    <div class=" col-xl-10 col-md-9">
+                        <select class="form-control" :name="'optionqty' + index" size="1" v-model.number="optionCount">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                    <template v-for="ind in optionCount">
+                        <label class="col-xl-2 col-md-3 form-control-label">
+                            選項 {{ind}}
+                        </label>
+                        <div class="col-xl-10 col-md-9">
+                            <input type="text" class="form-control" :name="'questions[' + (index - 1) + '].Options['+ (ind-1) +']'" placeholder="" required="" data-parsley-required-message="選項必填!" />
+                        </div>
+                    </template>
+                </div>
+            </div>
+          `
+        })
+
         var questionnaireVue = new Vue({
             el: '#questionnaireArea',
             data: {
                 questionCount: 1,
                 answerCount: 1,
-                optionCount: 2
+                optionCount: 0
             }
         });
 

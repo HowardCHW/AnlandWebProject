@@ -1,7 +1,9 @@
-﻿@{
+﻿@model AnlandProject.Service.BusinessModel.IndexDataModel
+@{
     ViewBag.Title = "基隆市安樂地政事務所全球資訊網";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @section AdditionalMeta
 {
     <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
@@ -58,7 +60,20 @@
                         <div class="tab-pane fade show active h-100" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <!-- 最新消息-->
                             <ul class="list-group list-group-flush mb-3">
-                                <li class="list-group-item list-group-item-action border-0">
+                                @foreach (var item in Model.Top5News)
+                                {
+                                    <li class="list-group-item list-group-item-action border-0">
+                                        <a href="@Url.Action("NewsDetail","Announcement",new { id = item.ID })" class="card-link d-flex justify-content-between align-items-top">
+                                            <span class="d-flex">
+                                                <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
+                                                @item.Subject
+                                            </span>
+                                            <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">@item.PostDate.Value.ToString("yyyy/MM/dd")</span>
+                                        </a>
+                                    </li>
+                                }
+
+                                @*<li class="list-group-item list-group-item-action border-0">
                                     <a href="#" class="card-link d-flex justify-content-between align-items-top">
                                         <span class="d-flex">
                                             <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
@@ -102,14 +117,27 @@
                                         </span>
                                         <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">2018/04/20</span>
                                     </a>
-                                </li>
+                                </li>*@
                             </ul>
                             <!-- 最新消息-->
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <!-- 法令新訊-->
                             <ul class="list-group list-group-flush mb-3">
-                                <li class="list-group-item list-group-item-action border-0">
+                                @foreach (var item in Model.Top5Laws)
+                                {
+                                    <li class="list-group-item list-group-item-action border-0">
+                                        <a href="@Url.Action("LawsDetail","Announcement",new { id = item.ID })" class="card-link d-flex justify-content-between align-items-top">
+                                            <span class="d-flex">
+                                                <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
+                                                @item.Subject
+                                            </span>
+                                            <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">@item.LDate.Value.ToString("yyyy/MM/dd")</span>
+                                        </a>
+                                    </li>
+                                }
+
+                                @*<li class="list-group-item list-group-item-action border-0">
                                     <a href="#" class="card-link d-flex justify-content-between align-items-top">
                                         <span class="d-flex">
                                             <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
@@ -153,7 +181,7 @@
                                         </span>
                                         <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">2018/04/20</span>
                                     </a>
-                                </li>
+                                </li>*@
                             </ul>
                             <!-- 法令新訊-->
                         </div>
@@ -167,53 +195,53 @@
                 <!-- 常用工具-->
                 <ul class="d-flex flex-wrap justify-content-between h-100">
                     <li class="text-center">
-                        <a href="#">
-                            <span class="fas fa-building rounded"></span> 政府資訊公開</span>
+                        <a href="@Url.Action("Index","GovernmentInfomation")">
+                            <span class="fas fa-building rounded"></span> 政府資訊公開
                         </a>
                     </li>
                     <li class="text-center">
                         <a href="https://landquery.klcg.gov.tw/query/valueprice.jsp" target="_blank" title="開啟新的導覽視窗">
-                            <span class="far fa-chart-line rounded"></span> 公告現值地價</span>
+                            <span class="far fa-chart-line rounded"></span> 公告現值地價
                         </a>
                     </li>
                     <li class="text-center">
-                        <a href="#">
-                            <span class="fal fa-credit-card rounded"></span> 網路ATM</span>
+                        <a href="https://sap.bot.com.tw/sap/sap1030s?MID=S00002" target="_blank" title="開啟新的導覽視窗">
+                            <span class="fal fa-credit-card rounded"></span> 網路ATM
                         </a>
                     </li>
                     <li class="text-center">
                         <a href="https://landquery.klcg.gov.tw/query/casedo.jsp" target="_blank" title="開啟新的導覽視窗">
-                            <span class="far fa-spinner rounded"></span> 案件辦理情形查詢</span>
+                            <span class="far fa-spinner rounded"></span> 案件辦理情形查詢
                         </a>
                     </li>
                     <li class="text-center">
                         <a href="https://landquery.klcg.gov.tw/query/casedo1-2.jsp" target="_blank" title="開啟新的導覽視窗">
-                            <span class="fal fa-barcode-read rounded"> </span> 實價登錄申報期限</span>
+                            <span class="fal fa-barcode-read rounded"> </span> 實價登錄申報期限
                         </a>
                     </li>
                     <li class="text-center">
                         <a href="https://landquery.klcg.gov.tw/query/opendata1.jsp" target="_blank" title="開啟新的導覽視窗">
-                            <span class="fa fa-calendar-edit rounded"></span> 第一次登記公告</span>
+                            <span class="fa fa-calendar-edit rounded"></span> 第一次登記公告
                         </a>
                     </li>
                     <li class="text-center">
                         <a href="https://landquery.klcg.gov.tw/query/opendata2.jsp" target="_blank" title="開啟新的導覽視窗">
-                            <span class="fal fa-newspaper rounded"></span> 書狀補給公告資料</span>
+                            <span class="fal fa-newspaper rounded"></span> 書狀補給公告資料
                         </a>
                     </li>
                     <li class="text-center">
-                        <a href="#" target="_blank" title="開啟新的導覽視窗">
-                            <span class="fa fa-project-diagram rounded"></span> 未辦繼承列管資料</span>
+                        <a href="@Url.Action("InheritanceLand","OnlineSearch")">
+                            <span class="fa fa-project-diagram rounded"></span> 未辦繼承列管資料
                         </a>
                     </li>
                     <li class="text-center">
-                        <a href="#">
-                            <span class="fa fa-street-view rounded"></span> 外籍人士地權專區</span>
+                        <a href="@Url.Action("Index","ForeignerLand")">
+                            <span class="fa fa-street-view rounded"></span> 外籍人士地權專區
                         </a>
                     </li>
                     <li class="text-center">
-                        <a href="#">
-                            <span class="fal fa-smile-plus rounded"> </span> 便民服務投票區</span>
+                        <a href="@Url.Action("Questionnaire","OpinionExchange")">
+                            <span class="fal fa-smile-plus rounded"> </span> 便民服務投票區
                         </a>
                     </li>
                 </ul>
@@ -246,12 +274,12 @@
                                 </a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0">
-                                <a href="# " class="card-link">
+                                <a href="@Url.Action("Index","ForeignerLand")" class="card-link">
                                     <span class="fas fa-caret-right"></span> 外籍人士專區
                                 </a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0">
-                                <a href="# " class="card-link">
+                                <a href="@Url.Action("Index","GovernmentInfomation")" class="card-link">
                                     <span class="fas fa-caret-right"></span> 資訊公開專區
                                 </a>
                             </li>
@@ -307,22 +335,22 @@
                             <div class="col">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item list-group-item-action border-0">
-                                        <a href="# " class="card-link">
+                                        <a href="https://www.land.moi.gov.tw/chhtml/tabledown.asp?cid=52&qocid=1012" class="card-link" target="_blank" title="開啟新的導覽視窗">
                                             <span class="fas fa-caret-right"></span> 登記類
                                         </a>
                                     </li>
                                     <li class="list-group-item list-group-item-action border-0">
-                                        <a href="# " class="card-link">
-                                            <span class="fas fa-caret-right"></span> 測量類
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item list-group-item-action border-0">
-                                        <a href="# " class="card-link">
+                                        <a href="@Url.Action("AppDownload", "ApplicationNotes", new { id = 2 })" class="card-link">
                                             <span class="fas fa-caret-right"></span> 地價類
                                         </a>
                                     </li>
                                     <li class="list-group-item list-group-item-action border-0">
-                                        <a href="# " class="card-link">
+                                        <a href="@Url.Action("AppDownload","ApplicationNotes", new { id = 3 })" class="card-link">
+                                            <span class="fas fa-caret-right"></span> 測量類
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item list-group-item-action border-0">
+                                        <a href="@Url.Action("AppDownload","ApplicationNotes", new { id = 4 })" class="card-link">
                                             <span class="fas fa-caret-right"></span> 謄本類
                                         </a>
                                     </li>
@@ -331,17 +359,17 @@
                             <div class="col">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item list-group-item-action border-0">
-                                        <a href="# " class="card-link">
+                                        <a href="@Url.Action("AppDownload","ApplicationNotes", new { id = 5 })" class="card-link">
                                             <span class="fas fa-caret-right"></span> 資訊類
                                         </a>
                                     </li>
                                     <li class="list-group-item list-group-item-action border-0">
-                                        <a href="# " class="card-link">
+                                        <a href="@Url.Action("AppDownload","ApplicationNotes", new { id = 6 })" class="card-link">
                                             <span class="fas fa-caret-right"></span> 地用類
                                         </a>
                                     </li>
                                     <li class="list-group-item list-group-item-action border-0">
-                                        <a href="# " class="card-link">
+                                        <a href="@Url.Action("AppDownload","ApplicationNotes", new { id = 7 })" class="card-link">
                                             <span class="fas fa-caret-right"></span> 其他類
                                         </a>
                                     </li>
@@ -360,27 +388,27 @@
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item list-group-item-action border-0">
-                                <a href="# " class="card-link">
+                                <a href="@Url.Action("LandUnit","Others")" class="card-link">
                                     <span class="fas fa-caret-right"></span> 全國地政單位
                                 </a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0">
-                                <a href="# " class="card-link">
+                                <a href="@Url.Action("LandService","Others")" class="card-link">
                                     <span class="fas fa-caret-right"></span> 地政服務資訊
                                 </a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0">
-                                <a href="# " class="card-link">
+                                <a href="http://keelungland.org.tw" target="_blank" title="開啟新的導覽視窗" class="card-link">
                                     <span class="fas fa-caret-right"></span> 基隆市地政士公會
                                 </a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0">
-                                <a href="# " class="card-link">
+                                <a href="http://www.rocrea.org.tw/index_tw.php" target="_blank" title="開啟新的導覽視窗" class="card-link">
                                     <span class="fas fa-caret-right"></span> 中華民國地政士公會全國聯合會
                                 </a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0">
-                                <a href="# " class="card-link">
+                                <a href="@Url.Action("TaxUnit","Others")" class="card-link">
                                     <span class="fas fa-caret-right"></span> 各地稅務機關
                                 </a>
                             </li>

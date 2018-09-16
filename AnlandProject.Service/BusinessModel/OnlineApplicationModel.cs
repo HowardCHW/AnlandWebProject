@@ -14,7 +14,7 @@ namespace AnlandProject.Service.BusinessModel
         public string ApplyID { get; set; }
         public string ApplyTel { get; set; }
         public string ApplyAdd { get; set; }
-        public string ApplyeMail { get; set; }
+        public string ApplyEMail { get; set; }
         public string AgentName { get; set; }
         public DateTime? AgentBirth { get; set; }
         public string AgentID { get; set; }

@@ -27,7 +27,7 @@ namespace AnlandProject.Service
                 ApplyBirth = o.apply_birth,
                 ApplyID = o.apply_id,
                 ApplyTel = o.apply_tel,
-                ApplyeMail = o.apply_email,
+                ApplyEMail = o.apply_email,
                 AgentName = o.agent_name,
                 AgentBirth = o.agent_birth,
                 AgentID = o.agent_id,
@@ -81,7 +81,7 @@ namespace AnlandProject.Service
                     ApplyBirth = tempData.apply_birth,
                     ApplyID = tempData.apply_id,
                     ApplyTel = tempData.apply_tel,
-                    ApplyeMail = tempData.apply_email,
+                    ApplyEMail = tempData.apply_email,
                     AgentName = tempData.agent_name,
                     AgentBirth = tempData.agent_birth,
                     AgentID = tempData.agent_id,
@@ -121,6 +121,64 @@ namespace AnlandProject.Service
             return result;
         }
 
+        public bool OnlineAppSave(OnlineApplicationModel saveData)
+        {
+            int resultRow = 0;
+            try
+            {
+                onlineapp newData = new onlineapp()
+                {
+                    apply_name = saveData.ApplyName,
+                    apply_birth = saveData.ApplyBirth,
+                    apply_id = saveData.ApplyID,
+                    apply_tel = saveData.ApplyTel,
+                    apply_email = saveData.ApplyEMail,
+                    agent_name = saveData.AgentName,
+                    agent_birth = saveData.AgentBirth,
+                    agent_id = saveData.AgentID,
+                    agent_re = saveData.AgentRe,
+                    app_item_1 = saveData.AppItem1,
+                    app_item_2 = saveData.AppItem2,
+                    app_item_3 = saveData.AppItem3,
+                    year_1 = saveData.Year1,
+                    year_2 = saveData.Year2,
+                    year_3 = saveData.Year3,
+                    docitem_1 = saveData.DocItem1,
+                    docitem_2 = saveData.DocItem2,
+                    docitem_3 = saveData.DocItem3,
+                    no_1 = saveData.No1,
+                    no_2 = saveData.No2,
+                    no_3 = saveData.No3,
+                    copy_1 = saveData.Copy1,
+                    copy_2 = saveData.Copy2,
+                    purpose_1 = saveData.Purpose1,
+                    purpose_2 = saveData.Purpose2,
+                    purpose_3 = saveData.Purpose3,
+                    purpose_4 = saveData.Purpose4,
+                    purpose_5 = saveData.Purpose5,
+                    purpose_note = saveData.PurposeNote,
+                    wdate = saveData.WDate,
+                    qa_1 = saveData.Qa1,
+                    qa_2 = saveData.Qa2,
+                    qa_3 = saveData.Qa3,
+                    qa_4 = saveData.Qa4,
+                    qa_5 = saveData.Qa5,
+                    other_note = saveData.OtherNote,
+                    get_appdate = saveData.GetAppDate,
+                    get_apptime = saveData.GetAppTime,
+                    qa_note = saveData.QaNote
+                };
+
+                resultRow = _onlineappRepository.Create(newData);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+
+            return resultRow > 0;
+        }
+
         public bool OnlineAppDelete(int id)
         {
             int result = 0;
@@ -147,7 +205,7 @@ namespace AnlandProject.Service
                 ApplyID = e.apply_id,
                 ApplyTel = e.apply_tel,
                 ApplyAdd = e.apply_add,
-                ApplyeMail = e.apply_email,
+                ApplyEMail = e.apply_email,
                 AgentName = e.agent_name,
                 AgentBirth = e.agent_birth,
                 AgentID = e.agent_id,
@@ -199,7 +257,7 @@ namespace AnlandProject.Service
                     ApplyID = tempData.apply_id,
                     ApplyTel = tempData.apply_tel,
                     ApplyAdd = tempData.apply_add,
-                    ApplyeMail = tempData.apply_email,
+                    ApplyEMail = tempData.apply_email,
                     AgentName = tempData.agent_name,
                     AgentBirth = tempData.agent_birth,
                     AgentID = tempData.agent_id,
@@ -236,6 +294,62 @@ namespace AnlandProject.Service
             return result;
         }
 
+        public bool EngCopySave(OnlineApplicationModel saveData)
+        {
+            int resultRow = 0;
+            try
+            {
+                engcopy newData = new engcopy()
+                {
+                    apply_name = saveData.ApplyName,
+                    apply_birth = saveData.ApplyBirth,
+                    apply_id = saveData.ApplyID,
+                    apply_tel = saveData.ApplyTel,
+                    apply_add = saveData.ApplyAdd,
+                    apply_email = saveData.ApplyEMail,
+                    agent_name = saveData.AgentName,
+                    agent_birth = saveData.AgentBirth,
+                    agent_id = saveData.AgentID,
+                    agent_tel = saveData.AgentTel,
+                    agent_add = saveData.AgentAdd,
+                    agent_re = saveData.AgentRe,
+                    company_name = saveData.CompanyName,
+                    company_add = saveData.CompanyAdd,
+                    sarea_1 = saveData.Sarea1,
+                    sarea_2 = saveData.Sarea2,
+                    areano_1 = saveData.AreaNo1,
+                    areano_2 = saveData.AreaNo2,
+                    docname_1 = saveData.DocName1,
+                    docname_2 = saveData.DocName2,
+                    docitem_1 = saveData.DocItem1,
+                    docitem_2 = saveData.DocItem2,
+                    docitem_3 = saveData.DocItem3,
+                    docitem_4 = saveData.DocItem4,
+                    purpose_1 = saveData.Purpose1,
+                    purpose_2 = saveData.Purpose2,
+                    purpose_3 = saveData.Purpose3,
+                    purpose_4 = saveData.Purpose4,
+                    purpose_5 = saveData.Purpose5,
+                    purpose_note = saveData.PurposeNote,
+                    wdate = saveData.WDate,
+                    qa_1 = saveData.Qa1,
+                    qa_2 = saveData.Qa2,
+                    qa_3 = saveData.Qa3,
+                    qa_4 = saveData.Qa4,
+                    qa_5 = saveData.Qa5,
+                    qa_note = saveData.QaNote
+                };
+
+                resultRow = _engcopyRepository.Create(newData);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+
+            return resultRow > 0;
+        }
+
         public bool EngCopyDelete(int id)
         {
             int result = 0;
@@ -262,7 +376,7 @@ namespace AnlandProject.Service
                 ApplyID = c.apply_id,
                 ApplyTel = c.apply_tel,
                 ApplyAdd = c.apply_add,
-                ApplyeMail = c.apply_email,
+                ApplyEMail = c.apply_email,
                 AgentName = c.agent_name,
                 AgentBirth = c.agent_birth,
                 AgentID = c.agent_id,
@@ -316,7 +430,7 @@ namespace AnlandProject.Service
                     ApplyID = tempData.apply_id,
                     ApplyTel = tempData.apply_tel,
                     ApplyAdd = tempData.apply_add,
-                    ApplyeMail = tempData.apply_email,
+                    ApplyEMail = tempData.apply_email,
                     AgentName = tempData.agent_name,
                     AgentBirth = tempData.agent_birth,
                     AgentID = tempData.agent_id,
@@ -355,6 +469,64 @@ namespace AnlandProject.Service
             return result;
         }
 
+        public bool CopySave(OnlineApplicationModel saveData)
+        {
+            int resultRow = 0;
+            try
+            {
+                copy newData = new copy()
+                {
+                    apply_name = saveData.ApplyName,
+                    apply_birth = saveData.ApplyBirth,
+                    apply_id = saveData.ApplyID,
+                    apply_tel = saveData.ApplyTel,
+                    apply_add = saveData.ApplyAdd,
+                    apply_email = saveData.ApplyEMail,
+                    agent_name = saveData.AgentName,
+                    agent_birth = saveData.AgentBirth,
+                    agent_id = saveData.AgentID,
+                    agent_tel = saveData.AgentTel,
+                    agent_add = saveData.AgentAdd,
+                    agent_re = saveData.AgentRe,
+                    company_name = saveData.CompanyName,
+                    company_add = saveData.CompanyAdd,
+                    docno_1 = saveData.DocNo1,
+                    docno_2 = saveData.DocNo2,
+                    docno_3 = saveData.DocNo3,
+                    docno_4 = saveData.DocNo4,
+                    docname_1 = saveData.DocName1,
+                    docname_2 = saveData.DocName2,
+                    docname_3 = saveData.DocName3,
+                    docname_4 = saveData.DocName4,
+                    docitem_1 = saveData.DocItem1,
+                    docitem_2 = saveData.DocItem2,
+                    docitem_3 = saveData.DocItem3,
+                    docitem_4 = saveData.DocItem4,
+                    purpose_1 = saveData.Purpose1,
+                    purpose_2 = saveData.Purpose2,
+                    purpose_3 = saveData.Purpose3,
+                    purpose_4 = saveData.Purpose4,
+                    purpose_5 = saveData.Purpose5,
+                    purpose_6 = saveData.Purpose6,
+                    purpose_note = saveData.PurposeNote,
+                    wdate = saveData.WDate,
+                    qa_1 = saveData.Qa1,
+                    qa_2 = saveData.Qa2,
+                    qa_3 = saveData.Qa3,
+                    qa_4 = saveData.Qa4,
+                    qa_5 = saveData.Qa5
+                };
+
+                resultRow = _copyRepository.Create(newData);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+
+            return resultRow > 0;
+        }
+
         public bool CopyDelete(int id)
         {
             int result = 0;
@@ -380,7 +552,7 @@ namespace AnlandProject.Service
                 ApplyID = l.apply_id,
                 ApplyTel = l.apply_tel,
                 ApplyAdd = l.apply_add,
-                ApplyeMail = l.apply_email,
+                ApplyEMail = l.apply_email,
                 Purpose = l.purpose,
                 PurposeNote = l.purpose_note,
                 Area1 = l.area_1,
@@ -429,7 +601,7 @@ namespace AnlandProject.Service
                     ApplyID = tempData.apply_id,
                     ApplyTel = tempData.apply_tel,
                     ApplyAdd = tempData.apply_add,
-                    ApplyeMail = tempData.apply_email,
+                    ApplyEMail = tempData.apply_email,
                     Purpose = tempData.purpose,
                     PurposeNote = tempData.purpose_note,
                     Area1 = tempData.area_1,
@@ -462,6 +634,59 @@ namespace AnlandProject.Service
                 };
             }
             return result;
+        }
+
+        public bool LandPriceSave(OnlineApplicationModel saveData)
+        {
+            int resultRow = 0;
+            try
+            {
+                landprice newData = new landprice()
+                {
+                    apply_name = saveData.ApplyName,
+                    apply_id = saveData.ApplyID,
+                    apply_tel = saveData.ApplyTel,
+                    apply_add = saveData.ApplyAdd,
+                    apply_email = saveData.ApplyEMail,
+                    purpose = saveData.Purpose,
+                    purpose_note = saveData.PurposeNote,
+                    area_1 = saveData.Area1,
+                    area_2 = saveData.Area2,
+                    area_3 = saveData.Area3,
+                    area_4 = saveData.Area4,
+                    area_5 = saveData.Area5,
+                    sarea_1 = saveData.Sarea1,
+                    sarea_2 = saveData.Sarea2,
+                    sarea_3 = saveData.Sarea3,
+                    sarea_4 = saveData.Sarea4,
+                    sarea_5 = saveData.Sarea5,
+                    areano_1 = saveData.AreaNo1,
+                    areano_2 = saveData.AreaNo2,
+                    areano_3 = saveData.AreaNo3,
+                    areano_4 = saveData.AreaNo4,
+                    areano_5 = saveData.AreaNo5,
+                    areayear_1 = saveData.AreaYear1,
+                    areayear_2 = saveData.AreaYear2,
+                    areayear_3 = saveData.AreaYear3,
+                    areayear_4 = saveData.AreaYear4,
+                    areayear_5 = saveData.AreaYear5,
+                    note = saveData.Note,
+                    wdate = saveData.WDate,
+                    qa_1 = saveData.Qa1,
+                    qa_2 = saveData.Qa2,
+                    qa_3 = saveData.Qa3,
+                    qa_4 = saveData.Qa4,
+                    qa_5 = saveData.Qa5
+                };
+
+                resultRow = _landpriceRepository.Create(newData);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+
+            return resultRow > 0;
         }
 
         public bool LandPriceDelete(int id)

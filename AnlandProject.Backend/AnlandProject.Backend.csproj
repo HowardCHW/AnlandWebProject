@@ -187,6 +187,7 @@
     <Compile Include="Controllers\Settings\UserManagementController.cs" />
     <Compile Include="Controllers\UnitItems\DirectorFAQController.cs" />
     <Compile Include="Controllers\UnitItems\FAQController.cs" />
+    <Compile Include="Controllers\UnitItems\ProposalController.cs" />
     <Compile Include="Controllers\UnitItems\QaController.cs" />
     <Compile Include="Controllers\UnitItems\LawsController.cs" />
     <Compile Include="Controllers\UnitItems\IntroController.cs" />
@@ -4367,6 +4368,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\moment\moment-duration-format.js" />
+    <Content Include="Scripts\moment\moment.min.js" />
+    <Content Include="Scripts\moment\moment_zh-tw.js" />
     <Content Include="Scripts\Parsley\i18n\al.js" />
     <Content Include="Scripts\Parsley\i18n\ar.js" />
     <Content Include="Scripts\Parsley\i18n\bg.js" />
@@ -4531,6 +4535,8 @@
     <Content Include="Scripts\Parsley\parsley.js.map" />
     <Content Include="Scripts\Parsley\parsley.min.js.map" />
     <Content Include="Views\UnitItems\Questionnaire\QuestionReview.cshtml" />
+    <Content Include="Views\UnitItems\Proposal\Index.cshtml" />
+    <Content Include="Views\UnitItems\Proposal\ProposalView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

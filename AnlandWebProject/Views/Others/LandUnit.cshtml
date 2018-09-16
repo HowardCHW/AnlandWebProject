@@ -1,0 +1,608 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 規費收入月報表";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 網網相連 - 全國地政單位" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="網網相連 - 全國地政單位" />
+    <meta name="DC.Description" content="網網相連 - 全國地政單位" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKZ" />
+    <meta name="Category.Service" content="I60" />
+    <meta name="Keywords" content="網網相連, 全國地政單位" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        網網相連
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">全國地政單位</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <div class="pl-5 pr-0">
+                    <h2 class="pl-0">全國地政單位</h2>
+
+                    <table id="myTable" class="table table-hover table-striped border-bottom rwd-table" summary="編排用表格">
+                        <caption class="sr-only">全國地政單位</caption>
+                        <thead class="sr-only">
+                            <tr class="bg-brown">
+                                <th scope="col">地區</th>
+                                <th scope="col">連結</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.moi.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">內政部</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.land.moi.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政司</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.nlsc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">內政部國土測繪中心</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.lceb.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">土地重劃工程處</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.land.moi.gov.tw/landdatabase/chhtml" target="_blank" title="開啟新的瀏覽視窗">土地基本資料庫</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.cpami.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">營建署</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://ngis.moi.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">國土資訊系統</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://gps.moi.gov.tw/sscenter" target="_blank" title="開啟新的瀏覽視窗">衛星測量中心</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://moica.nat.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">自然人憑證管理中心</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.taipei.gov.tw/" target=_blank title="開啟新的瀏覽視窗">臺北市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.land.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政局</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.lda.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">土地土地開發總隊</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.ccla.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">建成地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.ssla.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">松山地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.tala.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">大安地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.ktla.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">古亭地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.csla.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">中山地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.slla.taipei.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">士林地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.kcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">高雄市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://landp.kcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政局</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://khhla.kcg.gov.tw/index2.php" target="_blank" title="開啟新的瀏覽視窗">新興地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://yanland.kcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">鹽埕地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://chience.kcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">前鎮地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://ntlao.kcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">楠梓地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://smland.kcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">三民地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://gsland.kcg.gov.tw/index1.php" target="_blank" title="開啟新的瀏覽視窗">岡山地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://fongshan.kcg.gov.tw/index6b.php" target="_blank" title="開啟新的瀏覽視窗">鳳山地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://cishan.kcg.gov.tw/index1.php" target="_blank" title="開啟新的瀏覽視窗">旗山地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://lujhu.kcg.gov.tw/index1.php" target="_blank" title="開啟新的瀏覽視窗">路竹地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://meinong.kcg.gov.tw/?Guid=b7bd7702-1193-5a5d-9c37-98d4fbc3d654" target="_blank" title="開啟新的瀏覽視窗">美濃地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://dl-land.kcg.gov.tw/index1.php" target="_blank" title="開啟新的瀏覽視窗">大寮地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://renwu.kcg.gov.tw/index1.php" target="_blank" title="開啟新的瀏覽視窗">仁武地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://land.klcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">基隆市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.klcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.sinyi-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">信義地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://anleh-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">安樂地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.tpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">新北市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政局</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.tamsui.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">淡水地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.banqiao.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">板橋地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.sanchong.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">三重地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.xinzhuang.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">新莊地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.xindian.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">新店地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.xizhi.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">汐止地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.zhonghe.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">中和地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.ruifang.land.ntpc.gov.tw" target="_blank" title="開啟新的瀏覽視窗">瑞芳地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.shulin.land.ntpc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">樹林地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">桃園市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政局</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.taoyuan-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">桃園地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.zhongli-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">中壢地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.daxi-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">大溪地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pingzhen-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">平鎮地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.yangmei-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">楊梅地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.luzhu-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">蘆竹地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.bade-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">八德地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.guishan-land.tycg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">龜山地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.hchg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">新竹縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.hsinchu.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://web.hsinchu.gov.tw/jhubei-land/" target="_blank" title="開啟新的瀏覽視窗">竹北地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://web.hsinchu.gov.tw/sinhu-land/" target="_blank" title="開啟新的瀏覽視窗">新湖地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://web.hsinchu.gov.tw/jhudong-land/" target="_blank" title="開啟新的瀏覽視窗">竹東地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.hccg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">新竹市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.hccg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.landhc.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">新竹市地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.miaoli.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">苗栗縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.miaoli.gov.tw/land/index.php" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://jhunan.land.miaoli.gov.tw/jhunan_land/" target="_blank" title="開啟新的瀏覽視窗">竹南地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tongluo.land.miaoli.gov.tw/tonglud_land/" target="_blank" title="開啟新的瀏覽視窗">銅鑼地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tongsiao.land.miaoli.gov.tw/tongsiao_land/" target="_blank" title="開啟新的瀏覽視窗">通霄地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://dahu.land.miaoli.gov.tw/dahu_land/" target="_blank" title="開啟新的瀏覽視窗">大湖地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tongluo.land.miaoli.gov.tw/tonglud_land/" target="_blank" title="開啟新的瀏覽視窗">頭份地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://miaoli.land.miaoli.gov.tw/miaoli_land/" target="_blank" title="開啟新的瀏覽視窗">苗栗地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.nantou.gov.tw" target="_blank" title="開啟新的瀏覽視窗">南投縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.nantou.gov.tw/big5/index.asp?dptid=376480000AU150000" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://shli-land.nantou.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">水里地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://nantou-land.nantou.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">南投地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://puli-land.nantou.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">埔里地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://caotun-land.nantou.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">草屯地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://jhushan-land.nantou.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">竹山地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.taichung.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">臺中市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.land.taichung.gov.tw/home.php" target="_blank" title="開啟新的瀏覽視窗">地政局</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tcjsland.land.taichung.gov.tw" target="_blank" title="開啟新的瀏覽視窗">中興地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://jsland.land.taichung.gov.tw" target="_blank" title="開啟新的瀏覽視窗">中山地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://ccland.land.taichung.gov.tw/home.php" target="_blank" title="開啟新的瀏覽視窗">中正地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.fyland.taichung.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">豐原地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://fyland.land.taichung.gov.tw/home.php" target="_blank" title="開啟新的瀏覽視窗">雅潭地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://dajialand.land.taichung.gov.tw/home.php" target="_blank" title="開啟新的瀏覽視窗">大甲地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://daliland.land.taichung.gov.tw" target="_blank" title="開啟新的瀏覽視窗">大里地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tpland.land.taichung.gov.tw" target="_blank" title="開啟新的瀏覽視窗">太平地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://dsland.land.taichung.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">東勢地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.csland.taichung.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">清水地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.yunlin.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">雲林縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www4.yunlin.gov.tw/land/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://douliou.land.yunlin.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">斗六地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://dounan.land.yunlin.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">斗南地政事務所</a><span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://huwei.land.yunlin.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">虎尾地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://siluo.land.yunlin.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">西螺地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://taisi.land.yunlin.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">台西地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://beigang.land.yunlin.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">北港地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.cyhg.gov.tw/index.html" target="_blank" title="開啟新的瀏覽視窗">嘉義縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://lands.cyhg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://jhuci-land.cyhg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">竹崎地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="https://puzih-land.cyhg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">朴子地政事務所</a><span class="far fa-external-link-square-alt"></span>
+                                    <a href="https://dalin-land.cyhg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">大林地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="https://shueishang-land.cyhg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">水上地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.chiayi.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">嘉義市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://eland.chiayi.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.chiayi.gov.tw/index.aspx" target="_blank" title="開啟新的瀏覽視窗">嘉義市地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.tncg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">臺南市</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政局</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/01/" target="_blank" title="開啟新的瀏覽視窗">台南地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/02/" target="_blank" title="開啟新的瀏覽視窗">東南地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/03/" target="_blank" title="開啟新的瀏覽視窗">安南地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/04/" target="_blank" title="開啟新的瀏覽視窗">鹽水地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/05/" target="_blank" title="開啟新的瀏覽視窗">白河地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/06/" target="_blank" title="開啟新的瀏覽視窗">麻豆地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/07/" target="_blank" title="開啟新的瀏覽視窗">佳里地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/08/" target="_blank" title="開啟新的瀏覽視窗">新化地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/09/" target="_blank" title="開啟新的瀏覽視窗">歸仁地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/10/" target="_blank" title="開啟新的瀏覽視窗">玉井地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.tainan.gov.tw/11/" target="_blank" title="開啟新的瀏覽視窗">永康地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.chcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">彰化縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.chcg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.ch-land.gov.tw" target="_blank" title="開啟新的瀏覽視窗">彰化地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.bd-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">北斗地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.tj-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">田中地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.lukang-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">鹿港地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.er-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">二林地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.homei-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">和美地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.yl-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">員林地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.xh-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">溪湖地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.pthg.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">屏東縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pthg.gov.tw/plantpp/Index.aspx" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pt-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">屏東地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pthg.gov.tw/chaujou-land/" target="_blank" title="開啟新的瀏覽視窗">潮州地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pthg.gov.tw/dto-land/" target="_blank" title="開啟新的瀏覽視窗">東港地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pthg.gov.tw/hengchuen-land/" target="_blank" title="開啟新的瀏覽視窗">恆春地政事務所</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pthg.gov.tw/lto-land/" target="_blank" title="開啟新的瀏覽視窗">里港地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.pthg.gov.tw/fto-land" target="_blank" title="開啟新的瀏覽視窗">枋寮地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.e-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">宜蘭縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.e-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://ilanland.e-land.gov.tw/ilanland/index.html" target="_blank" title="開啟新的瀏覽視窗">宜蘭地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://lotung-land.e-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">羅東地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.hl.gov.tw/bin/home.php" target="_blank" title="開啟新的瀏覽視窗">花蓮縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://la.hl.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.yuli.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">玉里地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://flland.hl.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">鳳林地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.hl-land.gov.tw/bin/home.php" target="_blank" title="開啟新的瀏覽視窗">花蓮地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.taitung.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">臺東縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.taitung.gov.tw/Land/index.aspx" target="_blank" title="開啟新的瀏覽視窗">地政處</a><br />
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tsn.taitung.gov.tw/taitung_land/" target="_blank" title="開啟新的瀏覽視窗">臺東地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tsn.taitung.gov.tw/changkong_land/" target="_blank" title="開啟新的瀏覽視窗">成功地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tsn.taitung.gov.tw/kwanshan_land/" target="_blank" title="開啟新的瀏覽視窗">關山地政事務所</a>
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://tsn.taitung.gov.tw/taimaleeland/index.php" target="_blank" title="開啟新的瀏覽視窗">太麻里地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.kinmen.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">金門縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://land.kinmen.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">地政局</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.matsu.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">連江縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.matsu-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">連江地政事務所</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" data-th="地區">
+                                    <span class="fas fa-link"></span>
+                                    <a href="http://www.penghu.gov.tw/chinese/00home/home.asp" target="_blank" title="開啟新的瀏覽視窗">澎湖縣</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="far fa-external-link-square-alt"></span>
+                                    <a href="http://www.penghu-land.gov.tw/" target="_blank" title="開啟新的瀏覽視窗">澎湖地政事務所</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Index","Home")">
+                <span class="fal fa-external-link-square" aria-hidden="true"></span> 回首頁
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->
+
+<script>
+    $(document).ready(function () {
+        // Data Table
+        $('#myTable').DataTable({
+            "language": {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 筆結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                "infoPostFix": "",
+                "search": "搜尋:",
+                "searchPlaceholder": "請輸入關鍵字",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            },
+            "pagingType": "full_numbers",
+            "ordering": false
+            // ,
+            // "searching": false
+        });
+    });
+</script>

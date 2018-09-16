@@ -1,0 +1,245 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 地政服務資訊";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 地政服務資訊" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="地政服務資訊" />
+    <meta name="DC.Description" content="地政服務資訊" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKZ" />
+    <meta name="Category.Service" content="I60" />
+    <meta name="Keywords" content="網網相連, 地政服務資訊" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        網網相連
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">地政服務資訊</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <div class="pl-5 pr-0">
+                    <h2 class="pl-0">地政服務資訊</h2>
+
+                    <table id="myTable" class="table table-hover table-striped border-bottom rwd-table" summary="編排用表格">
+                        <caption class="sr-only">地政服務資訊</caption>
+                        <thead class="sr-only">
+                            <tr class="bg-brown">
+                                <th scope="col">連結</th>
+                                <th scope="col">連結</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="50%" data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://eservice.nlsc.gov.tw/CaseApply/login.aspx?ReturnUrl=%2fCaseApply%2fPortal.aspx" target="_blank">測繪圖資整合資料查詢申購入口網</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://www.land.moi.gov.tw/ngis/chhtml/query1.asp" target="_blank">全國土地段代碼查詢</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://clir.land.moi.gov.tw/cap/" target="_blank">地政線上申辦案件</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://epaper.hinet.net/" target="_blank">地政電子謄本</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://www.land.nat.gov.tw" target="_blank">全國地政服務</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://www.land.moi.gov.tw/law" target="_blank">地政法規查詢</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://www.land.moi.gov.tw/chhtml/landvalue.asp?cid=100" target="_blank">全國公告土地現值</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://www.land.moi.gov.tw/chhtml/property.asp?cid=830" target="_blank">房地產交易價格查詢</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://pri.land.moi.gov.tw/realestate_query/?cid=273" target="_blank">不動產經紀業資料</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://pri.land.moi.gov.tw/agents_query/?cid=399" target="_blank">開業地政士查詢</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://easymap.land.moi.gov.tw/" target="_blank">地籍圖資網路便民服務系統</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://webgis.sinica.edu.tw/map_moi/?cid=633" target="_blank">內政部典藏地圖數位化影像查詢</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://regis.klcg.gov.tw/klregis/" target="_blank">基隆市政府住宅及不動產資訊服務網</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://div.land.moi.gov.tw/" target="_blank">土地分割便民服務網</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://etw.land.nat.gov.tw" target="_blank">台灣e網通</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://pgo-klcgetw.land.nat.gov.tw" target="_blank">地政電傳資訊整合系統</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://pqt-klcgetw.land.nat.gov.tw" target="_blank">全方位地籍查詢網站</a>
+                                </td>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://bs-etw.land.nat.gov.tw" target="_blank">企業版電傳入口網</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="連結">
+                                    <span class="fas fa-link"></span>
+                                    <a title="開啟新的瀏覽視窗" href="http://upgis.klcg.gov.tw/kl_land/landuseNew/landuse.asp" target="_blank">都市計畫土地使用分區查詢</a>
+                                </td>
+                                <td data-th="連結">&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Index","Home")">
+                <span class="fal fa-external-link-square" aria-hidden="true"></span> 回首頁
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->
+
+<script>
+    $(document).ready(function () {
+        // Data Table
+        $('#myTable').DataTable({
+            "language": {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 筆結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                "infoPostFix": "",
+                "search": "搜尋:",
+                "searchPlaceholder": "請輸入關鍵字",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            },
+            "pagingType": "full_numbers",
+            "ordering": false
+            // ,
+            // "searching": false
+        });
+    });
+</script>

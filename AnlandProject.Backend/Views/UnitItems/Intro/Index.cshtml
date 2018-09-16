@@ -85,7 +85,7 @@
                         if (data == null) {
                             return '無';
                         }
-                        return DateTimeFormatYYYYMMDD(data);
+                        return moment(data).format('YYYY/MM/DD');
                     }
                 },
                 { mDataProp: "Hit" },

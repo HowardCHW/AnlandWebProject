@@ -21,6 +21,16 @@
     <link rel="stylesheet" href="~/Content/base/plugin/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/Content/base/css/base.min.css">
     @RenderSection("styles", false)
+
+    <script src="~/Scripts/base/js/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/base/js/popper.min.js"></script>
+    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/base/js/datatables.min.js"></script>
+    <script src="~/Scripts/base/plugin/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Scripts/base/js/base.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/AnlandFrontend.js"></script>
 </head>
 
 <body>
@@ -41,15 +51,6 @@
     <!-- /頁尾 -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="~/Scripts/base/js/jquery.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/base/js/popper.min.js"></script>
-    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
-    <script src="~/Scripts/base/js/datatables.min.js"></script>
-    <script src="~/Scripts/base/plugin/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/Scripts/base/js/base.js"></script>
-    <script src="~/Scripts/moment.min.js"></script>
-    <script src="~/Scripts/AnlandFrontend.js"></script>
     <noscript>
         <div class="container">
             <div class="row">
@@ -64,6 +65,6 @@
             </div>
         </div>
     </noscript>
-    @RenderSection("scripts", false);
+    @RenderSection("scripts", false)
 </body>
 </html>

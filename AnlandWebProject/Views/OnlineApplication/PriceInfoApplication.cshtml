@@ -1,0 +1,597 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 分類檢索 Start -->
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 線上申辦 - 公告地價資料服務" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 線上申辦 - 公告地價資料服務" />
+    <meta name="DC.Description" content="線上申辦 - 公告地價資料服務" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="C11" />
+    <!-- 主題分類:140地政/施政分類:CKA 地政資訊系統/服務分類:C11土地建物登記 -->
+    <meta name="Keywords" content="線上申辦, 公告地價資料服務" />
+
+    <!-- 分類檢索 End -->
+    <meta name="Accessible_website" content="本網站通過通過AAA優先等級無障礙網頁檢測">
+    <title>基隆市安樂地政事務所全球資訊網 - 線上申辦-公告地價資料服務</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/base/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/base/icon-css/all.min.css">
+    <link rel="stylesheet" href="~/Content/base/plugin/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="~/Content/base/css/base.min.css">
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 內文區 -->
+    <div class="mt-3">
+        <div class="row">
+            @*<form class="m-auto" action="transact_04_01_preview.asp" method="post" name="addForm">*@
+            @using (Ajax.BeginForm("PriceInfoSave", "OnlineApplication", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "appPriceInfoForm", @class = "m-auto" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4 class="text-info">網路申請公告地價資料服務申請表 (有＊記號的欄位必須填寫)</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover border-bottom rwd-table m-0" summary="編排用表格">
+                            <caption class="sr-only">網路申請公告地價資料服務申請表 (有＊記號的欄位必須填寫)</caption>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="applyname">申請人姓名<span class="red">＊</span></label>
+                                </th>
+                                <td class="text-nowrap">
+                                    <input name="applyname" type="text" class="form-control" size="15" id="applyname" placeholder="" title="請填寫申請人姓名" required data-parsley-required-message="必填欄位！">
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="applyid">
+                                        申請人身分證字號<br>或統一編號<span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td class="text-nowrap">
+                                    <input name="applyid" type="text" class="form-control" size="15" id="applyid" placeholder="" title="請填寫申請人身分證字號或統一編號" required data-parsley-required-message="必填欄位！" data-parsley-verifyuid>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="applytel">
+                                        申請人住宅電話<br>或行動電話<span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td colspan="3" class="text-nowrap">
+                                    <input name="applytel" type="text" class="form-control" size="23" id="applytel" placeholder="02-24324001分機101 或 0911-101101" title="填寫範例：02-24324001分機101 或 0911-101101" required data-parsley-required-message="必填欄位！">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="purpose">申請目的<span class="red">＊</span></label></th>
+                                <td colspan="3" class="text-nowrap">
+                                    <select name="purpose" class="form-control" id="purpose" errid="purposeVal" title="請填寫申請目的">
+                                        <option value="" selected>請選擇</option>
+                                        <option value="(1)承租公司有土地">(1)承租公司有土地</option>
+                                        <option value="(2)申報地價參考">(2)申報地價參考</option>
+                                        <option value="(3)司法訴訟或調解">(3)司法訴訟或調解</option>
+                                        <option value="(4)其他">(4)其他</option>
+                                    </select>
+                                    <input id="purposeVal" style="display:none;" required data-parsley-required-message="必選欄位！" />
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="applyadd">
+                                        申請人住址<span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td colspan="3" class="text-nowrap">
+                                    <input name="applyadd" type="text" class="form-control" size="50" id="applyadd" placeholder="" title="請填寫申請人住址" required data-parsley-required-message="必選欄位！">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="applyemail">申請人 Email</label></th>
+                                <td colspan="7">
+                                    <input name="applyemail" type="text" class="form-control" size="40" id="applyemail" placeholder="" title="請填寫申請人 Email" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="area1">鄉鎮市區 1</label><span class="red">＊</span>
+                                </th>
+                                <td class="text-nowrap">
+                                    <select name="area1" id="area1" class="form-control" title="請選擇鄉鎮市區名稱" onChange="BuildSection(this.value, 1);">
+                                        <option value="" selected>請選擇</option>
+                                    </select>
+                                    <input id="area1Val" style="display:none;" required data-parsley-required-message="請選擇鄉鎮市區！" />
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="sarea1">
+                                        段名及小段名 1 <span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td>
+                                    <select name="sarea1" id="sarea1" class="form-control" errid="sarea1Val" title="請選擇段名及小段名">
+                                        <option value="" selected>--</option>
+                                    </select>
+                                    <input id="sarea1Val" style="display:none;" required data-parsley-required-message="請選擇段名及小段名！" />
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="areano1">
+                                        地號 1 <span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td class="text-nowrap">
+                                    <input name="areano1" type="text" class="form-control" size="15" id="areano_1" placeholder="" title="請填寫地號" required data-parsley-required-message="必選欄位！">
+                                    [ <a href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="區段代碼對照查詢[開啟新視窗]">查詢</a>]
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="areayear1">
+                                        年度 1 <span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td class="text-nowrap">
+                                    <select name="areayear1" class="form-control" id="areayear1" errid="areayear1Val" title="請選擇公告年度">
+                                        <option value="" selected>請選擇</option>
+                                        <option value="59年度">59年度</option>
+                                        <option value="63年度">63年度</option>
+                                        <option value="67年度">67年度</option>
+                                        <option value="76年度">76年度</option>
+                                        <option value="80年度">80年度</option>
+                                        <option value="83年度">83年度</option>
+                                        <option value="86年度">86年度</option>
+                                        <option value="89年度">89年度</option>
+                                        <option value="93年度">93年度</option>
+                                        <option value="96年度">96年度</option>
+                                        <option value="99年度">99年度</option>
+                                    </select>
+                                    <input id="areayear1Val" style="display:none;" required data-parsley-required-message="請選擇年度！" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="area2">鄉鎮市區 2</label></th>
+                                <td class="text-nowrap">
+                                    <select name="area2" id="area2" class="form-control" title="請選擇鄉鎮市區名稱" onChange="BuildSection(this.value, 2);">
+                                        <option value="" selected>請選擇</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="sarea2">段名及小段名 2</label></th>
+                                <td>
+                                    <select name="sarea2" id="sarea2" class="form-control" title="請選擇段名及小段名">
+                                        <option value="" selected>--</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areano2">地號 2</label></th>
+                                <td class="text-nowrap">
+                                    <input name="areano2" type="text" class="form-control" size="15" id="areano2" placeholder="" title="請填寫地號">
+                                    [ <a href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="區段代碼對照查詢[開啟新視窗]">查詢</a> ]
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areayear2">年度 2</label></th>
+                                <td class="text-nowrap">
+                                    <select name="areayear2" class="form-control" id="areayear2" title="請選擇公告年度">
+                                        <option value="" selected>請選擇</option>
+                                        <option value="59年度">59年度</option>
+                                        <option value="63年度">63年度</option>
+                                        <option value="67年度">67年度</option>
+                                        <option value="76年度">76年度</option>
+                                        <option value="80年度">80年度</option>
+                                        <option value="83年度">83年度</option>
+                                        <option value="86年度">86年度</option>
+                                        <option value="89年度">89年度</option>
+                                        <option value="93年度">93年度</option>
+                                        <option value="96年度">96年度</option>
+                                        <option value="99年度">99年度</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="area3">鄉鎮市區 3</label></th>
+                                <td class="text-nowrap">
+                                    <select name="area3" id="area3" class="form-control" title="請選擇鄉鎮市區名稱" onChange="BuildSection(this.value, 3);">
+                                        <option value="" selected>請選擇</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="sarea3">段名及小段名 3</label></th>
+                                <td>
+                                    <select name="sarea3" id="sarea3" class="form-control" title="請選擇段名及小段名">
+                                        <option value="" selected>--</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areano3">地號 3</label></th>
+                                <td class="text-nowrap">
+                                    <input name="areano3" type="text" class="form-control" size="15" id="areano3" placeholder="" title="請填寫地號"> 
+                                    [ <a href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="區段代碼對照查詢[開啟新視窗]">查詢</a> ]
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areayear3">年度 3</label></th>
+                                <td class="text-nowrap">
+                                    <select name="areayear3" class="form-control" id="areayear3" title="請選擇公告年度">
+                                        <option value="" selected>請選擇</option>
+                                        <option value="59年度">59年度</option>
+                                        <option value="63年度">63年度</option>
+                                        <option value="67年度">67年度</option>
+                                        <option value="76年度">76年度</option>
+                                        <option value="80年度">80年度</option>
+                                        <option value="83年度">83年度</option>
+                                        <option value="86年度">86年度</option>
+                                        <option value="89年度">89年度</option>
+                                        <option value="93年度">93年度</option>
+                                        <option value="96年度">96年度</option>
+                                        <option value="99年度">99年度</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="area4">鄉鎮市區 4</label></th>
+                                <td class="text-nowrap">
+                                    <select name="area4" id="area4" class="form-control" title="請選擇鄉鎮市區名稱" onChange="BuildSection(this.value, 4);">
+                                        <option value="" selected>請選擇</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="sarea4">段名及小段名 4</label></th>
+                                <td>
+                                    <select name="sarea4" id="sarea4" class="form-control" title="請選擇段名及小段名">
+                                        <option value="" selected>--</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areano4">地號 4</label></th>
+                                <td class="text-nowrap">
+                                    <input name="areano4" type="text" class="form-control" size="15" id="areano4" placeholder="" title="請填寫地號">
+                                    [ <a href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="區段代碼對照查詢[開啟新視窗]">查詢</a> ]
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areayear4">年度 4</label></th>
+                                <td class="text-nowrap">
+                                    <select name="areayear4" class="form-control" id="areayear4" title="請選擇公告年度">
+                                        <option value="" selected>請選擇</option>
+                                        <option value="59年度">59年度</option>
+                                        <option value="63年度">63年度</option>
+                                        <option value="67年度">67年度</option>
+                                        <option value="76年度">76年度</option>
+                                        <option value="80年度">80年度</option>
+                                        <option value="83年度">83年度</option>
+                                        <option value="86年度">86年度</option>
+                                        <option value="89年度">89年度</option>
+                                        <option value="93年度">93年度</option>
+                                        <option value="96年度">96年度</option>
+                                        <option value="99年度">99年度</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="area5">鄉鎮市區 5</label></th>
+                                <td class="text-nowrap">
+                                    <select name="area5" id="area5" class="form-control" title="請選擇鄉鎮市區名稱" onChange="BuildSection(this.value, 5);">
+                                        <option value="" selected>請選擇</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="sarea5">段名及小段名 5</label></th>
+                                <td>
+                                    <select name="sarea5" id="sarea5" class="form-control" title="請選擇段名及小段名">
+                                        <option value="" selected>--</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areano5">地號 5</label></th>
+                                <td class="text-nowrap">
+                                    <input name="areano5" type="text" class="form-control" size="15" id="areano5" placeholder="" title="請填寫地號">
+                                    [ <a href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="區段代碼對照查詢[開啟新視窗]">查詢</a> ]
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary"><label for="areayear5">年度 4</label></th>
+                                <td class="text-nowrap">
+                                    <select name="areayear5" class="form-control" id="areayear5" title="請選擇公告年度">
+                                        <option value="" selected>請選擇</option>
+                                        <option value="59年度">59年度</option>
+                                        <option value="63年度">63年度</option>
+                                        <option value="67年度">67年度</option>
+                                        <option value="76年度">76年度</option>
+                                        <option value="80年度">80年度</option>
+                                        <option value="83年度">83年度</option>
+                                        <option value="86年度">86年度</option>
+                                        <option value="89年度">89年度</option>
+                                        <option value="93年度">93年度</option>
+                                        <option value="96年度">96年度</option>
+                                        <option value="99年度">99年度</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="note">其他備註事項欄：</label></th>
+                                <td colspan="7">
+                                    <select name="note" class="form-control" id="note" >
+                                        <option selected title="請選擇鄉鎮市區名稱">請選擇</option>
+                                        <option value="親自領取">親自領取</option>
+                                    </select>
+                                    ( 親自領件者請與本欄位註明，無則免填 )
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary">說明</th>
+                                <td colspan="7" class="dline05">
+                                    1.若無法順利送出，請下載「基隆市安樂地政事務所公告地價網路作業申請書」，e-mail至「alland@anleh-land.gov.tw」。<br>
+                                    2.依據內政部89年9月4日台(89)內地字第8912764號函，上開地段號之公告地價資料將以公文書方式核發。
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <h4 class="mt-4 text-info"><span class="fas fa-braille"></span> 網路申請檔案閱覽抄錄複製服務網頁問卷 (必須填寫)</h4>
+                <p class="mt-3 mb-3 h5">為提供民眾更好的服務，請您協助填寫以下問卷，非常謝謝您的協助。</p>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <table class="table table-hover border-bottom rwd-table m-0" summary="編排用表格">
+                            <caption class="sr-only">
+                                網路申請檔案閱覽抄錄複製服務網頁問卷 (必須填寫)
+                            </caption>
+                            <tr>
+                                <th class="text-nowrap table-success"><label for="qa1">1.請問您從何處得知本所「網路申請檔案閱覽抄錄複製服務」？</label></th>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">
+                                    <input name="qa1" id="qa11" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa11Error">
+                                    <label for="qa11">傳播媒體</label>
+                                    <input name="qa1" id="qa12" type="radio" value="2">
+                                    <label for="qa12">報章雜誌</label>
+                                    <input name="qa1" id="qa13" type="radio" value="3">
+                                    <label for="qa13">本所宣導品</label>
+                                    <input name="qa1" id="qa14" type="radio" value="4">
+                                    <label for="qa14">親朋好友告知</label>
+                                    <input name="qa1" id="qa15" type="radio" value="5">
+                                    <label for="qa15">自己發現</label>
+                                    <div id="qa11Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success"><label for="qa2">2.請問您對於本所「網路申請檔案閱覽抄錄複製服務」網頁操作介面是否滿意？</label></th>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">
+                                    <input name="qa2" id="qa21" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa21Error">
+                                    <label for="qa21">非常滿意</label>
+                                    <input name="qa2" id="qa22" type="radio" value="2">
+                                    <label for="qa22">滿意</label>
+                                    <input name="qa2" id="qa23" type="radio" value="3">
+                                    <label for="qa23">普通</label>
+                                    <input name="qa2" id="qa24" type="radio" value="4">
+                                    <label for="qa24">不滿意</label>
+                                    <input name="qa2" id="qa25" type="radio" value="5">
+                                    <label for="qa25">非常不滿意</label>
+                                    <div id="qa21Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success"><label for="qa3">3.請問您認為「網路申請檔案閱覽抄錄複製服務」此項服務，能節省您多少時間？</label></th>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">
+                                    <input name="qa3" id="qa31" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa31Error">
+                                    <label for="qa31">4小時以上</label>
+                                    <input name="qa3" id="qa32" type="radio" value="2">
+                                    <label for="qa32">3-4小時</label>
+                                    <input name="qa3" id="qa33" type="radio" value="3">
+                                    <label for="qa33">2-3小時</label>
+                                    <input name="qa3" id="qa34" type="radio" value="4">
+                                    <label for="qa34">1-2小時</label>
+                                    <input name="qa3" id="qa35" type="radio" value="5">
+                                    <label for="qa35">1小時以內</label>
+                                    <div id="qa31Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success"><label for="qa4">4.總體而言，請問您對於本所「網路申請檔案閱覽抄錄複製服務」此項服務，是否滿意？</label></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="qa4" id="qa41" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa41Error">
+                                    <label for="qa41">非常滿意</label>
+                                    <input name="qa4" id="qa42" type="radio" value="2">
+                                    <label for="qa42">滿意</label>
+                                    <input name="qa4" id="qa43" type="radio" value="3">
+                                    <label for="qa43">普通</label>
+                                    <input name="qa4" id="qa44" type="radio" value="4">
+                                    <label for="qa44">不滿意</label>
+                                    <input name="qa4" id="qa45" type="radio" value="5">
+                                    <label for="qa45">非常不滿意</label>
+                                    <div id="qa41Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success"><label for="qa5">5.請問您的職業是：</label></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="qa5" id="qa51" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa51Error">
+                                    <label for="qa51">地政士或不動產相關行業</label>
+                                    <input name="qa5" id="qa52" type="radio" value="2">
+                                    <label for="qa52">銀行或金融業</label>
+                                    <input name="qa5" id="qa53" type="radio" value="3">
+                                    <label for="qa53">軍公教</label>
+                                    <input name="qa5" id="qa54" type="radio" value="4">
+                                    <label for="qa54">農漁商</label>
+                                    <input name="qa5" id="qa55" type="radio" value="5">
+                                    <label for="qa55">自由業或其他</label>
+                                    <div id="qa51Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success">
+                                    填寫日期：@DateTime.Now.ToString("yyyy/MM/dd")
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="mt-3 mb-3 text-right">
+                    <input name="reset" type="reset" class="btn btn-default" value="重填" />
+                    <button id="btnSend" type="button" class="btn btn-primary">
+                        <span class=""></span>送出表單 <span class="fab fa-telegram-plane"></span>
+                    </button>
+                </div>
+            }
+            @*</form>*@
+        </div>
+    </div>
+    <!-- /內文區 -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Scripts/base/js/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/base/js/popper.min.js"></script>
+    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/base/plugin/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/base/plugin/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.min.js"></script>
+    <script src="~/Scripts/base/js/base.js"></script>
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script src="~/Scripts/Parsley/i18n/zh_tw.js"></script>
+    <script src="~/Scripts/AnlandFrontend.js"></script>
+    <script>
+        var Township = '';
+        $(document).ready(function () {
+            $.getJSON('/Content/Json/Area.json', function (areaData) {
+                Township = areaData;
+
+                var select1 = $('#area1');
+                var select2 = $('#area2');
+                var select3 = $('#area3');
+                var select4 = $('#area4');
+                var select5 = $('#area5');
+                select1.children('option:not(:first)').remove();
+                select2.children('option:not(:first)').remove();
+                select3.children('option:not(:first)').remove();
+                select4.children('option:not(:first)').remove();
+                select5.children('option:not(:first)').remove();
+                $.each(Township, function (area, value) {
+                    select1.append($("<option></option>").attr("value", area).text(area));
+                    select2.append($("<option></option>").attr("value", area).text(area));
+                    select3.append($("<option></option>").attr("value", area).text(area));
+                    select4.append($("<option></option>").attr("value", area).text(area));
+                    select5.append($("<option></option>").attr("value", area).text(area));
+                });
+            });
+
+            $('#purpose, #sarea1, #areayear1').on('change', function () {
+                var errid = $(this).attr('errid');
+                if ($(this).val() == '') {
+                    $('#' + errid).val('');
+                } else {
+                    $('#' + errid).val($(this).val());
+                }
+                $('#' + errid).parsley().validate();
+            });
+
+            $('#btnSend').on('click', function () {
+                $('#appPriceInfoForm').parsley().validate();
+                if ($('#appPriceInfoForm').parsley().isValid()) {
+                    $('#appPriceInfoForm').submit();
+                }
+            });
+        });
+
+        window.Parsley.addValidator('verifyuid', {
+            requirementType: 'string',
+            validateString: function (value, data, parsleyInstance) {
+                if (value.search(/^[A-Za-z](1|2)\d{8}$/i) == -1) {
+                    return false;
+                }
+
+                //建立字母分數陣列(A~Z)
+                var city = new Array(
+                    1, 10, 19, 28, 37, 46, 55, 64, 39, 73, 82, 2, 11,
+                    20, 48, 29, 38, 47, 56, 65, 74, 83, 21, 3, 12, 30
+                )
+                value = value.toUpperCase();
+                //將字串分割為陣列(IE必需這麼做才不會出錯)
+                value = value.split('');
+
+                //計算總分
+                var total = city[value[0].charCodeAt(0) - 65];
+                for (var i = 1; i <= 8; i++) {
+                    total += eval(value[i]) * (9 - i);
+                }
+                //補上檢查碼(最後一碼)
+                total += eval(value[9]);
+                //檢查比對碼(餘數應為0);
+                return ((total % 10 == 0));
+            },
+            messages: {
+                'zh-tw': '身分證格式錯誤!'
+            }
+        });
+
+        function SuccessMessage(result) {
+            if (result) {
+                var url = '/OnlineApplication/Status';
+                location = url;
+            } else {
+                ErrorMSG('送出失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('送出失敗');
+        }
+
+        function BuildSection(val, ind) {
+            var id = 'sarea' + ind;
+            var select = $('#' + id);
+            if (val != '') {
+                if (ind == 1) {
+                    $('#area1Val').val(val);
+                    $('#area1Val').parsley().validate();
+                    $('#sarea1Val').val('');
+                }
+                var sectionData = Township[val];                
+                select.children('option:not(:first)').remove();
+                $.each(sectionData, function (index, value) {
+                    select.append($("<option></option>").attr("value", value).text(value));
+                });
+            } else {
+                if (ind == 1) {
+                    $('#area1Val').val('');
+                    $('#area1Val').parsley().validate();
+                }
+                select.children('option:not(:first)').remove();
+            }
+        }
+
+        /* 去掉字串兩端的空白字元 */
+        String.prototype.trim = function () {
+            return this.replace(/(^\s+)|(\s+$)/g, "");
+        }
+    </script>
+    <noscript>
+        <div class="container">
+            <div class="row">
+                <div class="card m-3 banner">
+                    <div class="card-body p-3">
+                        您的瀏覽器不支援javascript，但不影響網頁內容陳述，如開啟JavaScript，可得到視覺與特效的最佳瀏覽
+                        <br>列印功能：請按下ctrl+P開啟列印視窗,或由工具列中選擇列印功能
+                        <br>如需要選擇字級大小，IE6請利用鍵盤按住ALT鍵+ V → X → (G)最大(L)較大(M)中(S)較小(A)小，來選擇適合您的文字大小，
+                        而IE7或Firefox瀏覽器則可利用鍵盤 Ctrl
+                        + (+)放大(-)縮小來改變字型大小，如需要回到上一頁可使用瀏覽器提供的 Alt+左方向鍵(←)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </noscript>
+</body>
+
+</html>

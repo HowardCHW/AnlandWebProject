@@ -1,0 +1,1440 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 規費收入月報表";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 規費收入月報表" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 規費收入月報表" />
+    <meta name="DC.Description" content="規費收入月報表" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字, 檔案" />
+    <meta name="DC.Format" content="text/html, Word/file, PDF/file" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CK2" />
+    <meta name="Category.Service" content="C10" />
+    <!-- 主題分類:140地政/施政分類:CK2 地籍管理/服務分類:C10買賣房屋 -->
+    <meta name="Keywords" content="規費收入月報表, word, PDF" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        政府資訊公開服務
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">規費收入月報表</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <div class="pl-5 pr-0">
+                    <h2 class="pl-0">規費收入月報表</h2>
+                    <div class="alert alert-secondary bg-lightreay pb-0 ml-0" role="alert">
+                        <p class="p-0">
+                            <span class="red">注意：</span>本所提供之表單文件，皆有線上版閱覽器可供開啟檔案，若您需要單機版PDF閱覽器，請下載軟體：
+                            <a href="https://get.adobe.com/tw/reader/" target="_blank" title="開啟新的導覽視窗">
+                                Adobe Reader
+                                <span class="fas fa-file-pdf"></span>
+                            </a>
+                        </p>
+                    </div>
+
+                    <table id="myTable" class="table table-hover table-striped border-bottom rwd-table" summary="規費收入月報表表格，為3直欄設計，第1直欄為檔案名稱，第2直欄為日期，第3直欄為檔案下載。">
+                        <caption class="sr-only">規費收入月報表</caption>
+                        <thead>
+                            <tr class="bg-brown">
+                                <th scope="col">檔案名稱</th>
+                                <th scope="col">日期</th>
+                                <th scope="col">檔案下載</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-th="檔案名稱">107年08月份</td>
+                                <td data-th="日期">107/09/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10708.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">107年07月份</td>
+                                <td data-th="日期">107/08/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10707.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">107年06月份</td>
+                                <td data-th="日期">107/07/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10706.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">107年05月份</td>
+                                <td data-th="日期">107/06/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10705.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">107年04月份</td>
+                                <td data-th="日期">107/05/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10704.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">107年03月份</td>
+                                <td data-th="日期">107/04/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10703.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">107年02月份</td>
+                                <td data-th="日期">107/03/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10702.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">107年01月份</td>
+                                <td data-th="日期">107/02/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10701.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年12月份</td>
+                                <td data-th="日期">107/01/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10612.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年11月份</td>
+                                <td data-th="日期">106/12/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10611.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年10月份</td>
+                                <td data-th="日期">106/11/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10610.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年09月份</td>
+                                <td data-th="日期">106/10/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10609.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年08月份</td>
+                                <td data-th="日期">106/09/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10608.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年07月份</td>
+                                <td data-th="日期">106/08/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10607.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年06月份</td>
+                                <td data-th="日期">106/07/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10606.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年05月份</td>
+                                <td data-th="日期">106/06/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10605.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年04月份</td>
+                                <td data-th="日期">106/05/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10604.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年03月份</td>
+                                <td data-th="日期">106/04/11</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10603.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年02月份</td>
+                                <td data-th="日期">106/03/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10602.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">106年01月份</td>
+                                <td data-th="日期">106/02/07</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10601.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年12月份</td>
+                                <td data-th="日期">106/01/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10512.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年11月份</td>
+                                <td data-th="日期">105/12/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10511.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年10月份</td>
+                                <td data-th="日期">105/11/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10510.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年09月份</td>
+                                <td data-th="日期">105/09/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10509.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年08月份</td>
+                                <td data-th="日期">105/09/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10508.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年07月份</td>
+                                <td data-th="日期">105/08/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10507.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年06月份</td>
+                                <td data-th="日期">105/07/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10506.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年05月份</td>
+                                <td data-th="日期">105/06/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10505.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年04月份</td>
+                                <td data-th="日期">105/05/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10504.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年03月份</td>
+                                <td data-th="日期">105/04/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10503.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年02月份</td>
+                                <td data-th="日期">105/03/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10502.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">105年01月份</td>
+                                <td data-th="日期">105/02/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10501.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年12月份</td>
+                                <td data-th="日期">105/01/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10412.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年11月份</td>
+                                <td data-th="日期">104/12/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10411.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年10月份</td>
+                                <td data-th="日期">104/11/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10410.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年09月份</td>
+                                <td data-th="日期">104/10/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10409.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年08月份</td>
+                                <td data-th="日期">104/09/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10408.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年07月份</td>
+                                <td data-th="日期">104/08/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10407.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年06月份</td>
+                                <td data-th="日期">104/07/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10406.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年05月份</td>
+                                <td data-th="日期">104/06/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10405.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年04月份</td>
+                                <td data-th="日期">104/05/01</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10404.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年03月份</td>
+                                <td data-th="日期">104/04/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10403.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年02月份</td>
+                                <td data-th="日期">104/03/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10402.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">104年01月份</td>
+                                <td data-th="日期">104/02/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10401.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年12月份</td>
+                                <td data-th="日期">104/01/13</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10312.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年11月份</td>
+                                <td data-th="日期">103/12/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10311.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年10月份</td>
+                                <td data-th="日期">103/11/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10310.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年09月份</td>
+                                <td data-th="日期">103/10/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10309.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年08月份</td>
+                                <td data-th="日期">103/09/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10308.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年07月份</td>
+                                <td data-th="日期">103/08/07</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10307.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年06月份</td>
+                                <td data-th="日期">103/07/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10306.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年05月份</td>
+                                <td data-th="日期">103/06/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10305.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年04月份</td>
+                                <td data-th="日期">103/05/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10304.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年03月份</td>
+                                <td data-th="日期">103/04/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10303.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年02月份</td>
+                                <td data-th="日期">103/03/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10302.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">103年01月份</td>
+                                <td data-th="日期">103/02/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10301.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年12月份</td>
+                                <td data-th="日期">103/01/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10212.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年11月份</td>
+                                <td data-th="日期">102/12/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10211.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年10月份</td>
+                                <td data-th="日期">102/11/01</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10210.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年9月份</td>
+                                <td data-th="日期">102/10/07</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10209.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年8月份</td>
+                                <td data-th="日期">102/09/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10208.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年7月份</td>
+                                <td data-th="日期">102/08/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10207.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年6月份</td>
+                                <td data-th="日期">102/07/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10206.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年5月份</td>
+                                <td data-th="日期">102/06/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10205.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年4月份</td>
+                                <td data-th="日期">102/05/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10204.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年3月份</td>
+                                <td data-th="日期">102/04/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10203.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年2月份</td>
+                                <td data-th="日期">102/03/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10202.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">102年1月份</td>
+                                <td data-th="日期">102/01/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10201.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年12月份</td>
+                                <td data-th="日期">102/01/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10112.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年11月份</td>
+                                <td data-th="日期">101/12/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10111.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年10月份</td>
+                                <td data-th="日期">101/11/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10111.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年9月份</td>
+                                <td data-th="日期">101/10/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10109.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年8月份</td>
+                                <td data-th="日期">101/09/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10108.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年7月份</td>
+                                <td data-th="日期">101/08/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10107.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年6月份</td>
+                                <td data-th="日期">101/07/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10106.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年5月份</td>
+                                <td data-th="日期">101/06/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10105.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年4月份</td>
+                                <td data-th="日期">101/05/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10104.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年3月份</td>
+                                <td data-th="日期">101/04/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10103.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年2月份</td>
+                                <td data-th="日期">101/03/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10102.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">101年1月份</td>
+                                <td data-th="日期">101/02/01</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10101.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年12月份</td>
+                                <td data-th="日期">101/01/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10012.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年11月份</td>
+                                <td data-th="日期">100/12/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10011.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年10月份</td>
+                                <td data-th="日期">100/11/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10010.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年9月份</td>
+                                <td data-th="日期">100/10/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10009.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年08月份</td>
+                                <td data-th="日期">100/09/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10008.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年7月份</td>
+                                <td data-th="日期">100/08/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10007.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年06月份</td>
+                                <td data-th="日期">100/07/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10006.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年5月份</td>
+                                <td data-th="日期">100/06/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10005.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年04月份</td>
+                                <td data-th="日期">100/05/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10004.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年3月份</td>
+                                <td data-th="日期">100/04/07</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10003.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年02月份</td>
+                                <td data-th="日期">100/03/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10002.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">100年1月份</td>
+                                <td data-th="日期">100/02/10</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/10001.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年12月份</td>
+                                <td data-th="日期">100/01/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9912.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年11月份</td>
+                                <td data-th="日期">99/12/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9911.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年10月份</td>
+                                <td data-th="日期">99/11/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9910.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年9月份</td>
+                                <td data-th="日期">99/10/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9909.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年8月份</td>
+                                <td data-th="日期">99/09/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9908.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年7月份</td>
+                                <td data-th="日期">99/08/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9907.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年6月份</td>
+                                <td data-th="日期">99/07/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9906.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年5月份</td>
+                                <td data-th="日期">99/06/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9905.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年4月份</td>
+                                <td data-th="日期">99/05/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9904.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年3月份</td>
+                                <td data-th="日期">99/04/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9903.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年2月份</td>
+                                <td data-th="日期">99/03/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9902.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">99年1月份</td>
+                                <td data-th="日期">99/02/02</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9901.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年12月份</td>
+                                <td data-th="日期">99/01/08</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9812.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年11月份</td>
+                                <td data-th="日期">98/12/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9811.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年10月份</td>
+                                <td data-th="日期">98/11/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9810.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年9月份</td>
+                                <td data-th="日期">98/10/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9809.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年8月份</td>
+                                <td data-th="日期">98/09/14</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9808.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年7月份</td>
+                                <td data-th="日期">98/08/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9807.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年6月份</td>
+                                <td data-th="日期">98/07/06</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9806.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年5月份</td>
+                                <td data-th="日期">98/06/05</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9805.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年4月份</td>
+                                <td data-th="日期">98/05/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9804.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年3月份</td>
+                                <td data-th="日期">98/4/03</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9803.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年2月份</td>
+                                <td data-th="日期">98/03/04</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9802.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">98年1月份</td>
+                                <td data-th="日期">98/2/10</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/9801.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年12月份</td>
+                                <td data-th="日期">98/01/07</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/dec.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年11月份</td>
+                                <td data-th="日期">97/12/09</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/nov.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年10月份</td>
+                                <td data-th="日期">97/11/21</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/oct.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年9月份</td>
+                                <td data-th="日期">97/10/07</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/sep.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年8月份</td>
+                                <td data-th="日期">97/09/19</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/aug.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年7月份</td>
+                                <td data-th="日期">97/08/18</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/july.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年6月份</td>
+                                <td data-th="日期">97/08/18</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/june.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年5月份</td>
+                                <td data-th="日期">97/08/18</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/may.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年4月份</td>
+                                <td data-th="日期">97/08/18</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/app.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年3月份</td>
+                                <td data-th="日期">97/08/18</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/mar.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年2月份</td>
+                                <td data-th="日期">97/08/18</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/feb.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="檔案名稱">97年1月份</td>
+                                <td data-th="日期">97/08/18</td>
+                                <td data-th="檔案下載">
+                                    <a href="~/DownloadFile/month/jan.pdf" target="_blank" title="開啟新的導覽視窗">
+                                        PDF
+                                        <span class="fas fa-file-pdf"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Index","GovernmentInfomation")">
+                <span class="fal fa-external-link-square" aria-hidden="true"></span> 回政府資訊公開
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->
+
+<script>
+    $(document).ready(function () {
+        // Data Table
+        $('#myTable').DataTable({
+            "language": {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 筆結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                "infoPostFix": "",
+                "search": "搜尋:",
+                "searchPlaceholder": "請輸入關鍵字",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            },
+            "pagingType": "full_numbers",
+            "ordering": false
+            // ,
+            // "searching": false
+        });
+    });
+</script>

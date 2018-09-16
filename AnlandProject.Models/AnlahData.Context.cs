@@ -42,11 +42,6 @@ namespace AnlandProject.Models
         public virtual DbSet<document> document { get; set; }
         public virtual DbSet<intro10> intro10 { get; set; }
         public virtual DbSet<meeting> meeting { get; set; }
-        public virtual DbSet<copy> copy { get; set; }
-        public virtual DbSet<engcopy> engcopy { get; set; }
-        public virtual DbSet<landprice> landprice { get; set; }
-        public virtual DbSet<onlineapp> onlineapp { get; set; }
-        public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<setup_smtp> setup_smtp { get; set; }
         public virtual DbSet<cake> cake { get; set; }
         public virtual DbSet<service> service { get; set; }
@@ -63,5 +58,11 @@ namespace AnlandProject.Models
         public virtual DbSet<suggest3> suggest3 { get; set; }
         public virtual DbSet<email> email { get; set; }
         public virtual DbSet<director> director { get; set; }
+        public virtual DbSet<proposal_data> proposal_data { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
+        public virtual DbSet<copy> copy { get; set; }
+        public virtual DbSet<engcopy> engcopy { get; set; }
+        public virtual DbSet<landprice> landprice { get; set; }
+        public virtual DbSet<onlineapp> onlineapp { get; set; }
     }
 }

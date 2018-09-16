@@ -57,9 +57,16 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public DefaultDataModel NewsQueryByID(int id)
+        public DefaultDataModel NewsQueryByID(int id, bool isFront = false)
         {
             var tempData = _newsRepository.Get(x => x.ID == id);
+
+            //紀錄前台使用者點擊次數
+            if (isFront)
+            {
+                tempData.hit += 1;
+                _newsRepository.Update(tempData);
+            }            
 
             DefaultDataModel result = null;
             if (tempData != null)

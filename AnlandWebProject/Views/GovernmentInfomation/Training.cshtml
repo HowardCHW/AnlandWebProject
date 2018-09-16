@@ -1,0 +1,551 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 教育訓練成果";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 教育訓練成果、參訪心得、研究報告、受訓心得" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 教育訓練成果、參訪心得、研究報告、受訓心得" />
+    <meta name="DC.Description" content="教育訓練成果、參訪心得、研究報告、受訓心得" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字, 檔案" />
+    <meta name="DC.Format" content="text/html, Word/file, PDF/file" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CK2" />
+    <meta name="Category.Service" content="C10" />
+    <!-- 主題分類:140地政/施政分類:CK2 地籍管理/服務分類:C10買賣房屋 -->
+    <meta name="Keywords" content="教育訓練成果, 參訪心得, 研究報告, 受訓心得" />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        政府資訊公開服務
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">教育訓練成果</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <div class="pl-5 pr-0">
+                    <h2 class="pl-0">教育訓練成果</h2>
+                    <div class="alert alert-secondary bg-lightreay pb-0 ml-0" role="alert">
+                        <p class="p-0">
+                            <span class="red">注意：</span>本所提供之表單文件，皆有線上版閱覽器可供開啟檔案，若您需要單機版PDF閱覽器，請下載軟體：
+                            <a href="https://get.adobe.com/tw/reader/" target="_blank" title="開啟新的導覽視窗">
+                                Adobe Reader
+                                <span class="fas fa-file-pdf"></span>
+                            </a>
+                        </p>
+                    </div>
+                    <ul class="nav nav-pills justify-content-end" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link link-success active" id="correct1-tab" data-toggle="tab" href="#correct1"
+                               role="tab" aria-controls="correct1" aria-selected="false">
+                                <span class="fas fa-file-edit"></span> 參訪心得
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-success" id="correct2-tab" data-toggle="tab" href="#correct2"
+                               role="tab" aria-controls="correct2" aria-selected="false">
+                                <span class="fas fa-chalkboard-teacher"></span> 研究報告
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-success" id="correct3-tab" data-toggle="tab" href="#correct3"
+                               role="tab" aria-controls="correct3" aria-selected="false">
+                                <span class="fas fa-drafting-compass"></span> 受訓心得
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="correct1" role="tabpanel" aria-labelledby="correct1-tab">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span> 參訪心得
+                            </h3>
+                            <div class="col-md-12 pl-0">
+                                <table id="myTable" class="table table-hover table-striped border-bottom rwd-table"
+                                       summary="教育訓練成果表格，為3直欄設計，第1直欄為檔案名稱，第2直欄為日期，第3直欄為檔案下載。">
+                                    <caption class="sr-only">教育訓練成果</caption>
+                                    <thead>
+                                        <tr class="bg-brown">
+                                            <th nowrap scope="col">檔案名稱</th>
+                                            <th nowrap scope="col">日期</th>
+                                            <th nowrap scope="col">檔案下載</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-th="檔案名稱">公文教育訓練</td>
+                                            <td data-th="日期">103/06/25</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/class/1030625公文教育訓練.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">OFFICE 2007簡介</td>
+                                            <td data-th="日期">102/09/26</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/class/1020926講義簡報of2007.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">資訊安全觀念宣導</td>
+                                            <td data-th="日期">102/05/22</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/class/1020522資安講習.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">為民服務的觀念及其作法</td>
+                                            <td data-th="日期">100/08/11</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/class/為民服務的觀念及其作法_1000811.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">資安法令宣導及案例分析</td>
+                                            <td data-th="日期">98/03/10</td>
+                                            <td data-th="檔案名稱">
+                                                <a href="~/DownloadFile/class/資安法令宣導及案例分析.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">公務禮儀與形象建立</td>
+                                            <td data-th="日期">97/05/20</td>
+                                            <td data-th="檔案名稱">
+                                                <a href="~/DownloadFile/class/公務禮儀.pdf" target="_blank" title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">網路安全概論</td>
+                                            <td data-th="日期">97/05/27</td>
+                                            <td data-th="檔案名稱">
+                                                <a href="~/DownloadFile/class/網路安全.pdf" target="_blank" title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="correct2" role="tabpanel" aria-labelledby="correct2-tab">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span> 研究報告
+                            </h3>
+                            <div class="col-md-12pl-0">
+                                <table id="myTable1" class="table table-hover table-striped border-bottom rwd-table"
+                                       summary="研究報告表格，為4直欄設計，第1直欄為檔案名稱，第2直欄為撰寫人，第3直欄為日期，第4直欄為檔案下載。">
+                                    <caption class="sr-only">研究報告</caption>
+                                    <thead>
+                                        <tr class="bg-brown">
+                                            <th scope="col">檔案名稱</th>
+                                            <th scope="col">日期</th>
+                                            <th scope="col">檔案下載</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-th="檔案名稱">1010323經緯儀檢校成果報告</td>
+                                            <td data-th="日期">101/03</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/1010323經緯儀檢校.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">100/10/07儀器檢校成果</td>
+                                            <td data-th="日期">100/10</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/10-18-2011.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">100/05/06經緯儀檢校訓練成果報告</td>
+                                            <td data-th="日期">100/05</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/經緯儀檢校訓練成果報告.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">991203宜蘭運動公園儀器檢校成果</td>
+                                            <td data-th="日期">99/12</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/991203宜蘭運動公園儀器檢校成果.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">99/05/28經緯儀檢校成果(精度分析表)</td>
+                                            <td data-th="日期">99/05</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/儀器檢校結果.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">第三課業務督導考核缺失改善情形一覽表-地價</td>
+                                            <td data-th="日期">99/02</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/三課考核缺失改善情形-地價.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">第三課業務督導考核缺失改善情形一覽表-非都</td>
+                                            <td data-th="日期">99/02</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/三課考核缺失改善情形-非都.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">98/12經緯儀檢校成果(測距精度分析表)</td>
+                                            <td data-th="日期">98/12</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/組合2.pdf" target="_blank" title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">98/12經緯儀檢校成果(測角精度分析表)</td>
+                                            <td data-th="日期">98/12</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/組合1.pdf" target="_blank" title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">一課錯誤態樣</td>
+                                            <td data-th="日期">98/11</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/一課錯誤態樣.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">第二課業務督導缺失-錯誤態樣案例</td>
+                                            <td data-th="日期">98/11</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/第二課業務督導缺失-錯誤態樣案例.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">98年儀器檢校成果</td>
+                                            <td data-th="日期">98/06</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/98年儀器檢校成果.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">導線平差計算應用</td>
+                                            <td data-th="日期">97/12</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/導線平差計算(excel)應用.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">人力資源分配</td>
+                                            <td data-th="日期">96/10</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/analy/報告1.pdf" target="_blank" title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="correct3" role="tabpanel" aria-labelledby="correct3-tab">
+                            <h3 class="pl-0">
+                                <span class="fas fa-bookmark"></span> 受訓心得
+                            </h3>
+                            <div class="col-md-12pl-0">
+                                <table id="myTable2" class="table table-hover table-striped border-bottom rwd-table"
+                                       summary="受訓心得表格，為4直欄設計，第1直欄為檔案名稱，第2直欄為撰寫人，第3直欄為日期，第4直欄為檔案下載。">
+                                    <caption class="sr-only">受訓心得</caption>
+                                    <thead>
+                                        <tr class="bg-brown">
+                                            <th nowrap scope="col">檔案名稱</th>
+                                            <th nowrap scope="col">撰寫人</th>
+                                            <th nowrap scope="col">日期</th>
+                                            <th nowrap scope="col">檔案下載</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-th="檔案名稱">土地試分割系統</td>
+                                            <td data-th="撰寫人">林舜文</td>
+                                            <td data-th="日期">98/12/14</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/土地試分割系統受訓心得.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">98地價講習會</td>
+                                            <td data-th="撰寫人">游珊華</td>
+                                            <td data-th="日期">98/05/18</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/98地價講習會.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">不動產估價研習會</td>
+                                            <td data-th="撰寫人">游珊華</td>
+                                            <td data-th="日期">98/02/16</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/不動產估價研習會.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">簡化建物第一次測量作業</td>
+                                            <td data-th="撰寫人">林舜文</td>
+                                            <td data-th="日期">97/11/20</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/build.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">國土測量研習</td>
+                                            <td data-th="撰寫人">曾國慶</td>
+                                            <td data-th="日期">97/06/23</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/國土測量研習.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">建物測量資訊作業</td>
+                                            <td data-th="撰寫人">林舜文 余宗進 </td>
+                                            <td data-th="日期">97/05/26</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/建物測量資訊作業系統.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">多目標立體圖資</td>
+                                            <td data-th="撰寫人">曾國慶 林舜文 </td>
+                                            <td data-th="日期">97/04/02</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/多目標立體圖資.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-th="檔案名稱">圖根點補建平差模式</td>
+                                            <td data-th="撰寫人">葉忠信 </td>
+                                            <td data-th="日期">97/03/21</td>
+                                            <td data-th="檔案下載">
+                                                <a href="~/DownloadFile/training/圖根點補建平差模式.pdf" target="_blank"
+                                                   title="開啟新的導覽視窗">
+                                                    PDF
+                                                    <span class="fas fa-file-pdf"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Index","GovernmentInfomation")">
+                <span class="fal fa-external-link-square" aria-hidden="true"></span> 回政府資訊公開
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->
+
+<script>
+    $(document).ready(function () {
+        // Data Table
+        $('#myTable, #myTable1, #myTable2').DataTable({
+            "language": {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 筆結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                "infoPostFix": "",
+                "search": "搜尋:",
+                "searchPlaceholder": "請輸入關鍵字",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            },
+            "pagingType": "full_numbers",
+            "ordering": false
+            // ,
+            // "searching": false
+        });
+    });
+</script>

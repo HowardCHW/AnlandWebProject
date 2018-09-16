@@ -38,7 +38,7 @@ namespace AnlandProject.Web.Controllers
                 DefaultDataModel result = new DefaultDataModel();
                 if (id.HasValue && id.Value > 0)
                 {
-                    result = _newsService.NewsQueryByID(id.Value);
+                    result = _newsService.NewsQueryByID(id.Value, true);
                 }
                 return View(result);
             }
@@ -70,7 +70,7 @@ namespace AnlandProject.Web.Controllers
                 LawsModel result = new LawsModel();
                 if (id.HasValue && id.Value > 0)
                 {
-                    result = _lawsService.LawsQueryByID(id.Value);
+                    result = _lawsService.LawsQueryByID(id.Value, true);
                 }
                 var classfyData = _commonService.LawsCategoryQueryAll();
                 result.ClassfyName = classfyData.FirstOrDefault(c => c.ClassID == result.Classfy).ClassName;

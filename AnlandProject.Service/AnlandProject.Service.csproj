@@ -52,9 +52,13 @@
   <ItemGroup>
     <Compile Include="AccountService.cs" />
     <Compile Include="BusinessModel\AnswerDataModel.cs" />
+    <Compile Include="BusinessModel\CategoritesDataModel.cs" />
     <Compile Include="BusinessModel\ClassificationTypeEnum.cs" />
     <Compile Include="BusinessModel\FAQModel.cs" />
+    <Compile Include="BusinessModel\IndexDataModel.cs" />
     <Compile Include="BusinessModel\OnlineApplicationModel.cs" />
+    <Compile Include="BusinessModel\ProposalDataModel.cs" />
+    <Compile Include="BusinessModel\QuestionnaireAnswerModel.cs" />
     <Compile Include="BusinessModel\QuestionnaireDataModel.cs" />
     <Compile Include="BusinessModel\SMTPSetupModel.cs" />
     <Compile Include="BusinessModel\QuestionDataModel.cs" />
@@ -63,10 +67,14 @@
     <Compile Include="Interface\IDocumentService.cs" />
     <Compile Include="Interface\IDirectorFAQService.cs" />
     <Compile Include="Interface\IFAQService.cs" />
+    <Compile Include="Interface\IProposalService.cs" />
+    <Compile Include="Interface\ICategoritesService.cs" />
     <Compile Include="Interface\IQuestionnaireService.cs" />
     <Compile Include="Interface\IOnlineApplicationService.cs" />
     <Compile Include="Interface\ISMTPSetupService.cs" />
     <Compile Include="FAQService.cs" />
+    <Compile Include="ProposalService.cs" />
+    <Compile Include="CategoritesService.cs" />
     <Compile Include="QuestionnaireService.cs" />
     <Compile Include="OnlineApplicationService.cs" />
     <Compile Include="MeetingService.cs" />

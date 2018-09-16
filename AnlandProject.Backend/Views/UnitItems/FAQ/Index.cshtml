@@ -82,7 +82,7 @@
                 {
                     mDataProp: "MsgDate",
                     render: function (data, type, full, meta) {
-                        return DateTimeFormatYYYYMMDD(data);
+                        return moment(data).format('YYYY/MM/DD');
                     }
                 },
                 {

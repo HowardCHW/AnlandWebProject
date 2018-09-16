@@ -1,0 +1,504 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 分類檢索 Start -->
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 線上申辦 - 線上預約服務" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 線上申辦 - 線上預約服務" />
+    <meta name="DC.Description" content="線上申辦 - 線上預約服務" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="C11" />
+    <!-- 主題分類:140地政/施政分類:CKA 地政資訊系統/服務分類:C11土地建物登記 -->
+    <meta name="Keywords" content="線上申辦, 線上預約服務" />
+
+    <!-- 分類檢索 End -->
+    <meta name="Accessible_website" content="本網站通過通過AAA優先等級無障礙網頁檢測">
+    <title>基隆市安樂地政事務所全球資訊網 - 線上申辦-線上預約服務</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/base/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/base/icon-css/all.min.css">
+    <link rel="stylesheet" href="~/Content/base/plugin/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="~/Content/base/css/base.min.css">
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 內文區 -->
+    <div class="mt-3">
+        <div class="row">
+            @*<form class="m-auto" action="transact_04_01_preview.asp" method="post" name="addForm">*@
+            @using (Ajax.BeginForm("OnlineBookingSave", "OnlineApplication", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "onlineckupForm", @class = "m-auto" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4 class="text-info">網路申請線上預約服務服務申請表 (有＊記號的欄位必須填寫)</h4>
+                    </div>  
+                    <div class="card-body p-0">
+                        <table class="table table-hover border-bottom rwd-table m-0" summary="編排用表格">
+                            <caption class="sr-only">
+                                線上預約服務申請表 (有＊記號的欄位必須填寫)
+                            </caption>
+                            <tr>
+                                <th scope="row" rowspan="3" class="text-nowrap table-primary"><label for="applyname">申請人</label></th>
+                                <td class="text-nowrap text-right"><label for="applyname">姓名<span class="red">＊</span></label></td>
+                                <td class="text-nowrap">
+                                    <input name="applyname" type="text" class="form-control" id="applyname" placeholder="" title="請填寫姓名" required data-parsley-required-message="必填欄位！" />
+                                </td>
+                                <th scope="row" rowspan="3" class="text-nowrap table-primary"><label for="agentname">代理人</label></th>
+                                <td class="text-nowrap text-right"><label for="agentname">姓名</label></td>
+                                <td class="text-nowrap">
+                                    <input name="agent_name" type="text" class="form-control" id="agentname" placeholder="" title="請填寫姓名" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap text-right"><label for="applybirth">出生日期<span class="red">＊</span></label></td>
+                                <td class="text-nowrap">
+                                    <input name="applybirth" type="text" class="form-control" id="applybirth" placeholder="" title="請填寫出生日期" required data-parsley-required-message="必填欄位！" />
+                                </td>
+                                <td class="text-nowrap text-right"><label for="agentbirth">出生日期</label></td>
+                                <td class="text-nowrap">
+                                    <input name="agentbirth" type="text" class="form-control" id="agentbirth" placeholder="" title="請填寫出生日期" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap text-right"><label for="applyid">統一編號<span class="red">＊</span></label></td>
+                                <td class="text-nowrap">
+                                    <input name="applyid" type="text" class="form-control" id="applyid" placeholder="" title="請填寫" required data-parsley-required-message="必填欄位！" data-parsley-verifyuid />
+                                </td>
+                                <td class="text-nowrap text-right"><label for="agentid">統一編號</label></td>
+                                <td class="text-nowrap">
+                                    <input name="agentid" type="text" class="form-control" id="agentid" placeholder="" title="請填寫統一編號" data-parsley-verifyuid />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="applytel">
+                                        連絡電話<span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td colspan="2" class="text-nowrap">
+                                    <input name="applytel" type="text" class="form-control" size="23" id="applytel" placeholder="例：02-24324001分機 311" title="請填寫連絡電話 (例：02-24324001分機 311)" required data-parsley-required-message="必填欄位！" />
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <label for="applyemail">
+                                        電子信箱<span class="red">＊</span>
+                                    </label>
+                                </th>
+                                <td colspan="2" class="text-nowrap">
+                                    <input name="applyemail" type="text" class="form-control" size="50" id="applyemail" placeholder="" title="請填寫電子信箱( 不限個人常用的E-mail )" required data-parsley-required-message="必填欄位！" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！" />
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="agentre">委任關係</label></th>
+                                <td colspan="5">
+                                    <input type="checkbox" name="agentre" value="1" id="agent_re" title="如有委任關係請勾選" />
+                                    本申請案，係受申請人之委託，如有虛偽不實，願負法律責任。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" rowspan="3" class="text-nowrap table-primary">
+                                    申請項目<span class="red">＊</span>
+                                    <input type="text" id="appItemErr" style="display:none;" required data-parsley-required-message="至少填一項！" />
+                                </th>
+                                <td colspan="5">
+                                    <div class="form-inline">
+                                        <input class="m-1" type="checkbox" name="appitem1" value="1" id="appitem1" chkID="year1,docitem1,no1,copy1" title="請勾選申請項目" />
+                                        <label for="appitem1">複印土地登記申請原案</label>
+                                        (收件字號：
+                                        <input name="year1" type="text" class="form-control m-1" id="year1" placeholder="" title="請填寫" />
+                                        <label for="year1">年</label>
+                                        <input name="docitem1" type="text" class="form-control m-1" id="docitem1" placeholder="" title="請填寫" />
+                                        <label for="docitem1">字第</label>
+                                        <input name="no1" type="text" class="form-control m-1" id="no1" placeholder="" title="請填寫" />
+                                        <label for="no1">號</label>) <label for="copy1">份數</label>
+                                        <input name="copy1" type="text" class="form-control m-1" id="copy1" placeholder="" title="請填寫" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="form-inline">
+                                        <input class="m-1" type="checkbox" name="appitem2" value="1" id="appitem2" chkID="year2,docitem2,no2,copy2" title="請勾選申請項目" />
+                                        <label for="appitem2">複印信託專簿</label>
+                                        (收件字號：
+                                        <input name="year2" type="text" class="form-control m-1" id="year2" placeholder="" title="請填寫" />
+                                        <label for="year2">年</label>
+                                        <input name="docitem2" type="text" class="form-control m-1" id="docitem2" placeholder="" title="請填寫" />
+                                        <label for="docitem2">字第</label>
+                                        <input name="no2" type="text" class="form-control m-1" id="no2" placeholder="" title="請填寫" />
+                                        <label for="no2">號</label>) <label for="copy2">份數</label>
+                                        <input name="copy2" type="text" class="form-control m-1" id="copy2" placeholder="" title="請填寫" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="form-inline">
+                                        <input class="m-1" type="checkbox" name="appitem3" value="1" id="appitem3" chkID="year3,docitem3,no3" title="請勾選申請項目" />
+                                        <label for="appitem3">下班領取登記案件</label>
+                                        (收件字號：
+                                        <input name="year3" type="text" class="form-control  m-1" id="year3" placeholder="請填寫" title="請填寫" />
+                                        <label for="year3">年</label>
+                                        <input name="docitem3" type="text" class="form-control  m-1" id="docitem3" placeholder="請填寫" title="請填寫" />
+                                        <label for="docitem3">字第</label>
+                                        <input name="no3" type="text" class="form-control  m-1" id="no3" placeholder="請填寫" title="請填寫" />
+                                        <label for="no3">號</label>)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary">申請用途<span class="red">＊</span></th>
+                                <td id="purposeArea" colspan="5">
+                                    <input class="m-1" type="checkbox" name="purpose1" value="1" id="purpose1" title="請選擇申請用途" />
+                                    <label for="purpose1">購屋、貸款使用</label>
+                                    <input class="m-1" type="checkbox" name="purpose2" value="1" id="purpose2" title="請選擇申請用途" />
+                                    <label for="purpose2">處理訴訟案件</label>
+                                    <input class="m-1" type="checkbox" name="purpose3" value="1" id="purpose3" title="請選擇申請用途" />
+                                    <label for="purpose3">政府機關申請案</label>
+                                    <input class="m-1" type="checkbox" name="purpose4" value="1" id="purpose4" title="請選擇申請用途" />
+                                    <label for="purpose4">自行參考</label>
+                                    <input type="checkbox" name="purpose5" value="1" id="purpose5" title="請選擇申請用途" />
+                                    <label class="m-1" for="purpose5">其他</label>：
+                                    <label class="sr-only" for="purposenote">敘明用途</label>
+                                    <input name="purposenote" type="text" class="form-control" size="50" id="purposenote" placeholder="" title="請敘明用途" />
+                                    <input type="text" id="purposeCheck" style="display:none;" required data-parsley-required-message="請選擇申請目的！" />
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary">預約領件日期<span class="red">＊</span></th>
+                                <td colspan="2">
+                                    <label class="sr-only" for="getappdate">日期</label>
+                                    <input name="getappdate" type="text" class="form-control" id="getappdate" placeholder="" title="請填寫日期" required data-parsley-required-message="必填欄位！" />
+                                </td>
+                                <th scope="row" class="text-nowrap table-primary">時間<span class="red">＊</span></th>
+                                <td colspan="2">
+                                    <label class="sr-only" for="getapptime">時間</label>
+                                    <input name="getapptime" type="text" class="form-control" id="getapptime" placeholder="例：15:30" title="請填寫時間 (範例：15:30)" required data-parsley-required-message="必填欄位！" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary"><label for="other_note">其他備註事項欄</label></th>
+                                <td colspan="5">
+                                    <input name="othernote" type="text" class="form-control" size="50" id="othernote" placeholder="" title="請敘明備註事項" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-nowrap table-primary">備註</th>
+                                <td colspan="5">
+                                    1.本申請案如委託代理人代為申請，應填明代理人姓名、出生日期及身分證字號，並於委任關係欄勾選切結「本申請案，係受申請人之委託，如有虛偽不實，願負法律責任」。<br>
+                                    2.如非申請複印全案，請於其他備註事項欄個別敘明欲申請複印之文件名稱。<br>
+                                    3.填寫時如有任何問題請洽(02)24324001分機124
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <h4 class="mt-4 text-info"><span class="fas fa-braille"></span> 網路申請檔案閱覽抄錄複製服務網頁問卷 (必須填寫)</h4>
+                <p class="mt-3 mb-3 h5">為提供民眾更好的服務，請您協助填寫以下問卷，非常謝謝您的協助。</p>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <table class="table table-hover border-bottom rwd-table m-0" summary="編排用表格">
+                            <caption class="sr-only">
+                                網路申請檔案閱覽抄錄複製服務網頁問卷 (必須填寫)
+                            </caption>
+                            <tr>
+                                <th class="text-nowrap table-success">
+                                    <label for="qa_1">
+                                        1.請問您從何處得知本所「網路申請檔案閱覽抄錄複製服務」？<span class="red">＊</span>
+                                    </label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">
+                                    <input name="qa1" id="qa11" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa11Error" />
+                                    <label for="qa11">傳播媒體</label>
+                                    <input name="qa1" id="qa12" type="radio" value="2" />
+                                    <label for="qa12">報章雜誌</label>
+                                    <input name="qa1" id="qa13" type="radio" value="3" />
+                                    <label for="qa13">本所宣導品</label>
+                                    <input name="qa1" id="qa14" type="radio" value="4" />
+                                    <label for="qa14">親朋好友告知</label>
+                                    <input name="qa1" id="qa15" type="radio" value="5" />
+                                    <label for="qa15">自己發現</label>
+                                    <div id="qa11Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success">
+                                    <label for="qa_2">
+                                        2.請問您對於本所「網路申請檔案閱覽抄錄複製服務」網頁操作介面是否滿意？<span class="red">＊</span>
+                                    </label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">
+                                    <input name="qa2" id="qa21" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa21Error" />
+                                    <label for="qa21">非常滿意</label>
+                                    <input name="qa2" id="qa22" type="radio" value="2" />
+                                    <label for="qa22">滿意</label>
+                                    <input name="qa2" id="qa23" type="radio" value="3" />
+                                    <label for="qa23">普通</label>
+                                    <input name="qa2" id="qa24" type="radio" value="4" />
+                                    <label for="qa24">不滿意</label>
+                                    <input name="qa2" id="qa25" type="radio" value="5" />
+                                    <label for="qa25">非常不滿意</label>
+                                    <div id="qa21Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success">
+                                    <label for="qa_3">
+                                        3.請問您認為「網路申請檔案閱覽抄錄複製服務」此項服務，能節省您多少時間？<span class="red">＊</span>
+                                    </label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="text-nowrap">
+                                    <input name="qa3" id="qa31" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa31Error" />
+                                    <label for="qa31">4小時以上</label>
+                                    <input name="qa3" id="qa32" type="radio" value="2" />
+                                    <label for="qa32">3-4小時</label>
+                                    <input name="qa3" id="qa33" type="radio" value="3" />
+                                    <label for="qa33">2-3小時</label>
+                                    <input name="qa3" id="qa34" type="radio" value="4" />
+                                    <label for="qa34">1-2小時</label>
+                                    <input name="qa3" id="qa35" type="radio" value="5" />
+                                    <label for="qa35">1小時以內</label>
+                                    <div id="qa31Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success">
+                                    <label for="qa_4">
+                                        4.總體而言，請問您對於本所「網路申請檔案閱覽抄錄複製服務」此項服務，是否滿意？<span class="red">＊</span>
+                                    </label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="qa4" id="qa41" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa41Error" />
+                                    <label for="qa41">非常滿意</label>
+                                    <input name="qa4" id="qa42" type="radio" value="2" />
+                                    <label for="qa42">滿意</label>
+                                    <input name="qa4" id="qa43" type="radio" value="3" />
+                                    <label for="qa43">普通</label>
+                                    <input name="qa4" id="qa44" type="radio" value="4" />
+                                    <label for="qa44">不滿意</label>
+                                    <input name="qa4" id="qa45" type="radio" value="5" />
+                                    <label for="qa45">非常不滿意</label>
+                                    <div id="qa41Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success"><label for="qa_5">5.請問您的職業是：<span class="red">＊</span></label></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="qa5" id="qa51" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa51Error" />
+                                    <label for="qa51">地政士或不動產相關行業</label>
+                                    <input name="qa5" id="qa52" type="radio" value="2" />
+                                    <label for="qa52">銀行或金融業</label>
+                                    <input name="qa5" id="qa53" type="radio" value="3" />
+                                    <label for="qa53">軍公教</label>
+                                    <input name="qa5" id="qa54" type="radio" value="4" />
+                                    <label for="qa54">農漁商</label>
+                                    <input name="qa5" id="qa55" type="radio" value="5" />
+                                    <label for="qa55">自由業或其他</label>
+                                    <div id="qa51Error"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap table-success">
+                                    填寫日期：@DateTime.Now.ToString("yyyy/MM/dd")
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="mt-3 mb-3 text-right">
+                    <input name="reset" type="reset" class="btn btn-default" value="重填" />
+                    <button id="btnSend" type="button" class="btn btn-primary">
+                        <span class=""></span>送出表單 <span class="fab fa-telegram-plane"></span>
+                    </button>
+                </div>
+            }
+            @*</form>*@
+        </div>
+    </div>
+    <!-- /內文區 -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Scripts/base/js/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/base/js/popper.min.js"></script>
+    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/base/plugin/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/base/plugin/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.min.js"></script>
+    <script src="~/Scripts/base/js/base.js"></script>
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script src="~/Scripts/Parsley/i18n/zh_tw.js"></script>
+    <script src="~/Scripts/AnlandFrontend.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#applybirth, #agentbirth').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose: true,
+                startDate: "-100y",
+                endDate: "today",
+                clearBtn: true,
+                calendarWeeks: false,
+                todayHighlight: true,
+                language: 'zh-TW'
+            });
+
+            $('#getappdate').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose: true,
+                startDate: "today",
+                clearBtn: true,
+                calendarWeeks: false,
+                todayHighlight: true,
+                language: 'zh-TW'
+            });
+
+            $('#appitem1, #appitem2, #appitem3').on('click', function () {
+                var checkIDs = $(this).attr('chkID').split(',');
+                if ($(this).is(':checked')) {
+                    $('#appItemErr').val($(this).val());                    
+                    $.each(checkIDs, function (ind, value) {
+                        $('#' + value).attr('required', '').attr('data-parsley-required-message', '勾選時必填項目!');
+                    });
+                } else {
+                    $('#appItemErr').val('');
+                    $.each(checkIDs, function (ind, value) {
+                        $('#' + value).removeAttr('required').removeAttr('data-parsley-required-message');
+                        $('#' + value).parsley().validate();
+                    });
+                }
+                $('#appItemErr').parsley().validate();
+            });
+
+            $('#purpose5').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#purposenote').removeAttr('disabled');
+                    $('#purposenote').attr('required', '').attr('data-parsley-required-message', '選其他時請敘明目的!');
+                } else {
+                    $('#purposenote').val('').attr('disabled', '');
+                    $('#purposenote').removeAttr('required').removeAttr('data-parsley-required-message');
+                }
+                $('#purposenote').parsley().validate();
+            });
+
+            $('#purposeArea input[type=checkbox]').on('click', function () {
+                if ($('#purposeArea input[type=checkbox]').is(':checked')) {
+                    if ($('#purposeCheck').val() == '') {
+                        $('#purposeCheck').val($(this).val());
+                    }
+                } else {
+                    $('#purposeCheck').val('');
+                }
+                $('#purposeCheck').parsley().validate();
+            });
+
+            $('#btnSend').on('click', function () {
+                $('#onlineckupForm').parsley().validate();
+                if ($('#onlineckupForm').parsley().isValid()) {
+                    $('#onlineckupForm').submit();
+                }
+            });
+        });
+
+        window.Parsley.addValidator('verifyuid', {
+            requirementType: 'string',
+            validateString: function (value, data, parsleyInstance) {
+                if (value.search(/^[A-Za-z](1|2)\d{8}$/i) == -1) {
+                    return false;
+                }
+
+                //建立字母分數陣列(A~Z)
+                var city = new Array(
+                    1, 10, 19, 28, 37, 46, 55, 64, 39, 73, 82, 2, 11,
+                    20, 48, 29, 38, 47, 56, 65, 74, 83, 21, 3, 12, 30
+                )
+                value = value.toUpperCase();
+                //將字串分割為陣列(IE必需這麼做才不會出錯)
+                value = value.split('');
+
+                //計算總分
+                var total = city[value[0].charCodeAt(0) - 65];
+                for (var i = 1; i <= 8; i++) {
+                    total += eval(value[i]) * (9 - i);
+                }
+                //補上檢查碼(最後一碼)
+                total += eval(value[9]);
+                //檢查比對碼(餘數應為0);
+                return ((total % 10 == 0));
+            },
+            messages: {
+                'zh-tw': '身分證格式錯誤!'
+            }
+        });
+
+        function SuccessMessage(result) {
+            if (result) {
+                var url = '/OnlineApplication/Status';
+                location = url;
+            } else {
+                ErrorMSG('送出失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('送出失敗');
+        }
+
+        /* 去掉字串兩端的空白字元 */
+        String.prototype.trim = function () {
+            return this.replace(/(^\s+)|(\s+$)/g, "");
+        }
+    </script>
+    <noscript>
+        <div class="container">
+            <div class="row">
+                <div class="card m-3 banner">
+                    <div class="card-body p-3">
+                        您的瀏覽器不支援javascript，但不影響網頁內容陳述，如開啟JavaScript，可得到視覺與特效的最佳瀏覽
+                        <br>列印功能：請按下ctrl+P開啟列印視窗,或由工具列中選擇列印功能
+                        <br>如需要選擇字級大小，IE6請利用鍵盤按住ALT鍵+ V → X → (G)最大(L)較大(M)中(S)較小(A)小，來選擇適合您的文字大小，
+                        而IE7或Firefox瀏覽器則可利用鍵盤 Ctrl
+                        + (+)放大(-)縮小來改變字型大小，如需要回到上一頁可使用瀏覽器提供的 Alt+左方向鍵(←)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </noscript>
+</body>
+
+</html>

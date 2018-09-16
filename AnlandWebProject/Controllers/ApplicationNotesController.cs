@@ -49,10 +49,15 @@ namespace AnlandProject.Web.Controllers
             return View();
         }
 
-        public ActionResult AppDownload()
+        public ActionResult AppDownload(int? id)
         {
+            string type = "";
+            if (id.HasValue)
+            {
+                type = string.Format("correct{0}-tab", id);
+            }
+            ViewBag.TabType = type;
             return View();
         }
-
     }
 }

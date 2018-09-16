@@ -157,6 +157,9 @@
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="proposal_data.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
     <Compile Include="qa.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>

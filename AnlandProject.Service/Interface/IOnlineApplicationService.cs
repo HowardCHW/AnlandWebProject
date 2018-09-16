@@ -14,11 +14,15 @@ namespace AnlandProject.Service.Interface
 
         OnlineApplicationModel OnlineAppQueryByID(int id);
 
+        bool OnlineAppSave(OnlineApplicationModel saveData);
+
         bool OnlineAppDelete(int id);
 
         List<OnlineApplicationModel> EngCopyQueryAll();
 
         OnlineApplicationModel EngCopyQueryByID(int id);
+
+        bool EngCopySave(OnlineApplicationModel saveData);
 
         bool EngCopyDelete(int id);
 
@@ -26,11 +30,15 @@ namespace AnlandProject.Service.Interface
 
         OnlineApplicationModel CopyQueryByID(int id);
 
+        bool CopySave(OnlineApplicationModel saveData);
+
         bool CopyDelete(int id);
 
         List<OnlineApplicationModel> LandPriceQueryAll();
 
         OnlineApplicationModel LandPriceQueryByID(int id);
+
+        bool LandPriceSave(OnlineApplicationModel saveData);
 
         bool LandPriceDelete(int id);
     }
