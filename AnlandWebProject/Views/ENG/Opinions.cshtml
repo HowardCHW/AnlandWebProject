@@ -1,0 +1,231 @@
+﻿
+@{
+    ViewBag.Title = "Anle Land Office, Keelung City - Opinions";
+    Layout = "~/Views/Shared/ENG/_LayoutContentENG.cshtml";
+}
+
+@section ENGAdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="Anle Land Office, Keelung City - Opinions" />
+    <meta name="DC.Creator" content="Anle Land Office, Keelung City" />
+    <meta name="DC.Subject" content="Anle Land Office, Keelung City - Opinions" />
+    <meta name="DC.Description" content="Anle Land Office, Keelung City - Opinions" />
+    <meta name="DC.Contributor" content="Anle Land Office, Keelung City" />
+    <meta name="DC.Type" content="text" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="Anle Land Office, Keelung City" />
+    <meta name="DC.Language" content="english" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Coverage" content="2009-07-03 " />
+    <meta name="DC.Publisher" content="Anle Land Office, Keelung City" />
+    <meta name="DC.Date" content="2010-04-26 10:00" />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="Anle Land Office, Keelung City" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="J40" />
+    <meta name="Category.Service" content="I42" />
+    <meta name="Keywords" content="Advocacy,Education" />
+}
+
+@section ENGStyles{
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            /*vertical-align: bottom;*/
+            color: red;
+        }
+    </style>
+}
+
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="sitemap.html" id="content" title="Sub select Frame[Alt+C]">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">Skip to Copyright</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- Path -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">Path</li>
+                    <li class="breadcrumb-item">
+                        <a href="intro.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Opinions</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="Share to facebook(pop-up windows)"
+                   target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="Print(pop-up windows)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">Font size：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">Small</span>
+                        <input type="radio" name="Small" title="Small" id="option1" autocomplete="off"> S
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">Medium</span>
+                        <input type="radio" name="Medium" title="Medium" id="option2" autocomplete="off" checked> M
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">Large</span>
+                        <input type="radio" name="Large" title="Large" id="option3" autocomplete="off"> L
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /Path -->
+    </div>
+</div>
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <div class="card mb-5 ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>Opinions</h2>
+                <p>
+                    Should you have any suggestions or comments, please do not hesitate to tell us. It is our
+                    pleasure to serve you.
+                </p>
+
+                <div class="col-md-12pl-0">
+                    @*<form name="suggestForm" method="post">*@
+                    @using (Ajax.BeginForm("OpinionsSave", "ENG", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "sendOpenionsForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <table class="table table-hover border-bottom rwd-table" summary="This is a Mail table, 4 rows design, first row is Name, second row is Email, third row is Subject,fourth row is Content.">
+                            <caption class="sr-only">
+                                Suggestions and Comments
+                            </caption>
+                            <tbody>
+                                <tr>
+                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                        <label for="topic">Subject</label>
+                                    </th>
+                                    <td data-th="Subject">
+                                        <input name="MsgSubject" type="text" class="form-control" id="topic" placeholder="Subject"
+                                               title="Please input the subject of this message" required data-parsley-required-message="Please input the subject of this message！">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                        <label for="name">Name</label>
+                                    </th>
+                                    <td data-th="Name">
+                                        <input name="MsgName" type="text" class="form-control" size="15" id="name"
+                                               placeholder="Name" title="Please input your name" required data-parsley-required-message="Please input your name！">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                        <label for="tel">Tel</label>
+                                    </th>
+                                    <td data-th="Tel">
+                                        <input name="MsgTel" type="text" class="form-control" size="15" id="tel"
+                                               placeholder="Tel" title="Please input your phone number">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                        <label for="email">E-MAIL</label>
+                                    </th>
+                                    <td data-th="E-MAIL">
+                                        <input name="MsgEmail" type="text" class="form-control" size="40" id="email"
+                                               placeholder="E-MAIL" title="Please input your email" required data-parsley-required-message="Please input your EMail！" data-parsley-type="email" data-parsley-type-message="Wrong format！">                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                        <label for="contents">Content</label>
+                                    </th>
+                                    <td data-th="Content">
+                                        <textarea name="MsgContent" cols="60" rows="6" class="form-control" id="contents"
+                                                  placeholder="Message" title="Please input your message" required data-parsley-required-message="Please input your message！"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-nowrap text-right" scope="row">
+                                        <button type="reset" class="btn btn-default">Reset</button>
+                                        <button type="button" id="btnSave" class="btn btn-primary">
+                                            Send
+                                            <span class="fab fa-telegram-plane"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                    @*</form>*@
+                </div>
+                <p class="text-primary">
+                    Laste Update：2018/09/01
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="statusinfo" tabindex="-1" role="dialog" aria-labelledby="statusinfoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="statusinfoLabel">Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your proposal has been sent, thank you for your kind participation.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnModalDismiss" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /container -->
+
+@section ENGScripts{
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script>
+        var urlQueryNews = '@Url.Action("SuggestDirectorQuery", "OpinionExchange")';
+        $(document).ready(function () {
+            $('#btnSave').on('click', function () {
+                $('#sendOpenionsForm').parsley().validate();
+                if ($('#sendOpenionsForm').parsley().isValid()) {
+                    $('#sendOpenionsForm').submit();
+                }
+            });
+
+            $('#btnModalDismiss').on('click', function () {
+                var url = '/ENG/Opinions';
+                location = url;
+            });
+        });
+
+        function SuccessMessage(result) {
+            if (result) {
+                $('#statusinfo').modal({ backdrop: 'static' }).modal('toggle');
+            } else {
+                ErrorMSG('送出失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('送出失敗');
+        }
+    </script>
+}

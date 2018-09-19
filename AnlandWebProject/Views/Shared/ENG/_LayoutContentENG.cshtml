@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset=" utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 分類檢索 Start -->
+    @RenderSection("ENGAdditionalMeta", false)
+    <!-- 分類檢索 End -->
+    <meta name="Accessible_website" content="Level Triple-A conformance Website,Web Content Accessibility">
+
+    <title>@ViewBag.Title</title>
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/logo.png">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/base/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/base/icon-css/all.min.css">
+    <link rel="stylesheet" href="~/Content/base/css/datatables.min.css">
+    <link rel="stylesheet" href="~/Content/base/plugin/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Content/base/css/base.min.css">
+    @RenderSection("ENGStyles", false)
+
+    <script src="~/Scripts/base/js/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/base/js/popper.min.js"></script>
+    <script src="~/Scripts/base/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/base/js/datatables.min.js"></script>
+    <script src="~/Scripts/base/plugin/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Scripts/base/js/base.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    @Html.Partial("~/Views/Shared/ENG/_HeaderContentENG.cshtml")
+    <!-- /Header -->
+    <!-- Main menu -->
+    @Html.Partial("~/Views/Shared/ENG/_MainMenuENG.cshtml")
+    <!-- /Main menu -->
+
+    <div>
+        @RenderBody()
+    </div>
+    <!--Footer-->
+    @Html.Partial("~/Views/Shared/ENG/_FooterENG.cshtml")
+    <!--Footer-->
+    <noscript>
+        <div class="container">
+            <div class="row">
+                <div class="card m-3 banner">
+                    <div class="card-body p-3">
+                        Your browser does not support javascript, but does not affect the content of the web page. If
+                        you enable JavaScript,
+                        you can get the best view of visual and special effects.
+                        <br>Printing function: press ctrl+P to open the printing window, or select the printing
+                        function from the toolbar.
+                        <br>If you need to select the font size, IE6 please use the keyboard to hold down the ALT key +
+                        V → X → (G) maximum (L)
+                        larger (M) medium (S) smaller (A) small, to choose the size of your text, IE7 or Firefox
+                        browser can use the keyboard
+                        Ctrl + (+) Zoom in (-) zoom out to change the font size. If you need to go back to the previous
+                        page, you can use the Alt+Left arrow key provided by the browser (←)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </noscript>
+    @RenderSection("ENGScripts", false)
+</body>
+</html>

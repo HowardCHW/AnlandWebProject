@@ -796,6 +796,13 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="typecode" Type="nvarchar" MaxLength="50" />
           <Property Name="cre_date" Type="datetime" />
         </EntityType>
+        <EntityType Name="website_visitor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Visitors" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_suggest2_suggest">
           <End Role="suggest" Type="Self.suggest" Multiplicity="0..1" />
           <End Role="suggest2" Type="Self.suggest2" Multiplicity="*" />
@@ -853,6 +860,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="suggest2" EntityType="Self.suggest2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="suggest3" EntityType="Self.suggest3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="theme" EntityType="Self.theme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="website_visitor" EntityType="Self.website_visitor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="board_setup" EntityType="Self.board_setup" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [board_setup].[ID] AS [ID], 
@@ -1136,6 +1144,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="engcopy" EntityType="anlandModel.engcopy" />
           <EntitySet Name="landprice" EntityType="anlandModel.landprice" />
           <EntitySet Name="onlineapp" EntityType="anlandModel.onlineapp" />
+          <EntitySet Name="website_visitor" EntityType="anlandModel.website_visitor" />
           </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1825,6 +1834,13 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="get_appdate" Type="DateTime" Precision="3" />
           <Property Name="get_apptime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="qa_note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="website_visitor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Visitors" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2641,6 +2657,14 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="apply_id" ColumnName="apply_id" />
                 <ScalarProperty Name="apply_birth" ColumnName="apply_birth" />
                 <ScalarProperty Name="apply_name" ColumnName="apply_name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="website_visitor">
+            <EntityTypeMapping TypeName="anlandModel.website_visitor">
+              <MappingFragment StoreEntitySet="website_visitor">
+                <ScalarProperty Name="Visitors" ColumnName="Visitors" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,4 +1,6 @@
-﻿using AnlandProject.Web;
+﻿using AnlandProject.Service;
+using AnlandProject.Service.Interface;
+using AnlandProject.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -17,7 +19,11 @@ namespace AnlandWebProject
 
         protected void Session_Start()
         {
-
+            using (ICommonService common = new CommonService())
+            {
+                common.VisitorsUpdate();
+                Session["visitor"] = common.VisitorsQuery();
+            }
         }
     }
 }

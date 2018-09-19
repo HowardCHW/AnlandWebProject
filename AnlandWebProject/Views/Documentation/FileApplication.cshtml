@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 檔案應用服務 - 一般民眾";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 檔案應用服務 - 一般民眾" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所檔案應用服務 - 一般民眾" />
+    <meta name="DC.Description" content="檔案應用服務 - 一般民眾" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="C11" />
+    <!-- 主題分類:140地政/施政分類:CKA 地政資訊系統/服務分類:C11土地建物登記 -->
+    <meta name="Keywords" content="檔案應用服務, 一般民眾," />
+}
+
+<!-- 公告區 -->
+<div class="container d-print-none">
+    <div class="pl-3">
+        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+        <span class="sr-only">|</span>
+        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+    </div>
+    <div class="row justify-content-between align-items-center">
+        <!-- 麵包屑麵包屑 -->
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item pathTitle">現在位置</li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Home")">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">檔案應用服務 - 一般民眾</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end align-items-center">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                    <span class="fab fa-facebook-square"></span>
+                </a>
+                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                    <span class="far fa-print"></span>
+                </a>
+                <span class="fontSizeSet">字級設定：</span>
+                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                        <span class="sr-only">小字型</span>
+                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                        <span class="sr-only">中字型</span>
+                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                    </label>
+                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                        <span class="sr-only">大字型</span>
+                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /麵包屑 -->
+    </div>
+</div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <h2>檔案應用服務 - 一般民眾</h2>
+                <div class="container pl-5 pt-3">
+                    <div class="row">
+                        <div class="col-lg-12" id="sec01">
+                            <ul class="nav nav-pills justify-content-end" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link link-success active" id="correct1-tab" data-toggle="tab"
+                                       href="#correct1" role="tab" aria-controls="correct1" aria-selected="false">
+                                        <span class="fas fa-file-check"></span> 申辦說明
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-success" id="correct2-tab" data-toggle="tab" href="#correct2"
+                                       role="tab" aria-controls="correct2" aria-selected="false">
+                                        <span class="fas fa-edit"></span> 申請流程
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-success" id="correct3-tab" data-toggle="tab" href="#correct3"
+                                       role="tab" aria-controls="correct3" aria-selected="false">
+                                        <span class="fas fa-dollar-sign"></span> 收費標準
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="fas fa-draw-circle"></span> 相關規範
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("AppDownload","ApplicationNotes")">
+                                        <span class="fas fa-download"></span> 表單下載
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="correct1" role="tabpanel"
+                                     aria-labelledby="correct1-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 申辦說明
+                                    </h3>
+                                    <p>
+                                        為促進檔案開放應用，並有效發揮檔案功能，依據本所檔案申請作業要點，提供檔案閱覽、抄錄或複製服務，如果您在 <a href="https://near.archives.gov.tw/" target="_blank" title="開啟新的導覽視窗">檔案管理局全國檔案目錄查詢網</a>
+                                        查詢，如果本所有您所需要閱覽、抄錄或複製的開放類檔案，請至本網站「下載專區」下載本所檔案應用申請書及填寫範例，清楚完整填載相關資料後，將申請書郵寄至：「基隆市安樂區安樂路二段164號3樓
+                                        檔案室收」，並於信封上註明「檔案應用申請書」字樣，本所將依檔案法第18條及行政程序法第46條規定審核，於15天內將審核結果回復您。
+                                    </p>
+                                    <div class="alert alert-secondary bg-lightreay pt-4" role="alert">
+                                        <p class=" text-center">
+                                            <a href="@Url.Action("AppBackupApplication","OnlineApplication")" target="_blank" title="開啟新的導覽視窗" class="btn btn-primary btn-lg" role="button" aria-pressed="true">
+                                                <span class="fas fa-file-signature"></span> 網路申請檔案閱覽抄錄複製
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="correct2" role="tabpanel" aria-labelledby="correct2-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 檔案應用服務流程圖
+                                    </h3>
+                                    <div class="col-lg-9 mx-auto d-block text-center">
+                                        <figure class="figure">
+                                            <img src="~/images/note_06.gif" class="col-lg-12 figure-img img-fluid"
+                                                 alt="檔案應用服務流程圖">
+                                            <figcaption class="figure-caption text-left">
+                                                流程說明：
+                                                <ol>
+                                                    <li>
+                                                        申請閱覽、抄錄或複製本所檔案，應以書面敘明理由向本所申請，申請書送達方式以親自持送或郵寄通訊為之，光碟、微縮片等特殊檔案，其申請閱覽程序亦同。
+                                                    </li>
+                                                    <li>本所將自受理申請書之日起15日內為准駁之決定，並將「審核通知書」併同附件「檔案應用審核表」函送或以電子傳遞方式（限申請書註明電子傳遞者）回復申請人。</li>
+                                                    <li>申請人至本所閱覽時，請攜帶本所之核准通知書及身分證明文件或委任書，交受理單位業務承辦人員收驗，身分證明文件將於檔案閱覽完畢點收受後退還。</li>
+                                                    <li>申請人於受理單位於將備妥之檔案交付確認收無誤後，於「檔案應用簽收單」(一式二聯)簽名。</li>
+                                                    <li>申請人，抄寫檔案時不得使用墨水或墨汁。</li>
+                                                    <li>如需複製，請洽受理單位業務承辦人員辦理。</li>
+                                                    <li>申請人閱覽、抄錄或複製檔案，不得有飲食、吸煙、破壞環境整潔或妨害安寧等情事，如有添註、塗改、更換、圈點、污損或其他損壞、拆散檔案及其他不當行為，本所將終止閱覽、抄錄或複製檔案並依相關法規處理。</li>
+                                                    <li>申請閱覽、抄錄或複製檔案，依「土地或建築改良物權利書狀及申請應用地籍資料規費收費標準」之收費項目收取費用，其餘項目則依檔案管理局訂定之「檔案閱覽抄錄複製收費標準」收取費用，如另需提供郵寄服務者，郵遞費用以實支數額計算，每次並加收處理費用新台幣50元。</li>
+                                                    <li>申請人於完成閱覽、抄錄或複製後，應將檔案完整交還受理單位業務承辦人員，待其點收無誤後，交付一聯「檔案應用簽收單」，結束該申請案。</li>
+                                                </ol>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="correct3" role="tabpane3" aria-labelledby="correct3-tab">
+                                    <h3 class="pl-0">
+                                        <span class="fas fa-bookmark"></span> 收費標準
+                                    </h3>
+                                    <p>申請閱覽、抄錄或複製檔案，依「土地法第67條及第79條之規定之書狀費、工本費及閱覽費收費基準」之收費項目收取費用，其餘項目則依檔案管理局訂定之「檔案閱覽抄錄複製收費標準」收取費用，如另需提供郵寄服務者，郵遞費用以實支數額計算，每次並加收處理費用新台幣50元。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
+            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Index","Documentation")">
+                <span class="fal fa-external-link-square" aria-hidden="true"></span> 回檔案應用服務
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->

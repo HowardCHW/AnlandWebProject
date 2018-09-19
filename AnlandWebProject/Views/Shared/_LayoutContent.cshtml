@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="~/Content/base/css/base.min.css">
     @RenderSection("styles", false)
 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="~/Scripts/base/js/jquery.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/base/js/popper.min.js"></script>
@@ -49,8 +50,6 @@
     <!-- 頁尾 -->
     @Html.Partial("~/Views/Shared/_Footer.cshtml")
     <!-- /頁尾 -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <noscript>
         <div class="container">
             <div class="row">

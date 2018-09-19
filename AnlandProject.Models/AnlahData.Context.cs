@@ -64,5 +64,6 @@ namespace AnlandProject.Models
         public virtual DbSet<engcopy> engcopy { get; set; }
         public virtual DbSet<landprice> landprice { get; set; }
         public virtual DbSet<onlineapp> onlineapp { get; set; }
+        public virtual DbSet<website_visitor> website_visitor { get; set; }
     }
 }

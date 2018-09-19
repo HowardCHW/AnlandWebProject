@@ -27,6 +27,7 @@ namespace AnlandProject.Service
         private IRepository<boardclass> _boardCategoryRepository = new GenericRepository<boardclass>();
         private IRepository<meetingclass> _meetingCategoryRepository = new GenericRepository<meetingclass>();
         private IRepository<documentclass> _documentCategoryRepository = new GenericRepository<documentclass>();
+        private IRepository<website_visitor> _websiteVisitorsRepository = new GenericRepository<website_visitor>();
 
         #region Query
         public List<ClassificationModel> ThemeQueryAll()
@@ -180,6 +181,12 @@ namespace AnlandProject.Service
                 ExtNo = d.ext_no
             }).ToList();
 
+            return result;
+        }
+
+        public int VisitorsQuery()
+        {
+            var result = _websiteVisitorsRepository.GetAll().FirstOrDefault().Visitors;
             return result;
         }
         #endregion
@@ -443,6 +450,12 @@ namespace AnlandProject.Service
             return resultRow > 0;
         }
 
+        public void VisitorsUpdate()
+        {
+            var originalData = _websiteVisitorsRepository.Get(v => v.ID == 1);
+            originalData.Visitors = originalData.Visitors + 1;
+            _websiteVisitorsRepository.Update(originalData);
+        }
         #endregion
 
         #region Delete
@@ -583,6 +596,10 @@ namespace AnlandProject.Service
             {
                 _documentCategoryRepository.Dispose();
             }
+            if (_websiteVisitorsRepository != null)
+            {
+                _websiteVisitorsRepository.Dispose();
+            }            
         }        
     }
 }

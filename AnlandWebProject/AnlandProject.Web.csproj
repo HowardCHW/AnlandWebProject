@@ -159,6 +159,8 @@
     <Compile Include="Controllers\ApplicationNotesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClassificationSearchController.cs" />
+    <Compile Include="Controllers\DocumentationController.cs" />
+    <Compile Include="Controllers\ENGController.cs" />
     <Compile Include="Controllers\ForeignerLandController.cs" />
     <Compile Include="Controllers\GovernmentInfomationController.cs" />
     <Compile Include="Controllers\OthersController.cs" />
@@ -248,17 +250,22 @@
     <Content Include="images\index_pic_content.jpg" />
     <Content Include="images\intro_01_pic.jpg" />
     <Content Include="images\location.gif" />
+    <Content Include="images\locationENG.gif" />
     <Content Include="images\logo%402x.png" />
     <Content Include="images\logo-blue%402x.png" />
     <Content Include="images\logo-colored%402x.png" />
     <Content Include="images\logo-colored.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\map.gif" />
+    <Content Include="images\mapENG.gif" />
     <Content Include="images\note_01.gif" />
+    <Content Include="images\note_01ENG.gif" />
     <Content Include="images\note_02.gif" />
     <Content Include="images\note_03.gif" />
     <Content Include="images\note_04.gif" />
+    <Content Include="images\note_06.gif" />
     <Content Include="images\organization.gif" />
+    <Content Include="images\organizationENG.gif" />
     <Content Include="images\suggest_01.gif" />
     <Content Include="Scripts\AnlandFrontend.js" />
     <Content Include="Scripts\base\js\base.js" />
@@ -787,6 +794,21 @@
     <Content Include="Views\Others\LandService.cshtml" />
     <Content Include="Views\Others\TaxUnit.cshtml" />
     <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Documentation\Index.cshtml" />
+    <Content Include="Views\Documentation\FileApplication.cshtml" />
+    <Content Include="Views\Documentation\InspectionService.cshtml" />
+    <Content Include="Views\Shared\ENG\_LayoutContentENG.cshtml" />
+    <Content Include="Views\Shared\ENG\_FooterENG.cshtml" />
+    <Content Include="Views\Shared\ENG\_MainMenuENG.cshtml" />
+    <Content Include="Views\Shared\ENG\_HeaderContentENG.cshtml" />
+    <Content Include="Views\ENG\Index.cshtml" />
+    <Content Include="Views\ENG\Introduction.cshtml" />
+    <Content Include="Views\ENG\Organization.cshtml" />
+    <Content Include="Views\ENG\ContactUs.cshtml" />
+    <Content Include="Views\ENG\Transportation.cshtml" />
+    <Content Include="Views\ENG\Links.cshtml" />
+    <Content Include="Views\ENG\Applications.cshtml" />
+    <Content Include="Views\ENG\Opinions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

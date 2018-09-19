@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="container-fluid mainMenu">
+    <div class="row">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand d-lg-none" href="#">
+                    <img src="images/index_logo.png" height="45" alt="Anle Land Office, Keelung City">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("About us", "Index", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id= "navbarDropdownMenuLink" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("Introduction", "Introduction", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id = "navbarDropdownMenuLink" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("Organization", "Organization", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id = "navbarDropdownMenuLink" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("Contact Us", "ContactUs", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id = "navbarDropdownMenuLink" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("Transportation", "Transportation", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id = "navbarDropdownMenuLink" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("Links", "Links", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id = "navbarDropdownMenuLink" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("Opinions", "Opinions", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id = "navbarDropdownMenuLink" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.ActionLink("Applications", "Applications", "ENG", new { id = string.Empty }, new { @class = "nav-link", @id = "navbarDropdownMenuLink" })
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

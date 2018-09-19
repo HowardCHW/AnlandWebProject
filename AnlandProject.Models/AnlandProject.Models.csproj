@@ -191,6 +191,9 @@
     <Compile Include="type.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
+    <Compile Include="website_visitor.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="AnlahData.edmx">

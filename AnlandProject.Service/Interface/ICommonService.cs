@@ -33,6 +33,8 @@ namespace AnlandProject.Service.Interface
         List<CategoryModel> MeetingCategoryQueryAll();
 
         List<CategoryModel> DocumentCategoryQueryAll();
+
+        int VisitorsQuery();
         #endregion
 
         #region Save / Update
@@ -41,6 +43,8 @@ namespace AnlandProject.Service.Interface
         bool ClassificationSave(CategoryModel saveData, Classification type);
 
         bool PostgroupSave(CategoryModel saveData);
+
+        void VisitorsUpdate();
         #endregion
 
         #region Delete
