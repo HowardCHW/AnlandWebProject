@@ -273,14 +273,6 @@
     <Content Include="Scripts\base\js\datatables.min.js" />
     <Content Include="Scripts\base\js\jquery.min.js" />
     <Content Include="Scripts\base\js\popper.min.js" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker.css" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker.standalone.min.css" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker3.css" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Scripts\base\plugin\bootstrap-datepicker\js\bootstrap-datepicker.js" />
     <Content Include="Scripts\base\plugin\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\base\plugin\bootstrap-datepicker\locales\bootstrap-datepicker-en-CA.min.js" />
@@ -595,10 +587,7 @@
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker.css.map" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css.map" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker3.css.map" />
-    <Content Include="Scripts\base\plugin\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <None Include="Properties\PublishProfiles\AnlandTestWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
