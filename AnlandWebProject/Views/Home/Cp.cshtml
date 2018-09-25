@@ -1,16 +1,16 @@
-﻿@model AnlandProject.Service.BusinessModel.QaModel
+﻿
 @{
-    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 常見問題";
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 政府網站資料開放宣言";
     Layout = "~/Views/Shared/_LayoutContent.cshtml";
 }
 
 @section AdditionalMeta
 {
     <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
-    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 常見問題">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 政府網站資料開放宣言">
     <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
-    <meta name="DC.Subject" content="常見問題內容頁">
-    <meta name="DC.Description" content="常見問題">
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 政府網站資料開放宣言">
+    <meta name="DC.Description" content="政府網站資料開放宣言">
     <meta name="DC.Contributor" content="基隆市安樂地政事務所">
     <meta name="DC.Type" content="文字">
     <meta name="DC.Format" content="text/html">
@@ -25,8 +25,9 @@
     <meta name="DC.Rights" content="基隆市安樂地政事務所">
     <meta name="Category.Theme" content="140">
     <meta name="Category.Cake" content="J40">
-    <meta name="Category.Service" content="I6Z">
-    <meta name="Keywords" content="問答, 地政, 測量, 登記, 地用, 資訊, 地價, 其他">
+    <meta name="Category.Service" content="I61">
+    <!-- 主題分類:140地政/施政分類:J40 資訊/服務分類:I61入口網 -->
+    <meta name="Keywords" content="網站導覽, 政府網站資料開放宣言">
 }
 
 <!-- 公告區 -->
@@ -45,7 +46,7 @@
                     <li class="breadcrumb-item">
                         <a href="@Url.Action("Index","Home")">首頁</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">常見問題</li>
+                    <li class="breadcrumb-item active" aria-current="page">政府網站資料開放宣言</li>
                 </ol>
             </nav>
         </div>
@@ -83,29 +84,22 @@
         <div class="card ml-3 mr-3 mt-3 subContent">
             <div class="card-body">
                 <div class="markTag"></div>
-                <h2>@Model.Subject</h2>
-                <p class="content-info">
-                    <span>類別：@Model.ClassfyName</span>
-                    <span>發布日期：@Model.SubmitDate.Value.ToString("yyyy/MM/dd")</span>
-                </p>
-                <p>
-                    <span style="white-space: pre-line">
-                        @HttpUtility.HtmlDecode(Model.Content)
-                    </span>
-                </p>
-                <ul class="textUl-list content-info text-left">
-                    <li>發布單位：基隆市安樂地政事務所</li>
-                    <li>聯絡人：基隆市安樂地政事務所</li>
-                    <li>聯絡電話：02-24324001</li>
-                    <li>更新日期：2018/08/01</li>
-                    <li>瀏覽人數：@string.Format("{0} 人", Model.Hit)</li>
-                </ul>
+                <h2>政府網站資料開放宣言</h2>
+                <ol class="textOl-layout1">
+                    <li>一、授權方式及範圍<br>為利各界廣為利用網站資料，本網所刊載之所有資料與素材，其得受著作權保護之範圍，以無償、非專屬，得再授權之方式提供公眾使用，使用者得不限時間及地域，重製、改作、編輯、公開傳輸或為其他方式之利用，開發各種產品或服務（簡稱加值衍生物），此一授權行為不會嗣後撤回，使用者亦無須取得入口網之書面或其他方式授權；然使用時，應註明出處。</li>
+                    <li>
+                        二、相關事項說明
+                        <ul class="textUl-list">
+                            <li>本授權範圍僅及於著作權保護之範圍，不及於其他智慧財產權利，包括但不限於專利、商標、及機關標誌之提供。</li>
+                            <li>當事人自行公開或依法令公開之個人資料是否得被蒐集、處理及利用，使用者須自行依照個人資料保護法之相關規定，規劃並執行法律要求之相應措施。</li>
+                            <li>影音、圖像、樂譜、專人專案撰文或經入口網特別聲明之其他著作，須經入口網同意方可使用。</li>
+                        </ul>
+                    </li>
+                    <li>應注意不得侵害第三人之著作人格權(包括姓名表示權及禁止不當變更權)。</li>
+                    <li>使用本授權提供之資料與素材，不得惡意變更其相關資訊，若利用後所展示之資訊與原資料與素材不符，使用者須自負民事、刑事上之法律責任。</li>
+                    <li>本網站之授權，並不授予使用者代表入口網建議、認可或贊同其加值衍生物之地位。</li>
+                </ol>
             </div>
-        </div>
-        <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">
-            <a class="btn btn-primary btn-sm mr-3" role="button" href="@Url.Action("Index","UserQuestion")">
-                <span class="fal fa-external-link-square" aria-hidden="true"></span> 回導覽頁
-            </a>
         </div>
     </div>
 </div>

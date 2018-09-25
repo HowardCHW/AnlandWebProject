@@ -95,11 +95,11 @@
                 <p>Alt+C：主要內容區，此區塊呈現各網頁的網頁內容。</p>
                 <p>Alt+Z：下方功能連結區，此區塊為胖頁尾連結及站內相關說明連結區。</p>
                 <h3>
-                    <span class="fas fa-bookmark"></span> 本網站的便捷鍵﹝Accesskey，也稱為快速鍵﹞設定如下：
+                    <span class="fas fa-bookmark"></span> 網站導覽：
                 </h3>
-                <div class="card flex-row">
+                <div class="card flex-row flex-wrap ml-5 sitemap">
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">機關簡介</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> 機關簡介</li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("Intro","Organs")" class="">本所沿革</a>
                         </li>
@@ -123,7 +123,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">公告資訊</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> 公告資訊</li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("News","Announcement")">最新消息</a>
                         </li>
@@ -132,10 +132,27 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">線上查詢</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> 線上查詢</li>
+                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> 登記類</li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="#">登記類</a>
+                            <a href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="開啟新的導覽視窗">區段代碼對照</a>
                         </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="https://landquery.klcg.gov.tw/query/oldnew.jsp" target="_blank" title="開啟新的導覽視窗">新舊地、建號查詢</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="https://landquery.klcg.gov.tw/query/opendata1.jsp" target="_blank" title="開啟新的導覽視窗">第一次登記公告</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="https://landquery.klcg.gov.tw/query/opendata2.jsp" target="_blank" title="開啟新的導覽視窗">書狀補給公告</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="overdueInheritance.html">逾期未辦繼承公告查詢</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="inheritedLand.html">未辦繼承列管土地資料</a>
+                        </li>
+                        <li class="hr-divider"></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="https://landquery.klcg.gov.tw/query/casedo.jsp?menu=true&type=M">測量類</a>
                         </li>
@@ -150,7 +167,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">線上申辦</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> 線上申辦</li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("AppCopy","OnlineApplication")">網路申領電子謄本</a>
                         </li>
@@ -174,7 +191,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">申請須知</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> 申請須知</li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("AppRegister","ApplicationNotes")">登記類</a>
                         </li>
@@ -206,27 +223,69 @@
                     </ul>
                     <ul class="list-group mb-3">
                         <li class="list-group-title">便民服務</li>
+                        <li class="list-group-subtitle">臨櫃服務</li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="@Url.Action("OneStop","PublicServices")">臨櫃服務</a>
+                            <a href="@Url.Action("OneStop","PublicServices")">單一窗口服務</a>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="@Url.Action("AppEmail","PublicServices")">通信服務</a>
+                            <a href="@Url.Action("ServiceVolunteers","PublicServices")">服務台及志工服務</a>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="@Url.Action("AppCopy","OnlineApplication")">網路服務</a>
+                            <a href="@Url.Action("TwoWay","PublicServices")">謄本櫃檯雙向服務</a>
+                        </li>
+                        <li class="list-group-subtitle">通信服務</li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("AppEmail","PublicServices")">通信申請</a>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="@Url.Action("TelVoice","PublicServices")">自動化服務</a>
+                            <a href="@Url.Action("MailToHome","PublicServices")">案件郵寄到家</a>
+                        </li>
+                        <li class="list-group-subtitle">網路服務</li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("AppCopy","OnlineApplication")">網路申領電子謄本</a>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="@Url.Action("CrossCopy","PublicServices")">跨所跨縣市服務</a>
+                            <a href="@Url.Action("InfoService","OnlineApplication")">地政電傳資訊服務</a>
                         </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("AppOnline","OnlineApplication")">地政線上申辦系統</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("EngEstate","OnlineApplication")">網路申領英文謄本</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("OnlineBooking","OnlineApplication")">線上預約</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("WebATM","OnlineApplication")">網路ATM</a>
+                        </li>
+                        <li class="list-group-subtitle">自動化服務</li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("TelVoice","PublicServices")">電話語音查詢</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("AutoReply","PublicServices")">辦理情形自動回覆</a>
+                        </li>
+                        <li class="list-group-subtitle">跨所跨縣市服務</li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("CrossCopy","PublicServices")">跨縣市申領謄本</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("CrossApplication","PublicServices")">跨所申辦登記案件</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("CrossEnglishApplication","PublicServices")">跨所申請英文不動產權利登記證明</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="@Url.Action("CrossCollection","PublicServices")">跨縣市代收案件</a>
+                        </li>
+                        <li class="hr-divider"></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("OtherService","PublicServices")">其他服務</a>
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">民意交流</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> 民意交流</li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("EmailSuggest","OpinionExchange")">地政答客問</a>
                         </li>
@@ -241,17 +300,16 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">分類檢索</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> 分類檢索</li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("Index","ClassificationSearch")">分類檢索</a>
                         </li>
                     </ul>
                 </div>
 
-                <p>發布單位：基隆市安樂地政事務所</p>
-                <p>聯絡人：基隆市安樂地政事務所</p>
-                <p>聯絡電話：02-24324001</p>
-                <p>更新日期：2018/08/01</p>
+                <p class="text-primary">
+                    更新日期：2018/08/20
+                </p>
             </div>
         </div>
         <div class="col-lg-12 d-flex mt-3 justify-content-end align-items-center d-print-none">

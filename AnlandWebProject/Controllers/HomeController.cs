@@ -40,5 +40,10 @@ namespace AnlandProject.Web.Controllers
             return View();
         }
 
+        public ActionResult Cp()
+        {
+            return View();
+        }
+
     }
 }

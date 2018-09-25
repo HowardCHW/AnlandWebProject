@@ -242,6 +242,17 @@
     <Content Include="images\4f_2.gif" />
     <Content Include="images\aaa.png" />
     <Content Include="images\apple-touch-icon.png" />
+    <Content Include="images\banner\banner-3dland.png" />
+    <Content Include="images\banner\banner-currentPrice.png" />
+    <Content Include="images\banner\banner-cwb.png" />
+    <Content Include="images\banner\banner-dla.png" />
+    <Content Include="images\banner\banner-fb.png" />
+    <Content Include="images\banner\banner-files.png" />
+    <Content Include="images\banner\banner-insurance.png" />
+    <Content Include="images\banner\banner-klcg.png" />
+    <Content Include="images\banner\banner-lap.png" />
+    <Content Include="images\banner\banner-realPrice.png" />
+    <Content Include="images\banner\banner-split.png" />
     <Content Include="images\bootstrap-solid.svg" />
     <Content Include="images\egov.png" />
     <Content Include="images\index_bg.gif" />
@@ -588,6 +599,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\PublishProfiles\AnlandTestWeb - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -782,7 +794,6 @@
     <Content Include="Views\Others\LandUnit.cshtml" />
     <Content Include="Views\Others\LandService.cshtml" />
     <Content Include="Views\Others\TaxUnit.cshtml" />
-    <Content Include="Views\Home\Privacy.cshtml" />
     <Content Include="Views\Documentation\Index.cshtml" />
     <Content Include="Views\Documentation\FileApplication.cshtml" />
     <Content Include="Views\Documentation\InspectionService.cshtml" />
@@ -798,6 +809,7 @@
     <Content Include="Views\ENG\Links.cshtml" />
     <Content Include="Views\ENG\Applications.cshtml" />
     <Content Include="Views\ENG\Opinions.cshtml" />
+    <Content Include="Views\Home\Cp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
