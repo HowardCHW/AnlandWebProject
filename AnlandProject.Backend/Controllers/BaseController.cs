@@ -18,6 +18,7 @@ namespace AnlandProject.Backend.Controllers
         public ActionResult MainHeader()
         {
             ViewBag.UserName = UserInfo.UserName;
+            ViewBag.UID = UserInfo.UID;
             return View();
         }
 
@@ -46,6 +47,7 @@ namespace AnlandProject.Backend.Controllers
                     { //是否已通過使用者驗證
                         ClaimsIdentity identity = new ClaimsIdentity(authenticationManager.User.Identity);
 
+                        userModel.UID = int.Parse(identity.FindFirst("UID").Value);
                         userModel.UserAccount = identity.FindFirst(ClaimTypes.NameIdentifier).Value;
                         userModel.UserName = identity.FindFirst(ClaimTypes.Name).Value;
                         var tempMenu = identity.FindFirst("MenuRight").Value;

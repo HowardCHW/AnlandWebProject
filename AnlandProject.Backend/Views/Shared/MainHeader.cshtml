@@ -50,7 +50,7 @@
                     </span>
                 </a>
                 <div class="dropdown-menu" role="menu">
-                    <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> 個人設定</a>
+                    <a class="dropdown-item" href="@Url.Action("UserCreate","UserManagement", new { id = ViewBag.UID })" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> 個人設定</a>
                     <div class="dropdown-divider" role="presentation"></div>
                     <a class="dropdown-item" href='@Url.Action("Logout","Account")' role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> 登出</a>
                 </div>

@@ -70,6 +70,7 @@ namespace AnlandProject.Service
             {
                 result = new AccountModel()
                 {
+                    ID = data.ID,
                     Account = data.username,
                     Name = data.name,
                     Rights = data.rights

@@ -8,7 +8,7 @@ namespace AnlandProject.Service.BusinessModel
 {
     public class BackendUserModel
     {
-        public int ID { get; set; }
+        public int UID { get; set; }
         public string UserAccount { get; set; }
         public string UserName { get; set; }
         public List<int> MenuPermissions { get; set; }

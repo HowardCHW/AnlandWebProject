@@ -87,10 +87,11 @@ namespace AnlandProject.Backend.Controllers
         private void SetIdentity(AccountModel userModel)
         {
             ClaimsIdentity identity = new ClaimsIdentity(SiteAuthenticationSettings.ApplicationAuthenticationType, ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-            identity.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "Active Directory"));
+            identity.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "Active Directory"));            
             identity.AddClaim(new Claim(ClaimTypes.Name, userModel.Name)); //使用者帳號全名
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userModel.Account)); //AD 帳號
             identity.AddClaim(new Claim("MenuRight", userModel.Rights)); //Menu 權限
+            identity.AddClaim(new Claim("UID", userModel.ID.ToString())); //使用者ID
 
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.AuthenticationResponseGrant = new AuthenticationResponseGrant(identity, new AuthenticationProperties() { IsPersistent = false });

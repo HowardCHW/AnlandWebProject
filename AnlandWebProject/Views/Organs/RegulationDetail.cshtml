@@ -93,60 +93,59 @@
                     </span>                        
                 </p>
                 <div class="alert alert-secondary bg-lightreay" role="alert">
-                    @if (!string.IsNullOrWhiteSpace(Model.File2Momo))
+                    @{int index = 0; }
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage3))
                     {
                         <p>
-                            圖示會依檔案切換，目前有PDF/WORD/Excel 三種
-                            <br />
                             <span class="fas fa-caret-right"></span>
                             <span>
                                 檔案
-                                <span class="text-red">1</span>：
+                                <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}.pdf",Model.Homepage3) " target="_blank" title="開啟新視窗">
-                                @Model.File2Momo
+                            <a href="@string.Format("an_db/board/{0}",Model.Homepage3) " target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File2Momo)) { @Model.Homepage3 } else { @Model.File2Momo }
                                 <span class="fas fa-file-pdf" title="PDF檔"></span>
                             </a>
                         </p>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File3Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage4))
                     {
                         <p>
                             <span class="fas fa-caret-right"></span>
                             <span>
                                 檔案
-                                <span class="text-red">1</span>：
+                                <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}.pdf",Model.Homepage4) " target="_blank" title="開啟新視窗">
-                                @Model.File3Momo
+                            <a href="@string.Format("an_db/board/{0}",Model.Homepage4) " target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File3Momo)) { @Model.Homepage4 } else { @Model.File3Momo }
                                 <span class="fas fa-file-pdf" title="PDF檔"></span>
                             </a>
                         </p>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File4Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage5))
                     {
                         <p>
                             <span class="fas fa-caret-right"></span>
                             <span>
                                 檔案
-                                <span class="text-red">1</span>：
+                                <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}.pdf",Model.Homepage5) " target="_blank" title="開啟新視窗">
-                                @Model.File4Momo
+                            <a href="@string.Format("an_db/board/{0}",Model.Homepage5) " target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File4Momo)) { @Model.Homepage5 } else { @Model.File4Momo }
                                 <span class="fas fa-file-pdf" title="PDF檔"></span>
                             </a>
                         </p>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File5Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage6))
                     {
                         <p>
                             <span class="fas fa-caret-right"></span>
                             <span>
                                 檔案
-                                <span class="text-red">1</span>：
+                                <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}.pdf",Model.Homepage6) " target="_blank" title="開啟新視窗">
-                                @Model.File5Momo
+                            <a href="@string.Format("an_db/board/{0}",Model.Homepage6) " target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File5Momo)) { @Model.Homepage6 } else { @Model.File5Momo }
                                 <span class="fas fa-file-pdf" title="PDF檔"></span>
                             </a>
                         </p>
