@@ -97,6 +97,42 @@
                 </p>
                 <div class="alert alert-secondary bg-lightreay" role="alert">
                     @{int index = 0; }
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage2))
+                    {
+                        <p>
+                            <span class="fas fa-caret-right"></span>
+                            <span>
+                                檔案
+                                <span class="text-red">@(index+=1)</span>：
+                            </span>
+                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage2" target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File1Momo))
+                                {
+                                    @Model.Homepage2
+                                }
+                                else
+                                {
+                                    @Model.File1Momo
+                                }
+                                @if (Model.Homepage2.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage2.ToLower().Contains("doc") || Model.Homepage2.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage2.ToLower().Contains("xls") || Model.Homepage2.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage2.ToLower().Contains("png") || Model.Homepage2.ToLower().Contains("jpg"))
+                                {
+                                    <span class="fas fa-file" title="圖片檔"></span>
+                                }
+                            </a>
+                        </p>
+                    }
                     @if (!string.IsNullOrWhiteSpace(Model.Homepage3))
                     {
                         <p>
@@ -105,9 +141,31 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}",Model.Homepage3) " target="_blank" title="開啟新視窗">
-                                @if (string.IsNullOrWhiteSpace(Model.File2Momo)) { @Model.Homepage3 } else { @Model.File2Momo }
-                                <span class="fas fa-file-pdf" title="PDF檔"></span>
+                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage3" target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File2Momo))
+                                {
+                                    @Model.Homepage3
+                                }
+                                else
+                                {
+                                    @Model.File2Momo
+                                }
+                                @if (Model.Homepage3.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage3.ToLower().Contains("doc") || Model.Homepage3.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage3.ToLower().Contains("xls") || Model.Homepage3.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage3.ToLower().Contains("png") || Model.Homepage3.ToLower().Contains("jpg"))
+                                {
+                                    <span class="fas fa-file" title="圖片檔"></span>
+                                }
                             </a>
                         </p>
                     }
@@ -119,9 +177,31 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}",Model.Homepage4) " target="_blank" title="開啟新視窗">
-                                @if (string.IsNullOrWhiteSpace(Model.File3Momo)) { @Model.Homepage4 } else { @Model.File3Momo }
-                                <span class="fas fa-file-pdf" title="PDF檔"></span>
+                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage4" target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File3Momo))
+                                {
+                                    @Model.Homepage4
+                                }
+                                else
+                                {
+                                    @Model.File3Momo
+                                }
+                                @if (Model.Homepage4.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage4.ToLower().Contains("doc") || Model.Homepage4.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage4.ToLower().Contains("xls") || Model.Homepage4.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage4.ToLower().Contains("png") || Model.Homepage4.ToLower().Contains("jpg"))
+                                {
+                                    <span class="fas fa-file" title="圖片檔"></span>
+                                }
                             </a>
                         </p>
                     }
@@ -133,9 +213,31 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}",Model.Homepage5) " target="_blank" title="開啟新視窗">
-                                @if (string.IsNullOrWhiteSpace(Model.File4Momo)) { @Model.Homepage5 } else { @Model.File4Momo }
-                                <span class="fas fa-file-pdf" title="PDF檔"></span>
+                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage5" target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File4Momo))
+                                {
+                                    @Model.Homepage5
+                                }
+                                else
+                                {
+                                    @Model.File4Momo
+                                }
+                                @if (Model.Homepage5.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage5.ToLower().Contains("doc") || Model.Homepage5.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage5.ToLower().Contains("xls") || Model.Homepage5.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage5.ToLower().Contains("png") || Model.Homepage5.ToLower().Contains("jpg"))
+                                {
+                                    <span class="fas fa-file" title="圖片檔"></span>
+                                }
                             </a>
                         </p>
                     }
@@ -147,9 +249,31 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@string.Format("an_db/board/{0}",Model.Homepage6) " target="_blank" title="開啟新視窗">
-                                @if (string.IsNullOrWhiteSpace(Model.File5Momo)) { @Model.Homepage6 } else { @Model.File5Momo }
-                                <span class="fas fa-file-pdf" title="PDF檔"></span>
+                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage6" target="_blank" title="開啟新視窗">
+                                @if (string.IsNullOrWhiteSpace(Model.File5Momo))
+                                {
+                                    @Model.Homepage6
+                                }
+                                else
+                                {
+                                    @Model.File5Momo
+                                }
+                                @if (Model.Homepage6.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage6.ToLower().Contains("doc") || Model.Homepage6.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage6.ToLower().Contains("xls") || Model.Homepage6.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage6.ToLower().Contains("png") || Model.Homepage6.ToLower().Contains("jpg"))
+                                {
+                                    <span class="fas fa-file" title="圖片檔"></span>
+                                }
                             </a>
                         </p>
                     }

@@ -80,10 +80,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                     if (saveStatus && !string.IsNullOrWhiteSpace(model.MsgEmail))
                     {
                         SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("email");
-                        //目前沒有SMTP Server
-                        //smtpData.SendMailBySMTP(model.MsgEmail, model.RpyContent);
-                        //先用自己的WebMail當測試
-                        smtpData.SendMailByWeb("hwchan67@gmail.com", model.RpyContent);
+                        smtpData.SendMailBySMTP(model.MsgEmail, model.RpyContent);
                     }
                 }
                 catch (Exception ex)

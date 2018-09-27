@@ -66,7 +66,7 @@ namespace AnlandProject.Backend.Controllers.EmpArea
             using (_boardService = new BoardService())
             {
                 List<DefaultDataModel> result = _boardService.BoardQueryAll();
-                return Json(new { data = result });
+                return Json(new { data = result.OrderByDescending(r => r.PostDate) });
             }
         }
 

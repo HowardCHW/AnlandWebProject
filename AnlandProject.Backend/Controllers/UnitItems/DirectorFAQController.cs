@@ -79,11 +79,8 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                     saveStatus = _directorfaqService.DirectorFAQSave(model);
                     if (saveStatus && !string.IsNullOrWhiteSpace(model.MsgEmail))
                     {
-                        SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
-                        //目前沒有SMTP Server
-                        //smtpData.SendMailBySMTP(model.MsgEmail, model.RpyContent);
-                        //先用自己的WebMail當測試
-                        smtpData.SendMailByWeb("hwchan67@gmail.com", model.RpyContent);
+                        SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");                        
+                        smtpData.SendMailBySMTP(model.MsgEmail, model.RpyContent);
                     }
                 }
                 catch (Exception ex)

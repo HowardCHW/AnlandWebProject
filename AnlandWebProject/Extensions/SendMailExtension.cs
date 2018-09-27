@@ -54,10 +54,10 @@ namespace AnlandProject.Web.Extensions
                 smtp.EnableSsl = true;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("hwchan67@gmail.com", "Vivian19850929");
+                smtp.Credentials = new NetworkCredential("", "");
 
                 //using (var message = new MailMessage(smtpData.Recipient, toMailAdd))
-                using (var message = new MailMessage("hwchan67@gmail.com", "hwchan67@gmail.com"))
+                using (var message = new MailMessage("", ""))
                 {
                     message.Subject = smtpData.Subject;
                     message.Body = htmlBody;

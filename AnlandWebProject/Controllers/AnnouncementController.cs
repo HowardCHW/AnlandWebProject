@@ -3,6 +3,7 @@ using AnlandProject.Service.BusinessModel;
 using AnlandProject.Service.Interface;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -77,5 +78,13 @@ namespace AnlandProject.Web.Controllers
                 return View(result);
             }
         }
+
+        public FileResult Download(string type, string fileName)
+        {
+            string storagePath = ConfigurationManager.AppSettings["DownloadPath"];
+            string path = string.Format("{0}\\{1}\\{2}", storagePath, type, fileName);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(path);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }        
     }
 }

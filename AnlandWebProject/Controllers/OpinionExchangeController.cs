@@ -52,11 +52,8 @@ namespace AnlandProject.Web.Controllers
                     if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.MsgEmail))
                     {
                         SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("email");
-                        //目前沒有SMTP Server
-                        //smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgContent);  //發MAIL給填寫意見者
-                        //smtpData.SendMailBySMTP(smtpData.Recipient, saveModel.MsgContent);   //發MAIL給系統管理員
-                        //先用自己的WebMail當測試
-                        smtpData.SendMailByWeb("hwchan67@gmail.com", saveModel.MsgContent);
+                        smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgContent);  //發MAIL給填寫意見者
+                        smtpData.SendMailBySMTP(smtpData.Recipient, saveModel.MsgContent);   //發MAIL給系統管理員
                     }
                 }
                 catch (Exception ex)
@@ -114,11 +111,8 @@ namespace AnlandProject.Web.Controllers
                     if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.MsgEmail))
                     {
                         SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
-                        //目前沒有SMTP Server
-                        //smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgContent);  //發MAIL給填寫意見者
-                        //smtpData.SendMailBySMTP(smtpData.Recipient, saveModel.MsgContent);   //發MAIL給系統管理員
-                        //先用自己的WebMail當測試
-                        smtpData.SendMailByWeb("hwchan67@gmail.com", saveModel.MsgContent);
+                        smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgContent);  //發MAIL給填寫意見者
+                        smtpData.SendMailBySMTP(smtpData.Recipient, saveModel.MsgContent);   //發MAIL給系統管理員
                     }
                 }
                 catch (Exception ex)
@@ -255,11 +249,8 @@ namespace AnlandProject.Web.Controllers
                     if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.ContactEmail))
                     {
                         SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
-                        //目前沒有SMTP Server
-                        //smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgContent);  //發MAIL給填寫意見者
-                        //smtpData.SendMailBySMTP(smtpData.Recipient, saveModel.MsgContent);   //發MAIL給系統管理員
-                        //先用自己的WebMail當測試
-                        smtpData.SendMailByWeb("hwchan67@gmail.com", saveModel.ProposalContent);
+                        smtpData.SendMailBySMTP(saveModel.ContactEmail, saveModel.ProposalContent);  //發MAIL給填寫意見者
+                        smtpData.SendMailBySMTP(smtpData.Recipient, saveModel.ProposalContent);   //發MAIL給系統管理員
                     }
                 }
                 catch (Exception ex)

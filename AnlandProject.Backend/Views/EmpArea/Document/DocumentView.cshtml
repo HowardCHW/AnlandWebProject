@@ -5,10 +5,10 @@
 }
 
 <div class="page-header">
-    <h1 class="page-title">公佈欄</h1>
+    <h1 class="page-title">表單下載</h1>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href='@Url.Action("Index","Home")'>首頁</a></li>
-        <li class="breadcrumb-item active">公佈欄</li>
+        <li class="breadcrumb-item active">表單下載</li>
     </ol>
     <div class="page-header-actions"></div>
 </div>
@@ -25,7 +25,7 @@
             <div class="alert alert-success alert-dismissible" role="alert">
                 <h4>附件：</h4>
                 <ul>
-                    @if (!string.IsNullOrWhiteSpace(Model.File1Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage2))
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File1Momo
@@ -34,7 +34,7 @@
                             </a>
                         </li>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File2Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage3))
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File2Momo
@@ -43,7 +43,7 @@
                             </a>
                         </li>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File3Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage4))
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File3Momo
@@ -52,7 +52,7 @@
                             </a>
                         </li>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File4Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage5))
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File4Momo
@@ -61,7 +61,7 @@
                             </a>
                         </li>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File5Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage6))
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File5Momo

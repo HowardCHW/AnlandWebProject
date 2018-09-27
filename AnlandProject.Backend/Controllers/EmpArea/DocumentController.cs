@@ -66,7 +66,7 @@ namespace AnlandProject.Backend.Controllers.EmpArea
             using (_documentService = new DocumentService())
             {
                 List<DefaultDataModel> result = _documentService.DocumentQueryAll();
-                return Json(new { data = result });
+                return Json(new { data = result.OrderByDescending(r => r.PostDate) });
             }
         }
 

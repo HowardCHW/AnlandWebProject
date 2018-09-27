@@ -67,7 +67,7 @@ namespace AnlandProject.Backend.Controllers.EmpArea
             using (_meetingService = new MeetingService())
             {
                 List<DefaultDataModel> result = _meetingService.MeetingQueryAll();
-                return Json(new { data = result });
+                return Json(new { data = result.OrderByDescending(r => r.PostDate) });
             }
         }
 
