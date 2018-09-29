@@ -130,7 +130,7 @@
                                         </div>
                                         <ul class="textOl-layout1 pl-4">
                                             <li class="col-md-12" v-for="(opt, ind) in item.Options">
-                                                <input class="form-check-input" type="radio" :name="'singleOpt[' + index + ']'" :id="'inputRadios' + index + ind" :value="ind + 1" title="單選項">
+                                                <input class="form-check-input" type="radio" title="單選題勾選項目" :name="'singleOpt[' + index + ']'" :id="'inputRadios' + index + ind" :value="ind + 1" title="單選項">
                                                 <label class="form-check-label" :for="'inputRadios' + index + ind">{{opt}}</label>
                                             </li>
                                         </ul>
@@ -144,7 +144,7 @@
                                         </div>
                                         <ul class="textOl-layout1 pl-4">
                                             <li class="col-md-12" v-for="(opt, ind) in item.Options">
-                                                <input class="form-check-input" type="checkbox" :name="'multipleOpt[' + index + ']'" :id="'chk' + index + ind" :value="ind + 1">
+                                                <input class="form-check-input" type="checkbox" title="可多選的複選題勾選項目" :name="'multipleOpt[' + index + ']'" :id="'chk' + index + ind" :value="ind + 1">
                                                 <label class="form-check-label" :for="'chk' + index + ind">{{opt}}</label>
                                             </li>
                                         </ul>
@@ -156,7 +156,7 @@
                                         <div class="col-md-12 ml-3">
                                             <div class="form-group">
                                                 <label for="questionTextarea1">{{index + 1}}. {{item.Question}}</label>
-                                                <textarea class="form-control" :name="'qanda[' + index + ']'" id="questionTextarea1" rows="3"></textarea>
+                                                <textarea class="form-control" title="請輸入你的答案" :name="'qanda[' + index + ']'" id="questionTextarea1" rows="3"></textarea>
                                             </div>
                                         </div>
                                     </template>
