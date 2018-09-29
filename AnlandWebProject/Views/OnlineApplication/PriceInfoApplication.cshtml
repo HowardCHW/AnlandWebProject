@@ -99,7 +99,8 @@
                                         <option value="(3)司法訴訟或調解">(3)司法訴訟或調解</option>
                                         <option value="(4)其他">(4)其他</option>
                                     </select>
-                                    <input id="purposeVal" style="display:none;" required data-parsley-required-message="必選欄位！" />
+                                    <label for="purposeVal" style="display:none;">錯誤訊息</label>
+                                    <input id="purposeVal" name="errorMessage" type="text" title="請選擇申請項目" style="display:none;" required data-parsley-required-message="必選欄位！" />
                                 </td>
                                 <th scope="row" class="text-nowrap table-primary">
                                     <label for="applyadd">
@@ -113,7 +114,7 @@
                             <tr>
                                 <th scope="row" class="text-nowrap table-primary"><label for="applyemail">申請人 Email</label></th>
                                 <td colspan="7">
-                                    <input name="applyemail" type="text" class="form-control" size="40" id="applyemail" placeholder="" title="請填寫申請人 Email" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
+                                    <input name="applyemail" type="text" class="form-control" size="40" id="applyemail" title="請填寫申請人 Email" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
                                 </td>
                             </tr>
                             <tr>
@@ -124,7 +125,8 @@
                                     <select name="area1" id="area1" class="form-control" title="請選擇鄉鎮市區名稱" onChange="BuildSection(this.value, 1);">
                                         <option value="" selected>請選擇</option>
                                     </select>
-                                    <input id="area1Val" style="display:none;" required data-parsley-required-message="請選擇鄉鎮市區！" />
+                                    <label for="area1Val" style="display:none;">錯誤訊息</label>
+                                    <input id="area1Val" name="area1Val" title="請選擇鄉鎮市區" style="display:none;" required data-parsley-required-message="請選擇鄉鎮市區！" />
                                 </td>
                                 <th scope="row" class="text-nowrap table-primary">
                                     <label for="sarea1">
@@ -165,6 +167,9 @@
                                         <option value="93年度">93年度</option>
                                         <option value="96年度">96年度</option>
                                         <option value="99年度">99年度</option>
+                                        <option value="102年度">102年度</option>
+                                        <option value="105年度">105年度</option>
+                                        <option value="107年度">107年度</option>
                                     </select>
                                     <input id="areayear1Val" style="display:none;" required data-parsley-required-message="請選擇年度！" />
                                 </td>
@@ -202,6 +207,9 @@
                                         <option value="93年度">93年度</option>
                                         <option value="96年度">96年度</option>
                                         <option value="99年度">99年度</option>
+                                        <option value="102年度">102年度</option>
+                                        <option value="105年度">105年度</option>
+                                        <option value="107年度">107年度</option>
                                     </select>
                                 </td>
                             </tr>
@@ -238,6 +246,9 @@
                                         <option value="93年度">93年度</option>
                                         <option value="96年度">96年度</option>
                                         <option value="99年度">99年度</option>
+                                        <option value="102年度">102年度</option>
+                                        <option value="105年度">105年度</option>
+                                        <option value="107年度">107年度</option>
                                     </select>
                                 </td>
                             </tr>
@@ -274,6 +285,9 @@
                                         <option value="93年度">93年度</option>
                                         <option value="96年度">96年度</option>
                                         <option value="99年度">99年度</option>
+                                        <option value="102年度">102年度</option>
+                                        <option value="105年度">105年度</option>
+                                        <option value="107年度">107年度</option>
                                     </select>
                                 </td>
                             </tr>
@@ -310,6 +324,9 @@
                                         <option value="93年度">93年度</option>
                                         <option value="96年度">96年度</option>
                                         <option value="99年度">99年度</option>
+                                        <option value="102年度">102年度</option>
+                                        <option value="105年度">105年度</option>
+                                        <option value="107年度">107年度</option>
                                     </select>
                                 </td>
                             </tr>

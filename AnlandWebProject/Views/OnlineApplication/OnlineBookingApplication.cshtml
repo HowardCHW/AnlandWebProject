@@ -117,7 +117,7 @@
                                     <input name="applyemail" type="text" class="form-control" size="50" id="applyemail" placeholder="" title="請填寫電子信箱( 不限個人常用的E-mail )" required data-parsley-required-message="必填欄位！" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！" />
                             </tr>
                             <tr>
-                                <th scope="row" class="text-nowrap table-primary"><label for="agentre">委任關係</label></th>
+                                <th scope="row" class="text-nowrap table-primary"><label for="agent_re">委任關係</label></th>
                                 <td colspan="5">
                                     <input type="checkbox" name="agentre" value="1" id="agent_re" title="如有委任關係請勾選" />
                                     本申請案，係受申請人之委託，如有虛偽不實，願負法律責任。
@@ -126,7 +126,7 @@
                             <tr>
                                 <th scope="row" rowspan="3" class="text-nowrap table-primary">
                                     申請項目<span class="red">＊</span>
-                                    <input type="text" id="appItemErr" style="display:none;" required data-parsley-required-message="至少填一項！" />
+                                    <input type="text" id="appItemErr" name="appItemErr" title="請填寫申請項目" style="display:none;" required data-parsley-required-message="至少填一項！" />
                                 </th>
                                 <td colspan="5">
                                     <div class="form-inline">
@@ -189,7 +189,7 @@
                                     <label class="m-1" for="purpose5">其他</label>：
                                     <label class="sr-only" for="purposenote">敘明用途</label>
                                     <input name="purposenote" type="text" class="form-control" size="50" id="purposenote" placeholder="" title="請敘明用途" />
-                                    <input type="text" id="purposeCheck" style="display:none;" required data-parsley-required-message="請選擇申請目的！" />
+                                    <input type="text" id="purposeCheck" name="purposeCheck" title="請填寫申請用途" style="display:none;" required data-parsley-required-message="請選擇申請目的！" />
                             </tr>
                             <tr>
                                 <th scope="row" class="text-nowrap table-primary">預約領件日期<span class="red">＊</span></th>

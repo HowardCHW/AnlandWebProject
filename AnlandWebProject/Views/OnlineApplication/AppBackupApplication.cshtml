@@ -94,13 +94,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-nowrap table-primary"><span class="red">＊</span><label for="applyadd">申辦人 Email</label></th>
+                                <th scope="row" class="text-nowrap table-primary"><span class="red">＊</span><label for="applyemail">申辦人 Email</label></th>
                                 <td colspan="5">
-                                    <input name="applyemail" type="text" class="form-control" size="60" id="applyemail" placeholder="" title="請填寫申辦人 Email( 不限個人 )" required data-parsley-required-message="必填欄位！" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！" />
+                                    <input name="applyemail" type="text" class="form-control" size="60" id="applyemail" title="請填寫申辦人 Email( 不限個人 )" required data-parsley-required-message="必填欄位！" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-nowrap table-primary"><label for="agentre">代理人姓名</label></th>
+                                <th scope="row" class="text-nowrap table-primary"><label for="agentname">代理人姓名</label></th>
                                 <td>
                                     <input name="agentname" type="text" class="form-control" size="15" id="agentname" placeholder="" title="請填寫代理人姓名" />
                                 </td>
@@ -165,7 +165,8 @@
                                         <option value="複製">複製</option>
                                         <option value="全部">全部</option>
                                     </select>
-                                    <input id="docitem1Val" style="display:none;" required data-parsley-required-message="必選欄位！" />
+                                    <label for="docitem1Val" style="display:none;">錯誤訊息</label>
+                                    <input id="docitem1Val" name="errorMessage" type="text" style="display:none;" title="請選擇申請項目" required data-parsley-required-message="必選欄位！" />
                                 </td>
                             </tr>
                             <tr>
@@ -254,7 +255,8 @@
                                     <input type="checkbox" name="purpose6" value="1" id="purpose6" />
                                     <label for="purpose6">其他：</label>
                                     <input name="purposenote" type="text" class="form-control" size="50" id="purposenote" placeholder="" title="請敘明目的" disabled />
-                                    <input type="text" id="purposeCheck" style="display:none;" required data-parsley-required-message="請選擇申請目的！" />
+                                    <label for="purposeCheck" style="display:none;">錯誤訊息</label>
+                                    <input type="text" id="purposeCheck" name="purposeCheck" title="請選擇申請目的" style="display:none;" required data-parsley-required-message="請選擇申請目的！" />
                                 </td>
                             </tr>
                             <tr>

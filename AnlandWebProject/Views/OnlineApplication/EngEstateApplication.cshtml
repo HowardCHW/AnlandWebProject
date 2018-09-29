@@ -114,7 +114,7 @@
                             <tr>
                                 <th scope="row" class="text-nowrap table-primary"><label for="applyemail">申辦人 Email</label></th>
                                 <td colspan="5" class="text-nowrap">
-                                    <input name="applyemail" type="text" class="form-control" size="60" id="applyemail" placeholder="" title="請填寫申辦人 Email( 不限個人常用的E-mail )" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
+                                    <input name="applyemail" type="text" class="form-control" size="60" id="applyemail" title="請填寫申辦人 Email( 不限個人常用的E-mail )" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
                                 </td>
                             </tr>
                             <tr>
@@ -209,7 +209,8 @@
                                     <label for="purpose5">其他：</label>
                                     <label for="purposenote" class="sr-only">申請目的</label>
                                     <input name="purposenote" type="text" class="form-control" size="50" id="purposenote" placeholder="" title="請選擇申請目的">
-                                    <input type="text" id="purposeCheck" style="display:none;" required data-parsley-required-message="請選擇申請目的！" />
+                                    <label for="purposeCheck" style="display:none;">錯誤訊息</label>
+                                    <input type="text" id="purposeCheck" name="purposeCheck" style="display:none;" title="請選擇申請目的" required data-parsley-required-message="請選擇申請目的！" />
                                 </td>
                             </tr>
                             <tr>
@@ -244,7 +245,7 @@
                             </tr>
                             <tr>
                                 <td class="text-nowrap">
-                                    <input name="qa1" id="qa11" type="radio" value="1" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa11Error">
+                                    <input name="qa1" id="qa11" type="radio" value="1" title="請填寫此題" required data-parsley-required-message="請填寫此題！" data-parsley-errors-container="#qa11Error">
                                     <label for="qa11">傳播媒體</label>
                                     <input name="qa1" id="qa12" type="radio" value="2">
                                     <label for="qa12">報章雜誌</label>

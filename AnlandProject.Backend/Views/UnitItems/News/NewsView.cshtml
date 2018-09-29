@@ -37,7 +37,7 @@
                     <div class="col-md-3">
                         <div class="example">
                             <div class="card">
-                                <img class="card-img-top w-full img-bordered img-bordered-primary" src="https://api.fnkr.net/testimg/350x250/00CED1/FFF/?text=@Model.Homepage2" alt="...">
+                                <img class="card-img-top w-full img-bordered img-bordered-primary" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage2)" alt="...">
                                 <div class="card-block">
                                     <p class="card-text">@Model.File1Momo</p>
                                 </div>
@@ -50,7 +50,7 @@
                     <div class="col-md-3">
                         <div class="example">
                             <div class="card">
-                                <img class="card-img-top w-full img-bordered img-bordered-primary" src="https://api.fnkr.net/testimg/350x250/00CED1/FFF/?text=@Model.Homepage3" alt="...">
+                                <img class="card-img-top w-full img-bordered img-bordered-primary" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage3)" alt="...">
                                 <div class="card-block">
                                     <p class="card-text">@Model.File2Momo</p>
                                 </div>
@@ -66,7 +66,7 @@
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File3Momo
-                            <a href="@string.Format("/UploadedFiles/Laws/{0}",Model.Homepage4)" target="_blank" title="@Model.File3Momo 下載" download="@Model.Homepage4">
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage4)" target="_blank" title="@Model.File3Momo 下載" download="@Model.Homepage4">
                                 <i class="icon wb-file" aria-hidden="true"></i>
                             </a>
                         </li>
@@ -75,7 +75,7 @@
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File4Momo
-                            <a href="@string.Format("/UploadedFiles/Laws/{0}",Model.Homepage5)" target="_blank" title="@Model.File4Momo 下載" download="@Model.Homepage5">
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage5)" target="_blank" title="@Model.File4Momo 下載" download="@Model.Homepage5">
                                 <i class="icon wb-file" aria-hidden="true"></i>
                             </a>
                         </li>
@@ -84,7 +84,7 @@
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File5Momo
-                            <a href="@string.Format("/UploadedFiles/Laws/{0}",Model.Homepage6)" target="_blank" title="@Model.File5Momo 下載" download="@Model.Homepage6">
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage6)" target="_blank" title="@Model.File5Momo 下載" download="@Model.Homepage6">
                                 <i class="icon wb-file" aria-hidden="true"></i>
                             </a>
                         </li>

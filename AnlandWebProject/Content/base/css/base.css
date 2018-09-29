@@ -1078,4 +1078,18 @@ span.fa-file-alt {
   padding: .3rem 0.25rem .1rem 0rem;
   text-decoration: none;
 }
+
+.gsc-search-button input.gsc-search-button-v2,
+input.gsc-search-button-v2 {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    padding: 5px 10px;
+    min-width: 13px;
+    margin-top: 0px;
+}
+
+.gsc-search-box-tools .gsc-search-box .gsc-input {
+    padding-right: 3px;
+}
 /*# sourceMappingURL=base.css.map */

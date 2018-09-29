@@ -56,6 +56,11 @@ namespace AnlandProject.Web.Controllers
             return View();
         }
 
+        public ActionResult Sitemap()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult OpinionsSave(FAQModel saveModel)
