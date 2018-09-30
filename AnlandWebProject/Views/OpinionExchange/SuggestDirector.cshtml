@@ -266,6 +266,28 @@
                 },
                 pagingType: "full_numbers",
                 ordering: false,
+                columnDefs: [
+                    {
+                        targets: [0, 1, 2, 3, 4],
+                        createdCell: function (td, cellData, rowData, row, col) {
+                            if (col == 0) {
+                                $(td).attr('data-th', '列管編號');
+                            }
+                            if (col == 1) {
+                                $(td).attr('data-th', '主題');
+                            }
+                            if (col == 2) {
+                                $(td).attr('data-th', '留言日期');
+                            }
+                            if (col == 3) {
+                                $(td).attr('data-th', '回覆情形');
+                            }
+                            if (col == 4) {
+                                $(td).attr('data-th', '回覆日期');
+                            }
+                        }
+                    }
+                ],
                 columns: [
                     { mDataProp: "No" },
                     {

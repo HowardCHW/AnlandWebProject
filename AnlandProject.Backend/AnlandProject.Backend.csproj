@@ -644,6 +644,7 @@
     <Content Include="global\css\bootstrap-extend.min.css" />
     <Content Include="global\css\bootstrap.css" />
     <Content Include="global\css\bootstrap.min.css" />
+    <Content Include="global\css\plugins.min.css" />
     <Content Include="global\fonts\7-stroke\7-stroke.css" />
     <Content Include="global\fonts\7-stroke\7-stroke.min.css" />
     <Content Include="global\fonts\7-stroke\7-stroke.svg" />

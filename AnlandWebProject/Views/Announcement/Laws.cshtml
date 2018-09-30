@@ -144,6 +144,22 @@
                 },
                 pagingType: "full_numbers",
                 ordering: false,
+                columnDefs: [
+                    {
+                        targets: [0, 1, 2],
+                        createdCell: function (td, cellData, rowData, row, col) {
+                            if (col == 0) {
+                                $(td).attr('data-th', '類別');
+                            }
+                            if (col == 1) {
+                                $(td).attr('data-th', '標題');
+                            }
+                            if (col == 2) {
+                                $(td).attr('data-th', '公告日期');
+                            }
+                        }
+                    }
+                ],
                 columns: [
                     { mDataProp: "ClassfyName" },
                     {

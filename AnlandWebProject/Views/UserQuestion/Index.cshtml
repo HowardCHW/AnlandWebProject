@@ -170,10 +170,23 @@
                 },
                 pagingType: "full_numbers",
                 ordering: false,
+                // columnDefs: [
+                //    {
+                //        "targets": [0],
+                //        "visible": false
+                //    }
+                //],
                 columnDefs: [
                     {
-                        "targets": [0],
-                        "visible": false
+                        targets: [1, 2],
+                        createdCell: function (td, cellData, rowData, row, col) {
+                            if (col == 1) {
+                                $(td).attr('data-th', '類別');
+                            }
+                            if (col == 2) {
+                                $(td).attr('data-th', '標題');
+                            }
+                        }
                     }
                 ],
                 columns: [
@@ -189,4 +202,10 @@
             });
         }
     </script>
+    <style>
+        .table th:first-child,
+        .table td:first-child {
+            display: none;
+        }
+    </style>
 }

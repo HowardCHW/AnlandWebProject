@@ -32,14 +32,23 @@
             <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 聯絡電話：</span>@Model.CreatedUserPhone</p>
 
             <div class="row">
-                @if (!string.IsNullOrWhiteSpace(Model.File1Momo))
+                @if (!string.IsNullOrWhiteSpace(Model.Homepage2))
                 {
                     <div class="col-md-3">
                         <div class="example">
                             <div class="card">
                                 <img class="card-img-top w-full img-bordered img-bordered-primary" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage2)" alt="...">
                                 <div class="card-block">
-                                    <p class="card-text">@Model.File1Momo</p>
+                                    <p class="card-text">
+                                        @if (string.IsNullOrWhiteSpace(Model.File1Momo))
+                                        {
+                                            @Model.Homepage2
+                                        }
+                                        else
+                                        {
+                                            @Model.File1Momo
+                                        }
+                                    </p>
                                 </div>
                             </div>
                         </div>
