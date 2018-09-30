@@ -417,6 +417,13 @@
   width: 0;
 }
 
+@media all and (max-width: 479px) {
+  .markTag {
+    border-width: 15px 15px 15px 15px;
+    left: 26px;
+  }
+}
+
 .subContent {
   -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
@@ -425,9 +432,21 @@
   min-height: 40vh;
 }
 
+@media all and (max-width: 479px) {
+  .subContent .pl-5 {
+    padding-left: 0 !important;
+  }
+}
+
 .subContent .card-body {
   height: 100%;
   padding: 25px 35px 20px 25px;
+}
+
+@media all and (max-width: 479px) {
+  .subContent .card-body {
+    padding: 25px 25px 20px 25px;
+  }
 }
 
 .subContent .card-body ul {
@@ -686,15 +705,15 @@
 }
 
 .subContent.largeFont .list-group li.list-group-title {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
 .subContent.largeFont .list-group li.list-group-subtitle {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
 .subContent.largeFont .list-group li.list-group-item {
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .subContent.largeFont table tr th,
@@ -752,6 +771,7 @@
 /* Rwd Table */
 .rwd-table {
   overflow: hidden;
+  width: 100% !important;
 }
 
 @media (max-width: 991.98px) {
@@ -799,6 +819,13 @@
   }
   .paginationGroup > span {
     margin-bottom: 10px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .pagination {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
@@ -1079,17 +1106,55 @@ span.fa-file-alt {
   text-decoration: none;
 }
 
-.gsc-search-button input.gsc-search-button-v2,
-input.gsc-search-button-v2 {
-    width: 13px;
-    height: 13px;
-    vertical-align: middle;
-    padding: 5px 10px;
-    min-width: 13px;
-    margin-top: 0px;
+.gsc-search-button-v2 {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 5px 25px !important;
+  min-width: 13px;
+  margin: 0;
+  color: #212529;
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+
+input.gsc-input,
+.gsc-input-box,
+.gsc-input-box-hover,
+.gsc-input-box-focus {
+  height: 30px;
+  border: 1px solid #FFFFFF !important;
 }
 
 .gsc-search-box-tools .gsc-search-box .gsc-input {
-    padding-right: 3px;
+  padding: 0 !important;
+  width: 135px;
+}
+
+table.gsc-search-box td.gsc-input {
+  padding-right: 0 !important;
+}
+
+input.gsc-input {
+  font-size: 0.95rem !important;
+}
+
+.advSearch {
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+.advSearch a {
+  color: #333333 !important;
+  font-size: 1rem;
+}
+
+.advSearch a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+.gsib_a {
+  padding: 2px 6px 0 !important;
 }
 /*# sourceMappingURL=base.css.map */
