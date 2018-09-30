@@ -32,14 +32,39 @@
                             <a class="nav-link" href="@Url.Action("Index","ENG")" target="_blank" title="開啟新的導覽視窗">English</a>
                         </li>
                     </ul>
+                    <script>
+                        function doSearch() {
+                            var KeyWord = $('#webSiteSearch').val();
+                            if (KeyWord.trim() == '')
+                                return false;
+                            else
+                                window.location.href = "Home/Search?q=" + KeyWord;
+                        }
+                        $(function () {
+                            $("#webSiteSearch").on("keydown", function (event) {
+                                if (event.which == 13) {
+                                    var KeyWord = $('#webSiteSearch').val();
+                                    if (KeyWord.trim() == '')
+                                        return false;
+                                    else
+                                        window.location.href = "Home/Search?q=" + KeyWord;
+                                    return false;
+                                }
+                            });
+                        });
+                    </script>
+                    <NOSCRIPT>網頁使用Script但是您的瀏覽器並不支援；請使用www.google.com的搜索功能，謝謝</NOSCRIPT>
                     <div class="d-flex justify-content-end pt-1 pl-2s">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
                                 <label for="webSiteSearch">站內搜尋：</label>
                                 <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="webSiteSearch" title="請輸入關鍵字">
                                 <div class="input-group-append">
-                                    <button class="btn btn-warning" type="button">Search</button>
+                                    <button class="btn btn-warning" type="button" OnClick="doSearch()" onkeypress="this.click();">Search</button>
                                 </div>
+                            </div>
+                            <div class="advSearch">
+                                <a href="https://www.google.com.tw/advanced_search?hl=zh-TW&amp;as_q=&amp;num=100&amp;as_sitesearch=anleh-land.gov.tw&amp;cof=FORID%3A10&amp;ie=UTF-8&amp;sa=%E6%90%9C%E5%B0%8B&amp;siteurl=www" target="_blank" title="進階查詢">進階查詢<span class="sr-only" title="進階查詢"></span></a>
                             </div>
                         </form>
                     </div>
