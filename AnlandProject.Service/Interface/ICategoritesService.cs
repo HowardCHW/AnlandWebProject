@@ -11,5 +11,11 @@ namespace AnlandProject.Service.Interface
     public interface ICategoritesService :  IDisposable
     {
         List<CategoritesDataModel> CategoritesQueryAll();
+
+        CategoritesDataModel CategoritesQueryByID(int id);
+
+        bool CategoritesSave(CategoritesDataModel saveData);
+
+        bool CategoritesDelete(int id);
     }
 }

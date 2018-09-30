@@ -1,0 +1,120 @@
+﻿@model List<AnlandProject.Service.BusinessModel.DefaultDataModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+
+@section styles{
+    <link rel="stylesheet" href="~/global/plugins/datatables/datatables.min.css">
+    <link rel="stylesheet" href="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css">
+    <link rel="stylesheet" href="~/global/css/plugins.min.css">
+}
+
+<div class="page-header">
+    <h1 class="page-title">分類檢索</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">首頁</a></li>
+        <li class="breadcrumb-item active">分類檢索</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+
+<div class="page-content container-fluid">
+    <!-- 內文編輯區 -->
+    <div class="panel panel-bordered">
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group col-xl-6">
+                    <a href="@Url.Action("CreateCategories","Categories")" class="btn btn-md btn-primary" style="margin-right:20px;">
+                        <i class="icon wb-plus" aria-hidden="true"></i> 新增資料
+                    </a>
+                </div>
+                <div class="form-group col-xl-3">
+                </div>
+            </div>
+            <div>
+                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="categoriestable">
+                    <thead>
+                        <tr>
+                            <th style="width:45px">編號</th>
+                            <th>標題</th>
+                            <th style="width:10%">主題分類</th>
+                            <th style="width:10%">施政分類</th>
+                            <th style="width:10%">服務分類</th>
+                            <th style="width:15%" class="nosort">管理模式</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- model -->
+    @Html.Action("DeleteConfirmDialog", "Categories")
+    <!-- /model -->
+    <!-- /內文編輯區 -->
+</div>
+
+@section scripts{
+    <script src="~/global/plugins/datatables/datatables.min.js"></script>
+    <script src="~/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+    <script>
+        var urlQueryCategories = '@Url.Action("CategoriesQuery", "Categories")';
+
+        $(document).ready(function () {
+            DatatableBinding();
+        });
+
+        function DatatableBinding() {
+            var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+            _tmpOpts.ajax = {
+                "url": urlQueryCategories,
+                "type": 'POST'
+            };
+            _tmpOpts.columns = [
+                { mDataProp: "ID" },
+                {
+                    mDataProp: "Title",
+                    render: function (data, type, full, meta) {
+                        return '<a href="' + full.Url + '" target="_blank">' + data + '</a>'
+                    }
+                },
+                { mDataProp: "Theme" },
+                { mDataProp: "Cake" },
+                { mDataProp: "Service" },
+                {
+                    mDataProp: null,
+                    render: function (data, type, full, meta) {
+                        var tag =
+                            '<a href="../Categories/CreateCategories/' + data.ID + '" class="btn btn-pure btn-default p-5 btn-primary">' +
+                            '<span class="icon wb-pencil" data - toggle="tooltip" data - placement="top" data - original - title="編輯" ></span >' +
+                            '</a >' +
+                            '<a href="#DeleteConfirmDialog" class="btn btn-pure btn-default p-5 btn-warning" data-contentargs="[&quot;' + data.Title + '&quot;]" data-id="' + data.ID + '" data-toggle="modal">' +
+                            '<span class=" icon wb-trash" data-toggle="tooltip" data-placement="top" data-original-title="刪除"></span>' +
+                            '</a>'
+                        return tag;
+                    }
+                }
+            ];
+
+            if ($.fn.DataTable.isDataTable('#categoriestable')) {
+                $('#categoriestable').DataTable().destroy();
+                $('#categoriestable  tbody tr').remove();
+            }
+            $('#categoriestable').DataTable(_tmpOpts);
+        }
+
+        function RequestFail() {
+            msgResoure('other_msg', 'small', '錯誤', errMSGContent);
+        }
+
+
+        function DeleteSuccess(result) {
+            if (result) {
+                SuccessMSGAfterFun('刪除成功', DatatableBinding);
+            }
+            else {
+                ErrorMSG(result.Description);
+            }
+        }
+    </script>
+}

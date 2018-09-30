@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="463a1b266e4f4222a9ef0ab4d0063b6c" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="anlandModel.board_setup" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="anlandModel.Categories" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.form" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.lawview" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="anlandModel.post_team" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
@@ -47,6 +46,7 @@
         <EntityTypeShape EntityType="anlandModel.landprice" Width="1.5" PointX="21.375" PointY="0.75" />
         <EntityTypeShape EntityType="anlandModel.onlineapp" Width="1.5" PointX="21.375" PointY="22.75" />
         <EntityTypeShape EntityType="anlandModel.website_visitor" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="anlandModel.Categories" Width="1.5" PointX="7.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

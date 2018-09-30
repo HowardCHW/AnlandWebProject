@@ -144,21 +144,18 @@ warning 6002: The table/view 'anland.dbo.board_setup' does not have a primary ke
           <Property Name="cake.typename" Type="nvarchar" MaxLength="50" />
           <Property Name="service.typename" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'anland.dbo.Categories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="openWindow" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Subject" Type="nvarchar(max)" />
           <Property Name="theme" Type="nvarchar" MaxLength="100" />
           <Property Name="cake" Type="nvarchar" MaxLength="100" />
           <Property Name="service" Type="nvarchar" MaxLength="100" />
           <Property Name="url" Type="nvarchar" MaxLength="100" />
-          <Property Name="openWindow" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="openWindow" Type="bit" Nullable="false" />
           <Property Name="credate" Type="datetime" />
         </EntityType>
         <EntityType Name="copy">
@@ -834,6 +831,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="boardclass" EntityType="Self.boardclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cake" EntityType="Self.cake" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cate" EntityType="Self.Cate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="copy" EntityType="Self.copy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="director" EntityType="Self.director" Schema="dbo" store:Type="Tables" />
@@ -874,19 +872,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [board_setup].[display_poster] AS [display_poster], 
     [board_setup].[file_size] AS [file_size]
     FROM [dbo].[board_setup] AS [board_setup]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Categories" EntityType="Self.Categories" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Categories].[ID] AS [ID], 
-    [Categories].[Title] AS [Title], 
-    [Categories].[Subject] AS [Subject], 
-    [Categories].[theme] AS [theme], 
-    [Categories].[cake] AS [cake], 
-    [Categories].[service] AS [service], 
-    [Categories].[url] AS [url], 
-    [Categories].[openWindow] AS [openWindow], 
-    [Categories].[credate] AS [credate]
-    FROM [dbo].[Categories] AS [Categories]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="form" EntityType="Self.form" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -996,21 +981,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="display_poster" Type="Boolean" Nullable="false" />
           <Property Name="file_size" Type="Int32" />
         </EntityType>
-        <EntityType Name="Categories">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="openWindow" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="theme" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="cake" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="service" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="openWindow" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="credate" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="form">
           <Key>
             <PropertyRef Name="ID" />
@@ -1098,7 +1068,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
         </EntityType>
         <EntityContainer Name="anlandEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="board_setup" EntityType="Self.board_setup" />
-          <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="form" EntityType="Self.form" />
           <EntitySet Name="lawview" EntityType="Self.lawview" />
           <EntitySet Name="post_team" EntityType="Self.post_team" />
@@ -1145,6 +1114,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="landprice" EntityType="anlandModel.landprice" />
           <EntitySet Name="onlineapp" EntityType="anlandModel.onlineapp" />
           <EntitySet Name="website_visitor" EntityType="anlandModel.website_visitor" />
+          <EntitySet Name="Categories" EntityType="anlandModel.Categories" />
           </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1842,6 +1812,20 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Visitors" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="theme" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cake" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="service" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="openWindow" Type="Boolean" Nullable="false" />
+          <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1861,21 +1845,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="board_width" ColumnName="board_width" />
                 <ScalarProperty Name="display_poster" ColumnName="display_poster" />
                 <ScalarProperty Name="file_size" ColumnName="file_size" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="anlandModel.Categories">
-              <MappingFragment StoreEntitySet="Categories">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="theme" ColumnName="theme" />
-                <ScalarProperty Name="cake" ColumnName="cake" />
-                <ScalarProperty Name="service" ColumnName="service" />
-                <ScalarProperty Name="url" ColumnName="url" />
-                <ScalarProperty Name="openWindow" ColumnName="openWindow" />
-                <ScalarProperty Name="credate" ColumnName="credate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2665,6 +2634,21 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
             <EntityTypeMapping TypeName="anlandModel.website_visitor">
               <MappingFragment StoreEntitySet="website_visitor">
                 <ScalarProperty Name="Visitors" ColumnName="Visitors" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="anlandModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="credate" ColumnName="credate" />
+                <ScalarProperty Name="openWindow" ColumnName="openWindow" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="service" ColumnName="service" />
+                <ScalarProperty Name="cake" ColumnName="cake" />
+                <ScalarProperty Name="theme" ColumnName="theme" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

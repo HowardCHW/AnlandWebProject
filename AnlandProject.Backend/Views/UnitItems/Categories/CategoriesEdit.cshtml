@@ -1,0 +1,178 @@
+﻿@model AnlandProject.Service.BusinessModel.CategoritesDataModel
+@{
+    ViewBag.Title = "CategoriesEdit";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            color: red;
+        }
+
+        .hide {
+            display: none !important;
+        }
+    </style>
+}
+
+<div class="page-header">
+    <h1 class="page-title">分類檢索 - @ViewBag.Subtitle</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">首頁</a></li>
+        <li class="breadcrumb-item active">分類檢索</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+
+<div class="page-content container-fluid">
+    @using (Ajax.BeginForm("CategoriesSave", "Categories", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "categoriesForm", @class = "FullForm", @autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        <!-- 分類檢索設定 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    分類檢索設定
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 主題分類 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3" for="Theme">
+                                主題分類
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.DropDownList("Theme", null, "請選擇主題分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Theme", @required = "", @data_parsley_required_message = "請選擇主題分類代碼!" })
+                            </div>
+                        </div>
+                        <!-- /主題分類 -->
+                    </div>
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 施政分類 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3" for="Cake">
+                                施政分類
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.DropDownList("Cake", null, "請選擇施政分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Cake", @required = "", @data_parsley_required_message = "請選擇施政分類代碼!" })
+                            </div>
+                        </div>
+                        <!-- /施政分類 -->
+                    </div>
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 服務分類 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3" for="Service">
+                                服務分類
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.DropDownList("Service", null, "請選擇服務分類代碼", new { @class = "show-tick", @data_plugin = "selectpicker", @id = "Service", @required = "", @data_parsley_required_message = "請選擇服務分類代碼!" })
+                            </div>
+                        </div>
+                        <!-- /服務分類 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /分類檢索設定 -->
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <h3 class="panel-title">內文編輯區</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-xl-7 form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                標題
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                @Html.TextBoxFor(c => c.Title, new { @class = "form-control", @placeholder = "請輸入主標題", @required = "", @data_parsley_required_message = "請輸入標題名稱!" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                主題和關鍵字
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-xl-12 col-md-9">
+                                @Html.TextBoxFor(c => c.Subject, new { @class = "form-control", @placeholder = "請輸入主題和關鍵字", @required = "", @data_parsley_required_message = "請輸入主題和關鍵字!" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                連結網址
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-xl-12 col-md-9">
+                                @Html.TextBoxFor(c => c.Url, new { @class = "form-control", @placeholder = "請輸入連結網址", @required = "", @data_parsley_required_message = "請輸入連結網址!" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                是否開啟新視窗
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <div class="checkbox-custom checkbox-primary">
+                                    @Html.CheckBoxFor(c => c.OpenWindow, new { @id = "isOpenNew" })
+                                    <label for="isOpenNew"><span class="panel-desc">外部連結或申請表單，請打勾</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    @Html.HiddenFor(c => c.ID)
+                    <a href="@Url.Action("Index","Categories")" class="btn btn-default">取消</a>
+                    <button type="button" class="btn btn-primary" id="btnSave">確認</button>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Theme,#Cake,#Service').on('change', function () {
+                $(this).parsley().validate();
+            });
+
+            $('#btnSave').on('click', function myfunction() {
+                //觸發該欄位的表單驗證 (Parsley Validation)
+                $('#categoriesForm').parsley().validate();
+                if ($('#categoriesForm').parsley().isValid()) {
+                    $('#categoriesForm').submit();
+                }
+            });
+        });
+
+        function SuccessMessage(result) {
+            if (result) {
+                var url = '/Categories';
+                SuccessMSGAfterAction("新增成功", url, 1000);
+            } else {
+                ErrorMSG('異動失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('新增失敗');
+        }
+    </script>
+}

@@ -66,7 +66,7 @@ var pfnDataTable = {
             targets: [0]
         }],
         order: [
-            [1, "asc"]
+            [0, "desc"]
         ]
     },
     listOptions: {

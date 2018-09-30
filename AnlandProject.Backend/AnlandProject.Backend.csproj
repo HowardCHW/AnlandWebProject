@@ -185,6 +185,7 @@
     <Compile Include="Controllers\Settings\SMTPSetupController.cs" />
     <Compile Include="Controllers\Settings\TypeSettingController.cs" />
     <Compile Include="Controllers\Settings\UserManagementController.cs" />
+    <Compile Include="Controllers\UnitItems\CategoriesController.cs" />
     <Compile Include="Controllers\UnitItems\DirectorFAQController.cs" />
     <Compile Include="Controllers\UnitItems\FAQController.cs" />
     <Compile Include="Controllers\UnitItems\ProposalController.cs" />
@@ -4540,6 +4541,8 @@
     <Content Include="Views\UnitItems\Questionnaire\QuestionReview.cshtml" />
     <Content Include="Views\UnitItems\Proposal\Index.cshtml" />
     <Content Include="Views\UnitItems\Proposal\ProposalView.cshtml" />
+    <Content Include="Views\UnitItems\Categories\Index.cshtml" />
+    <Content Include="Views\UnitItems\Categories\CategoriesEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -254,7 +254,11 @@
                     {
                         mDataProp: "Title",
                         render: function (data, type, full, meta) {
-                            return '<span class="fal fa-angle-right"></span><a href="' + full.Url + '" target="_blank">' + data + '</a>';
+                            var openBlank = '';
+                            if (full.OpenWindow) {
+                                openBlank = 'target="_blank"';
+                            }
+                            return '<span class="fal fa-angle-right"></span><a href="' + full.Url + '" ' + openBlank + '>' + data + '</a>';
                         }
                     }
                 ]

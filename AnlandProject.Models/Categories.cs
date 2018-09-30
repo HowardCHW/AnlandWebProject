@@ -21,7 +21,7 @@ namespace AnlandProject.Models
         public string cake { get; set; }
         public string service { get; set; }
         public string url { get; set; }
-        public string openWindow { get; set; }
+        public bool openWindow { get; set; }
         public Nullable<System.DateTime> credate { get; set; }
     }
 }

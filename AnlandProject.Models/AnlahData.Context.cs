@@ -26,7 +26,6 @@ namespace AnlandProject.Models
         }
     
         public virtual DbSet<board_setup> board_setup { get; set; }
-        public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<form> form { get; set; }
         public virtual DbSet<lawview> lawview { get; set; }
         public virtual DbSet<post_team> post_team { get; set; }
@@ -65,5 +64,6 @@ namespace AnlandProject.Models
         public virtual DbSet<landprice> landprice { get; set; }
         public virtual DbSet<onlineapp> onlineapp { get; set; }
         public virtual DbSet<website_visitor> website_visitor { get; set; }
+        public virtual DbSet<Categories> Categories { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace AnlandProject.Service.BusinessModel
         public string Cake { get; set; }
         public string Service { get; set; }
         public string Url { get; set; }
+        public bool OpenWindow { get; set; }
         public DateTime CreateDate { get; set; }
     }
 }
