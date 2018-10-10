@@ -7,10 +7,10 @@
 @section AdditionalMeta
 {
     <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
-    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 資料查詢 - 區段代碼對照">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 資料查詢 - 逾期未辦繼承公告查詢">
     <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
-    <meta name="DC.Subject" content="資料查詢 - 區段代碼對照">
-    <meta name="DC.Description" content="資料查詢 - 區段代碼對照">
+    <meta name="DC.Subject" content="資料查詢 - 逾期未辦繼承公告查詢">
+    <meta name="DC.Description" content="資料查詢 - 逾期未辦繼承公告查詢">
     <meta name="DC.Contributor" content="基隆市安樂地政事務所">
     <meta name="DC.Type" content="文字">
     <meta name="DC.Format" content="text/html">
@@ -26,7 +26,7 @@
     <meta name="Category.Theme" content="140">
     <meta name="Category.Cake" content="CK0">
     <meta name="Category.Service" content="I6Z">
-    <meta name="Keywords" content="資料查詢, 區段代碼">
+    <meta name="Keywords" content="資料查詢, 逾期未辦繼承公告查詢">
 }
 
 <!-- 公告區 -->
@@ -46,9 +46,11 @@
                         <a href="@Url.Action("Index","Home")">首頁</a>
                     </li>
                     <li class="breadcrumb-item">
-                        線上查詢
+                        <a href="@Url.Action("OInheritance","OnlineSearch")">線上查詢</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">逾期未辦繼承公告查詢</li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="@Url.Action("OInheritance","OnlineSearch")">逾期未辦繼承公告查詢</a>
+                    </li>
                 </ol>
             </nav>
         </div>

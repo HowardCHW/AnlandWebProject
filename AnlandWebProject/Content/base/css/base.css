@@ -1157,4 +1157,15 @@ input.gsc-input {
 .gsib_a {
   padding: 2px 6px 0 !important;
 }
+
+.appendPic {
+    max-width: 40%;
+}
+
+@media all and (max-width: 479px) {
+    .appendPic {
+        max-width: 100%;
+    }
+}
+
 /*# sourceMappingURL=base.css.map */

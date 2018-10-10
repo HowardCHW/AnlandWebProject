@@ -22,10 +22,15 @@ namespace AnlandProject.Service.BusinessModel
         public string HomepageMomo { get; set; }
         public string Homepage1 { get; set; }
         public string Homepage2 { get; set; }
+        public string Homepage2ImgUrl { get; set; }
         public string Homepage3 { get; set; }
+        public string Homepage3ImgUrl { get; set; }
         public string Homepage4 { get; set; }
+        public string Homepage4ImgUrl { get; set; }
         public string Homepage5 { get; set; }
+        public string Homepage5ImgUrl { get; set; }
         public string Homepage6 { get; set; }
+        public string Homepage6ImgUrl { get; set; }
         public string Body { get; set; }
         public DateTime? PostDate { get; set; }
         public DateTime? PostTime { get; set; }

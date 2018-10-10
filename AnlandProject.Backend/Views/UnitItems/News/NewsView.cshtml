@@ -31,74 +31,132 @@
             <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 聯絡單位：</span>@Model.CreatedDeptName</p>
             <p><span class="min_title"><i class="icon wb-small-point" aria-hidden="true"></i> 聯絡電話：</span>@Model.CreatedUserPhone</p>
 
-            <div class="row">
-                @if (!string.IsNullOrWhiteSpace(Model.Homepage2))
-                {
-                    <div class="col-md-3">
-                        <div class="example">
-                            <div class="card">
-                                <img class="card-img-top w-full img-bordered img-bordered-primary" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage2)" alt="...">
-                                <div class="card-block">
-                                    <p class="card-text">
-                                        @if (string.IsNullOrWhiteSpace(Model.File1Momo))
-                                        {
-                                            @Model.Homepage2
-                                        }
-                                        else
-                                        {
-                                            @Model.File1Momo
-                                        }
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-                @if (!string.IsNullOrWhiteSpace(Model.File2Momo))
-                {
-                    <div class="col-md-3">
-                        <div class="example">
-                            <div class="card">
-                                <img class="card-img-top w-full img-bordered img-bordered-primary" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage3)" alt="...">
-                                <div class="card-block">
-                                    <p class="card-text">@Model.File2Momo</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <h4>附件：</h4>
                 <ul>
-                    @if (!string.IsNullOrWhiteSpace(Model.File3Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage2))
                     {
                         <li>
-                            <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File3Momo
-                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage4)" target="_blank" title="@Model.File3Momo 下載" download="@Model.Homepage4">
-                                <i class="icon wb-file" aria-hidden="true"></i>
+                            <i class="icon wb-bookmark" aria-hidden="true"></i>
+                            <span>
+                                @if (string.IsNullOrWhiteSpace(Model.File1Momo))
+                                {
+                                    @Model.Homepage2
+                                }
+                                else
+                                {
+                                    @Model.File1Momo
+                                }
+                            </span><br>
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage2)" target="_blank" download="@Model.Homepage2" title="開啟新視窗">
+                                @if (Model.Homepage2.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage2.ToLower().Contains("doc") || Model.Homepage2.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage2.ToLower().Contains("xls") || Model.Homepage2.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage2.ToLower().Contains("png") || Model.Homepage2.ToLower().Contains("jpg"))
+                                {
+                                    <img class="img-bordered img-bordered-primary" style="max-width:30%" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage2)" alt="圖片">
+                                }
                             </a>
                         </li>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File4Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage3))
+                    {
+                        <li>
+                            <i class="icon wb-bookmark" aria-hidden="true"></i>
+                            <span>
+                                @if (string.IsNullOrWhiteSpace(Model.File2Momo))
+                                {
+                                    @Model.Homepage3
+                                }
+                                else
+                                {
+                                    @Model.File2Momo
+                                }
+                            </span><br>
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage3)" target="_blank" download="@Model.Homepage3" title="開啟新視窗">
+                                @if (Model.Homepage3.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage3.ToLower().Contains("doc") || Model.Homepage3.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage3.ToLower().Contains("xls") || Model.Homepage3.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage3.ToLower().Contains("png") || Model.Homepage3.ToLower().Contains("jpg"))
+                                {
+                                    <img class="img-bordered img-bordered-primary" style="max-width:30%" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage3)" alt="圖片">
+                                }
+                            </a>
+                        </li>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage4))
+                    {
+                        <li>
+                            <i class="icon wb-bookmark" aria-hidden="true"></i>
+                            <span>
+                                @if (string.IsNullOrWhiteSpace(Model.File3Momo))
+                                {
+                                    @Model.Homepage4
+                                }
+                                else
+                                {
+                                    @Model.File3Momo
+                                }
+                            </span><br>
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage4)" target="_blank" download="@Model.Homepage4" title="開啟新視窗">
+                                @if (Model.Homepage4.ToLower().Contains("pdf"))
+                                {
+                                    <span class="fas fa-file-pdf" title="PDF檔"></span>
+                                }
+                                else if (Model.Homepage4.ToLower().Contains("doc") || Model.Homepage4.ToLower().Contains("docx"))
+                                {
+                                    <span class="fas fa-file-word" title="WORD檔"></span>
+                                }
+                                else if (Model.Homepage4.ToLower().Contains("xls") || Model.Homepage4.ToLower().Contains("xlsx"))
+                                {
+                                    <span class="fas fa-file-excel" title="Excel檔"></span>
+                                }
+                                else if (Model.Homepage4.ToLower().Contains("png") || Model.Homepage4.ToLower().Contains("jpg"))
+                                {
+                                    <img class="img-bordered img-bordered-primary" style="max-width:30%" src="@string.Format("/UploadedFiles/news/{0}",Model.Homepage4)" alt="圖片">
+                                }
+                            </a>
+                        </li>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage5))
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File4Momo
-                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage5)" target="_blank" title="@Model.File4Momo 下載" download="@Model.Homepage5">
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage5)" target="_blank" title="檔案下載[開啟新視窗]" download="@Model.Homepage5">
                                 <i class="icon wb-file" aria-hidden="true"></i>
                             </a>
                         </li>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.File5Momo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage6))
                     {
                         <li>
                             <i class="icon wb-bookmark" aria-hidden="true"></i>@Model.File5Momo
-                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage6)" target="_blank" title="@Model.File5Momo 下載" download="@Model.Homepage6">
+                            <a href="@string.Format("/UploadedFiles/news/{0}",Model.Homepage6)" target="_blank" title="檔案下載[開啟新視窗]" download="@Model.Homepage6">
                                 <i class="icon wb-file" aria-hidden="true"></i>
                             </a>
                         </li>
                     }
-                    @if (!string.IsNullOrWhiteSpace(Model.HomepageMomo))
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage1))
                     {
                         <li>
                             <i class="icon fa-globe" aria-hidden="true"></i>

@@ -46,9 +46,11 @@
                         <a href="@Url.Action("Index","Home")">首頁</a>
                     </li>
                     <li class="breadcrumb-item">
-                        公告資訊
+                        <a href="@Url.Action("News","Announcement")">公告資訊</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">最新消息</li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="@Url.Action("News","Announcement")">最新消息</a>
+                    </li>
                 </ol>
             </nav>
         </div>
@@ -96,7 +98,7 @@
                         @HttpUtility.HtmlDecode(Model.Body)
                     </span>
                 </p>
-                <div class="alert alert-secondary bg-lightreay" role="alert">
+                <div class="alert alert-secondary bg-lightreay pt-4" role="alert">
                     @{int index = 0; }
                     @if (!string.IsNullOrWhiteSpace(Model.Homepage2))
                     {
@@ -107,7 +109,7 @@
                                 <span class="text-red">@(index += 1)</span>：
                             </span>
                             <a href="@Url.Action("Download","Announcement")?type=News&fileName=@Model.Homepage2" target="_blank" title="開啟新視窗">
-                                @if (string.IsNullOrWhiteSpace(Model.File1Momo))
+                                @if (string.IsNullOrWhiteSpace(Model.Homepage2))
                                 {
                                     @Model.Homepage2
                                 }
@@ -115,6 +117,7 @@
                                 {
                                     @Model.File1Momo
                                 }
+                                
                                 @if (Model.Homepage2.ToLower().Contains("pdf"))
                                 {
                                     <span class="fas fa-file-pdf" title="PDF檔"></span>
@@ -129,7 +132,7 @@
                                 }
                                 else if (Model.Homepage2.ToLower().Contains("png") || Model.Homepage2.ToLower().Contains("jpg"))
                                 {
-                                    <span class="fas fa-file" title="圖片檔"></span>
+                                    <br><img class="img-bordered img-bordered-primary appendPic" src="@Model.Homepage2ImgUrl/news/@Model.Homepage2" alt="圖片@(index += 1)">
                                 }
                             </a>
                         </p>
@@ -151,6 +154,7 @@
                                 {
                                     @Model.File2Momo
                                 }
+                                
                                 @if (Model.Homepage3.ToLower().Contains("pdf"))
                                 {
                                     <span class="fas fa-file-pdf" title="PDF檔"></span>
@@ -165,7 +169,7 @@
                                 }
                                 else if (Model.Homepage3.ToLower().Contains("png") || Model.Homepage3.ToLower().Contains("jpg"))
                                 {
-                                    <span class="fas fa-file" title="圖片檔"></span>
+                                    <br><img class="img-bordered img-bordered-primary appendPic" src="@Model.Homepage3ImgUrl/news/@Model.Homepage3" alt="圖片@(index += 1)">
                                 }
                             </a>
                         </p>
@@ -201,7 +205,7 @@
                                 }
                                 else if (Model.Homepage4.ToLower().Contains("png") || Model.Homepage4.ToLower().Contains("jpg"))
                                 {
-                                    <span class="fas fa-file" title="圖片檔"></span>
+                                    <br><img class="img-bordered img-bordered-primary appendPic" src="@Model.Homepage4ImgUrl/news/@Model.Homepage4" alt="圖片@(index += 1)">
                                 }
                             </a>
                         </p>
@@ -237,7 +241,7 @@
                                 }
                                 else if (Model.Homepage5.ToLower().Contains("png") || Model.Homepage5.ToLower().Contains("jpg"))
                                 {
-                                    <span class="fas fa-file" title="圖片檔"></span>
+                                    <br><img class="img-bordered img-bordered-primary appendPic" src="@Model.Homepage5ImgUrl/news/@Model.Homepage5" alt="圖片@(index += 1)">
                                 }
                             </a>
                         </p>
@@ -248,7 +252,7 @@
                             <span class="fas fa-caret-right"></span>
                             <span>
                                 檔案
-                                <span class="text-red">@(index += 1)</span>：
+                                <span class="red">@(index += 1)</span>：
                             </span>
                             <a href="@Url.Action("Download","Announcement")?type=News&fileName=@Model.Homepage6" target="_blank" title="開啟新視窗">
                                 @if (string.IsNullOrWhiteSpace(Model.File5Momo))
@@ -273,9 +277,17 @@
                                 }
                                 else if (Model.Homepage6.ToLower().Contains("png") || Model.Homepage6.ToLower().Contains("jpg"))
                                 {
-                                    <span class="fas fa-file" title="圖片檔"></span>
+                                    <br><img class="img-bordered img-bordered-primary appendPic" src="@Model.Homepage6ImgUrl/news/@Model.Homepage6" alt="圖片@(index += 1)">
                                 }
                             </a>
+                        </p>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.Homepage1))
+                    {
+                        <p>
+                            <span class="fas fa-caret-right"></span>
+                            <span>網址：</span>
+                            <a href="@Model.Homepage1" target="_blank" title="@Model.HomepageMomo [開啟新視窗]">@Model.HomepageMomo</a>
                         </p>
                     }
                 </div>

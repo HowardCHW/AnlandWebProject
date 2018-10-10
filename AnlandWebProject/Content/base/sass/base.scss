@@ -1217,3 +1217,10 @@ input.gsc-input {
 .gsib_a {
     padding: 2px 6px 0 !important;
 }
+.appendPic {
+    max-width: 40%;
+
+    @include phone-width {
+        max-width: 100%;
+    }
+}

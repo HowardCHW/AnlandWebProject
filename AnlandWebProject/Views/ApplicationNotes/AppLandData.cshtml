@@ -46,9 +46,11 @@
                         <a href="@Url.Action("Index","Home")">首頁</a>
                     </li>
                     <li class="breadcrumb-item">
-                        申請須知
+                        <a href="@Url.Action("AppRegister","ApplicationNotes")">申請須知</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">土地基本資料庫</li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="@Url.Action("AppLandData","ApplicationNotes")">土地基本資料庫</a>
+                    </li>
                 </ol>
             </nav>
         </div>
@@ -94,8 +96,9 @@
                                 <span class="fas fa-bookmark"></span> 申請說明：
                             </h3>
                             <p class="p-1">
-                                土地基本資料庫電子資料之申請，須依『 <a href="http://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg019010/ch02/type2/gov10/num2/Eg.htm"
-                                                      target="_blank" title="連結行政院公報資訊網網站(開啟新的導覽視窗)">土地基本資料庫電子資料流通作業要點</a> 』規定。
+                                土地基本資料庫電子資料之申請，須依『 <a href="~/DownloadFile/other/1070516土地基本資料庫電子資料流通作業要點.pdf" target="_blank" title="開啟新的導覽視窗">
+    土地基本資料庫電子資料流通作業要點 PDF檔
+    <span class="fas fa-file-pdf"></span></a> 』規定。
                             </p>
                         </div>
                         <div class="col-lg-12" id="sec02">

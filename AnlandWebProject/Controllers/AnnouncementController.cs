@@ -41,6 +41,14 @@ namespace AnlandProject.Web.Controllers
                 {
                     result = _newsService.NewsQueryByID(id.Value, true);
                 }
+
+                string url = ConfigurationManager.AppSettings["BackEndUrl"];
+                result.Homepage2ImgUrl = string.Format("{0}", url);
+                result.Homepage3ImgUrl = string.Format("{0}", url);
+                result.Homepage4ImgUrl = string.Format("{0}", url);
+                result.Homepage5ImgUrl = string.Format("{0}", url);
+                result.Homepage6ImgUrl = string.Format("{0}", url);
+
                 return View(result);
             }
         }

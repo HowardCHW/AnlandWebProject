@@ -38,7 +38,7 @@
                             if (KeyWord.trim() == '')
                                 return false;
                             else
-                                window.location.href = "Home/Search?q=" + KeyWord;
+                                window.location.href = "../Home/Search?q=" + KeyWord;
                         }
                         $(function () {
                             $("#webSiteSearch").on("keydown", function (event) {
@@ -47,7 +47,7 @@
                                     if (KeyWord.trim() == '')
                                         return false;
                                     else
-                                        window.location.href = "Home/Search?q=" + KeyWord;
+                                        window.location.href = "../Home/Search?q=" + KeyWord;
                                     return false;
                                 }
                             });

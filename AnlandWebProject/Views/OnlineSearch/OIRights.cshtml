@@ -7,10 +7,10 @@
 @section AdditionalMeta
 {
     <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core">
-    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 資料查詢 - 未辦繼承登記自身權益說帖">
     <meta name="DC.Creator" content="基隆市安樂地政事務所登記課">
-    <meta name="DC.Subject" content="資料查詢 - 未辦繼承登記宣導">
-    <meta name="DC.Description" content="資料查詢 - 未辦繼承登記宣導">
+    <meta name="DC.Subject" content="資料查詢 - 未辦繼承登記自身權益說帖">
+    <meta name="DC.Description" content="資料查詢 - 未辦繼承登記自身權益說帖">
     <meta name="DC.Contributor" content="基隆市安樂地政事務所">
     <meta name="DC.Type" content="文字">
     <meta name="DC.Format" content="text/html">
@@ -46,9 +46,11 @@
                         <a href="@Url.Action("Index","Home")">首頁</a>
                     </li>
                     <li class="breadcrumb-item">
-                        線上查詢
+                        <a href="@Url.Action("OInheritance","OnlineSearch")">線上查詢</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">未辦繼承登記宣導</li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="@Url.Action("InheritanceRights","OnlineSearch")">未辦繼承登記自身權益說帖</a>
+                    </li>
                 </ol>
             </nav>
         </div>
