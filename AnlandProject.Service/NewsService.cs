@@ -168,7 +168,7 @@ namespace AnlandProject.Service
                         Body = saveData.Body,
                         postdate = saveData.PostDate,
                         posttime = saveData.PostTime,
-                        hit = saveData.Hit,
+                        hit = 0,
                         postname = saveData.PostName,
                         end_date = saveData.EndDate,
                         post_group = saveData.PostGroup,
