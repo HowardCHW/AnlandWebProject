@@ -38,6 +38,7 @@
                         <tr>
                             <th style="width:40px;">編號</th>
                             <th>主題</th>
+                            <th style="width:70px;">公告日期</th>
                             <th style="width:70px;">公告期限</th>
                             <th style="width:60px;">點閱</th>
                             <th style="width:60px;" class="nosort">管理模式</th>
@@ -77,6 +78,12 @@
                     mDataProp: "Subject",
                     render: function (data, type, full, meta) {
                         return '<a href="../Intro/IntroView/' + full.ID + '">' + data + '</a>'
+                    }
+                },
+                {
+                    mDataProp: "PostDate",
+                    render: function (data, type, full, meta) {
+                        return moment(data).format('YYYY/MM/DD');
                     }
                 },
                 {

@@ -61,7 +61,7 @@ namespace AnlandProject.Service
             Expression<Func<admin, bool>> queryExpr = x => x.username == logonModel.Account;
             if (!isSkip)
             {
-                queryExpr.And(x => x.passwd == logonModel.Password);                
+                queryExpr = queryExpr.AndAlso(x => x.passwd == logonModel.Password);
             }
 
             var data = _accountRepository.Get(queryExpr);

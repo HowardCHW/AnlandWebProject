@@ -97,7 +97,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
             using (_introService = new IntroService())
             {
                 List<DefaultDataModel> result = _introService.IntroQueryAll();
-                return Json(new { data = result });
+                return Json(new { data = result.OrderByDescending(r => r.PostDate) });
             }
         }
 

@@ -12,7 +12,7 @@ namespace AnlandProject.Service.Interface
     {
         List<QaModel> QaQueryAll();
 
-        QaModel QaQueryByID(int id);
+        QaModel QaQueryByID(int id, bool isFront = false);
 
         bool QaSave(QaModel saveData);
 

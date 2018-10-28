@@ -41,9 +41,16 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public QaModel QaQueryByID(int id)
+        public QaModel QaQueryByID(int id, bool isFront = false)
         {
             var tempData = _qaRepository.Get(q => q.ID == id);
+
+            //紀錄前台使用者點擊次數
+            if (isFront)
+            {
+                tempData.hit += 1;
+                _qaRepository.Update(tempData);
+            }
 
             QaModel result = null;
             if (tempData != null)
@@ -107,6 +114,7 @@ namespace AnlandProject.Service
                         SubmitDate = saveData.SubmitDate,
                         ModifyName = saveData.ModifyName,
                         ModifyDate = saveData.ModifyDate,
+                        hit = 0,
                         created_dept_id = saveData.CreatedDeptID,
                         created_user_name = saveData.CreatedUser,
                         created_user_phone = saveData.CreatedUserPhone

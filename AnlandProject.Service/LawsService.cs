@@ -179,7 +179,7 @@ namespace AnlandProject.Service
                         file3_momo = saveData.File3Momo,
                         file4_momo = saveData.File4Momo,
                         file5_momo = saveData.File5Momo,
-                        hit = saveData.Hit,
+                        hit = 0,
                         created_dept_id = saveData.CreatedDeptID,
                         created_user_name = saveData.CreatedUser,
                         created_user_phone = saveData.CreatedUserPhone

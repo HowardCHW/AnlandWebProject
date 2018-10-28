@@ -48,7 +48,7 @@ namespace AnlandProject.Web.Controllers
                 QaModel result = new QaModel();
                 if (id.HasValue && id.Value > 0)
                 {
-                    result = _qaService.QaQueryByID(id.Value);
+                    result = _qaService.QaQueryByID(id.Value, true);
                 }
 
                 var classfyData = _commonService.LawsCategoryQueryAll();

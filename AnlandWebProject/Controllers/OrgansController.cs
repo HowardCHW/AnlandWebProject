@@ -67,7 +67,7 @@ namespace AnlandProject.Web.Controllers
                 DefaultDataModel result = new DefaultDataModel();
                 if (id.HasValue && id.Value > 0)
                 {
-                    result = _introService.IntroQueryByID(id.Value);
+                    result = _introService.IntroQueryByID(id.Value, true);
                 }
 
                 return View("~/Views/Organs/RegulationDetail.cshtml", result);

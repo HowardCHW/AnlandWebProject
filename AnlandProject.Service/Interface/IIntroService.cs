@@ -12,7 +12,7 @@ namespace AnlandProject.Service.Interface
     {
         List<DefaultDataModel> IntroQueryAll();
 
-        DefaultDataModel IntroQueryByID(int id);
+        DefaultDataModel IntroQueryByID(int id, bool isFront = false);
 
         bool IntroSave(DefaultDataModel saveData);
 

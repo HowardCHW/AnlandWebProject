@@ -54,9 +54,16 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public DefaultDataModel IntroQueryByID(int id)
+        public DefaultDataModel IntroQueryByID(int id, bool isFront = false)
         {
             var tempData = _introRepository.Get(i => i.ID == id);
+
+            //紀錄前台使用者點擊次數
+            if (isFront)
+            {
+                tempData.hit += 1;
+                _introRepository.Update(tempData);
+            }
 
             DefaultDataModel result = null;
             if (tempData != null)
@@ -157,7 +164,7 @@ namespace AnlandProject.Service
                         Body = saveData.Body,
                         postdate = saveData.PostDate,
                         posttime = saveData.PostTime,
-                        hit = saveData.Hit,
+                        hit = 0,
                         postname = saveData.PostName,
                         end_date = saveData.EndDate,
                         post_group = saveData.PostGroup,
