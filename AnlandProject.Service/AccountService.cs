@@ -47,7 +47,8 @@ namespace AnlandProject.Service
                     Account = tempData.username,
                     Name = tempData.name,
                     PWD = tempData.passwd,
-                    Rights = tempData.rights
+                    Rights = tempData.rights,
+                    IsAdmin = tempData.isadmin
                 };
             }
             return result;
@@ -73,7 +74,8 @@ namespace AnlandProject.Service
                     ID = data.ID,
                     Account = data.username,
                     Name = data.name,
-                    Rights = data.rights
+                    Rights = data.rights,
+                    IsAdmin = data.isadmin
                 };
             }
             return result;
@@ -88,9 +90,15 @@ namespace AnlandProject.Service
                 {
                     var originalData = _accountRepository.Get(n => n.ID == saveData.ID);
                     originalData.username = saveData.Account;
-                    if (!string.IsNullOrWhiteSpace(saveData.PWD)) { originalData.passwd = saveData.PWD; }
+                    if (!string.IsNullOrWhiteSpace(saveData.PWD))
+                    {
+                        originalData.passwd = saveData.PWD;
+                    }
                     originalData.name = saveData.Name;
-                    originalData.rights = saveData.Rights;
+                    if (!string.IsNullOrWhiteSpace(saveData.Rights))
+                    {
+                        originalData.rights = saveData.Rights;
+                    }
                     resultRow = _accountRepository.Update(originalData);
                 }
                 else
@@ -100,7 +108,8 @@ namespace AnlandProject.Service
                         username = saveData.Account,
                         passwd = saveData.PWD,
                         name = saveData.Name,
-                        rights = saveData.Rights
+                        rights = saveData.Rights,
+                        isadmin = false
                     };
                     resultRow = _accountRepository.Create(newData);
                 }

@@ -21,5 +21,6 @@ namespace AnlandProject.Models
         public string rights { get; set; }
         public string group_name { get; set; }
         public string action { get; set; }
+        public bool isadmin { get; set; }
     }
 }

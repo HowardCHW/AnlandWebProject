@@ -16,6 +16,7 @@
           <Property Name="rights" Type="nvarchar" MaxLength="70" />
           <Property Name="group_name" Type="nvarchar" MaxLength="20" />
           <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="isadmin" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="an_news">
           <Key>
@@ -1108,13 +1109,13 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="email" EntityType="anlandModel.email" />
           <EntitySet Name="director" EntityType="anlandModel.director" />
           <EntitySet Name="proposal_data" EntityType="anlandModel.proposal_data" />
-          <EntitySet Name="admin" EntityType="anlandModel.admin" />
           <EntitySet Name="copy" EntityType="anlandModel.copy" />
           <EntitySet Name="engcopy" EntityType="anlandModel.engcopy" />
           <EntitySet Name="landprice" EntityType="anlandModel.landprice" />
           <EntitySet Name="onlineapp" EntityType="anlandModel.onlineapp" />
           <EntitySet Name="website_visitor" EntityType="anlandModel.website_visitor" />
           <EntitySet Name="Categories" EntityType="anlandModel.Categories" />
+          <EntitySet Name="admin" EntityType="anlandModel.admin" />
           </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1620,18 +1621,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="ProposalContent" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ProposalBenefit" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="admin">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="rights" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="copy">
           <Key>
             <PropertyRef Name="ID" />
@@ -1825,6 +1814,19 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="openWindow" Type="Boolean" Nullable="false" />
           <Property Name="credate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rights" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isadmin" Type="Boolean" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2440,19 +2442,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="admin">
-            <EntityTypeMapping TypeName="anlandModel.admin">
-              <MappingFragment StoreEntitySet="admin">
-                <ScalarProperty Name="action" ColumnName="action" />
-                <ScalarProperty Name="group_name" ColumnName="group_name" />
-                <ScalarProperty Name="rights" ColumnName="rights" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="passwd" ColumnName="passwd" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="copy">
             <EntityTypeMapping TypeName="anlandModel.copy">
               <MappingFragment StoreEntitySet="copy">
@@ -2649,6 +2638,20 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="theme" ColumnName="theme" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="anlandModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="isadmin" ColumnName="isadmin" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="rights" ColumnName="rights" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

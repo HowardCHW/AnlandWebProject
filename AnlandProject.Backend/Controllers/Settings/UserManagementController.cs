@@ -32,6 +32,10 @@ namespace AnlandProject.Backend.Controllers.Settings
 
         public ActionResult UserCreate(int? id)
         {
+            if (UserInfo.IsAdmin != "Y" && UserInfo.UID != id.Value)
+            {
+                id = UserInfo.UID;
+            }
             string subTitle = "新增";
             using (_userManagementService = new AccountService())
             {
@@ -42,7 +46,15 @@ namespace AnlandProject.Backend.Controllers.Settings
                     subTitle = "編輯";
                 }
                 ViewBag.Subtitle = subTitle;
-                return View("~/Views/Settings/UserManagement/UserEdit.cshtml", result);
+                if (result != null)
+                {
+                    if (UserInfo.IsAdmin == "Y")
+                    {
+                        result.IsAdmin = true;
+                    }
+                    return View("~/Views/Settings/UserManagement/UserEdit.cshtml", result);
+                }
+                return RedirectToAction("Index");
             }
         }
 

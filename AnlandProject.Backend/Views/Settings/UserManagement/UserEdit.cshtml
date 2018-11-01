@@ -53,22 +53,28 @@
                         <div class="form-group row">
                             <label class="col-xl-12 col-md-3 form-control-label">確認密碼<span class="required">*</span> </label>
                             <div class=" col-xl-12 col-md-9">
-                                <input type="password" class="form-control" name="passwordcheck" placeholder="請再次輸入密碼" >
+                                <input type="password" class="form-control" name="passwordcheck" placeholder="請再次輸入密碼">
                             </div>
                         </div>
                         <!-- /確認密碼 -->
                     </div>
-                    <div class="col-md-8 form-horizontal">
-                        <!-- 人員權限 -->
-                        @Html.Action("MenuRight")
-                        @Html.HiddenFor(u => u.Rights, new { @id = "hidMenuRight" })
-                        <!-- /人員權限 -->
-                    </div>
+                    @if (Model.IsAdmin)
+                    {
+                        <div class="col-md-8 form-horizontal">
+                            <!-- 人員權限 -->
+                            @Html.Action("MenuRight")
+                            @Html.HiddenFor(u => u.Rights, new { @id = "hidMenuRight" })
+                            <!-- /人員權限 -->
+                        </div>
+                    }
                 </div>
             </div>
             <div class="panel-footer">
                 <div class="form-group col-xl-12 text-right padding-top-m">
-                    <a href='@Url.Action("Index","UserManagement")' class="btn btn-default">取消</a>
+                    @if (Model.IsAdmin)
+                    {
+                        <a href='@Url.Action("Index","UserManagement")' class="btn btn-default">取消</a>
+                    }
                     <button type="submit" class="btn btn-primary">確認</button>
                 </div>
             </div>
@@ -81,11 +87,15 @@
     <script src="~/global/vendor/multi-select/jquery.multi-select.js"></script>
     <script>
         var UID = '@Model.ID';
+        var isAdm = '@Model.IsAdmin';
         var isInit = true;
         $(document).ready(function () {
-            var dataarray = $('#hidMenuRight').val().split(",");            
-            $('#menuRight').multiSelect('refresh');
-            $('#menuRight').multiSelect('select', dataarray, 'init');
+            var menuRight = $('#hidMenuRight').val();
+            if (menuRight != undefined) {
+                var dataarray = menuRight.split(",");
+                $('#menuRight').multiSelect('refresh');
+                $('#menuRight').multiSelect('select', dataarray, 'init');
+            }            
 
             $('#userEditForm').formValidation({
                 framework: "bootstrap4",
@@ -205,6 +215,9 @@
                         success: function (result) {
                             if (result) {
                                 var url = '/UserManagement';
+                                if (isAdm === 'False') {
+                                    url = '/';
+                                }
                                 if (UID > 0) {
                                     SuccessMSGAfterAction("更新成功", url, 1000);
                                 } else {

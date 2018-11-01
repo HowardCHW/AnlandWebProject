@@ -14,5 +14,6 @@ namespace AnlandProject.Service.BusinessModel
         public List<int> MenuPermissions { get; set; }
         public string GroupName { get; set; }
         public string Action { get; set; }
+        public string IsAdmin { get; set; }
     }
 }

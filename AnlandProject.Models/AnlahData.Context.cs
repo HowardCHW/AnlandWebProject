@@ -58,12 +58,12 @@ namespace AnlandProject.Models
         public virtual DbSet<email> email { get; set; }
         public virtual DbSet<director> director { get; set; }
         public virtual DbSet<proposal_data> proposal_data { get; set; }
-        public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<copy> copy { get; set; }
         public virtual DbSet<engcopy> engcopy { get; set; }
         public virtual DbSet<landprice> landprice { get; set; }
         public virtual DbSet<onlineapp> onlineapp { get; set; }
         public virtual DbSet<website_visitor> website_visitor { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
     }
 }

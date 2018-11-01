@@ -92,6 +92,7 @@ namespace AnlandProject.Backend.Controllers
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userModel.Account)); //AD 帳號
             identity.AddClaim(new Claim("MenuRight", userModel.Rights)); //Menu 權限
             identity.AddClaim(new Claim("UID", userModel.ID.ToString())); //使用者ID
+            identity.AddClaim(new Claim("IsAdm", userModel.IsAdmin ? "Y" : "N")); //是否為管理者
 
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.AuthenticationResponseGrant = new AuthenticationResponseGrant(identity, new AuthenticationProperties() { IsPersistent = false });
