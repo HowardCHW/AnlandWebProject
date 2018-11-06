@@ -4366,6 +4366,9 @@
     <Content Include="Views\UnitItems\Proposal\ProposalView.cshtml" />
     <Content Include="Views\UnitItems\Categories\Index.cshtml" />
     <Content Include="Views\UnitItems\Categories\CategoriesEdit.cshtml" />
+    <Content Include="UploadedFiles\安樂地政事務所-網站設定說明說明.pdf" />
+    <Content Include="UploadedFiles\安樂地政事務所網站維護說明.pdf" />
+    <Content Include="UploadedFiles\新網頁架構資料_10710.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
