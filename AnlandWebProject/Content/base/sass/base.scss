@@ -150,7 +150,7 @@ $phones-media:479px;
             }
 
             &.active {
-                background-color: #eb6100;
+                background-color: #963e00;
                 color: #FFFFFF;
             }
         }
@@ -234,7 +234,7 @@ $phones-media:479px;
     border: 1px solid #a7a7a7;
 
     .card-header {
-        >span {
+        > span {
             font-size: 2.25rem;
             padding-top: 10px;
         }
@@ -256,7 +256,7 @@ $phones-media:479px;
 
         &.downloadItem {
             background-color: #d5eaa1;
-            color: #55730c;
+            color: #364b05;
         }
 
         &.linkItem {
@@ -283,7 +283,7 @@ $phones-media:479px;
                         color: #000000;
                     }
 
-                    >span {
+                    > span {
                         padding-right: .5rem;
                         padding-top: 0.23rem;
                     }
@@ -327,8 +327,8 @@ $phones-media:479px;
     .btn-brown {
         border-radius: 0 0 4px 4px;
         color: #fff;
-        background-color: #c19656;
-        border-color: #c19656;
+        background-color: #5f4d31;
+        border-color: #5f4d31;
         padding: .275rem 1.2rem;
 
         &:before {
@@ -343,8 +343,8 @@ $phones-media:479px;
 
         &:hover {
             color: #fff;
-            background-color: #ab8348;
-            border-color: #ab8348;
+            background-color: #814d00;
+            border-color: #814d00;
         }
     }
 
@@ -887,7 +887,7 @@ $phones-media:479px;
 
 /* footer */
 .footerSet {
-    background-color: #5ea3b2;
+    background-color: #115f70;
     border-radius: 0;
 
     p {

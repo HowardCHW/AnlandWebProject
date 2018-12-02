@@ -128,8 +128,8 @@
 }
 
 .indexBulletim .card-header .nav-link.active {
-  background-color: #eb6100;
-  color: #FFFFFF;
+    background-color: #963e00;
+    color: #FFFFFF;
 }
 
 .indexBulletim .card-body {
@@ -233,8 +233,8 @@
 }
 
 .quickOption .card-header.downloadItem {
-  background-color: #d5eaa1;
-  color: #55730c;
+    background-color: #d5eaa1;
+    color: #384f00;
 }
 
 .quickOption .card-header.linkItem {
@@ -306,11 +306,11 @@
 }
 
 .footerMenu .btn-brown {
-  border-radius: 0 0 4px 4px;
-  color: #fff;
-  background-color: #c19656;
-  border-color: #c19656;
-  padding: .275rem 1.2rem;
+    border-radius: 0 0 4px 4px;
+    color: #fff;
+    background-color: #5f4d31;
+    border-color: #5f4d31;
+    padding: .275rem 1.2rem;
 }
 
 .footerMenu .btn-brown:before {
@@ -831,7 +831,7 @@
 
 /* footer */
 .footerSet {
-  background-color: #5ea3b2;
+  background-color: #385d65;
   border-radius: 0;
 }
 
