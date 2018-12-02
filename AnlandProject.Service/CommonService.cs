@@ -450,11 +450,21 @@ namespace AnlandProject.Service
             return resultRow > 0;
         }
 
-        public void VisitorsUpdate()
+        public bool VisitorsUpdate(int updateNo = 0)
         {
+            int resultRow = 0;
             var originalData = _websiteVisitorsRepository.Get(v => v.ID == 1);
-            originalData.Visitors = originalData.Visitors + 1;
-            _websiteVisitorsRepository.Update(originalData);
+            if (updateNo == 0)
+            {
+                originalData.Visitors = originalData.Visitors + 1;
+            }
+            else
+            {
+                originalData.Visitors = updateNo;
+            }
+            resultRow = _websiteVisitorsRepository.Update(originalData);
+
+            return resultRow > 0;
         }
         #endregion
 

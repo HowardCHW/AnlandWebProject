@@ -44,7 +44,7 @@ namespace AnlandProject.Service.Interface
 
         bool PostgroupSave(CategoryModel saveData);
 
-        void VisitorsUpdate();
+        bool VisitorsUpdate(int updateNo = 0);
         #endregion
 
         #region Delete

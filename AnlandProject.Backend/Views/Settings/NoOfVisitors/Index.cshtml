@@ -1,0 +1,90 @@
+﻿@model AnlandProject.Service.BusinessModel.AccountModel
+@{
+    ViewBag.Title = "基隆市安樂地政事務所-網站管理系統";
+    Layout = "~/Views/Shared/_AnlandLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            /*vertical-align: bottom;*/
+            color: red;
+        }
+
+        .hide {
+            display: none !important;
+        }
+    </style>
+}
+
+<div class="page-header">
+    <h1 class="page-title">瀏覽人數統計</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href='@Url.Action("Index", "Home")'>首頁</a></li>
+        <li class="breadcrumb-item active">瀏覽人數統計</li>
+    </ol>
+    <div class="page-header-actions"></div>
+</div>
+<div class="page-content container-fluid">
+    @using (Ajax.BeginForm("NoOfVisitorsSave", "NoOfVisitors", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "noOfVisitorsForm", @class = "FullForm", @autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        <!-- 內文編輯區 -->
+        <div class="panel panel-bordered">
+            <div class="panel-body">
+                <div class="row row-lg">
+                    <div class="col-md-4 form-horizontal">
+                        <!-- 瀏覽人數統計 -->
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-3 form-control-label">
+                                瀏覽人數統計
+                                <span class="required">*</span>
+                            </label>
+                            <div class=" col-xl-12 col-md-9">
+                                <input type="text" class="form-control" name="updateNo" id="updateNo" placeholder="" required="" data-parsley-required-message="請填瀏覽人數統計">
+                            </div>
+                        </div>
+                        <!-- /瀏覽人數統計 -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group col-xl-12 text-right padding-top-m">
+                    <button type="button" class="btn btn-primary" id="btnSave">確認</button>
+                </div>
+            </div>
+        </div>
+        <!-- /內文編輯區 -->
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script>
+        var VNo = '@ViewBag.NoOfVisitors';
+        $(document).ready(function () {
+            $('#updateNo').val(VNo);
+
+            $('#btnSave').on('click', function myfunction() {
+                //觸發該欄位的表單驗證 (Parsley Validation)
+                $('#noOfVisitorsForm').parsley().validate();
+                if ($('#noOfVisitorsForm').parsley().isValid()) {
+                    $('#noOfVisitorsForm').submit();
+                }
+            });
+        });
+
+        function SuccessMessage(result) {
+            if (result) {
+                //var url = '/Questionnaire';
+                SuccessMSGAfterAction("更新成功", '', 1000);
+            } else {
+                ErrorMSG('異動失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('新增失敗');
+        }
+    </script>
+}

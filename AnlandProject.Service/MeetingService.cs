@@ -84,20 +84,20 @@ namespace AnlandProject.Service
                     var originalData = _meetingRepository.Get(n => n.ID == saveData.ID);
                     originalData.subject = saveData.Subject;
                     originalData.author = saveData.Author;
-                    originalData.homepage2 = saveData.Homepage2;
-                    originalData.homepage3 = saveData.Homepage3;
-                    originalData.homepage4 = saveData.Homepage4;
-                    originalData.homepage5 = saveData.Homepage5;
-                    originalData.homepage6 = saveData.Homepage6;
+                    if (!string.IsNullOrWhiteSpace(saveData.Homepage2)) originalData.homepage2 = saveData.Homepage2;
+                    if (!string.IsNullOrWhiteSpace(saveData.Homepage3)) originalData.homepage3 = saveData.Homepage3;
+                    if (!string.IsNullOrWhiteSpace(saveData.Homepage4)) originalData.homepage4 = saveData.Homepage4;
+                    if (!string.IsNullOrWhiteSpace(saveData.Homepage5)) originalData.homepage5 = saveData.Homepage5;
+                    if (!string.IsNullOrWhiteSpace(saveData.Homepage6)) originalData.homepage6 = saveData.Homepage6;
                     originalData.Body = saveData.Body;
                     originalData.postdate = saveData.PostDate;
-                    originalData.hit = saveData.Hit;
+                    //originalData.hit = saveData.Hit;
                     originalData.end_date = saveData.EndDate;
-                    originalData.file1_momo = saveData.File1Momo;
-                    originalData.file2_momo = saveData.File2Momo;
-                    originalData.file3_momo = saveData.File3Momo;
-                    originalData.file4_momo = saveData.File4Momo;
-                    originalData.file5_momo = saveData.File5Momo;
+                    if (!string.IsNullOrWhiteSpace(saveData.File1Momo)) originalData.file1_momo = saveData.File1Momo;
+                    if (!string.IsNullOrWhiteSpace(saveData.File2Momo)) originalData.file2_momo = saveData.File2Momo;
+                    if (!string.IsNullOrWhiteSpace(saveData.File3Momo)) originalData.file3_momo = saveData.File3Momo;
+                    if (!string.IsNullOrWhiteSpace(saveData.File4Momo)) originalData.file4_momo = saveData.File4Momo;
+                    if (!string.IsNullOrWhiteSpace(saveData.File5Momo)) originalData.file5_momo = saveData.File5Momo;
                     resultRow = _meetingRepository.Update(originalData);
                 }
                 else

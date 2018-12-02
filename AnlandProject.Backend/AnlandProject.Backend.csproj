@@ -184,6 +184,7 @@
     <Compile Include="Controllers\OnlineApplication\ReservationController.cs" />
     <Compile Include="Controllers\Settings\SMTPSetupController.cs" />
     <Compile Include="Controllers\Settings\TypeSettingController.cs" />
+    <Compile Include="Controllers\Settings\NoOfVisitors.cs" />
     <Compile Include="Controllers\Settings\UserManagementController.cs" />
     <Compile Include="Controllers\UnitItems\CategoriesController.cs" />
     <Compile Include="Controllers\UnitItems\DirectorFAQController.cs" />
@@ -4438,6 +4439,7 @@
     <Content Include="UploadedFiles\安樂地政事務所-網站設定說明.pdf" />
     <Content Include="UploadedFiles\安樂地政事務所網站維護說明.pdf" />
     <Content Include="UploadedFiles\新網頁架構資料_10710.xlsx" />
+    <Content Include="Views\Settings\NoOfVisitors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
