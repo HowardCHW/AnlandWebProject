@@ -2,11 +2,22 @@
     Layout = null;
 }
 
+<noscript>
+    <div class="container">
+        <div class="row">
+            <div class="card m-3 banner">
+                <div class="card-body p-3">
+                    Javascript 似乎已停用或不受您的瀏覽器支援，請點選 [ <a href="@Url.Action("SiteMap","Home")">網站導覽</a> ] 超連結，或使用支援JavaScript瀏覽器。
+                </div>
+            </div>
+        </div>
+    </div>
+</noscript>
 <div class="container-fluid mainMenu">
     <div class="row">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand d-lg-none" href="@Url.Action("Index","Home")"">
+                <a class="navbar-brand d-lg-none" href="@Url.Action("Index","Home")">
                     <img src="/images/index_logo.png" height="45" alt="基隆市安樂地政事務所全球資訊網">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -42,7 +53,7 @@
                                 線上查詢
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuSearch">
-                                <h6 class="dropdown-header">登記類</h6>
+                                <p class="dropdown-header">登記類</p>
                                 <a class="dropdown-item pl-5" href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="開啟新的導覽視窗">區段代碼對照</a>
                                 <a class="dropdown-item pl-5" href="https://landquery.klcg.gov.tw/query/oldnew.jsp" target="_blank" title="開啟新的導覽視窗">新舊地、建號查詢</a>
                                 <a class="dropdown-item pl-5" href="https://landquery.klcg.gov.tw/query/opendata1.jsp" target="_blank" title="開啟新的導覽視窗">第一次登記公告</a>
@@ -91,16 +102,16 @@
                                 便民服務
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuService">
-                                <h6 class="dropdown-header">臨櫃服務</h6>
+                                <p class="dropdown-header">臨櫃服務</p>
                                 @Html.ActionLink("單一窗口服務", "OneStop", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("服務台及志工服務", "ServiceVolunteers", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("謄本櫃檯雙向服務", "TwoWay", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">通信服務</h6>
+                                <p class="dropdown-header">通信服務</p>
                                 @Html.ActionLink("通信申請", "AppEmail", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("案件郵寄到家", "MailToHome", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">網路服務</h6>
+                                <p class="dropdown-header">網路服務</p>
                                 @Html.ActionLink("網路申領電子謄本", "AppCopy", "OnlineApplication", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("地政電傳資訊服務", "InfoService", "OnlineApplication", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("地政線上申辦系統", "AppOnline", "OnlineApplication", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
@@ -108,11 +119,11 @@
                                 @Html.ActionLink("線上預約", "OnlineBooking", "OnlineApplication", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("網路ATM", "WebATM", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">自動化服務</h6>
+                                <p class="dropdown-header">自動化服務</p>
                                 @Html.ActionLink("電話語音查詢", "TelVoice", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("辦理情形自動回復", "AutoReply", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">跨所跨縣市服務</h6>
+                                <p class="dropdown-header">跨所跨縣市服務</p>
                                 @Html.ActionLink("跨縣市申領謄本", "CrossCopy", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("跨所申辦登記案件", "CrossApplication", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })
                                 @Html.ActionLink("跨所申請英文不動產權利登記證明", "CrossEnglishApplication", "PublicServices", new { id = string.Empty }, new { @class = "dropdown-item pl-5" })

@@ -30,58 +30,72 @@
 }
 
 <!-- 公告區 -->
-<div class="container d-print-none">
-    <div class="pl-3">
-        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
-        <span class="sr-only">|</span>
-        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
-    </div>
-    <div class="row justify-content-between align-items-center">
-        <!-- 麵包屑麵包屑 -->
-        <div class="col-lg-6">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item pathTitle">現在位置</li>
-                    <li class="breadcrumb-item">
-                        <a href="@Url.Action("Index","Home")">首頁</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="@Url.Action("Intro","Organs")">機關簡介</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <a href="@Url.Action("GeoTraffic","Organs")">地理交通</a>
-                    </li>
-                </ol>
-            </nav>
+    <div class="container d-print-none">
+        <div class="pl-3">
+            <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+            <span class="sr-only">|</span>
+            <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
         </div>
-        <div class="col-lg-6 d-flex justify-content-end align-items-center">
-            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
-                    <span class="fab fa-facebook-square"></span>
-                </a>
-                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
-                    <span class="far fa-print"></span>
-                </a>
-                <span class="fontSizeSet">字級設定：</span>
-                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
-                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
-                        <span class="sr-only">小字型</span>
-                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
-                    </label>
-                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
-                        <span class="sr-only">中字型</span>
-                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
-                    </label>
-                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
-                        <span class="sr-only">大字型</span>
-                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
-                    </label>
+        <noscript>
+            <div class="container">
+                <div class="row">
+                    <div class="card m-3 banner">
+                        <div class="card-body p-3">
+                            您必須啟用 Javascript，才能以標準檢視使用本網站。不過，Javascript 似乎已停用或不受您的瀏覽器支援。如開啟JavaScript，可得到視覺與特效的最佳瀏覽。
+                            <br>列印功能：請按下ctrl+P開啟列印視窗,或由工具列中選擇列印功能。
+                            <br>如需要選擇字級大小，IE或Firefox瀏覽器則可利用鍵盤 Ctrl + (+)放大(-)縮小，來選擇適合您的文字大小，如需要回到上一頁可使用瀏覽器提供的
+                            Alt+左方向鍵(←)。
+                        </div>
+                    </div>
                 </div>
             </div>
+        </noscript>
+        <div class="row justify-content-between align-items-center">
+            <!-- 麵包屑麵包屑 -->
+            <div class="col-lg-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item pathTitle">現在位置</li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">首頁</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Intro","Organs")">機關簡介</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="@Url.Action("GeoTraffic","Organs")">地理交通</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end align-items-center">
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                    <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                        <span class="fab fa-facebook-square"></span>
+                    </a>
+                    <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                        <span class="far fa-print"></span>
+                    </a>
+                    <span class="fontSizeSet">字級設定：</span>
+                    <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                            <span class="sr-only">小字型</span>
+                            <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                            <span class="sr-only">中字型</span>
+                            <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                            <span class="sr-only">大字型</span>
+                            <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- /麵包屑 -->
         </div>
-        <!-- /麵包屑 -->
     </div>
-</div>
 <!-- 內文區 -->
 <div class="container">
     <div class="row">
@@ -169,8 +183,8 @@
                                                 </li>
                                             </ol>
                                             <p>
-                                                <span class="far fa-link text-primary"></span> 查詢網站 (開啟新視窗)：
-                                                <a href="http://www.kingbus.com.tw/" target="_blank">國光客運網站</a>
+                                                <span class="far fa-link text-primary"></span> 查詢網站：
+                                                <a href="http://www.kingbus.com.tw/" target="_blank" title="(開啟新視窗)">國光客運網站</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -273,8 +287,8 @@
                                                 </li>
                                             </ol>
                                             <p>
-                                                <span class="far fa-link text-primary"></span> 查詢網站 (開啟新視窗)：</span>
-                                                <a href="http://www.csgroup-bus.com.tw/" target="_blank">中興巴士網站</a>
+                                                <span class="far fa-link text-primary"></span> 查詢網站：
+                                                <a href="http://www.csgroup-bus.com.tw/" target="_blank" title="(開啟新視窗)">中興巴士網站</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -283,8 +297,8 @@
                                         <td data-th="內容" class="d-block">
                                             您可從台北長庚醫院站搭乘汎航通運往基隆長庚的客運；或是在基隆火車站旁(港西街)搭乘汎航通運往基隆長庚的客運在長庚醫院下車後，步行至本所。
                                             <p class="pl-0">
-                                                <span class="far fa-link text-primary"></span> 查詢網站 (開啟新視窗)：</span>
-                                                <a href="https://www1.cgmh.org.tw/frms/frms1.htm" target="_blank">汎航通運網站</a>
+                                                <span class="far fa-link text-primary"></span> 查詢網站：
+                                                <a href="https://www1.cgmh.org.tw/frms/frms1.htm" target="_blank" title="(開啟新視窗)">汎航通運網站</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -293,8 +307,8 @@
                                         <td data-th="內容" class="d-block">
                                             您可於台北內湖科技園區搭乘往基隆之首都客運，在基隆火車站下車後，轉市公車在安樂區行政大樓或安樂郵局站下車。
                                             <p class="pl-0">
-                                                <span class="far fa-link text-primary"></span> 查詢網站 (開啟新視窗)：</span>
-                                                <a href="http://www.capital-bus.com.tw/" target="_blank">首都客運網站</a>
+                                                <span class="far fa-link text-primary"></span> 查詢網站：
+                                                <a href="http://www.capital-bus.com.tw/" target="_blank" title="(開啟新視窗)">首都客運網站</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -320,8 +334,8 @@
                                                 </li>
                                             </ol>
                                             <p>
-                                                <span class="far fa-link text-primary"></span> 查詢網站 (開啟新視窗)：</span>
-                                                <a href="http://www.fuhobus.com.tw/" target="_blank">福和客運網站</a>
+                                                <span class="far fa-link text-primary"></span> 查詢網站：
+                                                <a href="http://www.fuhobus.com.tw/" target="_blank" title="(開啟新視窗)">福和客運網站</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -330,8 +344,8 @@
                                         <td data-th="內容" class="d-block">
                                             您可搭乘火車在基隆火車站下車後，轉市公車在安樂區行政大樓、安樂郵局站或長庚醫院站下車。
                                             <p class="pl-0">
-                                                <span class="far fa-link text-primary"></span> 查詢網站 (開啟新視窗)：</span>
-                                                <a href="http://twtraffic.tra.gov.tw/twrail/TW_Quicksearch.aspx" target="_blank">台灣鐵路管理局列車時刻查詢系統</a>
+                                                <span class="far fa-link text-primary"></span> 查詢網站：
+                                                <a href="http://twtraffic.tra.gov.tw/twrail/TW_Quicksearch.aspx" target="_blank" title="(開啟新視窗)">台灣鐵路管理局列車時刻查詢系統</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -343,21 +357,21 @@
                                             <br> 505(大武崙)：長庚醫院站下車。
                                             <br> 506(富景天下)：行政大樓站下車。
                                             <p class="pl-0">
-                                                <span class="far fa-link text-primary"></span> 查詢網站 (開啟新視窗)：</span>
-                                                <a href="http://www.klcba.gov.tw/releaseRedirect.do?unitID=1&pageID=559" target="_blank">基隆市公車處網站</a>
+                                                <span class="far fa-link text-primary"></span> 查詢網站：
+                                                <a href="http://www.klcba.gov.tw/releaseRedirect.do?unitID=1&pageID=559" target="_blank" title="(開啟新視窗)">基隆市公車處網站</a>
                                             </p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" data-th="交通方式" class="text-center">交通諮詢服務網</td>
                                         <td data-th="內容">
-                                            <a href="http://e-traffic.klcg.gov.tw/login.do" target="_blank">基隆市即時交通資訊網</a>
+                                            <a href="http://e-traffic.klcg.gov.tw/login.do" target="_blank" title="(開啟新視窗)">基隆市即時交通資訊網</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" data-th="交通方式" class="text-center">旅遊諮詢服務網 </td>
                                         <td data-th="內容">
-                                            <a href="http://tour.klcg.gov.tw/" target="_blank">基隆旅遊網</a>
+                                            <a href="http://tour.klcg.gov.tw/" target="_blank" title="(開啟新視窗)">基隆旅遊網</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -365,7 +379,7 @@
                         </div>
                     </div>
                     <p class="text-primary">
-                        更新日期：2018/08/01
+                        更新日期：2018/09/15
                     </p>
                 </div>
             </div>

@@ -444,6 +444,12 @@ $phones-media:479px;
     width: 100%;
     min-height: 40vh;
 
+    P {
+        &.text-primary {
+            color: #0457b0 !important;
+        }
+    }
+
     .pl-5 {
 
         //手機
@@ -487,7 +493,7 @@ $phones-media:479px;
                 padding: .3rem 1rem;
 
                 &:hover {
-                    background-color: #007bff;
+                    background-color: #0b58aa;
                     border: 1px solid rgba(0, 123, 255, .25);
                     color: #FFFFFF;
                 }
@@ -497,12 +503,12 @@ $phones-media:479px;
                     color: #1e7e34;
 
                     &:hover {
-                        background-color: #28a745;
+                        background-color: #1a632a;
                         color: #FFFFFF;
                     }
 
                     &.active {
-                        background-color: #28a745;
+                        background-color: #1a632a;
                         color: #FFFFFF;
                     }
                 }
@@ -549,7 +555,7 @@ $phones-media:479px;
 
             th,
             td {
-                font-size: 1rem;
+                font-size: 1rem !important;
                 padding: .55rem;
 
                 a:hover {
@@ -557,7 +563,14 @@ $phones-media:479px;
                     color: #0056b3;
                     text-decoration: none;
                 }
+
             }
+        }
+    }
+
+    input {
+        &.form-control {
+            font-size: 1rem !important;
         }
     }
 
@@ -570,7 +583,7 @@ $phones-media:479px;
     }
 
     h3 {
-        color: #ca6315;
+        color: #803e0d;
         font-size: 1.2rem;
         font-weight: 600;
         margin-bottom: 1rem;
@@ -578,7 +591,7 @@ $phones-media:479px;
     }
 
     h4 {
-        color: #007bff;
+        color: #0457b0;
         font-size: 1rem;
         font-weight: 500;
         margin-bottom: 1rem;
@@ -684,8 +697,14 @@ $phones-media:479px;
 
                 th,
                 td {
-                    font-size: 0.9rem;
+                    font-size: 0.9rem !important;
                 }
+            }
+        }
+
+        input {
+            &.form-control {
+                font-size: 0.9rem !important;
             }
         }
 
@@ -766,8 +785,14 @@ $phones-media:479px;
 
                 th,
                 td {
-                    font-size: 1.2rem;
+                    font-size: 1.2rem !important;
                 }
+            }
+        }
+
+        input {
+            &.form-control {
+                font-size: 1.2rem !important;
             }
         }
 
@@ -818,7 +843,7 @@ $phones-media:479px;
 
 .bg-brown {
     color: #fff;
-    background-color: #ab8348;
+    background-color: #6d542e;
 }
 
 /* Rwd Table */
@@ -1116,6 +1141,13 @@ span.fa-file-alt {
             list-style-type: none;
             margin-bottom: 0.5rem;
             padding: .25rem 0.5rem;
+            a {
+                color: #FFFFFF;
+                &:focus {
+                    border: 1px solid #FFFFFF;
+                    padding: 0 5px;
+                }
+            }
         }
 
         .list-group-subtitle {
@@ -1124,6 +1156,13 @@ span.fa-file-alt {
             list-style-type: none;
             margin-bottom: 0.5rem;
             padding: .25rem 0.5rem;
+            a {
+                color: #333333;
+
+                &:focus {
+                    padding: 0 5px;
+                }
+            }
         }
 
         .hr-divider {
@@ -1223,4 +1262,10 @@ input.gsc-input {
     @include phone-width {
         max-width: 100%;
     }
+}
+
+.jp {
+    position: absolute;
+    top: 0;
+    left: 10px;
 }

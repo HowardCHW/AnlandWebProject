@@ -128,8 +128,8 @@
 }
 
 .indexBulletim .card-header .nav-link.active {
-    background-color: #963e00;
-    color: #FFFFFF;
+  background-color: #963e00;
+  color: #FFFFFF;
 }
 
 .indexBulletim .card-body {
@@ -233,8 +233,8 @@
 }
 
 .quickOption .card-header.downloadItem {
-    background-color: #d5eaa1;
-    color: #384f00;
+  background-color: #d5eaa1;
+  color: #364b05;
 }
 
 .quickOption .card-header.linkItem {
@@ -306,11 +306,11 @@
 }
 
 .footerMenu .btn-brown {
-    border-radius: 0 0 4px 4px;
-    color: #fff;
-    background-color: #5f4d31;
-    border-color: #5f4d31;
-    padding: .275rem 1.2rem;
+  border-radius: 0 0 4px 4px;
+  color: #fff;
+  background-color: #5f4d31;
+  border-color: #5f4d31;
+  padding: .275rem 1.2rem;
 }
 
 .footerMenu .btn-brown:before {
@@ -325,8 +325,8 @@
 
 .footerMenu .btn-brown:hover {
   color: #fff;
-  background-color: #ab8348;
-  border-color: #ab8348;
+  background-color: #814d00;
+  border-color: #814d00;
 }
 
 .footerMenu .card {
@@ -432,6 +432,10 @@
   min-height: 40vh;
 }
 
+.subContent P.text-primary {
+  color: #0457b0 !important;
+}
+
 @media all and (max-width: 479px) {
   .subContent .pl-5 {
     padding-left: 0 !important;
@@ -473,7 +477,7 @@
 }
 
 .subContent .nav-pills .nav-item .nav-link:hover {
-  background-color: #007bff;
+  background-color: #0b58aa;
   border: 1px solid rgba(0, 123, 255, 0.25);
   color: #FFFFFF;
 }
@@ -484,12 +488,12 @@
 }
 
 .subContent .nav-pills .nav-item .nav-link.link-success:hover {
-  background-color: #28a745;
+  background-color: #1a632a;
   color: #FFFFFF;
 }
 
 .subContent .nav-pills .nav-item .nav-link.link-success.active {
-  background-color: #28a745;
+  background-color: #1a632a;
   color: #FFFFFF;
 }
 
@@ -527,7 +531,7 @@
 
 .subContent table tr th,
 .subContent table tr td {
-  font-size: 1rem;
+  font-size: 1rem !important;
   padding: .55rem;
 }
 
@@ -536,6 +540,10 @@
   border-bottom: 1px solid;
   color: #0056b3;
   text-decoration: none;
+}
+
+.subContent input.form-control {
+  font-size: 1rem !important;
 }
 
 .subContent h2 {
@@ -547,7 +555,7 @@
 }
 
 .subContent h3 {
-  color: #ca6315;
+  color: #803e0d;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -555,7 +563,7 @@
 }
 
 .subContent h4 {
-  color: #007bff;
+  color: #0457b0;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 1rem;
@@ -653,7 +661,11 @@
 
 .subContent.smallFont table tr th,
 .subContent.smallFont table tr td {
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
+}
+
+.subContent.smallFont input.form-control {
+  font-size: 0.9rem !important;
 }
 
 .subContent.smallFont h2 {
@@ -718,7 +730,11 @@
 
 .subContent.largeFont table tr th,
 .subContent.largeFont table tr td {
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
+}
+
+.subContent.largeFont input.form-control {
+  font-size: 1.2rem !important;
 }
 
 .subContent.largeFont h2 {
@@ -765,7 +781,7 @@
 
 .bg-brown {
   color: #fff;
-  background-color: #ab8348;
+  background-color: #6d542e;
 }
 
 /* Rwd Table */
@@ -831,7 +847,7 @@
 
 /* footer */
 .footerSet {
-  background-color: #385d65;
+  background-color: #115f70;
   border-radius: 0;
 }
 
@@ -1061,12 +1077,29 @@ span.fa-file-alt {
   padding: .25rem 0.5rem;
 }
 
+.sitemap .list-group .list-group-title a {
+  color: #FFFFFF;
+}
+
+.sitemap .list-group .list-group-title a:focus {
+  border: 1px solid #FFFFFF;
+  padding: 0 5px;
+}
+
 .sitemap .list-group .list-group-subtitle {
   background-color: #f7c885;
   font-size: 0.95rem;
   list-style-type: none;
   margin-bottom: 0.5rem;
   padding: .25rem 0.5rem;
+}
+
+.sitemap .list-group .list-group-subtitle a {
+  color: #333333;
+}
+
+.sitemap .list-group .list-group-subtitle a:focus {
+  padding: 0 5px;
 }
 
 .sitemap .list-group .hr-divider {
@@ -1159,13 +1192,18 @@ input.gsc-input {
 }
 
 .appendPic {
-    max-width: 40%;
+  max-width: 40%;
 }
 
 @media all and (max-width: 479px) {
-    .appendPic {
-        max-width: 100%;
-    }
+  .appendPic {
+    max-width: 100%;
+  }
 }
 
+.jp {
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
 /*# sourceMappingURL=base.css.map */

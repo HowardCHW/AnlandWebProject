@@ -306,8 +306,6 @@
     <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\dataTables.semanticui.min.js" />
     <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\jquery.dataTables.js" />
     <Content Include="Scripts\base\plugin\DataTables-1.10.18\js\jquery.dataTables.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -601,6 +599,8 @@
     <None Include="Properties\PublishProfiles\AnlandTestWeb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

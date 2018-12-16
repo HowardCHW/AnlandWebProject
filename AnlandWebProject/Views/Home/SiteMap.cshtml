@@ -30,55 +30,69 @@
 }
 
 <!-- 公告區 -->
-<div class="container d-print-none">
-    <div class="pl-3">
-        <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
-        <span class="sr-only">|</span>
-        <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
-    </div>
-    <div class="row justify-content-between align-items-center">
-        <!-- 麵包屑麵包屑 -->
-        <div class="col-lg-6">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item pathTitle">現在位置</li>
-                    <li class="breadcrumb-item">
-                        <a href="@Url.Action("Index","Home")">首頁</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <a href="@Url.Action("SiteMap","Home")">網站導覽</a>
-                    </li>
-                </ol>
-            </nav>
+    <div class="container d-print-none">
+        <div class="pl-3">
+            <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+            <span class="sr-only">|</span>
+            <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
         </div>
-        <div class="col-lg-6 d-flex justify-content-end align-items-center">
-            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-                <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
-                    <span class="fab fa-facebook-square"></span>
-                </a>
-                <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
-                    <span class="far fa-print"></span>
-                </a>
-                <span class="fontSizeSet">字級設定：</span>
-                <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
-                    <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
-                        <span class="sr-only">小字型</span>
-                        <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
-                    </label>
-                    <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
-                        <span class="sr-only">中字型</span>
-                        <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
-                    </label>
-                    <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
-                        <span class="sr-only">大字型</span>
-                        <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
-                    </label>
+        <noscript>
+            <div class="container">
+                <div class="row">
+                    <div class="card m-3 banner">
+                        <div class="card-body p-3">
+                            您必須啟用 Javascript，才能以標準檢視使用本網站。不過，Javascript 似乎已停用或不受您的瀏覽器支援。如開啟JavaScript，可得到視覺與特效的最佳瀏覽。
+                            <br>列印功能：請按下ctrl+P開啟列印視窗,或由工具列中選擇列印功能。
+                            <br>如需要選擇字級大小，IE或Firefox瀏覽器則可利用鍵盤 Ctrl + (+)放大(-)縮小，來選擇適合您的文字大小，如需要回到上一頁可使用瀏覽器提供的
+                            Alt+左方向鍵(←)。
+                        </div>
+                    </div>
                 </div>
             </div>
+        </noscript>
+        <div class="row justify-content-between align-items-center">
+            <!-- 麵包屑麵包屑 -->
+            <div class="col-lg-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item pathTitle">現在位置</li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">首頁</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="@Url.Action("SiteMap","Home")">網站導覽</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end align-items-center">
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                    <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                        <span class="fab fa-facebook-square"></span>
+                    </a>
+                    <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                        <span class="far fa-print"></span>
+                    </a>
+                    <span class="fontSizeSet">字級設定：</span>
+                    <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                            <span class="sr-only">小字型</span>
+                            <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                            <span class="sr-only">中字型</span>
+                            <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                            <span class="sr-only">大字型</span>
+                            <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- /麵包屑 -->
         </div>
-        <!-- /麵包屑 -->
     </div>
-</div>
 <!-- 內文區 -->
 <div class="container">
     <div class="row">
@@ -101,7 +115,7 @@
                 </h3>
                 <div class="card flex-row flex-wrap ml-5 sitemap">
                     <ul class="list-group mb-3">
-                        <li class="list-group-title"><span class="fas fa-braille"></span> 機關簡介</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> <a href="#">機關簡介</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("Intro","Organs")" class="">本所沿革</a>
                         </li>
@@ -125,7 +139,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title"><span class="fas fa-braille"></span> 公告資訊</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> <a href="#">公告資訊</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("News","Announcement")">最新消息</a>
                         </li>
@@ -134,8 +148,8 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title"><span class="fas fa-braille"></span> 線上查詢</li>
-                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> 登記類</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> <a href="#">線上查詢</a></li>
+                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> <a href="#">登記類</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="https://landquery.klcg.gov.tw/query/r48.jsp" target="_blank" title="開啟新的導覽視窗">區段代碼對照</a>
                         </li>
@@ -169,7 +183,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title"><span class="fas fa-braille"></span> 線上申辦</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> <a href="#">線上申辦</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("AppCopy","OnlineApplication")">網路申領電子謄本</a>
                         </li>
@@ -193,7 +207,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title"><span class="fas fa-braille"></span> 申請須知</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> <a href="#">申請須知</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("AppRegister","ApplicationNotes")">登記類</a>
                         </li>
@@ -224,8 +238,8 @@
 
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title">便民服務</li>
-                        <li class="list-group-subtitle">臨櫃服務</li>
+                        <li class="list-group-title"><a href="#">便民服務</a></li>
+                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> <a href="#">臨櫃服務</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("OneStop","PublicServices")">單一窗口服務</a>
                         </li>
@@ -235,14 +249,14 @@
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("TwoWay","PublicServices")">謄本櫃檯雙向服務</a>
                         </li>
-                        <li class="list-group-subtitle">通信服務</li>
+                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> <a href="#">通信服務</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("AppEmail","PublicServices")">通信申請</a>
                         </li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("MailToHome","PublicServices")">案件郵寄到家</a>
                         </li>
-                        <li class="list-group-subtitle">網路服務</li>
+                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> <a href="#">網路服務</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("AppCopy","OnlineApplication")">網路申領電子謄本</a>
                         </li>
@@ -261,14 +275,14 @@
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("WebATM","PublicServices")">網路ATM</a>
                         </li>
-                        <li class="list-group-subtitle">自動化服務</li>
+                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> <a href="#">自動化服務</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("TelVoice","PublicServices")">電話語音查詢</a>
                         </li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("AutoReply","PublicServices")">辦理情形自動回覆</a>
                         </li>
-                        <li class="list-group-subtitle">跨所跨縣市服務</li>
+                        <li class="list-group-subtitle"><span class="fas fa-angle-right"></span> <a href="#">跨所跨縣市服務</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("CrossCopy","PublicServices")">跨縣市申領謄本</a>
                         </li>
@@ -287,7 +301,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title"><span class="fas fa-braille"></span> 民意交流</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> <a href="#">民意交流</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("EmailSuggest","OpinionExchange")">地政答客問</a>
                         </li>
@@ -302,7 +316,7 @@
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
-                        <li class="list-group-title"><span class="fas fa-braille"></span> 分類檢索</li>
+                        <li class="list-group-title"><span class="fas fa-braille"></span> <a href="#">分類檢索</a></li>
                         <li class="list-group-item list-group-item-action">
                             <a href="@Url.Action("Index","ClassificationSearch")">分類檢索</a>
                         </li>
@@ -310,7 +324,7 @@
                 </div>
 
                 <p class="text-primary">
-                    更新日期：2018/08/20
+                    更新日期：2018/09/15
                 </p>
             </div>
         </div>
