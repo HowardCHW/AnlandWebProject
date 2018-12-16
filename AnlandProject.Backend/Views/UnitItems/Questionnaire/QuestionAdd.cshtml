@@ -104,6 +104,7 @@
                             </label>
                             <div class=" col-xl-12 col-md-9">
                                 <select class="form-control" name="selectqty" size="1" v-model.number="questionCount" required>
+                                    <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -190,7 +191,7 @@
             </div>
             <div class="panel-body">
                 <div class="row row-lg" style="border-top:2px solid #ddd;padding-top: 5px;margin-top: 10px">
-                    <div class="col-md-6 form-horizontal">
+                    <div class="col-md-6 form-horizontal" v-if="questionCount>0">
                         <!-- 問卷名稱 -->
                         <multiple-choice v-for="(item, index) in questionCount" :index="item" :key="index"></multiple-choice>                        
                         <!-- /問卷名稱 -->
@@ -230,6 +231,7 @@
     <script src="~/global/vendor/bootstrap-datepicker/bootstrap-datepicker.zh-TW.min.js"></script>
     <script src="~/Scripts/vue.js"></script>
     <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script src="~/Scripts/Parsley/i18n/zh_tw.js"></script>
     <script>
         Vue.component('multiple-choice', {
             data: function () {
