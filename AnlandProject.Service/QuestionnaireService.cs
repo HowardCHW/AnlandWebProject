@@ -96,7 +96,7 @@ namespace AnlandProject.Service
                         List<string> answers = tempData.suggest3.Select(s3 => s3.answer.Split(new string[] { "||" }, StringSplitOptions.None)[i]).ToList();
                         for (int j = 0; j < single[i].AllAnswers.Count; j++)
                         {
-                            double answerCount = answers.Count(a => a.Trim() == (j + 1).ToString()) / (double)result.TotalReceivedAnswers;
+                            double answerCount = result.TotalReceivedAnswers == 0 ? 0 : answers.Count(a => a.Trim() == (j + 1).ToString()) / (double)result.TotalReceivedAnswers;
                             single[i].AllAnswers[j].AnswerCount = answers.Count(a => a.Trim() == (j + 1).ToString());
                             single[i].AllAnswers[j].AnswerPercent = answerCount.ToString("P0");
                         }
@@ -114,7 +114,7 @@ namespace AnlandProject.Service
 
                         for (int j = 0; j < multiple[i].AllAnswers.Count; j++)
                         {
-                            double answerCount = splitAns.Count(a => a.Trim() == (j + 1).ToString()) / (double)result.TotalReceivedAnswers;
+                            double answerCount = result.TotalReceivedAnswers == 0 ? 0 : splitAns.Count(a => a.Trim() == (j + 1).ToString()) / (double)result.TotalReceivedAnswers;
                             multiple[i].AllAnswers[j].AnswerCount = splitAns.Count(a => a.Trim() == (j + 1).ToString());
                             multiple[i].AllAnswers[j].AnswerPercent = answerCount.ToString("P0");
                         }
