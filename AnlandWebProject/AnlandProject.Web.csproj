@@ -278,6 +278,7 @@
     <Content Include="images\organization.gif" />
     <Content Include="images\organizationENG.gif" />
     <Content Include="images\suggest_01.gif" />
+    <Content Include="images\無障礙標章2.0AA級圖示.png" />
     <Content Include="Scripts\AnlandFrontend.js" />
     <Content Include="Scripts\base\js\base.js" />
     <Content Include="Scripts\base\js\bootstrap.min.js" />

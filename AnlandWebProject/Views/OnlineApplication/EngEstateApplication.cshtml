@@ -34,7 +34,7 @@
     <meta name="Keywords" content="線上申辦, 網路申領英文謄本" />
 
     <!-- 分類檢索 End -->
-    <meta name="Accessible_website" content="本網站通過通過AAA優先等級無障礙網頁檢測">
+    <meta name="Accessible_website" content="本網站通過通過AA優先等級無障礙網頁檢測">
     <title>基隆市安樂地政事務所全球資訊網 - 線上申辦-網路申領英文謄本</title>
 
     <!-- Bootstrap CSS -->
@@ -60,34 +60,31 @@
                 @Html.AntiForgeryToken()
                 <div class="card">
                     <div class="card-header text-center">
-                        <h4 class="text-info">網路申領英文謄本申請表 (有＊記號的欄位必須填寫)</h4>
+                        <h4 class="text-info">網路申領英文謄本申請表</h4>
                     </div>
                     <div class="card-body p-0">
                         <table class="table table-hover border-bottom rwd-table m-0" summary="編排用表格">
                             <caption class="sr-only">
-                                英文謄本申請表 (有＊記號的欄位必須填寫)
+                                英文謄本申請表
                             </caption>
                             <tr>
                                 <th scope="row" class="text-nowrap table-primary">
-                                    <label for="applyname">
-                                        申請人﹝代表人﹞姓名<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label for="applyname">申請人﹝代表人﹞姓名</label>
                                 </th>
                                 <td class="text-nowrap">
                                     <input name="applyname" type="text" class="form-control" size="15" id="applyname" placeholder="" title="請填寫申請人姓名" required data-parsley-required-message="必填欄位！">
                                 </td>
                                 <th scope="row" class="text-nowrap table-primary">
-                                    <label for="applybirth">
-                                        申請人﹝代表人﹞<br>出生年月日<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label for="applybirth">申請人﹝代表人﹞<br>出生年月日</label>
                                 </th>
                                 <td class="text-nowrap">
                                     <input name="applybirth" type="text" class="form-control" id="applybirth" placeholder="" title="請填寫申請人出生年月日" size="10" required data-parsley-required-message="必填欄位！">
                                 </td>
                                 <th scope="row" class="text-nowrap table-primary">
-                                    <label for="applyid">
-                                        申請人統一編號<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label for="applyid">申請人統一編號</label>
                                 </th>
                                 <td class="text-nowrap">
                                     <input name="applyid" type="text" class="form-control" size="15" id="applyid" placeholder="" title="請填寫申請人統一編號" required data-parsley-required-message="必填欄位！" data-parsley-verifyuid>
@@ -95,17 +92,15 @@
                             </tr>
                             <tr>
                                 <th scope="row" class="text-nowrap table-primary">
-                                    <label for="applytel">
-                                        申請人電話<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label for="applytel">申請人電話</label>
                                 </th>
                                 <td class="text-nowrap">
                                     <input name="applytel" type="text" class="form-control" size="23" id="applytel" placeholder="02-24324001分機 311" title="填寫範例：02-24324001分機 311" required data-parsley-required-message="必填欄位！">
                                 </td>
                                 <th scope="row" class="text-nowrap table-primary">
-                                    <label for="applyadd">
-                                        申請人住址<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label for="applyadd">申請人住址</label>
                                 </th>
                                 <td colspan="3" class="text-nowrap">
                                     <input name="applyadd" type="text" class="form-control" size="60" id="applyadd" placeholder="" title="請填寫申請人住址" required data-parsley-required-message="必填欄位！">
@@ -157,45 +152,55 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-nowrap table-primary">土地申請標的<span class="red">＊</span></th>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <span class="red">(必填)</span>
+                                    土地申請標的
+                                </th>
                                 <td class="text-nowrap">
                                     <label for="sarea1">段小段</label>
                                     <input name="sarea1" type="text" class="form-control" size="15" id="sarea1" placeholder="" title="請填寫段小段" required data-parsley-required-message="必填欄位！">
                                 </td>
-                                <th scope="row" class="text-nowrap table-primary"><label for="areano1">地號<span class="red">＊</span></label></th>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <span class="red">(必填)</span>
+                                    <label for="areano1">地號</label>
+                                </th>
                                 <td class="text-nowrap">
                                     <input name="areano1" type="text" class="form-control" size="20" id="areano1" placeholder="" title="請填寫地號" required data-parsley-required-message="必填欄位！">
                                 </td>
-                                <th scope="row" class="text-nowrap table-primary"><label for="docitem1">申請份數<span class="red">＊</span></label></th>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <span class="red">(必填)</span>
+                                    <label for="docitem1">申請份數</label>
+                                </th>
                                 <td class="text-nowrap">
                                     <input name="docitem1" type="text" class="form-control" size="20" id="docitem1" placeholder="" title="請填寫申請份數" required data-parsley-required-message="必填欄位！">
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row" class="text-nowrap table-primary">
-                                    <label for="sarea2">
-                                        建物申請標的<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label for="sarea2">建物申請標的</label>
                                 </th>
                                 <td class="text-nowrap">
                                     段小段
                                     <input name="sarea2" type="text" class="form-control" size="15" id="sarea2" placeholder="" title="請填寫段小段" required data-parsley-required-message="必填欄位！">
                                 </td>
-                                <th scope="row" class="text-nowrap table-primary"><label for="areano2">建號<span class="red">＊</span></label></th>
+                                <th scope="row" class="text-nowrap table-primary">
+                                    <span class="red">(必填)</span>
+                                    <label for="areano2">建號</label>
+                                </th>
                                 <td class="text-nowrap">
                                     <input name="areano2" type="text" class="form-control" size="20" id="areano2" placeholder="" title="請填寫建號" required data-parsley-required-message="必填欄位！">
                                 </td>
                                 <th scope="row" class="text-nowrap table-primary">
-                                    <label for="docitem2">
-                                        申請份數<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label for="docitem2">申請份數</label>
                                 </th>
                                 <td class="text-nowrap">
                                     <input name="docitem2" type="text" class="form-control" size="20" id="docitem2" placeholder="" title="請填寫申請份數" required data-parsley-required-message="必填欄位！">
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-nowrap table-primary">申請用途<span class="red">＊</span></th>
+                                <th scope="row" class="text-nowrap table-primary"><span class="red">(必填)</span>申請用途</th>
                                 <td id="purposeArea" colspan="5" class="dline06">
                                     <input type="checkbox" name="purpose1" value="1" id="purpose1" title="購屋、貸款使用">
                                     <label for="purpose1">購屋、貸款使用</label>
@@ -238,9 +243,8 @@
                             </caption>
                             <tr>
                                 <th class="text-nowrap table-success">
-                                    <label for="qa11">
-                                        1.請問您從何處得知本所「網路申請檔案閱覽抄錄複製服務」？<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label>1.請問您從何處得知本所「網路申請檔案閱覽抄錄複製服務」？</label>
                                 </th>
                             </tr>
                             <tr>
@@ -260,9 +264,8 @@
                             </tr>
                             <tr>
                                 <th class="text-nowrap table-success">
-                                    <label for="qa_2">
-                                        2.請問您對於本所「網路申請檔案閱覽抄錄複製服務」網頁操作介面是否滿意？<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label>2.請問您對於本所「網路申請檔案閱覽抄錄複製服務」網頁操作介面是否滿意？</label>
                                 </th>
                             </tr>
                             <tr>
@@ -282,9 +285,8 @@
                             </tr>
                             <tr>
                                 <th class="text-nowrap table-success">
-                                    <label for="qa_3">
-                                        3.請問您認為「網路申請檔案閱覽抄錄複製服務」此項服務，能節省您多少時間？<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label>3.請問您認為「網路申請檔案閱覽抄錄複製服務」此項服務，能節省您多少時間？</label>
                                 </th>
                             </tr>
                             <tr>
@@ -304,9 +306,8 @@
                             </tr>
                             <tr>
                                 <th class="text-nowrap table-success">
-                                    <label for="qa_4">
-                                        4.總體而言，請問您對於本所「網路申請檔案閱覽抄錄複製服務」此項服務，是否滿意？<span class="red">＊</span>
-                                    </label>
+                                    <span class="red">(必填)</span>
+                                    <label>4.總體而言，請問您對於本所「網路申請檔案閱覽抄錄複製服務」此項服務，是否滿意？</label>
                                 </th>
                             </tr>
                             <tr>
@@ -325,7 +326,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-nowrap table-success"><label for="qa_5">5.請問您的職業是：<span class="red">＊</span></label></th>
+                                <th class="text-nowrap table-success">
+                                    <span class="red">(必填)</span>
+                                    <label>5.請問您的職業是：</label>
+                                </th>
                             </tr>
                             <tr>
                                 <td>

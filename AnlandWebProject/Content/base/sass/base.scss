@@ -448,6 +448,26 @@ $phones-media:479px;
         &.text-primary {
             color: #0457b0 !important;
         }
+        
+        a {
+            color: #0457b0;
+
+            &:hover {
+                border-bottom: 1px solid;
+                color: #0056b3;
+                text-decoration: none;
+            }
+            
+            &.btn {
+                color: #FFFFFF;
+
+                &:hover {
+                    border-bottom: 1px solid;
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+            }
+        }
     }
 
     .pl-5 {
@@ -558,10 +578,13 @@ $phones-media:479px;
                 font-size: 1rem !important;
                 padding: .55rem;
 
-                a:hover {
-                    border-bottom: 1px solid;
-                    color: #0056b3;
-                    text-decoration: none;
+                a {
+                    color: #0457b0;
+                    &:hover {
+                        border-bottom: 1px solid;
+                        color: #0056b3;
+                        text-decoration: none;
+                    }
                 }
 
             }
@@ -632,6 +655,16 @@ $phones-media:479px;
         list-style-type: square !important;
         padding: 0 0 0 30px;
 
+        a {
+            color: #0457b0;
+
+            &:hover {
+                border-bottom: 1px solid;
+                color: #0056b3;
+                text-decoration: none;
+            }
+        }
+
         li {
             margin: 0 0 0.5rem 4.5rem !important;
             white-space: normal;
@@ -640,6 +673,16 @@ $phones-media:479px;
 
     .textOl-layout1 {
         font-size: 1rem;
+
+        a {
+            color: #0457b0;
+
+            &:hover {
+                border-bottom: 1px solid;
+                color: #0056b3;
+                text-decoration: none;
+            }
+        }
 
         li {
             line-height: 1.8;
@@ -851,6 +894,14 @@ $phones-media:479px;
     overflow: hidden;
     width: 100% !important;
 
+    a {
+        color: #0457b0;
+
+        &:hover {
+            color: #0056b3;
+        }
+    }
+
     @media (max-width: 991.98px) {
         min-width: 100%;
 
@@ -1057,7 +1108,7 @@ $phones-media:479px;
 }
 
 .red {
-    color: rgb(255, 0, 0);
+    color: #780000;
 }
 
 .bg-lightreay {
@@ -1268,4 +1319,60 @@ input.gsc-input {
     position: absolute;
     top: 0;
     left: 10px;
+}
+
+.text-info {
+    color: #07606f !important;
+}
+.btn-primary {
+    background-color: #0457b0;
+    border-color: #0457b0;
+}
+.alert-secondary {
+    &a {
+        color: #0457b0;
+
+        &:hover {
+            border-bottom: 1px solid;
+            color: #0056b3;
+            text-decoration: none;
+        }
+    }
+    p {
+        a.btn {
+            color: #FFFFFF;
+
+            &:hover {
+                border-bottom: 1px solid;
+                color: #FFFFFF;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.nav-pills {
+    padding: 10px 0 15px 15px;
+    li {
+        margin: 1px 2px;
+        font-size: 0.9rem;
+        padding: 5px 0;
+        a {
+            background-color: #f5cfb4;
+            border-radius: 4px;
+            color: #333333;
+            padding: 5px 10px;
+            text-decoration: none;
+            &:hover {
+                background-color: #f5b386;
+                color: #000000;
+            }
+        }
+        &.active {
+            a {
+                background-color: #963c00;
+                color: #FFFFFF;
+            }
+        }
+    }
 }

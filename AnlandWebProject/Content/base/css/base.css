@@ -436,6 +436,26 @@
   color: #0457b0 !important;
 }
 
+.subContent P a {
+  color: #0457b0;
+}
+
+.subContent P a:hover {
+  border-bottom: 1px solid;
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.subContent P a.btn {
+  color: #FFFFFF;
+}
+
+.subContent P a.btn:hover {
+  border-bottom: 1px solid;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 @media all and (max-width: 479px) {
   .subContent .pl-5 {
     padding-left: 0 !important;
@@ -535,6 +555,11 @@
   padding: .55rem;
 }
 
+.subContent table tr th a,
+.subContent table tr td a {
+  color: #0457b0;
+}
+
 .subContent table tr th a:hover,
 .subContent table tr td a:hover {
   border-bottom: 1px solid;
@@ -608,6 +633,16 @@
   padding: 0 0 0 30px;
 }
 
+.subContent .textUl-list a {
+  color: #0457b0;
+}
+
+.subContent .textUl-list a:hover {
+  border-bottom: 1px solid;
+  color: #0056b3;
+  text-decoration: none;
+}
+
 .subContent .textUl-list li {
   margin: 0 0 0.5rem 4.5rem !important;
   white-space: normal;
@@ -615,6 +650,16 @@
 
 .subContent .textOl-layout1 {
   font-size: 1rem;
+}
+
+.subContent .textOl-layout1 a {
+  color: #0457b0;
+}
+
+.subContent .textOl-layout1 a:hover {
+  border-bottom: 1px solid;
+  color: #0056b3;
+  text-decoration: none;
 }
 
 .subContent .textOl-layout1 li {
@@ -788,6 +833,14 @@
 .rwd-table {
   overflow: hidden;
   width: 100% !important;
+}
+
+.rwd-table a {
+  color: #0457b0;
+}
+
+.rwd-table a:hover {
+  color: #0056b3;
 }
 
 @media (max-width: 991.98px) {
@@ -990,7 +1043,7 @@
 }
 
 .red {
-  color: red;
+  color: #780000;
 }
 
 .bg-lightreay {
@@ -1205,5 +1258,62 @@ input.gsc-input {
   position: absolute;
   top: 0;
   left: 10px;
+}
+
+.text-info {
+  color: #07606f !important;
+}
+
+.btn-primary {
+  background-color: #0457b0;
+  border-color: #0457b0;
+}
+
+.alert-secondarya {
+  color: #0457b0;
+}
+
+.alert-secondarya:hover {
+  border-bottom: 1px solid;
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.alert-secondary p a.btn {
+  color: #FFFFFF;
+}
+
+.alert-secondary p a.btn:hover {
+  border-bottom: 1px solid;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.nav-pills {
+  padding: 10px 0 15px 15px;
+}
+
+.nav-pills li {
+  margin: 1px 2px;
+  font-size: 0.9rem;
+  padding: 5px 0;
+}
+
+.nav-pills li a {
+  background-color: #f5cfb4;
+  border-radius: 4px;
+  color: #333333;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.nav-pills li a:hover {
+  background-color: #f5b386;
+  color: #000000;
+}
+
+.nav-pills li.active a {
+  background-color: #963c00;
+  color: #FFFFFF;
 }
 /*# sourceMappingURL=base.css.map */
