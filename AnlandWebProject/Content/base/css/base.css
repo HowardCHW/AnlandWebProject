@@ -116,6 +116,7 @@
 
 .indexBulletim .card-header {
   background-color: transparent;
+  border-bottom-width: 0;
 }
 
 .indexBulletim .card-header .nav-link {
@@ -132,25 +133,60 @@
   color: #FFFFFF;
 }
 
-.indexBulletim .card-body {
-  padding: 0 0 0 0;
+.indexBulletim .card-header .nav-link#pills-profile-tab {
+  left: 110px;
 }
 
-.indexBulletim .card-body .list-group-item {
+.indexBulletim .profilearea {
+  padding-top: 0px;
+  margin-top: -6px;
+}
+
+.indexBulletim .home,
+.indexBulletim .profile {
+  display: none;
+  width: 100%;
+}
+
+.indexBulletim .home.actived,
+.indexBulletim .profile.actived {
+  display: block;
+}
+
+.indexBulletim .home .list-group,
+.indexBulletim .profile .list-group {
+  border-top: 1px solid #dddddd;
+  padding-top: 10px;
+}
+
+.indexBulletim .home .list-group .list-group-item,
+.indexBulletim .profile .list-group .list-group-item {
   border-width: 0;
   font-size: 0.95em;
-  padding: .35rem 1.25rem;
+  padding: 2px 0;
 }
 
-.indexBulletim .card-body .list-group-item a {
+.indexBulletim .home .list-group .list-group-item a,
+.indexBulletim .profile .list-group .list-group-item a {
   color: #333;
+  font-size: 0.95rem;
+  width: 100%;
+  position: relative;
 }
 
-.indexBulletim .card-body .list-group-item a span[class^="fas"] {
+.indexBulletim .home .list-group .list-group-item a span[class^="fas"],
+.indexBulletim .profile .list-group .list-group-item a span[class^="fas"] {
   color: #eb6100;
 }
 
-.indexBulletim .card-body .badge-date {
+.indexBulletim .home .list-group .list-group-item a:hover,
+.indexBulletim .profile .list-group .list-group-item a:hover {
+  background-color: #f2f2f2f2;
+  border-radius: 5px;
+}
+
+.indexBulletim .home .badge-date,
+.indexBulletim .profile .badge-date {
   color: #333333;
   background-color: #ffe4bc;
 }
@@ -1293,27 +1329,72 @@ input.gsc-input {
   padding: 10px 0 15px 15px;
 }
 
-.nav-pills li {
+.nav-pills > li {
   margin: 1px 2px;
   font-size: 0.9rem;
-  padding: 5px 0;
+  position: inherit;
+  padding: 40px 0 5px 0;
+  width: 100%;
 }
 
-.nav-pills li a {
-  background-color: #f5cfb4;
-  border-radius: 4px;
-  color: #333333;
+.nav-pills > li a {
   padding: 5px 10px;
+  position: absolute;
   text-decoration: none;
+  top: 0;
 }
 
-.nav-pills li a:hover {
+.nav-pills > li a:hover {
   background-color: #f5b386;
   color: #000000;
 }
 
-.nav-pills li.active a {
+.nav-pills > li.active a {
   background-color: #963c00;
   color: #FFFFFF;
+}
+
+.nav_wrap.d-none.d-sm-block {
+  position: relative;
+}
+
+.nav_wrap.d-none.d-sm-block li {
+  width: auto;
+  padding: 0;
+}
+
+.nav_wrap.d-none.d-sm-block li a {
+  background-color: rgba(156, 202, 251, 0.25);
+  border-radius: 5px;
+  color: #000000;
+  position: relative;
+}
+
+.nav_wrap.d-none.d-sm-block li a:hover {
+  background-color: #9ccafb;
+}
+
+.nav_wrap.d-none.d-sm-block li.active a {
+  background-color: #0062cc;
+  border-radius: 5px;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.nav_wrap.d-none.d-sm-block li.active a:hover {
+  background-color: #0062cc;
+}
+
+ul#myTab {
+  position: relative;
+}
+
+ul#myTab li.nav-item {
+  width: auto;
+  padding: 0;
+}
+
+ul#myTab li.nav-item a {
+  position: relative;
 }
 /*# sourceMappingURL=base.css.map */

@@ -38,63 +38,71 @@
     </div>
     <div class="row pb-4">
         <div class="col-lg-6 mh-100">
-            <div class="card indexBulletim h-100">
-                <div class="card-header pt-0">
-                    <ul class="nav nav-pills card-header-pills" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active font-weight-bold" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
-                               aria-selected="true">
-                                <span class="fas fa-bullhorn"></span> 最新消息
-                            </a>
-                        </li>
-                        <li class="nav-item ml-1">
-                            <a class="nav-link font-weight-bold" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-                               aria-selected="false">
-                                <span class="fas fa-balance-scale"></span> 法令新訊
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-body h-100">
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active h-100" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <!-- 最新消息-->
-                            <ul class="list-group list-group-flush mb-3">
-                                @foreach (var item in Model.Top5News)
-                                {
-                                    <li class="list-group-item list-group-item-action border-0">
-                                        <a href="@Url.Action("NewsDetail","Announcement",new { id = item.ID })" class="card-link d-flex justify-content-between align-items-top">
-                                            <span class="d-flex">
-                                                <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
-                                                @item.Subject
-                                            </span>
-                                            <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">@item.PostDate.Value.ToString("yyyy/MM/dd")</span>
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                            <!-- 最新消息-->
-                        </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <!-- 法令新訊-->
-                            <ul class="list-group list-group-flush mb-3">
-                                @foreach (var item in Model.Top5Laws)
-                                {
-                                    <li class="list-group-item list-group-item-action border-0">
-                                        <a href="@Url.Action("LawsDetail","Announcement",new { id = item.ID })" class="card-link d-flex justify-content-between align-items-top">
-                                            <span class="d-flex">
-                                                <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
-                                                @item.Subject
-                                            </span>
-                                            <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">@item.LDate.Value.ToString("yyyy/MM/dd")</span>
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                            <!-- 法令新訊-->
+            <noscript>
+                <div class="container">
+                    <div class="row">
+                        <div class="card m-3 banner">
+                            <div class="card-body p-3">
+                                Javascript 似乎已停用或不受您的瀏覽器支援，請點選 [ <a href="@Url.Action("News","Announcement")">最新消息</a>] 或 [ <a href="@Url.Action("Laws","Announcement")">法令新訊</a> ] 超連結，或使用支援JavaScript瀏覽器。
+                            </div>
                         </div>
                     </div>
+                </div>
+            </noscript>
+            <div class="card indexBulletim h-100">
+                <div class="card-header p-0">
+                    <ul class="nav nav-pills card-header-pills pt-1 pb-1" id="pills-tab" role="tablist">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active font-weight-bold" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" onclick="showpanel('home', 'profile')">
+                                <span class="fas fa-bullhorn"></span> 最新消息
+                            </a>
 
+                            <span class="home actived">
+                                <!-- 最新消息-->
+                                <ul class="list-group list-group-flush mb-3">
+                                    @foreach (var item in Model.Top5News)
+                                    {
+                                        <li class="list-group-item list-group-item-action border-0">
+                                            <a href="@Url.Action("NewsDetail","Announcement",new { id = item.ID })" class="card-link d-flex justify-content-between align-items-top">
+                                                <span class="d-flex">
+                                                    <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
+                                                    @item.Subject
+                                                </span>
+                                                <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">@item.PostDate.Value.ToString("yyyy/MM/dd")</span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                                <!-- 最新消息-->
+                            </span>
+
+                        </li>
+                        <li class="nav-item dropdown profilearea">
+                            <a class="nav-link font-weight-bold" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" onclick="showpanel('profile','home')">
+                                <span class="fas fa-balance-scale"></span> 法令新訊
+                            </a>
+
+                            <span class="profile">
+                                <!-- 法令新訊-->
+                                <ul class="list-group list-group-flush mb-3">
+                                    @foreach (var item in Model.Top5Laws)
+                                    {
+                                        <li class="list-group-item list-group-item-action border-0">
+                                            <a href="@Url.Action("LawsDetail","Announcement",new { id = item.ID })" class="card-link d-flex justify-content-between align-items-top">
+                                                <span class="d-flex">
+                                                    <span class="fas fa-genderless align-items-top pt-1 pr-2"></span>
+                                                    @item.Subject
+                                                </span>
+                                                <span class="badge badge-date align-self-start ml-2 pb-1 pl-2 pt-1 pr-2">@item.LDate.Value.ToString("yyyy/MM/dd")</span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                                <!-- 法令新訊-->
+                            </span>
+                            
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

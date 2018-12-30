@@ -87,3 +87,10 @@ String.prototype.trim = function () {
 function hideError(formItem) {
     document.getElementById(formItem).classList.remove("active");
 }
+
+function showpanel(a, b) {
+    var panelA = $('.' + a),
+        panelB = $('.' + b);
+    panelA.addClass('actived');
+    panelB.removeClass('actived');
+}

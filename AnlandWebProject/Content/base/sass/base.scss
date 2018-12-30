@@ -140,6 +140,7 @@ $phones-media:479px;
 
     .card-header {
         background-color: transparent;
+        border-bottom-width: 0;
 
         .nav-link {
             background-color: #ffe4bc;
@@ -153,22 +154,67 @@ $phones-media:479px;
                 background-color: #963e00;
                 color: #FFFFFF;
             }
+
+            &#pills-profile-tab {
+                left: 110px;
+            }
         }
     }
 
-    .card-body {
-        padding: 0 0 0 0;
+    // .card-body {
+    //     padding: 0 0 0 0;
 
-        .list-group-item {
-            border-width: 0;
-            font-size: 0.95em;
-            padding: .35rem 1.25rem;
+    //     .list-group-item {
+    //         border-width: 0;
+    //         font-size: 0.95em;
+    //         padding: .35rem 1.25rem;
 
-            a {
-                color: #333;
+    //         a {
+    //             color: #333;
 
-                span[class^="fas"] {
-                    color: #eb6100;
+    //             span[class^="fas"] {
+    //                 color: #eb6100;
+    //             }
+    //         }
+    //     }
+
+    //     .badge-date {
+    //         color: #333333;
+    //         background-color: #ffe4bc;
+    //     }
+    // }
+    .profilearea {
+        padding-top: 0px;
+        margin-top: -6px;
+    }
+    .home,
+    .profile {
+        display: none;
+        width: 100%;
+        &.actived {
+            display: block;
+        }
+        .list-group {
+            border-top: 1px solid #dddddd;
+            padding-top: 10px;
+            .list-group-item {
+                border-width: 0;
+                font-size: 0.95em;
+                padding: 2px 0;
+
+                a {
+                  color: #333;
+                  font-size: 0.95rem;
+                  width: 100%;
+                  position: relative;
+
+                  span[class^="fas"] {
+                      color: #eb6100;
+                  }
+                  &:hover {
+                    background-color: #f2f2f2f2;
+                    border-radius: 5px;
+                  }
                 }
             }
         }
@@ -1353,16 +1399,20 @@ input.gsc-input {
 
 .nav-pills {
     padding: 10px 0 15px 15px;
-    li {
+    > li {
         margin: 1px 2px;
         font-size: 0.9rem;
-        padding: 5px 0;
+        position: inherit;
+        padding: 40px 0 5px 0;
+        width: 100%;
         a {
-            background-color: #f5cfb4;
-            border-radius: 4px;
-            color: #333333;
+            // background-color: #f5cfb4;
+            // border-radius: 4px;
+            // color: #333333;
             padding: 5px 10px;
+            position: absolute;
             text-decoration: none;
+            top: 0;
             &:hover {
                 background-color: #f5b386;
                 color: #000000;
@@ -1375,4 +1425,52 @@ input.gsc-input {
             }
         }
     }
+}
+
+.nav_wrap {
+  &.d-none {
+    &.d-sm-block {
+      position: relative;
+      li {
+        width: auto;
+        padding: 0;
+        a {          
+          background-color: rgba(156, 202, 251, 0.25);
+          border-radius: 5px;
+          color: #000000;
+          position: relative;
+          &:hover {
+            background-color: rgb(156, 202, 251);
+          }
+        }
+        &.active {
+          a {          
+            background-color: #0062cc;
+            border-radius: 5px;
+            color: #FFFFFF;
+            position: relative;
+            &:hover {
+              background-color: #0062cc;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+ul {
+  &#myTab {
+    position: relative;
+    li {
+      &.nav-item {
+        width: auto;
+        padding: 0;
+        a {
+          position: relative;
+        }
+      }
+    }
+  }
 }
