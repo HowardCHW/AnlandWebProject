@@ -14,7 +14,7 @@ namespace AnlandProject.Web.Extensions
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         
-        public static void SendMailBySMTP(this SMTPSetupModel smtpData, string toMailAdd, string mailContent)
+        public static void SendMailBySMTP(this SMTPSetupModel smtpData, string senderMailAdd, string subject, string mailContent)
         {
             try
             {
@@ -28,17 +28,18 @@ namespace AnlandProject.Web.Extensions
 
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress(smtpData.Recipient)
+                    From = new MailAddress(senderMailAdd)
                 };
-                mailMessage.To.Add(toMailAdd);
-                mailMessage.Subject = smtpData.Subject;
+                mailMessage.To.Add(smtpData.Recipient);
+                mailMessage.CC.Add(senderMailAdd);
+                mailMessage.Subject = string.Format("{0}{1}", smtpData.Subject, subject);
                 mailMessage.Body = htmlBody;
                 mailMessage.IsBodyHtml = true;
                 client.Send(mailMessage);
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error("SendMailBySMTP Error:" + ex);
             }
         }
 

@@ -77,8 +77,7 @@ namespace AnlandProject.Web.Controllers
                     if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.MsgEmail))
                     {
                         SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
-                        smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgContent);  //發MAIL給填寫意見者
-                        smtpData.SendMailBySMTP(smtpData.Recipient, saveModel.MsgContent);   //發MAIL給系統管理員
+                        smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgSubject, saveModel.MsgContent);  //發MAIL給系統管理員並CC給填寫意見者
                     }
                 }
                 catch (Exception ex)
