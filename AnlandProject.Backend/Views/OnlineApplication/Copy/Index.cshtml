@@ -19,29 +19,27 @@
 </div>
 
 <div class="page-content container-fluid">
-    <form id="exampleFullForm" autocomplete="off">
-        <!-- 內文編輯區 -->
-        <div class="panel panel-bordered">
-            <div class="panel-body">
-                <div>
-                    <table id="copyTable" class="table table-striped table-bordered table-hover table-checkable order-column">
-                        <thead>
-                            <tr>
-                                <th style="width:40px;">編號</th>
-                                <th>申請人</th>
-                                <th>日期</th>
-                                <th style="width:60px;" class="nosort">管理模式</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+    <!-- 內文編輯區 -->
+    <div class="panel panel-bordered">
+        <div class="panel-body">
+            <div>
+                <table id="copyTable" class="table table-striped table-bordered table-hover table-checkable order-column">
+                    <thead>
+                        <tr>
+                            <th style="width:40px;">編號</th>
+                            <th>申請人</th>
+                            <th>日期</th>
+                            <th style="width:60px;" class="nosort">管理模式</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
-        <!-- model -->
-        @Html.Action("DeleteConfirmDialog", "Copy")
-        <!-- /model -->
-        <!-- /內文編輯區 -->
-    </form>
+    </div>
+    <!-- model -->
+    @Html.Action("DeleteConfirmDialog", "Copy")
+    <!-- /model -->
+    <!-- /內文編輯區 -->
 </div>
 
 @section scripts{
