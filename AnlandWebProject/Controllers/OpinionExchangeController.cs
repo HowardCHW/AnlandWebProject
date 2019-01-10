@@ -90,7 +90,7 @@ namespace AnlandProject.Web.Controllers
             using (_directorFAQService = new DirectorFAQService())
             {
                 List<FAQModel> result = _directorFAQService.DirectorFAQQueryAll();
-                return Json(new { data = result.OrderByDescending(n => n.MsgDate) });
+                return Json(new { data = result.Where(n => n.Attach3 != "否").OrderByDescending(n => n.MsgDate) });
             }
         }
 
