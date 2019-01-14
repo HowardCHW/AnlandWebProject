@@ -142,7 +142,7 @@ namespace AnlandProject.Service
                     {
                         var option = originalData.suggest2.First(s => s.id == item.ID);
                         option.question = item.Question;
-                        if (item.Type != "問答")
+                        if (!string.IsNullOrWhiteSpace(item.Type) && item.Type != "問答")
                         {
                             option.type1 = item.Type;
                             option.option1 = string.Join("||", item.Options);
