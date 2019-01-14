@@ -64,10 +64,10 @@ var pfnDataTable = {
         }, {
             searchable: !1,
             targets: [0]
-        }],
-        order: [
-            [0, "desc"]
-        ]
+        }]
+        //order: [
+        //    [6, "desc"]
+        //]
     },
     listOptions: {
         dom: '<"dataTables_header_page"p>lit',

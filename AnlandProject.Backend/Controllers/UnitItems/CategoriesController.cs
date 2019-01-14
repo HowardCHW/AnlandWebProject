@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace AnlandProject.Backend.Controllers.UnitItems
 {
+    [Authorize]
     public class CategoriesController : BaseController
     {
         private ICategoritesService _categoriesService;

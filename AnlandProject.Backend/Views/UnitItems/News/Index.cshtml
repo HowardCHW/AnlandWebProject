@@ -42,7 +42,7 @@
                             <th style="width:60px;">施政分類</th>
                             <th style="width:60px;">服務分類</th>
                             <th>主題</th>
-                            <th style="width:55px;">置頂</th>
+                            @*<th style="width:55px;">置頂</th>*@
                             <th style="width:70px;">發佈日期</th>
                             <th style="width:70px;">公告期限</th>
                             <th style="width:60px;">點閱</th>
@@ -73,6 +73,7 @@
 
         function DatatableBinding() {
             var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+            _tmpOpts.order = [[5, "desc"]];
             _tmpOpts.ajax = {
                 "url": urlQueryNews,
                 "type": 'POST'
@@ -88,12 +89,12 @@
                         return '<a href="../News/NewsView/' + full.ID + '">' + data + '</a>'
                     }
                 },
-                {
-                    mDataProp: "PostOut",
-                    render: function (data, type, full, meta) {
-                        return data ? "是" : "否";
-                    }
-                },
+                //{
+                //    mDataProp: "PostOut",
+                //    render: function (data, type, full, meta) {
+                //        return data ? "是" : "否";
+                //    }
+                //},
                 {
                     mDataProp: "PostDate",
                     render: function (data, type, full, meta) {

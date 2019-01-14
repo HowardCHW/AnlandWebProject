@@ -72,6 +72,7 @@
 
         function DatatableBinding() {
             var _tmpOpts = $.extend({}, pfnDataTable.defOpts);
+            _tmpOpts.order = [[6, "desc"]];
             _tmpOpts.ajax = {
                 "url": urlQueryNews,
                 "type": 'POST'

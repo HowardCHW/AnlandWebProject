@@ -23,7 +23,7 @@ namespace AnlandProject.Web.Controllers
                 List<DefaultDataModel> news = _newsService.NewsQueryAll();
                 List<LawsModel> laws = _lawsService.LawsQueryAll();
 
-                result.Top5News = news.OrderByDescending(n=>n.PostOut).ThenByDescending(n => n.PostDate).Take(5).ToList();
+                result.Top5News = news.OrderByDescending(n => n.PostDate).Take(5).ToList();
                 result.Top5Laws = laws.OrderByDescending(n => n.LDate).Take(5).ToList();
             }
 
