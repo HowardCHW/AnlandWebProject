@@ -30,10 +30,17 @@ namespace AnlandProject.Backend.Controllers.UnitItems
             using (_commonService = new CommonService())
             {
                 DefaultDataModel result = new DefaultDataModel();
+
+                var deptData = _commonService.DeptQueryAll();
                 if (id.HasValue && id.Value > 0)
                 {                    
                     result = _newsService.NewsQueryByID(id.Value);
                     subTitle = "編輯";
+                }
+                else
+                {
+                    result.CreatedUser = UserInfo.UserName;
+                    result.CreatedUserPhone = deptData.FirstOrDefault().PhoneNo;
                 }
 
                 var themeData = _commonService.ThemeQueryAll();
@@ -51,14 +58,11 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                 var authorData = _commonService.NewsCategoryQueryAll();
                 SelectList authorSelect = new SelectList(authorData.OrderBy(a => a.ClassID), "ClassName", "ClassName", result.Author);
                 ViewBag.Author = authorSelect;
-
-                var deptData = _commonService.DeptQueryAll();
+                
                 SelectList deptSelect = new SelectList(deptData, "ID", "DeptName");
                 ViewBag.CreatedDeptID = deptSelect;
 
-                ViewBag.Subtitle = subTitle;
-                result.CreatedUser = UserInfo.UserName;
-                result.CreatedUserPhone = deptData.FirstOrDefault().PhoneNo;
+                ViewBag.Subtitle = subTitle;                
                 return View("~/Views/UnitItems/News/NewsEdit.cshtml", result);
             }
         }

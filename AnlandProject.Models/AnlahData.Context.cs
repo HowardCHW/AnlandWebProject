@@ -34,13 +34,7 @@ namespace AnlandProject.Models
         public virtual DbSet<main_menu> main_menu { get; set; }
         public virtual DbSet<Cate> Cate { get; set; }
         public virtual DbSet<Department> Department { get; set; }
-        public virtual DbSet<an_news> an_news { get; set; }
-        public virtual DbSet<landlaw> landlaw { get; set; }
-        public virtual DbSet<qa> qa { get; set; }
         public virtual DbSet<board> board { get; set; }
-        public virtual DbSet<document> document { get; set; }
-        public virtual DbSet<intro10> intro10 { get; set; }
-        public virtual DbSet<meeting> meeting { get; set; }
         public virtual DbSet<setup_smtp> setup_smtp { get; set; }
         public virtual DbSet<cake> cake { get; set; }
         public virtual DbSet<service> service { get; set; }
@@ -65,5 +59,11 @@ namespace AnlandProject.Models
         public virtual DbSet<website_visitor> website_visitor { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<admin> admin { get; set; }
+        public virtual DbSet<an_news> an_news { get; set; }
+        public virtual DbSet<document> document { get; set; }
+        public virtual DbSet<intro10> intro10 { get; set; }
+        public virtual DbSet<landlaw> landlaw { get; set; }
+        public virtual DbSet<meeting> meeting { get; set; }
+        public virtual DbSet<qa> qa { get; set; }
     }
 }

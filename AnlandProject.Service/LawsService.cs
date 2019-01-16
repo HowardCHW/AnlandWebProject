@@ -121,7 +121,7 @@ namespace AnlandProject.Service
                     originalData.Theme = saveData.Theme;
                     originalData.Cake = saveData.Cake;
                     originalData.Service = saveData.Service;
-                    originalData.lDate = saveData.LDate;
+                    originalData.lDate = DateTime.Now;
                     originalData.Superior = saveData.Superior;
                     originalData.lNumber = saveData.LNumber;
                     originalData.Subject = saveData.Subject;

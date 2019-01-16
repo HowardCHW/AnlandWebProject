@@ -52,8 +52,8 @@
           <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="created_dept_id" Type="int" />
-          <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
-          <Property Name="created_user_phone" Type="varchar" MaxLength="12" />
+          <Property Name="created_user_name" Type="nvarchar" MaxLength="10" />
+          <Property Name="created_user_phone" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="board">
           <Key>
@@ -264,7 +264,7 @@ warning 6002: The table/view 'anland.dbo.board_setup' does not have a primary ke
           <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="created_dept_id" Type="int" />
-          <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
+          <Property Name="created_user_name" Type="nvarchar" MaxLength="10" />
           <Property Name="created_date" Type="datetime" />
         </EntityType>
         <EntityType Name="documentclass">
@@ -392,8 +392,8 @@ warning 6002: The table/view 'anland.dbo.form' does not have a primary key defin
           <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="created_dept_id" Type="int" />
-          <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
-          <Property Name="created_user_phone" Type="varchar" MaxLength="12" />
+          <Property Name="created_user_name" Type="nvarchar" MaxLength="10" />
+          <Property Name="created_user_phone" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="landlaw">
           <Key>
@@ -428,8 +428,8 @@ warning 6002: The table/view 'anland.dbo.form' does not have a primary key defin
           <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="hit" Type="int" />
           <Property Name="created_dept_id" Type="int" />
-          <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
-          <Property Name="created_user_phone" Type="nchar" MaxLength="12" />
+          <Property Name="created_user_name" Type="nvarchar" MaxLength="10" />
+          <Property Name="created_user_phone" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="landprice">
           <Key>
@@ -563,7 +563,7 @@ warning 6002: The table/view 'anland.dbo.lawview' does not have a primary key de
           <Property Name="file4_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="file5_momo" Type="nvarchar" MaxLength="200" />
           <Property Name="created_dept_id" Type="int" />
-          <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
+          <Property Name="created_user_name" Type="nvarchar" MaxLength="10" />
           <Property Name="created_date" Type="datetime" />
         </EntityType>
         <EntityType Name="meetingclass">
@@ -679,8 +679,8 @@ warning 6002: The table/view 'anland.dbo.post_team' does not have a primary key 
           <Property Name="ModifyDate" Type="datetime" />
           <Property Name="hit" Type="int" />
           <Property Name="created_dept_id" Type="int" />
-          <Property Name="created_user_name" Type="nvarchar" MaxLength="5" />
-          <Property Name="created_user_phone" Type="nchar" MaxLength="12" />
+          <Property Name="created_user_name" Type="nvarchar" MaxLength="10" />
+          <Property Name="created_user_phone" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="qaclass">
           <Key>
@@ -1077,13 +1077,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="main_menu" EntityType="anlandModel.main_menu" />
           <EntitySet Name="Cate" EntityType="anlandModel.Cate" />
           <EntitySet Name="Department" EntityType="anlandModel.Department" />
-          <EntitySet Name="an_news" EntityType="anlandModel.an_news" />
-          <EntitySet Name="landlaw" EntityType="anlandModel.landlaw" />
-          <EntitySet Name="qa" EntityType="anlandModel.qa" />
           <EntitySet Name="board" EntityType="anlandModel.board" />
-          <EntitySet Name="document" EntityType="anlandModel.document" />
-          <EntitySet Name="intro10" EntityType="anlandModel.intro10" />
-          <EntitySet Name="meeting" EntityType="anlandModel.meeting" />
           <EntitySet Name="setup_smtp" EntityType="anlandModel.setup_smtp" />
           <EntitySet Name="cake" EntityType="anlandModel.cake" />
           <EntitySet Name="service" EntityType="anlandModel.service" />
@@ -1116,6 +1110,12 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="website_visitor" EntityType="anlandModel.website_visitor" />
           <EntitySet Name="Categories" EntityType="anlandModel.Categories" />
           <EntitySet Name="admin" EntityType="anlandModel.admin" />
+          <EntitySet Name="an_news" EntityType="anlandModel.an_news" />
+          <EntitySet Name="document" EntityType="anlandModel.document" />
+          <EntitySet Name="intro10" EntityType="anlandModel.intro10" />
+          <EntitySet Name="landlaw" EntityType="anlandModel.landlaw" />
+          <EntitySet Name="meeting" EntityType="anlandModel.meeting" />
+          <EntitySet Name="qa" EntityType="anlandModel.qa" />
           </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1157,205 +1157,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="phone_no" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="ext_no" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityType Name="an_news">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postdate" Type="DateTime" Precision="3" />
-          <Property Name="posttime" Type="DateTime" Precision="3" />
-          <Property Name="hit" Type="Int32" />
-          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="post_out" Type="Boolean" />
-          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="created_dept_id" Type="Int32" />
-          <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="created_user_phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="landlaw">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Classfy" Type="Int32" />
-          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="lDate" Type="DateTime" Precision="3" />
-          <Property Name="Superior" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="lNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
-          <Property Name="Attachfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="homepage2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="hit" Type="Int32" />
-          <Property Name="created_dept_id" Type="Int32" />
-          <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="created_user_phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="qa">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Classfy" Type="Int32" />
-          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
-          <Property Name="hit" Type="Int32" />
-          <Property Name="created_dept_id" Type="Int32" />
-          <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="created_user_phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="board">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postdate" Type="DateTime" Precision="3" />
-          <Property Name="posttime" Type="DateTime" Precision="3" />
-          <Property Name="hit" Type="Int32" />
-          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="post_out" Type="Boolean" />
-          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="created_dept_id" Type="Int32" />
-          <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="created_date" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="document">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postdate" Type="DateTime" Precision="3" />
-          <Property Name="posttime" Type="DateTime" Precision="3" />
-          <Property Name="hit" Type="Int32" />
-          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="post_out" Type="Boolean" />
-          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="created_dept_id" Type="Int32" />
-          <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="created_date" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="intro10">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="postdate" Type="DateTime" Precision="3" />
-          <Property Name="posttime" Type="DateTime" Precision="3" />
-          <Property Name="hit" Type="Int32" />
-          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="end_date" Type="DateTime" Precision="3" />
-          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="post_out" Type="Boolean" />
-          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="created_dept_id" Type="Int32" />
-          <Property Name="created_user_name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="created_user_phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="meeting">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -1828,6 +1630,204 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="isadmin" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="an_news">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="Boolean" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_dept_id" Type="Int32" />
+          <Property Name="created_user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="created_user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="document">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="Boolean" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_dept_id" Type="Int32" />
+          <Property Name="created_user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="intro10">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="Boolean" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_dept_id" Type="Int32" />
+          <Property Name="created_user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="created_user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="landlaw">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Classfy" Type="Int32" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="lDate" Type="DateTime" Precision="3" />
+          <Property Name="Superior" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="Attachfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="homepage2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="created_dept_id" Type="Int32" />
+          <Property Name="created_user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="created_user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="meeting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="obj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage_momo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="homepage1" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage2" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage3" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homepage5" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="homepage6" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postdate" Type="DateTime" Precision="3" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="postname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="post_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_out" Type="Boolean" />
+          <Property Name="post_out_txt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="poster_right" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="file1_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file2_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file3_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file4_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="file5_momo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_dept_id" Type="Int32" />
+          <Property Name="created_user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="qa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cake" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Classfy" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="created_dept_id" Type="Int32" />
+          <Property Name="created_user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="created_user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1982,213 +1982,9 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="an_news">
-            <EntityTypeMapping TypeName="anlandModel.an_news">
-              <MappingFragment StoreEntitySet="an_news">
-                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
-                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
-                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
-                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
-                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
-                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
-                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
-                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
-                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
-                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
-                <ScalarProperty Name="post_out" ColumnName="post_out" />
-                <ScalarProperty Name="post_group" ColumnName="post_group" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="postname" ColumnName="postname" />
-                <ScalarProperty Name="hit" ColumnName="hit" />
-                <ScalarProperty Name="posttime" ColumnName="posttime" />
-                <ScalarProperty Name="postdate" ColumnName="postdate" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
-                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
-                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
-                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
-                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
-                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
-                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
-                <ScalarProperty Name="author" ColumnName="author" />
-                <ScalarProperty Name="subject" ColumnName="subject" />
-                <ScalarProperty Name="Service" ColumnName="Service" />
-                <ScalarProperty Name="Cake" ColumnName="Cake" />
-                <ScalarProperty Name="Theme" ColumnName="Theme" />
-                <ScalarProperty Name="obj" ColumnName="obj" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="landlaw">
-            <EntityTypeMapping TypeName="anlandModel.landlaw">
-              <MappingFragment StoreEntitySet="landlaw">
-                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
-                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
-                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
-                <ScalarProperty Name="hit" ColumnName="hit" />
-                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
-                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
-                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
-                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
-                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
-                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
-                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
-                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
-                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
-                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Attachfile" ColumnName="Attachfile" />
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
-                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
-                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="lNumber" ColumnName="lNumber" />
-                <ScalarProperty Name="Superior" ColumnName="Superior" />
-                <ScalarProperty Name="lDate" ColumnName="lDate" />
-                <ScalarProperty Name="Service" ColumnName="Service" />
-                <ScalarProperty Name="Cake" ColumnName="Cake" />
-                <ScalarProperty Name="Theme" ColumnName="Theme" />
-                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="qa">
-            <EntityTypeMapping TypeName="anlandModel.qa">
-              <MappingFragment StoreEntitySet="qa">
-                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
-                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
-                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
-                <ScalarProperty Name="hit" ColumnName="hit" />
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
-                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
-                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
-                <ScalarProperty Name="Service" ColumnName="Service" />
-                <ScalarProperty Name="Cake" ColumnName="Cake" />
-                <ScalarProperty Name="Theme" ColumnName="Theme" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="board">
             <EntityTypeMapping TypeName="anlandModel.board">
               <MappingFragment StoreEntitySet="board">
-                <ScalarProperty Name="created_date" ColumnName="created_date" />
-                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
-                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
-                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
-                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
-                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
-                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
-                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
-                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
-                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
-                <ScalarProperty Name="post_out" ColumnName="post_out" />
-                <ScalarProperty Name="post_group" ColumnName="post_group" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="postname" ColumnName="postname" />
-                <ScalarProperty Name="hit" ColumnName="hit" />
-                <ScalarProperty Name="posttime" ColumnName="posttime" />
-                <ScalarProperty Name="postdate" ColumnName="postdate" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
-                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
-                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
-                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
-                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
-                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
-                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
-                <ScalarProperty Name="author" ColumnName="author" />
-                <ScalarProperty Name="subject" ColumnName="subject" />
-                <ScalarProperty Name="obj" ColumnName="obj" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="document">
-            <EntityTypeMapping TypeName="anlandModel.document">
-              <MappingFragment StoreEntitySet="document">
-                <ScalarProperty Name="created_date" ColumnName="created_date" />
-                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
-                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
-                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
-                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
-                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
-                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
-                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
-                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
-                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
-                <ScalarProperty Name="post_out" ColumnName="post_out" />
-                <ScalarProperty Name="post_group" ColumnName="post_group" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="postname" ColumnName="postname" />
-                <ScalarProperty Name="hit" ColumnName="hit" />
-                <ScalarProperty Name="posttime" ColumnName="posttime" />
-                <ScalarProperty Name="postdate" ColumnName="postdate" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
-                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
-                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
-                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
-                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
-                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
-                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
-                <ScalarProperty Name="author" ColumnName="author" />
-                <ScalarProperty Name="subject" ColumnName="subject" />
-                <ScalarProperty Name="obj" ColumnName="obj" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="intro10">
-            <EntityTypeMapping TypeName="anlandModel.intro10">
-              <MappingFragment StoreEntitySet="intro10">
-                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
-                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
-                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
-                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
-                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
-                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
-                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
-                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
-                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
-                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
-                <ScalarProperty Name="post_out" ColumnName="post_out" />
-                <ScalarProperty Name="post_group" ColumnName="post_group" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-                <ScalarProperty Name="postname" ColumnName="postname" />
-                <ScalarProperty Name="hit" ColumnName="hit" />
-                <ScalarProperty Name="posttime" ColumnName="posttime" />
-                <ScalarProperty Name="postdate" ColumnName="postdate" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
-                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
-                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
-                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
-                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
-                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
-                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
-                <ScalarProperty Name="author" ColumnName="author" />
-                <ScalarProperty Name="subject" ColumnName="subject" />
-                <ScalarProperty Name="Service" ColumnName="Service" />
-                <ScalarProperty Name="Cake" ColumnName="Cake" />
-                <ScalarProperty Name="Theme" ColumnName="Theme" />
-                <ScalarProperty Name="obj" ColumnName="obj" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="meeting">
-            <EntityTypeMapping TypeName="anlandModel.meeting">
-              <MappingFragment StoreEntitySet="meeting">
                 <ScalarProperty Name="created_date" ColumnName="created_date" />
                 <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
                 <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
@@ -2652,6 +2448,210 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="passwd" ColumnName="passwd" />
                 <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="an_news">
+            <EntityTypeMapping TypeName="anlandModel.an_news">
+              <MappingFragment StoreEntitySet="an_news">
+                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
+                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
+                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="obj" ColumnName="obj" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="document">
+            <EntityTypeMapping TypeName="anlandModel.document">
+              <MappingFragment StoreEntitySet="document">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
+                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="obj" ColumnName="obj" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="intro10">
+            <EntityTypeMapping TypeName="anlandModel.intro10">
+              <MappingFragment StoreEntitySet="intro10">
+                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
+                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
+                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="obj" ColumnName="obj" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="landlaw">
+            <EntityTypeMapping TypeName="anlandModel.landlaw">
+              <MappingFragment StoreEntitySet="landlaw">
+                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
+                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
+                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Attachfile" ColumnName="Attachfile" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="lNumber" ColumnName="lNumber" />
+                <ScalarProperty Name="Superior" ColumnName="Superior" />
+                <ScalarProperty Name="lDate" ColumnName="lDate" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meeting">
+            <EntityTypeMapping TypeName="anlandModel.meeting">
+              <MappingFragment StoreEntitySet="meeting">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
+                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
+                <ScalarProperty Name="file5_momo" ColumnName="file5_momo" />
+                <ScalarProperty Name="file4_momo" ColumnName="file4_momo" />
+                <ScalarProperty Name="file3_momo" ColumnName="file3_momo" />
+                <ScalarProperty Name="file2_momo" ColumnName="file2_momo" />
+                <ScalarProperty Name="file1_momo" ColumnName="file1_momo" />
+                <ScalarProperty Name="poster_right" ColumnName="poster_right" />
+                <ScalarProperty Name="post_out_txt" ColumnName="post_out_txt" />
+                <ScalarProperty Name="post_out" ColumnName="post_out" />
+                <ScalarProperty Name="post_group" ColumnName="post_group" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="homepage6" ColumnName="homepage6" />
+                <ScalarProperty Name="homepage5" ColumnName="homepage5" />
+                <ScalarProperty Name="homepage4" ColumnName="homepage4" />
+                <ScalarProperty Name="homepage3" ColumnName="homepage3" />
+                <ScalarProperty Name="homepage2" ColumnName="homepage2" />
+                <ScalarProperty Name="homepage1" ColumnName="homepage1" />
+                <ScalarProperty Name="homepage_momo" ColumnName="homepage_momo" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="obj" ColumnName="obj" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qa">
+            <EntityTypeMapping TypeName="anlandModel.qa">
+              <MappingFragment StoreEntitySet="qa">
+                <ScalarProperty Name="created_user_phone" ColumnName="created_user_phone" />
+                <ScalarProperty Name="created_user_name" ColumnName="created_user_name" />
+                <ScalarProperty Name="created_dept_id" ColumnName="created_dept_id" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyName" ColumnName="ModifyName" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="SubmitName" ColumnName="SubmitName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Classfy" ColumnName="Classfy" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Cake" ColumnName="Cake" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -109,9 +109,9 @@
                 </p>
                 <ul class="textUl-list content-info text-left">
                     <li>發布單位：基隆市安樂地政事務所</li>
-                    <li>聯絡人：基隆市安樂地政事務所</li>
-                    <li>聯絡電話：02-24324001</li>
-                    <li>更新日期：2018/08/01</li>
+                    @if (string.IsNullOrWhiteSpace(Model.CreatedUser)) { <li> 聯絡人：基隆市安樂地政事務所 </li> } else { <li>聯絡人：@Model.CreatedUser</li> }
+                    @if (string.IsNullOrWhiteSpace(Model.CreatedUserPhone)) { <li>聯絡電話：02 - 24324001</li> } else { <li>聯絡電話：@Model.CreatedUserPhone</li> }
+                    <li>更新日期：@string.Format("{0:yyyy/MM/dd}", Model.SubmitDate)</li>
                     <li>瀏覽人數：@string.Format("{0} 人", Model.Hit)</li>
                 </ul>
             </div>

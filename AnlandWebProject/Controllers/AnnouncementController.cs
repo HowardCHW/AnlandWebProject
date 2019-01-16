@@ -28,7 +28,7 @@ namespace AnlandProject.Web.Controllers
             using (_newsService = new NewsService())
             {
                 List<DefaultDataModel> result = _newsService.NewsQueryAll();
-                return Json(new { data = result.OrderByDescending(n => n.PostDate) });
+                return Json(new { data = result.Where(n => !n.EndDate.HasValue || n.EndDate.Value.Date >= DateTime.Now.Date).OrderByDescending(n => n.PostDate) });
             }
         }
 

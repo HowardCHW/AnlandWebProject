@@ -130,8 +130,8 @@ namespace AnlandProject.Service
                     if (!string.IsNullOrWhiteSpace(saveData.Homepage5)) originalData.homepage5 = saveData.Homepage5;
                     if (!string.IsNullOrWhiteSpace(saveData.Homepage6)) originalData.homepage6 = saveData.Homepage6;
                     originalData.Body = saveData.Body;
-                    originalData.postdate = saveData.PostDate;
-                    originalData.posttime = saveData.PostTime;
+                    originalData.postdate = DateTime.Now;
+                    originalData.posttime = DateTime.Now;
                     //originalData.hit = saveData.Hit;
                     originalData.postname = saveData.PostName;
                     originalData.end_date = saveData.EndDate;
