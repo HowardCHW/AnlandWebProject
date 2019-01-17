@@ -56,7 +56,7 @@ namespace AnlandProject.Web.Controllers
             using (_introService = new IntroService())
             {
                 List<DefaultDataModel> result = _introService.IntroQueryAll();
-                return Json(new { data = result.OrderByDescending(r => r.PostDate) });
+                return Json(new { data = result.Where(r => r.PostDate.Value.Date <= DateTime.Now.Date).OrderByDescending(r => r.PostDate) });
             }
         }
 

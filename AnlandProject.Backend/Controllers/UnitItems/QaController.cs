@@ -34,6 +34,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                 if (id.HasValue && id.Value > 0)
                 {                    
                     result = _qaService.QaQueryByID(id.Value);
+                    result.SubmitDate = DateTime.Now;
                     subTitle = "編輯";
                 }
                 else

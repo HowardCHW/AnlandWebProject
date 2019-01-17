@@ -28,7 +28,7 @@ namespace AnlandProject.Web.Controllers
             using (_newsService = new NewsService())
             {
                 List<DefaultDataModel> result = _newsService.NewsQueryAll();
-                return Json(new { data = result.Where(n => !n.EndDate.HasValue || n.EndDate.Value.Date >= DateTime.Now.Date).OrderByDescending(n => n.PostDate) });
+                return Json(new { data = result.Where(n => n.PostDate.Value.Date <= DateTime.Now.Date && (!n.EndDate.HasValue || n.EndDate.Value.Date >= DateTime.Now.Date)).OrderByDescending(n => n.PostDate) });
             }
         }
 
@@ -67,7 +67,7 @@ namespace AnlandProject.Web.Controllers
                 List<LawsModel> result = _lawsService.LawsQueryAll();
                 var classfyData = _commonService.LawsCategoryQueryAll();
                 result.ForEach(r => r.ClassfyName = classfyData.FirstOrDefault(c => c.ClassID == r.Classfy).ClassName);
-                return Json(new { data = result.OrderByDescending(l => l.LDate) });
+                return Json(new { data = result.Where(l => l.LDate.Value.Date <= DateTime.Now.Date).OrderByDescending(l => l.LDate) });
             }
         }
 

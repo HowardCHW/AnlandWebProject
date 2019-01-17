@@ -23,8 +23,8 @@ namespace AnlandProject.Web.Controllers
                 List<DefaultDataModel> news = _newsService.NewsQueryAll();
                 List<LawsModel> laws = _lawsService.LawsQueryAll();
 
-                result.Top5News = news.Where(n => !n.EndDate.HasValue || n.EndDate.Value.Date >= DateTime.Now.Date).OrderByDescending(n => n.PostDate).Take(5).ToList();
-                result.Top5Laws = laws.OrderByDescending(n => n.LDate).Take(5).ToList();
+                result.Top5News = news.Where(n => n.PostDate.Value.Date <= DateTime.Now && (!n.EndDate.HasValue || n.EndDate.Value.Date >= DateTime.Now.Date)).OrderByDescending(n => n.PostDate).Take(5).ToList();
+                result.Top5Laws = laws.Where(n => n.LDate.Value.Date <= DateTime.Now.Date).OrderByDescending(n => n.LDate).Take(5).ToList();
             }
 
             return View(result);

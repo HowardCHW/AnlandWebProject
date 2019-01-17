@@ -34,6 +34,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                 if (id.HasValue && id.Value > 0)
                 {                    
                     result = _lawsService.LawsQueryByID(id.Value);
+                    result.LDate = DateTime.Now;
                     subTitle = "編輯";
                 }
                 else

@@ -92,7 +92,7 @@ namespace AnlandProject.Service
                     originalData.Subject = saveData.Subject;
                     originalData.Content = saveData.Content;
                     originalData.SubmitName = saveData.SubmitName;
-                    originalData.SubmitDate = DateTime.Now;
+                    originalData.SubmitDate = saveData.SubmitDate;
                     originalData.ModifyName = saveData.ModifyName;
                     originalData.ModifyDate = saveData.ModifyDate;
                     originalData.created_dept_id = saveData.CreatedDeptID;

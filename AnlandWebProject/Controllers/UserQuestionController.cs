@@ -36,7 +36,7 @@ namespace AnlandProject.Web.Controllers
                 var classfyData = _commonService.QaCategoryQueryAll();
 
                 result.ForEach(r => r.ClassfyName = classfyData.FirstOrDefault(c => c.ClassID == r.Classfy).ClassName);
-                return Json(new { data = result.OrderByDescending(r => r.ID) });
+                return Json(new { data = result.Where(r => r.SubmitDate.Value.Date <= DateTime.Now.Date).OrderByDescending(r => r.ID) });
             }
         }
 

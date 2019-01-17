@@ -35,6 +35,7 @@ namespace AnlandProject.Backend.Controllers.UnitItems
                 if (id.HasValue && id.Value > 0)
                 {                    
                     result = _newsService.NewsQueryByID(id.Value);
+                    result.PostDate = DateTime.Now;
                     subTitle = "編輯";
                 }
                 else
