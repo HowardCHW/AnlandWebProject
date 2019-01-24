@@ -250,7 +250,7 @@
                             </tr>
                             <tr>
                                 <th scope="row" class="text-nowrap table-primary"><span class="red">(必填)</span> 申請目的</th>
-                                <td id="purposeArea" colspan="5">                                    
+                                <td id="purposeArea" colspan="5">
                                     <input type="checkbox" name="purpose1" value="1" id="purpose1" title="申請目的-歷史考證選項">
                                     <label for="purpose1">歷史考證</label>
                                     <input type="checkbox" name="purpose2" value="1" id="purpose2" title="申請目的-學術研究選項">
@@ -395,6 +395,7 @@
                         </table>
                     </div>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LdAdIwUAAAAAILD83laFS9IRd52uzeQWkI5REkA"></div>
                 <div class="mt-3 mb-3 text-right">
                     <input name="reset" type="reset" class="btn btn-default" title="重新填寫表單" value="重填">
                     <button id="btnSend" type="button" class="btn btn-primary">
@@ -408,6 +409,9 @@
     <!-- /內文區 -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    @*Google reCaptcha API*@
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
     <script src="~/Scripts/base/js/jquery.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/base/js/popper.min.js"></script>

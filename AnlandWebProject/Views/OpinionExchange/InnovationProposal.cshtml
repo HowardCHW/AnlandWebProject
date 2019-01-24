@@ -139,68 +139,73 @@
                                         @using (Ajax.BeginForm("ProposalDataSave", "OpinionExchange", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "proposalForm" }))
                                         {
                                             @Html.AntiForgeryToken()
-                                            <table class="table table-hover border-bottom rwd-table" summary="民意信箱填送表格，為6橫欄設計，第1橫欄為主題，第2橫欄為真實姓名，第3橫欄為電話，第4橫欄為電子信箱，第5橫欄為問題類型，第6橫欄為內容。">
-                                                <caption class="sr-only">
-                                                    民眾意見填送
-                                                </caption>
-                                                <tr>
-                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
-                                                        <label for="name"><span>(必填)</span> 提案人姓名</label>
-                                                    </th>
-                                                    <td data-th="提案人姓名">
-                                                        <input name="proposer" type="text" class="form-control" size="15" id="name" placeholder="姓名" title="請填寫真實姓名" required data-parsley-required-message="請填寫真實姓名！">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
-                                                        <label for="tel">聯絡電話</label>
-                                                    </th>
-                                                    <td data-th="聯絡電話">
-                                                        <input name="contactphone" type="text" class="form-control" size="15" id="tel" placeholder="電話" title="請填寫電話">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
-                                                        <label for="email"><span>(必填)</span> 電子信箱</label>
-                                                    </th>
-                                                    <td data-th="電子信箱">
-                                                        <input name="contactemail" type="text" class="form-control" size="40" id="email" placeholder="電子信箱" title="請填寫電子信箱" required data-parsley-required-message="請填寫電子郵件！" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
-                                                        <label for="topic"><span>(必填)</span> 提案主題</label>
-                                                    </th>
-                                                    <td data-th="提案主題">
-                                                        <input name="proposalsubject" type="text" class="form-control" id="topic" placeholder="提案主題" title="請填寫提案主題" required data-parsley-required-message="請填寫提案主題！">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
-                                                        <label for="contents"><span>(必填)</span> 提案說明</label>
-                                                    </th>
-                                                    <td data-th="提案說明">
-                                                        <textarea name="proposalcontent" cols="60" rows="6" class="form-control" id="contents" placeholder="提案說明" title="請填寫提案說明" required data-parsley-required-message="請填寫提案說明！"></textarea>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
-                                                        <label for="benefit"><span>(必填)</span> 預期效益</label>
-                                                    </th>
-                                                    <td data-th="預期效益">
-                                                        <textarea name="proposalbenefit" cols="60" rows="6" class="form-control" id="benefit" placeholder="預期效益" title="請填寫預期效益" required data-parsley-required-message="請填寫預期效益！"></textarea>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="text-nowrap text-right" scope="row">
-                                                        <button type="reset" class="btn btn-default">重填</button>
-                                                        <button type="button" id="sendproposal" class="btn btn-primary">
-                                                            寄出
-                                                            <span class="fab fa-telegram-plane"></span>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <table class="table table-hover border-bottom rwd-table" summary="民意信箱填送表格，為6橫欄設計，第1橫欄為主題，第2橫欄為真實姓名，第3橫欄為電話，第4橫欄為電子信箱，第5橫欄為問題類型，第6橫欄為內容。">
+                                            <caption class="sr-only">
+                                                民眾意見填送
+                                            </caption>
+                                            <tr>
+                                                <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                    <label for="name"><span>(必填)</span> 提案人姓名</label>
+                                                </th>
+                                                <td data-th="提案人姓名">
+                                                    <input name="proposer" type="text" class="form-control" size="15" id="name" placeholder="姓名" title="請填寫真實姓名" required data-parsley-required-message="請填寫真實姓名！">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                    <label for="tel">聯絡電話</label>
+                                                </th>
+                                                <td data-th="聯絡電話">
+                                                    <input name="contactphone" type="text" class="form-control" size="15" id="tel" placeholder="電話" title="請填寫電話">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                    <label for="email"><span>(必填)</span> 電子信箱</label>
+                                                </th>
+                                                <td data-th="電子信箱">
+                                                    <input name="contactemail" type="text" class="form-control" size="40" id="email" placeholder="電子信箱" title="請填寫電子信箱" required data-parsley-required-message="請填寫電子郵件！" data-parsley-type="email" data-parsley-type-message="電子郵件信箱格式錯誤，請重新檢查！">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                    <label for="topic"><span>(必填)</span> 提案主題</label>
+                                                </th>
+                                                <td data-th="提案主題">
+                                                    <input name="proposalsubject" type="text" class="form-control" id="topic" placeholder="提案主題" title="請填寫提案主題" required data-parsley-required-message="請填寫提案主題！">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                    <label for="contents"><span>(必填)</span> 提案說明</label>
+                                                </th>
+                                                <td data-th="提案說明">
+                                                    <textarea name="proposalcontent" cols="60" rows="6" class="form-control" id="contents" placeholder="提案說明" title="請填寫提案說明" required data-parsley-required-message="請填寫提案說明！"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th width="20%" scope="row" class="bg-brown text-nowrap text-center">
+                                                    <label for="benefit"><span>(必填)</span> 預期效益</label>
+                                                </th>
+                                                <td data-th="預期效益">
+                                                    <textarea name="proposalbenefit" cols="60" rows="6" class="form-control" id="benefit" placeholder="預期效益" title="請填寫預期效益" required data-parsley-required-message="請填寫預期效益！"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="text-nowrap text-right" scope="row">
+                                                    <div class="g-recaptcha" data-sitekey="6LdAdIwUAAAAAILD83laFS9IRd52uzeQWkI5REkA"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="text-nowrap text-right" scope="row">
+                                                    <button type="reset" class="btn btn-default">重填</button>
+                                                    <button type="button" id="sendproposal" class="btn btn-primary">
+                                                        寄出
+                                                        <span class="fab fa-telegram-plane"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
                                         }
                                         @*</form>*@
                                     </div>

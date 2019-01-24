@@ -2,9 +2,11 @@
 using AnlandProject.Service.BusinessModel;
 using AnlandProject.Service.Interface;
 using AnlandProject.Web.Extensions;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -83,19 +85,27 @@ namespace AnlandProject.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult AppBackupSave(OnlineApplicationModel saveModel)
         {
+            //驗證 Google reCaptcha
+            var response = Request["g-recaptcha-response"];
+            var status = ValidateCaptcha(response);
+
             bool saveStatus = false;
-            using (_onlineApplicationService = new OnlineApplicationService())
+            if (status)
             {
-                try
+                using (_onlineApplicationService = new OnlineApplicationService())
                 {
-                    saveModel.WDate = DateTime.Now;
-                    saveStatus = _onlineApplicationService.CopySave(saveModel);
-                }
-                catch (Exception ex)
-                {
-                    logger.Error(ex);
+                    try
+                    {
+                        saveModel.WDate = DateTime.Now;
+                        saveStatus = _onlineApplicationService.CopySave(saveModel);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                    }
                 }
             }
+            
             return Json(saveStatus);
         }
 
@@ -103,19 +113,27 @@ namespace AnlandProject.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult PriceInfoSave(OnlineApplicationModel saveModel)
         {
+            //驗證 Google reCaptcha
+            var response = Request["g-recaptcha-response"];
+            var status = ValidateCaptcha(response);
+
             bool saveStatus = false;
-            using (_onlineApplicationService = new OnlineApplicationService())
+            if (status)
             {
-                try
+                using (_onlineApplicationService = new OnlineApplicationService())
                 {
-                    saveModel.WDate = DateTime.Now;
-                    saveStatus = _onlineApplicationService.LandPriceSave(saveModel);
-                }
-                catch (Exception ex)
-                {
-                    logger.Error(ex);
+                    try
+                    {
+                        saveModel.WDate = DateTime.Now;
+                        saveStatus = _onlineApplicationService.LandPriceSave(saveModel);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                    }
                 }
             }
+
             return Json(saveStatus);
         }
 
@@ -123,19 +141,27 @@ namespace AnlandProject.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult EngEstateSave(OnlineApplicationModel saveModel)
         {
+            //驗證 Google reCaptcha
+            var response = Request["g-recaptcha-response"];
+            var status = ValidateCaptcha(response);
+
             bool saveStatus = false;
-            using (_onlineApplicationService = new OnlineApplicationService())
+            if (status)
             {
-                try
+                using (_onlineApplicationService = new OnlineApplicationService())
                 {
-                    saveModel.WDate = DateTime.Now;
-                    saveStatus = _onlineApplicationService.EngCopySave(saveModel);
-                }
-                catch (Exception ex)
-                {
-                    logger.Error(ex);
+                    try
+                    {
+                        saveModel.WDate = DateTime.Now;
+                        saveStatus = _onlineApplicationService.EngCopySave(saveModel);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                    }
                 }
             }
+
             return Json(saveStatus);
         }
 
@@ -143,20 +169,41 @@ namespace AnlandProject.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult OnlineBookingSave(OnlineApplicationModel saveModel)
         {
+            //驗證 Google reCaptcha
+            var response = Request["g-recaptcha-response"];
+            var status = ValidateCaptcha(response);
+
             bool saveStatus = false;
-            using (_onlineApplicationService = new OnlineApplicationService())
+            if (status)
             {
-                try
+                using (_onlineApplicationService = new OnlineApplicationService())
                 {
-                    saveModel.WDate = DateTime.Now;
-                    saveStatus = _onlineApplicationService.OnlineAppSave(saveModel);
-                }
-                catch (Exception ex)
-                {
-                    logger.Error(ex);
+                    try
+                    {
+                        saveModel.WDate = DateTime.Now;
+                        saveStatus = _onlineApplicationService.OnlineAppSave(saveModel);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                    }
                 }
             }
+
             return Json(saveStatus);
+        }
+        #endregion
+
+        #region Google reCaptcha Validation
+        private bool ValidateCaptcha(string response)
+        {
+            //To Validate Google recaptcha
+            string secretKey = "6LdAdIwUAAAAAMCncx3ugZnEzW9O-lDLzJjnSNyg";
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+            return status;
         }
         #endregion
 

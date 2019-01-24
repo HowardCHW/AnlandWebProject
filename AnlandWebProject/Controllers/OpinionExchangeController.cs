@@ -3,10 +3,12 @@ using AnlandProject.Service.BusinessModel;
 using AnlandProject.Service.Interface;
 using AnlandProject.Web.Extensions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -40,26 +42,34 @@ namespace AnlandProject.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult EmailSuggestSave(FAQModel saveModel)
         {
-            bool saveStatus = true;
-            using (_faqService = new FAQService())
-            using (_smptSetupService = new SMTPSetupService())
-            {
-                try
-                {
-                    saveModel.MsgDate = DateTime.Now;
-                    saveStatus = _faqService.FAQSave(saveModel);
+            //驗證 Google reCaptcha
+            var response = Request["g-recaptcha-response"];
+            var status = ValidateCaptcha(response);
 
-                    if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.MsgEmail))
+            bool saveStatus = true;
+            if (status)
+            {
+                using (_faqService = new FAQService())
+                using (_smptSetupService = new SMTPSetupService())
+                {
+                    try
                     {
-                        SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("email");
-                        smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgSubject, saveModel.MsgContent);  //發MAIL給系統管理員並CC給填寫意見者
+                        saveModel.MsgDate = DateTime.Now;
+                        saveStatus = _faqService.FAQSave(saveModel);
+
+                        if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.MsgEmail))
+                        {
+                            SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("email");
+                            smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgSubject, saveModel.MsgContent);  //發MAIL給系統管理員並CC給填寫意見者
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
                     }
                 }
-                catch (Exception ex)
-                {
-                    logger.Error(ex);
-                }
             }
+
             return Json(saveStatus);
         }
 
@@ -98,26 +108,34 @@ namespace AnlandProject.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult SuggestDirectorSave(FAQModel saveModel)
         {
-            bool saveStatus = false;
-            using (_directorFAQService = new DirectorFAQService())
-            using (_smptSetupService = new SMTPSetupService())
-            {
-                try
-                {
-                    saveModel.MsgDate = DateTime.Now;
-                    saveStatus = _directorFAQService.DirectorFAQSave(saveModel);
+            //驗證 Google reCaptcha
+            var response = Request["g-recaptcha-response"];
+            var status = ValidateCaptcha(response);
 
-                    if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.MsgEmail))
+            bool saveStatus = false;
+            if (status)
+            {
+                using (_directorFAQService = new DirectorFAQService())
+                using (_smptSetupService = new SMTPSetupService())
+                {
+                    try
                     {
-                        SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
-                        smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgSubject, saveModel.MsgContent);  //發MAIL給系統管理員並CC給填寫意見者
+                        saveModel.MsgDate = DateTime.Now;
+                        saveStatus = _directorFAQService.DirectorFAQSave(saveModel);
+
+                        if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.MsgEmail))
+                        {
+                            SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
+                            smtpData.SendMailBySMTP(saveModel.MsgEmail, saveModel.MsgSubject, saveModel.MsgContent);  //發MAIL給系統管理員並CC給填寫意見者
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
                     }
                 }
-                catch (Exception ex)
-                {
-                    logger.Error(ex);
-                }
             }
+
             return Json(saveStatus);
         }
 
@@ -235,27 +253,48 @@ namespace AnlandProject.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult ProposalDataSave(ProposalDataModel saveModel)
         {
-            bool saveStatus = false;
-            using (_proposalService = new ProposalService())
-            using (_smptSetupService = new SMTPSetupService())
-            {
-                try
-                {
-                    saveModel.ProposalDate = DateTime.Now;
-                    saveStatus = _proposalService.ProposalSave(saveModel);
+            //驗證 Google reCaptcha
+            var response = Request["g-recaptcha-response"];
+            var status = ValidateCaptcha(response);
 
-                    if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.ContactEmail))
+            bool saveStatus = false;
+            if (status)
+            {
+                using (_proposalService = new ProposalService())
+                using (_smptSetupService = new SMTPSetupService())
+                {
+                    try
                     {
-                        SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
-                        smtpData.SendMailBySMTP(saveModel.ContactEmail, saveModel.ProposalSubject, saveModel.ProposalContent);  //發MAIL給系統管理員並CC給填寫意見者
+                        saveModel.ProposalDate = DateTime.Now;
+                        saveStatus = _proposalService.ProposalSave(saveModel);
+
+                        if (saveStatus && !string.IsNullOrWhiteSpace(saveModel.ContactEmail))
+                        {
+                            SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
+                            smtpData.SendMailBySMTP(saveModel.ContactEmail, saveModel.ProposalSubject, saveModel.ProposalContent);  //發MAIL給系統管理員並CC給填寫意見者
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
                     }
                 }
-                catch (Exception ex)
-                {
-                    logger.Error(ex);
-                }
             }
+
             return Json(saveStatus);
+        }
+        #endregion
+
+        #region Google reCaptcha Validation
+        private bool ValidateCaptcha(string response)
+        {
+            //To Validate Google recaptcha
+            string secretKey = "6LdAdIwUAAAAAMCncx3ugZnEzW9O-lDLzJjnSNyg";
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+            return status;
         }
         #endregion
     }

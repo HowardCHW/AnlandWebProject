@@ -154,13 +154,13 @@
                                     <label for="sarea1"><span class="red">(必填)</span> 段小段</label>
                                     <input name="sarea1" type="text" class="form-control" size="15" id="sarea1" placeholder="" title="請填寫段小段" required data-parsley-required-message="必填欄位！">
                                 </td>
-                                <th scope="row" class="text-nowrap table-primary">                                    
+                                <th scope="row" class="text-nowrap table-primary">
                                     <label for="areano1"><span class="red">(必填)</span> 地號</label>
                                 </th>
                                 <td class="text-nowrap">
                                     <input name="areano1" type="text" class="form-control" size="20" id="areano1" placeholder="" title="請填寫地號" required data-parsley-required-message="必填欄位！">
                                 </td>
-                                <th scope="row" class="text-nowrap table-primary">                                    
+                                <th scope="row" class="text-nowrap table-primary">
                                     <label for="docitem1"><span class="red">(必填)</span> 申請份數</label>
                                 </th>
                                 <td class="text-nowrap">
@@ -168,20 +168,20 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-nowrap table-primary">                                    
+                                <th scope="row" class="text-nowrap table-primary">
                                     建物申請標的
                                 </th>
                                 <td class="text-nowrap">
                                     <label for="sarea2"><span class="red">(必填)</span> 段小段</label>
                                     <input name="sarea2" type="text" class="form-control" size="15" id="sarea2" placeholder="" title="請填寫段小段" required data-parsley-required-message="必填欄位！">
                                 </td>
-                                <th scope="row" class="text-nowrap table-primary">                                    
+                                <th scope="row" class="text-nowrap table-primary">
                                     <label for="areano2"><span class="red">(必填)</span> 建號</label>
                                 </th>
                                 <td class="text-nowrap">
                                     <input name="areano2" type="text" class="form-control" size="20" id="areano2" placeholder="" title="請填寫建號" required data-parsley-required-message="必填欄位！">
                                 </td>
-                                <th scope="row" class="text-nowrap table-primary">                                    
+                                <th scope="row" class="text-nowrap table-primary">
                                     <label for="docitem2"><span class="red">(必填)</span> 申請份數</label>
                                 </th>
                                 <td class="text-nowrap">
@@ -231,7 +231,7 @@
                                 網路申請檔案閱覽抄錄複製服務網頁問卷 (必須填寫)
                             </caption>
                             <tr>
-                                <th class="text-nowrap table-success">                                    
+                                <th class="text-nowrap table-success">
                                     <label><span class="red">(必填)</span> 1.請問您從何處得知本所「網路申請檔案閱覽抄錄複製服務」？</label>
                                 </th>
                             </tr>
@@ -251,7 +251,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-nowrap table-success">                                    
+                                <th class="text-nowrap table-success">
                                     <label><span class="red">(必填)</span> 2.請問您對於本所「網路申請檔案閱覽抄錄複製服務」網頁操作介面是否滿意？</label>
                                 </th>
                             </tr>
@@ -271,7 +271,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-nowrap table-success">                                    
+                                <th class="text-nowrap table-success">
                                     <label><span class="red">(必填)</span> 3.請問您認為「網路申請檔案閱覽抄錄複製服務」此項服務，能節省您多少時間？</label>
                                 </th>
                             </tr>
@@ -291,7 +291,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-nowrap table-success">                                    
+                                <th class="text-nowrap table-success">
                                     <label><span class="red">(必填)</span> 4.總體而言，請問您對於本所「網路申請檔案閱覽抄錄複製服務」此項服務，是否滿意？</label>
                                 </th>
                             </tr>
@@ -311,7 +311,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-nowrap table-success">                                    
+                                <th class="text-nowrap table-success">
                                     <label><span class="red">(必填)</span> 5.請問您的職業是：</label>
                                 </th>
                             </tr>
@@ -338,6 +338,7 @@
                         </table>
                     </div>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LdAdIwUAAAAAILD83laFS9IRd52uzeQWkI5REkA"></div>
                 <div class="mt-3 mb-3 text-right">
                     <input name="reset" type="reset" class="btn btn-default" title="重新填寫表單" value="重填" />
                     <button id="btnSend" type="button" class="btn btn-primary">
@@ -351,6 +352,9 @@
     <!-- /內文區 -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    @*Google reCaptcha API*@
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
     <script src="~/Scripts/base/js/jquery.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/base/js/popper.min.js"></script>
