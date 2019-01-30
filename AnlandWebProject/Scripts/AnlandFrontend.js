@@ -273,16 +273,16 @@ function msgResoure(functionType, size, msgTitle, msgContent, isDisplay) {
             "html": $("<div />", {
                 "class": "modal-dialog " + modalWidthCalss,
                 "html": $("<div />", {
-                    "class": "modal-content ",
+                    "class": "modal-content",
                     "html": $("<div />", {
-                        "class": "modal-header ",
-                        "html": $("<button />", {
-                            "class": "close",
-                            "type": "button",
-                            "data-dismiss": "modal",
-                            "aria-label": "Close",
-                            "html": "<span aria-hidden='true'>&times;</span>"
-                        })
+                        "class": "modal-header"
+                        // "html": $("<button />", {
+                        //     "class": "close",
+                        //     "type": "button",
+                        //     "data-dismiss": "modal",
+                        //     "aria-label": "Close",
+                        //     "html": "<span aria-hidden='true'>&times;</span>"
+                        // })
                     })
                 })
             })
@@ -290,6 +290,13 @@ function msgResoure(functionType, size, msgTitle, msgContent, isDisplay) {
         $("<h4 />", {
             "class": "modal-title msg-resource-title",
             "html": msgTitle
+        }).appendTo("#dvMessageBox .modal-header");
+        $("<button />", {
+            "class": "close",
+            "type": "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close",
+            "html": "<span aria-hidden='true'>&times;</span>"
         }).appendTo("#dvMessageBox .modal-header");
         $("<div />", {
             "class": "modal-body",
