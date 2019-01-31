@@ -5,6 +5,7 @@ using AnlandProject.Web.Extensions;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -198,9 +199,9 @@ namespace AnlandProject.Web.Controllers
         private bool ValidateCaptcha(string response)
         {
             //To Validate Google recaptcha
-            string secretKey = "6LdAdIwUAAAAAMCncx3ugZnEzW9O-lDLzJjnSNyg";
+            string secValue = ConfigurationManager.AppSettings["recapKey"];
             var client = new WebClient();
-            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secValue, response));
             var obj = JObject.Parse(result);
             var status = (bool)obj.SelectToken("success");
             return status;
