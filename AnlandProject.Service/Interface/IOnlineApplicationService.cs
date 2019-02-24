@@ -14,7 +14,7 @@ namespace AnlandProject.Service.Interface
 
         OnlineApplicationModel OnlineAppQueryByID(int id);
 
-        bool OnlineAppSave(OnlineApplicationModel saveData);
+        bool OnlineAppSave(OnlineApplicationModel saveData, out int newDataID);
 
         bool OnlineAppDelete(int id);
 
@@ -22,7 +22,7 @@ namespace AnlandProject.Service.Interface
 
         OnlineApplicationModel EngCopyQueryByID(int id);
 
-        bool EngCopySave(OnlineApplicationModel saveData);
+        bool EngCopySave(OnlineApplicationModel saveData, out int newDataID);
 
         bool EngCopyDelete(int id);
 
@@ -30,7 +30,7 @@ namespace AnlandProject.Service.Interface
 
         OnlineApplicationModel CopyQueryByID(int id);
 
-        bool CopySave(OnlineApplicationModel saveData);
+        bool CopySave(OnlineApplicationModel saveData, out int newDataID);
 
         bool CopyDelete(int id);
 
@@ -38,7 +38,7 @@ namespace AnlandProject.Service.Interface
 
         OnlineApplicationModel LandPriceQueryByID(int id);
 
-        bool LandPriceSave(OnlineApplicationModel saveData);
+        bool LandPriceSave(OnlineApplicationModel saveData, out int newDataID);
 
         bool LandPriceDelete(int id);
     }

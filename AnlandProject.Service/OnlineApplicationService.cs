@@ -121,9 +121,10 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public bool OnlineAppSave(OnlineApplicationModel saveData)
+        public bool OnlineAppSave(OnlineApplicationModel saveData, out int newDataID)
         {
             int resultRow = 0;
+            newDataID = 0;
             try
             {
                 onlineapp newData = new onlineapp()
@@ -169,7 +170,8 @@ namespace AnlandProject.Service
                     qa_note = saveData.QaNote
                 };
 
-                resultRow = _onlineappRepository.Create(newData);
+                var newResult = _onlineappRepository.CreateWithResult(newData, out resultRow);
+                newDataID = newResult.ID;
             }
             catch (Exception ex)
             {
@@ -294,9 +296,10 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public bool EngCopySave(OnlineApplicationModel saveData)
+        public bool EngCopySave(OnlineApplicationModel saveData, out int newDataID)
         {
             int resultRow = 0;
+            newDataID = 0;
             try
             {
                 engcopy newData = new engcopy()
@@ -340,7 +343,8 @@ namespace AnlandProject.Service
                     qa_note = saveData.QaNote
                 };
 
-                resultRow = _engcopyRepository.Create(newData);
+                var newResult = _engcopyRepository.CreateWithResult(newData, out resultRow);
+                newDataID = newResult.ID;
             }
             catch (Exception ex)
             {
@@ -469,9 +473,10 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public bool CopySave(OnlineApplicationModel saveData)
+        public bool CopySave(OnlineApplicationModel saveData, out int newDataID)
         {
             int resultRow = 0;
+            newDataID = 0;
             try
             {
                 copy newData = new copy()
@@ -517,7 +522,8 @@ namespace AnlandProject.Service
                     qa_5 = saveData.Qa5
                 };
 
-                resultRow = _copyRepository.Create(newData);
+                var newResult = _copyRepository.CreateWithResult(newData, out resultRow);
+                newDataID = newResult.ID;
             }
             catch (Exception ex)
             {
@@ -636,9 +642,10 @@ namespace AnlandProject.Service
             return result;
         }
 
-        public bool LandPriceSave(OnlineApplicationModel saveData)
+        public bool LandPriceSave(OnlineApplicationModel saveData, out int newDataID)
         {
             int resultRow = 0;
+            newDataID = 0;
             try
             {
                 landprice newData = new landprice()
@@ -679,7 +686,8 @@ namespace AnlandProject.Service
                     qa_5 = saveData.Qa5
                 };
 
-                resultRow = _landpriceRepository.Create(newData);
+                var newResult = _landpriceRepository.CreateWithResult(newData, out resultRow);
+                newDataID = newResult.ID;
             }
             catch (Exception ex)
             {

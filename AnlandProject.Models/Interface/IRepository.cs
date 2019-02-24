@@ -12,6 +12,8 @@ namespace AnlandProject.Models.Interface
     {
         int Create(TEntity instance);
 
+        TEntity CreateWithResult(TEntity instance, out int resultRows);
+
         int Update(TEntity instance);
 
         int Delete(TEntity instance);

@@ -164,6 +164,7 @@
     <Compile Include="Controllers\ForeignerLandController.cs" />
     <Compile Include="Controllers\GovernmentInfomationController.cs" />
     <Compile Include="Controllers\OthersController.cs" />
+    <Compile Include="Controllers\PreviewController.cs" />
     <Compile Include="Controllers\UserQuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OnlineApplicationController.cs" />
@@ -178,6 +179,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="base\assets\css\site.css" />
+    <Content Include="base\assets\images\apple-touch-icon.png" />
     <Content Include="Content\base\css\base.css" />
     <Content Include="Content\base\css\base.min.css" />
     <Content Include="Content\base\css\bootstrap.min.css" />
@@ -231,6 +234,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="global\css\bootstrap-extend.min.css" />
+    <Content Include="global\css\bootstrap.min.css" />
+    <Content Include="global\fonts\font-awesome\font-awesome.css" />
+    <Content Include="global\fonts\font-awesome\font-awesome.min.css" />
+    <Content Include="global\fonts\font-awesome\font-awesome.svg" />
+    <Content Include="global\vendor\bootstrap\bootstrap.js" />
+    <Content Include="global\vendor\jquery\jquery.js" />
     <Content Include="iconfont\material-icons.css" />
     <Content Include="iconfont\MaterialIcons-Regular.svg" />
     <Content Include="images\3f_1.gif" />
@@ -594,6 +604,10 @@
     <Content Include="DownloadFile\s_01_05\s15.doc" />
     <Content Include="DownloadFile\s_01_05\s15.pdf" />
     <Content Include="DownloadFile\s_01_05\開放陸資來台問與答.pdf" />
+    <Content Include="global\fonts\font-awesome\font-awesome.eot" />
+    <Content Include="global\fonts\font-awesome\font-awesome.ttf" />
+    <Content Include="global\fonts\font-awesome\font-awesome.woff" />
+    <Content Include="global\fonts\font-awesome\font-awesome.woff2" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -814,6 +828,10 @@
     <Content Include="Views\Home\Privacy.cshtml" />
     <Content Include="Views\ENG\Sitemap.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Preview\CopyView.cshtml" />
+    <Content Include="Views\Preview\LandPriceView.cshtml" />
+    <Content Include="Views\Preview\ReservationView.cshtml" />
+    <Content Include="Views\Preview\TranscriptView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

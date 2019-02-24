@@ -70,6 +70,22 @@ namespace AnlandProject.Models.Repository
             return resultRows;
         }
 
+        public TEntity CreateWithResult(TEntity instance, out int resultRows)
+        {
+            resultRows = 0;
+            if (instance == null)
+            {
+                modelLogger.Error("GenericRepository Create", new ArgumentNullException("instance"));
+            }
+            else
+            {
+                _context.Set<TEntity>().Add(instance);
+                resultRows = _context.SaveChanges();
+            }
+
+            return instance;
+        }
+
         public int Update(TEntity instance)
         {
             int resultRows = 0;
