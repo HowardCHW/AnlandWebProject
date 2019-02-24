@@ -14,7 +14,7 @@ namespace AnlandProject.Web.Extensions
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         
-        public static void SendMailBySMTP(this SMTPSetupModel smtpData, string senderMailAdd, string subject, string mailContent)
+        public static void SendMailBySMTP(this SMTPSetupModel smtpData, string senderMailAdd, string subject, string mailContent, bool useDBSubject = true)
         {
             try
             {
@@ -32,7 +32,15 @@ namespace AnlandProject.Web.Extensions
                 };
                 mailMessage.To.Add(smtpData.Recipient);
                 mailMessage.CC.Add(senderMailAdd);
-                mailMessage.Subject = string.Format("{0}{1}", smtpData.Subject, subject);
+                if (useDBSubject)
+                {
+                    mailMessage.Subject = $"{smtpData.Subject}{subject}";
+                }
+                else
+                {
+                    mailMessage.Subject = subject;
+                }
+                
                 mailMessage.Body = htmlBody;
                 mailMessage.IsBodyHtml = true;
                 client.Send(mailMessage);

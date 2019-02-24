@@ -273,7 +273,7 @@ namespace AnlandProject.Web.Controllers
             using (_smptSetupService = new SMTPSetupService())
             {
                 SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("director");
-                smtpData.SendMailBySMTP(userEmail, subject, msgContent);  //發MAIL給系統管理員並CC給填寫意見者
+                smtpData.SendMailBySMTP(userEmail, subject, msgContent, false);  //發MAIL給系統管理員並CC給填寫意見者
             }
         }
     }
