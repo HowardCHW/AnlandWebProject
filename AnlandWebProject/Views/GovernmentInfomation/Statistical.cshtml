@@ -125,10 +125,19 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="correct1" role="tabpanel" aria-labelledby="correct1-tab">
                             <h3 class="pl-0">
-                                <span class="fas fa-bookmark"></span> 107年 登記測量辦理案件數及轄內買賣成交案件數 - 登記類
+                                <span class="fas fa-bookmark"></span> <span id="h2Title1">108年</span> 登記測量辦理案件數及轄內買賣成交案件數 - 登記類
                             </h3>
+                            <form class="form-inline justify-content-end">
+                                <div class="form-group selectItem">
+                                    <label for="selectYear1">選擇年份：</label>
+                                    <select class="form-control" id="selectYear1" name="selectYear1">
+                                        <option value="108年">108年</option>
+                                        <option value="107年">107年</option>
+                                    </select>
+                                </div>
+                            </form>
                             <div class="col-md-12 pl-0">
-                                <table id="myTable" class="table table-hover table-striped border-bottom rwd-table"
+                                <table id="myTable1" class="table table-hover table-striped border-bottom rwd-table"
                                        summary="成交案例統計表表格，為3直欄設計，第1直欄為檔案名稱，第2直欄為日期，第3直欄為檔案下載。">
                                     <caption class="sr-only">
                                         107年 登記測量辦理案件數及轄內買賣成交案件數 - 登記類
@@ -229,7 +238,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td data-th="檔案名稱">107年09月份(登記)</td>
                                             <td data-th="日期">107/10/04</td>
                                             <td data-th="檔案下載">
@@ -280,10 +289,19 @@
                         </div>
                         <div class="tab-pane fade" id="correct2" role="tabpanel" aria-labelledby="correct2-tab">
                             <h3 class="pl-0">
-                                <span class="fas fa-bookmark"></span> 107年 登記測量辦理案件數及轄內買賣成交案件數 - 地價類
+                                <span class="fas fa-bookmark"></span> <span id="h2Title2">108年</span> 登記測量辦理案件數及轄內買賣成交案件數 - 地價類
                             </h3>
+                            <form class="form-inline justify-content-end">
+                                <div class="form-group selectItem">
+                                    <label for="selectYear2">選擇年份：</label>
+                                    <select class="form-control" id="selectYear2" name="selectYear2">
+                                        <option value="108年">108年</option>
+                                        <option value="107年">107年</option>
+                                    </select>
+                                </div>
+                            </form>
                             <div class="col-md-12pl-0">
-                                <table id="myTable1" class="table table-hover table-striped border-bottom rwd-table"
+                                <table id="myTable2" class="table table-hover table-striped border-bottom rwd-table"
                                        summary="成交案例統計表表格，為3直欄設計，第1直欄為檔案名稱，第2直欄為日期，第3直欄為檔案下載。">
                                     <caption class="sr-only">
                                         107年 登記測量辦理案件數及轄內買賣成交案件數 - 地價類
@@ -434,10 +452,19 @@
                         </div>
                         <div class="tab-pane fade" id="correct3" role="tabpanel" aria-labelledby="correct3-tab">
                             <h3 class="pl-0">
-                                <span class="fas fa-bookmark"></span> 107年 登記測量辦理案件數及轄內買賣成交案件數 - 測量類
+                                <span class="fas fa-bookmark"></span> <span id="h2Title3">108年</span> 登記測量辦理案件數及轄內買賣成交案件數 - 測量類
                             </h3>
+                            <form class="form-inline justify-content-end">
+                                <div class="form-group selectItem">
+                                    <label for="selectYear3">選擇年份：</label>
+                                    <select class="form-control" id="selectYear3" name="selectYear3">
+                                        <option value="108年">108年</option>
+                                        <option value="107年">107年</option>
+                                    </select>
+                                </div>
+                            </form>
                             <div class="col-md-12pl-0">
-                                <table id="myTable2" class="table table-hover table-striped border-bottom rwd-table"
+                                <table id="myTable3" class="table table-hover table-striped border-bottom rwd-table"
                                        summary="測量類成交案例統計表表格，為3直欄設計，第1直欄為檔案名稱，第2直欄為日期，第3直欄為檔案下載。">
                                     <caption class="sr-only">
                                         107年 登記測量辦理案件數及轄內買賣成交案件數 - 測量類
@@ -578,35 +605,96 @@
 <!-- /內文區 -->
 
 <script>
+    var qatable;
+    //var currentTab = '#myTable';
+    var currentItem;
+    var selectedItem;
     $(document).ready(function () {
-        // Data Table
-        $('#myTable, #myTable1, #myTable2').DataTable({
-            "language": {
-                "processing": "處理中...",
-                "loadingRecords": "載入中...",
-                "lengthMenu": "顯示 _MENU_ 筆結果",
-                "zeroRecords": "沒有符合的結果",
-                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
-                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
-                "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
-                "infoPostFix": "",
-                "search": "搜尋:",
-                "searchPlaceholder": "請輸入關鍵字",
-                "paginate": {
-                    "first": "第一頁",
-                    "previous": "上一頁",
-                    "next": "下一頁",
-                    "last": "最後一頁"
-                },
-                "aria": {
-                    "sortAscending": ": 升冪排列",
-                    "sortDescending": ": 降冪排列"
-                }
-            },
-            "pagingType": "full_numbers",
-            "ordering": false
-            // ,
-            // "searching": false
+        DatatableBinding('');
+
+        $('#selectYear1').on('change', function () {
+            selectedItem1 = $(this).find("option:selected").text();
+            $('#h2Title1').text(selectedItem1);
+            selectedVal1 = selectedItem1;
+            //篩選條件選好後重新畫一次Table
+            // qatable.draw();
+            $('#myTable1').DataTable().draw();
+        });
+        $('#selectYear2').on('change', function () {
+            selectedItem2 = $(this).find("option:selected").text();
+            $('#h2Title2').text(selectedItem2);
+            selectedVal2 = selectedItem2;
+            //篩選條件選好後重新畫一次Table
+            $('#myTable2').DataTable().draw();
+        });
+        $('#selectYear3').on('change', function () {
+            selectedItem3 = $(this).find("option:selected").text();
+            $('#h2Title3').text(selectedItem3);
+            selectedVal3 = selectedItem3;
+            //篩選條件選好後重新畫一次Table            
+            $('#myTable3').DataTable().draw();
         });
     });
+    //Datatable 的條件篩選做法
+    $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+            // var selectedVal = '';
+            var selectedVal1 = $('#selectYear1').val();            
+            var selectedVal2 = $('#selectYear2').val();
+            var selectedVal3 = $('#selectYear3').val();
+            var selectYear = data[0].substring(0, 4);
+            if (selectedVal1 != '') {
+                if (selectedVal1 == selectYear) {
+                    return true;
+                }
+                return false;
+            }
+            if (selectedVal2 != '') {
+                if (selectedVal2 == selectYear) {
+                    return true;
+                }
+                return false;
+            }
+            if (selectedVal3 != '') {
+                if (selectedVal3 == selectYear) {
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+    );
+    // Data Table
+    function DatatableBinding() {
+        for (var i = 1 ; i < 4; i++){
+            qatable = $('#myTable' + i).DataTable({
+                "language": {
+                    "processing": "處理中...",
+                    "loadingRecords": "載入中...",
+                    "lengthMenu": "顯示 _MENU_ 筆結果",
+                    "zeroRecords": "沒有符合的結果",
+                    "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                    "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                    "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                    "infoPostFix": "",
+                    "search": "搜尋:",
+                    "searchPlaceholder": "請輸入關鍵字",
+                    "paginate": {
+                        "first": "第一頁",
+                        "previous": "上一頁",
+                        "next": "下一頁",
+                        "last": "最後一頁"
+                    },
+                    "aria": {
+                        "sortAscending": ": 升冪排列",
+                        "sortDescending": ": 降冪排列"
+                    }
+                },
+                "pagingType": "full_numbers",
+                "ordering": false
+                // ,
+                // "searching": false
+            });
+        }
+    }
 </script>

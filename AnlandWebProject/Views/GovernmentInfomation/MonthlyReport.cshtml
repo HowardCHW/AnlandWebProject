@@ -102,6 +102,23 @@
                         </p>
                     </div>
 
+                    <form class="form-inline justify-content-end">
+                        <div class="form-group selectItem">
+                            <label for="selectYear">選擇年份：</label>
+                            <select class="form-control" id="selectYear" name="selectYear">
+                                <option value="108年">108年</option>
+                                <option value="107年">107年</option>
+                                <option value="106年">106年</option>
+                                <option value="105年">105年</option>
+                                <option value="104年">104年</option>
+                                <option value="103年">103年</option>
+                                <option value="102年">102年</option>
+                                <option value="101年">101年</option>
+                                <option value="100年">100年</option>
+                            </select>
+                        </div>
+                    </form>
+
                     <table id="myTable" class="table table-hover table-striped border-bottom rwd-table" summary="規費收入月報表表格，為3直欄設計，第1直欄為檔案名稱，第2直欄為日期，第3直欄為檔案下載。">
                         <caption class="sr-only">規費收入月報表</caption>
                         <thead>
@@ -120,7 +137,7 @@
                                         PDF
                                         <span class="fas fa-file-pdf"></span>
                                     </a>
-                               </td>
+                                </td>
                             </tr>
                             <tr>
                                 <td data-th="檔案名稱">107年11月份</td>
@@ -130,7 +147,7 @@
                                         PDF
                                         <span class="fas fa-file-pdf"></span>
                                     </a>
-                               </td>
+                                </td>
                             </tr>
                             <tr>
                                 <td data-th="檔案名稱">107年10月份</td>
@@ -140,9 +157,9 @@
                                         PDF
                                         <span class="fas fa-file-pdf"></span>
                                     </a>
-                               </td>
+                                </td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td data-th="檔案名稱">107年09月份</td>
                                 <td data-th="日期">107/10/04</td>
                                 <td data-th="檔案下載">
@@ -1448,9 +1465,33 @@
 <!-- /內文區 -->
 
 <script>
+    var qatable;
     $(document).ready(function () {
-        // Data Table
-        $('#myTable').DataTable({
+        DatatableBinding('');
+        $('#selectYear').on('change', function () {
+            //var selectedItem = $(this).find("option:selected").text();
+            //$('#h2Title').text('常見問題 - ' + selectedItem);
+            //篩選條件選好後重新畫一次Table
+            qatable.draw();
+        });
+    });
+    //Datatable 的條件篩選做法
+    $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+            var selectedVal = $('#selectYear').val();
+            var selectYear = data[0].substring(0, 4);
+            if (selectedVal != '') {
+                if (selectedVal == selectYear) {
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+    );
+    // Data Table
+    function DatatableBinding() {
+        qatable = $('#myTable').DataTable({
             "language": {
                 "processing": "處理中...",
                 "loadingRecords": "載入中...",
@@ -1478,5 +1519,6 @@
             // ,
             // "searching": false
         });
-    });
+    }
+
 </script>
