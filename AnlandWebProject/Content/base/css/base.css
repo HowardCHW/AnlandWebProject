@@ -1397,4 +1397,16 @@ ul#myTab li.nav-item {
 ul#myTab li.nav-item a {
   position: relative;
 }
+
+#myTable1_wrapper .row:first-child {
+  display: none;
+}
+
+#myTable2_wrapper .row:first-child {
+  display: none;
+}
+
+#myTable3_wrapper .row:first-child {
+  display: none;
+}
 /*# sourceMappingURL=base.css.map */

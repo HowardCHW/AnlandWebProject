@@ -1474,3 +1474,21 @@ ul {
     }
   }
 }
+
+#myTable1_wrapper {
+  .row:first-child {
+      display: none;
+  }
+}
+
+#myTable2_wrapper {
+  .row:first-child {
+      display: none;
+  }
+}
+
+#myTable3_wrapper {
+   .row:first-child {
+       display: none;
+   }
+}
