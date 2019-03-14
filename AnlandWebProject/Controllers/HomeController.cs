@@ -50,5 +50,10 @@ namespace AnlandProject.Web.Controllers
             return View();
         }
 
+        public ContentResult GetSitemap()
+        {
+            string xml = System.IO.File.ReadAllText(Server.MapPath("~/Content/XML/sitemapLocal.xml"));
+            return Content(xml, "text/xml");
+        }
     }
 }
