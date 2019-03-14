@@ -25,6 +25,10 @@ namespace AnlandProject.Web.Controllers
         {
             return View();
         }
+        public ActionResult AppDate()
+        {
+            return View();
+        }
 
         public ActionResult InfoService()
         {

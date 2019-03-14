@@ -706,6 +706,7 @@
     <Content Include="Scripts\Vue\vue.js" />
     <Content Include="Scripts\Vue\vue.min.js" />
     <Content Include="Views\ENG\Links.cshtml" />
+    <Content Include="Views\Home\sitemapLocal.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -832,6 +833,7 @@
     <Content Include="Views\Preview\LandPriceView.cshtml" />
     <Content Include="Views\Preview\ReservationView.cshtml" />
     <Content Include="Views\Preview\TranscriptView.cshtml" />
+    <Content Include="Views\OnlineApplication\AppDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,733 @@
+﻿
+@{
+    ViewBag.Title = "基隆市安樂地政事務所全球資訊網 - 線上申辦-人民申請案件辦理期限表";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+@section AdditionalMeta
+{
+    <link rel="govtwsimpledc.xsd" href="http://www.gov.tw/schema/dc/" title="Dublin Core" />
+    <meta name="DC.Title" content="基隆市安樂地政事務所全球資訊網 - 線上申辦 - 人民申請案件辦理期限表" />
+    <meta name="DC.Creator" content="基隆市安樂地政事務所登記課" />
+    <meta name="DC.Subject" content="基隆市安樂地政事務所 - 線上申辦 - 人民申請案件辦理期限表" />
+    <meta name="DC.Description" content="線上申辦 - 人民申請案件辦理期限表" />
+    <meta name="DC.Contributor" content="基隆市安樂地政事務所" />
+    <meta name="DC.Type" content="文字" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Source" content="基隆市安樂地政事務所" />
+    <meta name="DC.Language" content="中文" />
+    <meta name="DC.Coverage.t.max" content="2015-04-26" />
+    <meta name="DC.Coverage.t.min" content="2010-04-26" />
+    <meta name="DC.Publisher" content="基隆市安樂地政事務所" />
+    <meta name="DC.Date" content="2010-04-26 10:00 " />
+    <meta name="DC.Identifier" content="376570600A" />
+    <meta name="DC.Relation" content="http://anleh-land.gov.tw/" />
+    <meta name="DC.Rights" content="基隆市安樂地政事務所" />
+    <meta name="Category.Theme" content="140" />
+    <meta name="Category.Cake" content="CKA" />
+    <meta name="Category.Service" content="C11" />
+    <meta name="Keywords" content="線上申辦, 人民申請案件辦理期限表" />
+}
+
+<!-- 公告區 -->
+    <div class="container d-print-none">
+        <div class="pl-3">
+            <a accesskey="C" href="#content" id="content" title="中央內容區塊">:::</a>
+            <span class="sr-only">|</span>
+            <a class="sr-only sr-only-focusable" href="#footer">轉跳至下方功能區</a>
+        </div>
+        <noscript>
+            <div class="container">
+                <div class="row">
+                    <div class="card m-3 banner">
+                        <div class="card-body p-3">
+                            您必須啟用 Javascript，才能以標準檢視使用本網站。不過，Javascript 似乎已停用或不受您的瀏覽器支援。如開啟JavaScript，可得到視覺與特效的最佳瀏覽。
+                            <br>列印功能：請按下ctrl+P開啟列印視窗,或由工具列中選擇列印功能。
+                            <br>如需要選擇字級大小，IE或Firefox瀏覽器則可利用鍵盤 Ctrl + (+)放大(-)縮小，來選擇適合您的文字大小，如需要回到上一頁可使用瀏覽器提供的
+                            Alt+左方向鍵(←)。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </noscript>
+        <div class="row justify-content-between align-items-center">
+            <!-- 麵包屑麵包屑 -->
+            <div class="col-lg-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item pathTitle">現在位置</li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">首頁</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("AppCopy","OnlineApplication")">線上申辦</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="@Url.Action("AppDate","OnlineApplication")">人民申請案件辦理期限表</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-end align-items-center">
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                    <a class="btn btn-fb btn-sm" role="button" role="button" title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://anleh-land.gov.tw/">
+                        <span class="fab fa-facebook-square"></span>
+                    </a>
+                    <a class="btn btn-print btn-sm" role="button" title="列印(另開視窗)" target="_blank" href="javascript:print()">
+                        <span class="far fa-print"></span>
+                    </a>
+                    <span class="fontSizeSet">字級設定：</span>
+                    <div class="btn-group fontSizeSetGroup btn-group-toggle mr-3" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary btn-sm font-small" for="option1">
+                            <span class="sr-only">小字型</span>
+                            <input type="radio" name="小字型" title="小字型" id="option1" autocomplete="off"> 小
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-default active" for="option2">
+                            <span class="sr-only">中字型</span>
+                            <input type="radio" name="中字型" title="中字型" id="option2" autocomplete="off" checked> 中
+                        </label>
+                        <label class="btn btn-outline-secondary btn-sm font-large" for="option3">
+                            <span class="sr-only">大字型</span>
+                            <input type="radio" name="大字型" title="大字型" id="option3" autocomplete="off"> 大
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- /麵包屑 -->
+        </div>
+
+        <div class="nav_wrap d-none d-sm-block">
+            <ul class="nav nav-pills inner-nav">
+                <li><a href="@Url.Action("AppCopy","OnlineApplication")" title="前往網路申領電子謄本頁面">網路申領電子謄本</a></li>
+                <li><a href="@Url.Action("InfoService","OnlineApplication")" title="前往地政電傳資訊服務頁面">地政電傳資訊服務</a></li>
+                <li><a href="@Url.Action("AppOnline","OnlineApplication")" title="前往地政線上申辦系統頁面">地政線上申辦系統</a></li>
+                <li><a href="@Url.Action("AppBackup","OnlineApplication")" title="前往檔案閱覽抄錄複製頁面">檔案閱覽抄錄複製</a></li>
+                <li><a href="@Url.Action("PriceInfo","OnlineApplication")" title="前往歷年公告地價資料頁面">歷年公告地價資料</a></li>
+                <li><a href="@Url.Action("EngEstate","OnlineApplication")" title="前往英文不動產權利登記證明頁面">英文不動產權利登記證明</a></li>
+                <li><a href="@Url.Action("OnlineBooking","OnlineApplication")" title="前往線上預約頁面">線上預約</a></li>
+                <li class="active"><a href="@Url.Action("AppDate","OnlineApplication")" title="前往人民申請案件辦理期限表頁面">人民申請案件辦理期限表</a></li>
+            </ul>
+        </div>
+    </div>
+<!-- 內文區 -->
+<div class="container">
+    <div class="row">
+        <div class="card ml-3 mr-3 mt-3 subContent">
+            <div class="card-body">
+                <div class="markTag"></div>
+                <div class="pl-5 pr-0">
+                    <h2 class="pl-0">人民申請案件辦理期限表</h2>
+                    
+                    <table id="myTable" class="table table-hover table-striped border-bottom rwd-table" summary="人民申請案件辦理期限表，為5直欄設計，第1直欄為編號，第2直欄為申請案件項目，第3直欄為辦理單位，第4直欄為辦理期限（天），第5直欄為說明。">
+                        <caption class="sr-only">人民申請案件辦理期限表</caption>
+                        <thead>
+                        <tr class="bg-brown">
+                            <th scope="col" class="text-nowrap">編號</th>
+                            <th scope="col">申請案件項目</th>
+                            <th scope="col" class="text-nowrap">辦理單位</th>
+                            <th scope="col">辦理期限（天）</th>
+                            <th scope="col">說明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td data-th="編號">1</td>
+                        <td data-th="申請案件項目">土地所有權第一次登記核定公告</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">本表所列處理 期限以每件五筆（棟）以內為標準，每件超過五筆（棟及其他特殊案件，得簽報主任核准酌延期限。</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">2</td>
+                        <td data-th="申請案件項目">建物所有權第一次登記核定公告</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">3</td>
+                        <td data-th="申請案件項目">土地建物所有權第一次登記公告期滿無異議或有異議經調處成立之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">4</td>
+                        <td data-th="申請案件項目">土地建物所有權第一次登記公告期間內有異議之調處</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">依實際需要</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">5</td>
+                        <td data-th="申請案件項目">土地所有權回復登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">6</td>
+                        <td data-th="申請案件項目">繼承登記（光復前）</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">5</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">7</td>
+                        <td data-th="申請案件項目">繼承登記（光復後）</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">4</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">8</td>
+                        <td data-th="申請案件項目">判決、和解與調解成立之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">4</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">9</td>
+                        <td data-th="申請案件項目">買賣、贈與、交換之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">10</td>
+                        <td data-th="編申請案件項目號">共有物分割之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">4</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">11</td>
+                        <td data-th="申請案件項目">法院拍賣之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">12</td>
+                        <td data-th="申請案件項目">放領登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">13</td>
+                        <td data-th="申請案件項目">徵收登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">14</td>
+                        <td data-th="申請案件項目">有償撥用、照價收買登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">15</td>
+                        <td data-th="申請案件項目">抵繳稅款發還繼承人、被徵收土地所有權人申請發還登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">16</td>
+                        <td data-th="申請案件項目">信託、信託歸屬、信託取得、受託人變更、塗銷信託登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">17</td>
+                        <td data-th="申請案件項目">剩餘財產差額分配登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">18</td>
+                        <td data-th="申請案件項目">公有財產接管登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">19</td>
+                        <td data-th="申請案件項目">因時效完成取得土地所有權之核定公告</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">20</td>
+                        <td data-th="申請案件項目">因時效完成取得土地所有權公告期滿無異議或有異議經調處成立之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">21</td>
+                        <td data-th="申請案件項目">所有權消滅登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">22</td>
+                        <td data-th="申請案件項目">所有權拋棄登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">23</td>
+                        <td data-th="申請案件項目">撤銷徵收回復所有權登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">24</td>
+                        <td data-th="申請案件項目">非金融機構抵押權設定登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1 天 4 小時</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">25</td>
+                        <td data-th="申請案件項目">金融機構抵押權設定登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">26</td>
+                        <td data-th="申請案件項目">抵押權移轉登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">27</td>
+                        <td data-th="申請案件項目">典權、地上權、地役權設定及其移轉登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">28</td>
+                        <td data-th="申請案件項目">他項權利內容變更登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">29</td>
+                        <td data-th="申請案件項目">他項權利塗銷登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1 小時</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">30</td>
+                        <td data-th="申請案件項目">因時效完成取得他項權利之核定公告</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">3</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">31</td>
+                        <td data-th="申請案件項目">因時效完成取得他項權利公告期滿無異議或有異議經調處成立之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">32</td>
+                        <td data-th="申請案件項目">預告登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">33</td>
+                        <td data-th="申請案件項目">更正登記之陳報</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">5</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">34</td>
+                        <td data-th="申請案件項目">授權逕行更正之更正登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">35</td>
+                        <td data-th="申請案件項目">經陳報核准之更正登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">36</td>
+                        <td data-th="申請案件項目">法院囑託查封、假扣押、假處分、破產登記及其塗銷登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">37</td>
+                        <td data-th="申請案件項目">其他依法律囑託禁止處分登記及其他塗銷登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">38</td>
+                        <td data-th="申請案件項目">標示變更登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="辦理期限">39</td>
+                        <td data-th="申請案件項目">法人或管理人更名之變更登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">40</td>
+                        <td data-th="申請案件項目">遺囑執行人、遺產管理人登記及變更登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">41</td>
+                        <td data-th="申請案件項目">管理機關變更登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">42</td>
+                        <td data-th="申請案件項目">書狀補給核定公告</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">43</td>
+                        <td data-th="申請案件項目">土地建物各項權利書狀公告期滿之登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">44</td>
+                        <td data-th="申請案件項目">註記登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">45</td>
+                        <td data-th="申請案件項目">土地建物登記案件之駁回（逾期未補正之登記案件）</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">46</td>
+                        <td data-th="申請案件項目">簡易登記案件（單一窗口）</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">1 小時</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">47</td>
+                        <td data-th="申請案件項目">土地、建物登記謄本 人工/電腦 核發</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">48</td>
+                        <td data-th="申請案件項目">英文不動產權利登記證明核發</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">5</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">49</td>
+                        <td data-th="申請案件項目">地價謄本</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">50</td>
+                        <td data-th="申請案件項目">地籍圖、建物平面圖謄本 人工/電腦 核發</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">51</td>
+                        <td data-th="申請案件項目">地籍圖人工描繪</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">4 小時</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">52</td>
+                        <td data-th="申請案件項目">地籍藍晒圖閱覽</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">53</td>
+                        <td data-th="申請案件項目">土地、建物複丈及地目變更案件排定日期</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">54</td>
+                        <td data-th="申請案件項目">土地鑑界</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">15</td>
+                        <td data-th="說明">受理土地複丈案件應於收件日起十五日內辦竣，其情形特殊得簽報主任核准酌延期限。</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">55</td>
+                        <td data-th="申請案件項目">土地分割及地上權、地役權位置勘測</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">12</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">56</td>
+                        <td data-th="申請案件項目">土地合併</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">57</td>
+                        <td data-th="申請案件項目">未登記土地測量</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">15</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">58</td>
+                        <td data-th="申請案件項目">法院囑託測量</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">依法院指定期限</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">59</td>
+                        <td data-th="申請案件項目">建物所有權第一次測量</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">15</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">60</td>
+                        <td data-th="申請案件項目">建物分割</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">10</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">61</td>
+                        <td data-th="申請案件項目">建物合併</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">5</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">62</td>
+                        <td data-th="申請案件項目">建物門牌、基地號勘查</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">7</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">63</td>
+                        <td data-th="申請案件項目">建物滅失勘查</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">4</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">64</td>
+                        <td data-th="申請案件項目">地目變更之核定</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">65</td>
+                        <td data-th="申請案件項目">改算地價及釐正地價資料檔</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">每件筆數在十筆以上或張數在二十筆以上時得簽報主管核准酌延期限。</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">66</td>
+                        <td data-th="申請案件項目">所有權移轉之地價資料檔釐正</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">每件筆數在十筆以上或張數在二十筆以上時得簽報主管核准酌延期限。</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">67</td>
+                        <td data-th="申請案件項目">標示變更之地價資料檔釐正</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">每件筆數在十筆以上或張數在二十筆以上時得簽報主管核准酌延期限。</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">68</td>
+                        <td data-th="申請案件項目">列印地籍異動通知書</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">1</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">69</td>
+                        <td data-th="申請案件項目">終止租約案件處理</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">70</td>
+                        <td data-th="申請案件項目">非都市土地使用補辦編定</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">5</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">71</td>
+                        <td data-th="申請案件項目">非都市土地使用分區及使用地變更編定異動清冊之報備</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">5</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">72</td>
+                        <td data-th="申請案件項目">非都市土地使用更正編定</td>
+                        <td data-th="辦理單位">第三課</td>
+                        <td data-th="辦理期限">7</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">73</td>
+                        <td data-th="申請案件項目">規費之計徵</td>
+                        <td data-th="辦理單位" class="text-nowrap">第一二三課</td>
+                        <td data-th="辦理期限">隨到隨辦</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">74</td>
+                        <td data-th="申請案件項目">退還規費</td>
+                        <td data-th="辦理單位">第一二三課</td>
+                        <td data-th="辦理期限">依基隆市各地政事務所受理申請退還地政規費簡化作業注意事項</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">75</td>
+                        <td data-th="申請案件項目">未登記建物（申請自用住宅稅率）基地號勘查</td>
+                        <td data-th="辦理單位">第二課</td>
+                        <td data-th="辦理期限">2</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">76</td>
+                        <td data-th="申請案件項目">依地籍清理條例第 17 條至第 18 條規定辦理之日據時期會社或組合名義更正登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">12</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">77</td>
+                        <td data-th="申請案件項目">依地籍清理條例第 24 條至第 26    條規定辦理之神明會更名登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">12</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">78</td>
+                        <td data-th="申請案件項目">依地籍清理條例第 28 條規定辦理之 38 年 12 月 31 日以前登記之抵押權塗銷登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">7</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">79</td>
+                        <td data-th="申請案件項目">依地籍清理條例第 29 條規定辦理之 45 年 12 月 31 日以前登記之地上權塗銷登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">12</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td data-th="編號">80</td>
+                        <td data-th="申請案件項目">依祭祀公業條例第 50 條規定辦理之祭祀公業更名登記</td>
+                        <td data-th="辦理單位">第一課</td>
+                        <td data-th="辦理期限">12</td>
+                        <td data-th="說明">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /內文區 -->
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "language": {
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 筆結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                "infoFiltered": "(從 _MAX_ 筆結果中過濾)",
+                "infoPostFix": "",
+                "search": "搜尋:",
+                "searchPlaceholder": "請輸入關鍵字",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                }
+            },
+            "pagingType": "full_numbers",
+            "ordering": false
+            // "paging": false,
+            // "info": false
+        });
+    })
+
+</script>
