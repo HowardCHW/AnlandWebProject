@@ -14,6 +14,12 @@ namespace AnlandProject.Models
     
     public partial class admin
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public admin()
+        {
+            this.OldPasswordRecored = new HashSet<OldPasswordRecored>();
+        }
+    
         public int ID { get; set; }
         public string username { get; set; }
         public string passwd { get; set; }
@@ -22,5 +28,12 @@ namespace AnlandProject.Models
         public string group_name { get; set; }
         public string action { get; set; }
         public bool isadmin { get; set; }
+        public string email { get; set; }
+        public bool is_first_time { get; set; }
+        public int login_error_count { get; set; }
+        public Nullable<System.DateTime> pwd_changed_date { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OldPasswordRecored> OldPasswordRecored { get; set; }
     }
 }

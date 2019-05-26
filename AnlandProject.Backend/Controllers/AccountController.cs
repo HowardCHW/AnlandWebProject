@@ -47,32 +47,72 @@ namespace AnlandProject.Backend.Controllers
             {
                 try
                 {
-                    var returnUrl = HttpUtility.UrlEncode((Session["URL"] ?? "").ToString());
+                    string returnUrl = HttpUtility.UrlEncode((Session["URL"] ?? "").ToString());
                     returnUrl = HttpUtility.UrlDecode(returnUrl);
 
                     Session.Remove("URL");
                     if (!Url.IsLocalUrl(returnUrl)) returnUrl = "~";
 
+                    AccountModel userInfo = null;
                     using (_accountService = new AccountService())
                     {
-                        var userInfo = _accountService.AccountQuery(logonModel);
+                        userInfo = _accountService.AccountQuery(logonModel);
 
                         if (userInfo == null)
                         {
-                            ModelState.AddModelError("", "帳號或密碼錯誤!");
+                            ModelState.AddModelError("", "帳號錯誤!!");
                             return View();
+                        } 
+                        else
+                        {
+                            //登入錯誤次數超過三次鎖定帳號
+                            if (userInfo.LoginFailCount >= 3)
+                            {
+                                ModelState.AddModelError("", "該帳號已被鎖定請洽系統管理員!!");
+                                return View();
+                            }
+                            else
+                            {
+                                if (userInfo.PWD != logonModel.Password)
+                                {
+                                    if (userInfo.LoginFailCount == 2)
+                                    {
+                                        ModelState.AddModelError("", "登入失敗 3 次, 該帳號已被鎖定請洽系統管理員!!");
+                                    }
+                                    else
+                                    {
+                                        ModelState.AddModelError("", $"密碼錯誤,登入失敗 {userInfo.LoginFailCount + 1} 次!!");
+                                    }
+                                    //更新登入錯誤次數
+                                    _accountService.UpdateLoginError(logonModel.Account, true);
+                                    return View();
+                                }
+                            }                            
+                        }
+
+                        //將登入錯誤次數歸零
+                        if (userInfo.LoginFailCount > 0)
+                        {
+                            _accountService.UpdateLoginError(logonModel.Account, false);
                         }
 
                         SetIdentity(userInfo);
                     }
 
-                    if (string.IsNullOrWhiteSpace(returnUrl))
+                    if (userInfo.IsFirstLogin || userInfo.PWDExpired)
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("UserCreate", "UserManagement", new { id = userInfo.ID });
                     }
                     else
                     {
-                        return Redirect(returnUrl);
+                        if (string.IsNullOrWhiteSpace(returnUrl))
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            return Redirect(returnUrl);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -93,6 +133,8 @@ namespace AnlandProject.Backend.Controllers
             identity.AddClaim(new Claim("MenuRight", userModel.Rights)); //Menu 權限
             identity.AddClaim(new Claim("UID", userModel.ID.ToString())); //使用者ID
             identity.AddClaim(new Claim("IsAdm", userModel.IsAdmin ? "Y" : "N")); //是否為管理者
+            identity.AddClaim(new Claim("IsFirsttime", userModel.IsFirstLogin ? "Y" : "N")); //是否為首次登入
+            identity.AddClaim(new Claim("PWDExpired", userModel.PWDExpired ? "Y" : "N")); //密碼是否到期
 
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.AuthenticationResponseGrant = new AuthenticationResponseGrant(identity, new AuthenticationProperties() { IsPersistent = false });

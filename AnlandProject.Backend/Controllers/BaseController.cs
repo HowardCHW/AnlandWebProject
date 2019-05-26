@@ -31,9 +31,12 @@ namespace AnlandProject.Backend.Controllers
             var userMenuItems = menuItems.Where(m => UserInfo.MenuPermissions.Contains(m.id)).ToList();
             userMenuItems.AddRange(menuItems.Where(m => userMenuItems.Select(um => um.ParentId).Distinct().Contains(m.id)));
 
-            if (userMenuItems != null || userMenuItems.Count > 0)
+            if (UserInfo.IsFirsttime == "N" && UserInfo.PWDExpired == "N")
             {
-                return View(userMenuItems);
+                if (userMenuItems != null || userMenuItems.Count > 0)
+                {
+                    return View(userMenuItems);
+                }
             }
             return View();
         }
@@ -54,6 +57,8 @@ namespace AnlandProject.Backend.Controllers
                         userModel.UserAccount = identity.FindFirst(ClaimTypes.NameIdentifier).Value;
                         userModel.UserName = identity.FindFirst(ClaimTypes.Name).Value;
                         userModel.IsAdmin = identity.FindFirst("IsAdm").Value;
+                        userModel.IsFirsttime = identity.FindFirst("IsFirsttime").Value;
+                        userModel.PWDExpired = identity.FindFirst("PWDExpired").Value;
                         var tempMenu = identity.FindFirst("MenuRight").Value;
                         userModel.MenuPermissions = tempMenu.Split(',').Select(int.Parse).ToList();
                     }

@@ -17,6 +17,10 @@
           <Property Name="group_name" Type="nvarchar" MaxLength="20" />
           <Property Name="action" Type="nvarchar" MaxLength="50" />
           <Property Name="isadmin" Type="bit" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="155" />
+          <Property Name="is_first_time" Type="bit" Nullable="false" />
+          <Property Name="login_error_count" Type="int" Nullable="false" />
+          <Property Name="pwd_changed_date" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="an_news">
           <Key>
@@ -586,6 +590,15 @@ warning 6002: The table/view 'anland.dbo.lawview' does not have a primary key de
           <Property Name="creuser" Type="nvarchar" MaxLength="50" />
           <Property Name="credate" Type="datetime" />
         </EntityType>
+        <EntityType Name="OldPasswordRecored">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="OldPassword" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ChangedDate" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
         <EntityType Name="onlineapp">
           <Key>
             <PropertyRef Name="ID" />
@@ -801,6 +814,18 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Visitors" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK__OldPassword__UID__6B79F03D">
+          <End Role="admin" Type="Self.admin" Multiplicity="1" />
+          <End Role="OldPasswordRecored" Type="Self.OldPasswordRecored" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OldPasswordRecored">
+              <PropertyRef Name="UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_suggest2_suggest">
           <End Role="suggest" Type="Self.suggest" Multiplicity="0..1" />
           <End Role="suggest2" Type="Self.suggest2" Multiplicity="*" />
@@ -848,6 +873,7 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="meeting" EntityType="Self.meeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="meetingclass" EntityType="Self.meetingclass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="newsclass" EntityType="Self.newsclass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OldPasswordRecored" EntityType="Self.OldPasswordRecored" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="onlineapp" EntityType="Self.onlineapp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="post_group" EntityType="Self.post_group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proposal_data" EntityType="Self.proposal_data" Schema="dbo" store:Type="Tables" />
@@ -953,6 +979,10 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
     [type].[cre_date] AS [cre_date]
     FROM [dbo].[type] AS [type]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__OldPassword__UID__6B79F03D" Association="Self.FK__OldPassword__UID__6B79F03D">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="OldPasswordRecored" EntitySet="OldPasswordRecored" />
+          </AssociationSet>
           <AssociationSet Name="FK_suggest2_suggest" Association="Self.FK_suggest2_suggest">
             <End Role="suggest" EntitySet="suggest" />
             <End Role="suggest2" EntitySet="suggest2" />
@@ -1109,13 +1139,18 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <EntitySet Name="onlineapp" EntityType="anlandModel.onlineapp" />
           <EntitySet Name="website_visitor" EntityType="anlandModel.website_visitor" />
           <EntitySet Name="Categories" EntityType="anlandModel.Categories" />
-          <EntitySet Name="admin" EntityType="anlandModel.admin" />
           <EntitySet Name="an_news" EntityType="anlandModel.an_news" />
           <EntitySet Name="document" EntityType="anlandModel.document" />
           <EntitySet Name="intro10" EntityType="anlandModel.intro10" />
           <EntitySet Name="landlaw" EntityType="anlandModel.landlaw" />
           <EntitySet Name="meeting" EntityType="anlandModel.meeting" />
           <EntitySet Name="qa" EntityType="anlandModel.qa" />
+          <EntitySet Name="admin" EntityType="anlandModel.admin" />
+          <EntitySet Name="OldPasswordRecored" EntityType="anlandModel.OldPasswordRecored" />
+          <AssociationSet Name="FK__OldPassword__UID__6B79F03D" Association="anlandModel.FK__OldPassword__UID__6B79F03D">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="OldPasswordRecored" EntitySet="OldPasswordRecored" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="main_menu">
           <Key>
@@ -1617,19 +1652,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="openWindow" Type="Boolean" Nullable="false" />
           <Property Name="credate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="admin">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="rights" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="isadmin" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="an_news">
           <Key>
             <PropertyRef Name="ID" />
@@ -1828,6 +1850,46 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
           <Property Name="created_user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="created_user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rights" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="group_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isadmin" Type="Boolean" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="155" FixedLength="false" Unicode="false" />
+          <Property Name="is_first_time" Type="Boolean" Nullable="false" />
+          <Property Name="login_error_count" Type="Int32" Nullable="false" />
+          <Property Name="pwd_changed_date" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="OldPasswordRecored" Relationship="anlandModel.FK__OldPassword__UID__6B79F03D" FromRole="admin" ToRole="OldPasswordRecored" />
+        </EntityType>
+        <EntityType Name="OldPasswordRecored">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="OldPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="admin" Relationship="anlandModel.FK__OldPassword__UID__6B79F03D" FromRole="OldPasswordRecored" ToRole="admin" />
+        </EntityType>
+        <Association Name="FK__OldPassword__UID__6B79F03D">
+          <End Type="anlandModel.admin" Role="admin" Multiplicity="1" />
+          <End Type="anlandModel.OldPasswordRecored" Role="OldPasswordRecored" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OldPasswordRecored">
+              <PropertyRef Name="UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2438,20 +2500,6 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="admin">
-            <EntityTypeMapping TypeName="anlandModel.admin">
-              <MappingFragment StoreEntitySet="admin">
-                <ScalarProperty Name="isadmin" ColumnName="isadmin" />
-                <ScalarProperty Name="action" ColumnName="action" />
-                <ScalarProperty Name="group_name" ColumnName="group_name" />
-                <ScalarProperty Name="rights" ColumnName="rights" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="passwd" ColumnName="passwd" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="an_news">
             <EntityTypeMapping TypeName="anlandModel.an_news">
               <MappingFragment StoreEntitySet="an_news">
@@ -2652,6 +2700,34 @@ warning 6002: The table/view 'anland.dbo.type' does not have a primary key defin
                 <ScalarProperty Name="Service" ColumnName="Service" />
                 <ScalarProperty Name="Cake" ColumnName="Cake" />
                 <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="anlandModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="pwd_changed_date" ColumnName="pwd_changed_date" />
+                <ScalarProperty Name="login_error_count" ColumnName="login_error_count" />
+                <ScalarProperty Name="is_first_time" ColumnName="is_first_time" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="isadmin" ColumnName="isadmin" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="rights" ColumnName="rights" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OldPasswordRecored">
+            <EntityTypeMapping TypeName="anlandModel.OldPasswordRecored">
+              <MappingFragment StoreEntitySet="OldPasswordRecored">
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="OldPassword" ColumnName="OldPassword" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

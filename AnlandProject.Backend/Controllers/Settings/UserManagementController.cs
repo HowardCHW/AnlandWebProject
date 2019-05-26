@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using System.IO;
 using AnlandProject.Backend.Filters;
 using AnlandProject.Backend.Models;
+using System.Web.Security;
+using AnlandProject.Backend.Extensions;
 
 namespace AnlandProject.Backend.Controllers.Settings
 {
@@ -43,15 +45,13 @@ namespace AnlandProject.Backend.Controllers.Settings
                 if (id.HasValue && id.Value > 0)
                 {
                     result = _userManagementService.AccountQueryByID(id.Value);
+                    result.ShowPwd = UserInfo.UID == id.Value;
                     subTitle = "編輯";
                 }
                 ViewBag.Subtitle = subTitle;
                 if (result != null)
                 {
-                    if (UserInfo.IsAdmin == "Y")
-                    {
-                        result.IsAdmin = true;
-                    }
+                    result.IsAdmin = UserInfo.IsAdmin == "Y";
                     return View("~/Views/Settings/UserManagement/UserEdit.cshtml", result);
                 }
                 return RedirectToAction("Index");
@@ -69,7 +69,7 @@ namespace AnlandProject.Backend.Controllers.Settings
         }
 
         [HttpPost]
-        [AjaxValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public JsonResult UserSave(AccountModel model)
         {
             bool saveStatus = false;
@@ -105,6 +105,35 @@ namespace AnlandProject.Backend.Controllers.Settings
                 }
             }
             return Json(delStatus);
+        }
+
+        [HttpPost]
+        public JsonResult PWDCheck(string PWD)
+        {
+            using (_userManagementService = new AccountService())
+            {
+                bool checkResult =  _userManagementService.PasswordCheck(UserInfo.UserAccount, PWD);
+                return Json(checkResult);
+            }                
+        }
+
+        [HttpPost]
+        public JsonResult PWDReset(int uid, string email)
+        {
+            ISMTPSetupService _smptSetupService;
+
+            using (_smptSetupService = new SMTPSetupService())
+            using (_userManagementService = new AccountService())
+            {
+                string newDefaultPwd = Membership.GeneratePassword(8, 1);
+                bool resetStatus = _userManagementService.PasswordReset(uid, newDefaultPwd);
+                if (resetStatus)
+                {
+                    SMTPSetupModel smtpData = _smptSetupService.SMTPSetupQuery("email");
+                    smtpData.SendMailBySMTPInternal(email, newDefaultPwd);
+                }
+                return Json(resetStatus);
+            }            
         }
 
         public ActionResult DeleteConfirmDialog()

@@ -15,5 +15,7 @@ namespace AnlandProject.Service.BusinessModel
         public string GroupName { get; set; }
         public string Action { get; set; }
         public string IsAdmin { get; set; }
+        public string IsFirsttime { get; set; }
+        public string PWDExpired { get; set; }
     }
 }

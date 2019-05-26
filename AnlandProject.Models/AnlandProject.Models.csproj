@@ -147,6 +147,9 @@
     <Compile Include="newsclass.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>
+    <Compile Include="OldPasswordRecored.cs">
+      <DependentUpon>AnlahData.tt</DependentUpon>
+    </Compile>
     <Compile Include="onlineapp.cs">
       <DependentUpon>AnlahData.tt</DependentUpon>
     </Compile>

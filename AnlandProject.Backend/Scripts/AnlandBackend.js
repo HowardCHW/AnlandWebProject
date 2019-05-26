@@ -62,7 +62,7 @@ var pfnDataTable = {
             orderable: !1,
             targets: 'nosort'
         }, {
-            searchable: !1,
+            //searchable: !1,
             targets: [0]
         }]
         //order: [

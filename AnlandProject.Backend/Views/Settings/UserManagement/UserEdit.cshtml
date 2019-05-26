@@ -5,6 +5,12 @@
 }
 @section styles{
     <link rel="stylesheet" href="~/global/vendor/multi-select/multi-select.css">
+    <link rel="stylesheet" href="~/Content/parsley.css" type="text/css" />
+    <style>
+        .parsley-errors-list {
+            color: red;
+        }
+    </style>
 }
 
 <div class="page-header">
@@ -16,7 +22,9 @@
     <div class="page-header-actions"></div>
 </div>
 <div class="page-content container-fluid">
-    <form id="userEditForm" class="FullForm" autocomplete="off">
+    @using (Ajax.BeginForm("UserSave", "UserManagement", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "SuccessMessage(data)", OnFailure = "FailMessage" }, new { @id = "userEditForm", @class = "FullForm", @autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
         <!-- 內文編輯區 -->
         <div class="panel panel-bordered">
             <div class="panel-heading">
@@ -29,7 +37,7 @@
                         <div class="form-group row">
                             <label class="col-xl-12 col-md-3 form-control-label">姓名<span class="required">*</span> </label>
                             <div class=" col-xl-12 col-md-9">
-                                @Html.TextBoxFor(u => u.Name, new { @class = "form-control", @placeholder = "請輸入姓名", @required = "" })
+                                @Html.TextBoxFor(u => u.Name, new { @class = "form-control", @placeholder = "請輸入姓名", @required = "", @data_parsley_required_message = "請輸入姓名!" })
                             </div>
                         </div>
                         <!-- /姓名 -->
@@ -37,26 +45,52 @@
                         <div class="form-group row">
                             <label class="col-xl-12 col-md-3 form-control-label">帳號<span class="required">*</span> </label>
                             <div class=" col-xl-12 col-md-9">
-                                @Html.TextBoxFor(u => u.Account, new { @class = "form-control", @placeholder = "請輸入帳號", @required = "" })
+                                @Html.TextBoxFor(u => u.Account, new { @class = "form-control", @placeholder = "請輸入帳號", @required = "", @data_parsley_required_message = "請輸入帳號!" })
                             </div>
                         </div>
                         <!-- /帳號 -->
-                        <!-- 密碼 -->
+                        @if (Model.ShowPwd)
+                        {
+                            <!-- 密碼 -->
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 form-control-label">密碼<span class="required">*</span> </label>
+                                <div class=" col-xl-12 col-md-9">
+                                    @Html.PasswordFor(u => u.PWD, new { @class = "form-control", @id = "password", @placeholder = "請輸入密碼", @minlength = "8", @data_parsley_minlength_message = "不能少於8位數！", @data_parsley_specialcase = "1", @data_parsley_pwdcheck = "" })
+                                </div>
+                            </div>
+                            <!-- /密碼 -->
+                            <!-- 確認密碼 -->
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 form-control-label">確認密碼<span class="required">*</span> </label>
+                                <div class=" col-xl-12 col-md-9">
+                                    <input type="password" class="form-control" name="passwordcheck" id="passwordcheck" placeholder="請再次輸入密碼" data-parsley-equalto="#password" data-parsley-equalto-message="確認密碼不同！">
+                                </div>
+                            </div>
+                            <!-- /確認密碼 -->
+                        }
+                        <!-- 姓名 -->
                         <div class="form-group row">
-                            <label class="col-xl-12 col-md-3 form-control-label">密碼<span class="required">*</span> </label>
+                            <label class="col-xl-12 col-md-3 form-control-label">Emil<span class="required">*</span> </label>
                             <div class=" col-xl-12 col-md-9">
-                                @Html.PasswordFor(u => u.PWD, new { @class = "form-control", @id = "password", @placeholder = "請輸入密碼" })
+                                @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @placeholder = "請輸入Email", @required = "", @data_parsley_required_message = "請輸入Email!", @data_parsley_type = "email", @data_parsley_type_message = "Email格式錯誤！" })
                             </div>
                         </div>
-                        <!-- /密碼 -->
-                        <!-- 確認密碼 -->
-                        <div class="form-group row">
-                            <label class="col-xl-12 col-md-3 form-control-label">確認密碼<span class="required">*</span> </label>
-                            <div class=" col-xl-12 col-md-9">
-                                <input type="password" class="form-control" name="passwordcheck" placeholder="請再次輸入密碼">
-                            </div>
-                        </div>
-                        <!-- /確認密碼 -->
+                        <!-- /姓名 -->
+                        @if (!Model.IsAdmin && Model.IsFirstLogin)
+                        {
+                            <br />
+                            <label style="color:red;">首次登入請修改密碼!!</label>
+                        }
+                        else if (Model.LoginFailCount >= 3)
+                        {
+                            <br />
+                            <label style="color:red;">該帳號密碼錯誤三次已被鎖定,請重設密碼!!</label>
+                        }
+                        else if (Model.PWDExpired)
+                        {
+                            <br />
+                            <label style="color:red;">號密已到期,請重設密碼!!</label>
+                        }
                     </div>
                     @if (Model.IsAdmin)
                     {
@@ -67,6 +101,7 @@
                             <!-- /人員權限 -->
                         </div>
                     }
+                    @Html.HiddenFor(u => u.ID)
                 </div>
             </div>
             <div class="panel-footer">
@@ -74,163 +109,138 @@
                     @if (Model.IsAdmin)
                     {
                         <a href='@Url.Action("Index","UserManagement")' class="btn btn-default">取消</a>
+                        if (Model.LoginFailCount >= 3 || Model.IsFirstLogin)
+                        {
+                            <button type="button" id="resetPWD" class="btn btn-primary">重設密碼</button>
+                        }
                     }
-                    <button type="submit" class="btn btn-primary">確認</button>
+                    <button type="button" id="btnSave" class="btn btn-primary">確認</button>
                 </div>
             </div>
         </div>
         <!-- /內文編輯區 -->
-    </form>
+    }
 </div>
 
 @section scripts{
     <script src="~/global/vendor/multi-select/jquery.multi-select.js"></script>
+    <script src="~/Scripts/Parsley/parsley.js"></script>
+    <script src="~/Scripts/Parsley/i18n/zh_tw.js"></script>
     <script>
         var UID = '@Model.ID';
         var isAdm = '@Model.IsAdmin';
+        var isFirsttime = '@Model.IsFirstLogin';
+        var pwdExpired = '@Model.PWDExpired';
         var isInit = true;
+
         $(document).ready(function () {
+            if (isFirsttime === 'True') {
+                $('#password, #passwordcheck').attr('required', '').attr('data-parsley-required-message', '必填欄位！');
+            }
+
+            $('#password').on('change', function () {
+                if ($(this).val() !== '') {
+                    var attr = $('#passwordcheck').attr('required');
+                    if (typeof attr === typeof undefined || attr === false) {
+                        $('#passwordcheck').attr('required', '').attr('data-parsley-required-message', '必填欄位！');
+                    }
+                } else {
+                    $('#passwordcheck').removeAttr('required').removeAttr('data-parsley-required-message');
+                }
+                $('#passwordcheck').parsley().validate();
+            });
+
             var menuRight = $('#hidMenuRight').val();
             if (menuRight != undefined) {
                 var dataarray = menuRight.split(",");
                 $('#menuRight').multiSelect('refresh');
                 $('#menuRight').multiSelect('select', dataarray, 'init');
-            }            
+            }
 
-            $('#userEditForm').formValidation({
-                framework: "bootstrap4",
-                icon: null,
-                fields: {
-                    Name: {
-                        validators: {
-                            notEmpty: {
-                                message: '請輸入姓名'
-                            }
-                        }
-                    },
-                    Account: {
-                        validators: {
-                            notEmpty: {
-                                message: '請輸入帳號'
-                            }
-                        }
-                    },
-                    PWD: {
-                        validators: {
-                            callback: {
-                                message: '請輸入密碼',
-                                callback: function (value, validator, $field) {
-                                    if (UID == 0 && value == '') {
-                                        return {
-                                            valid: false,
-                                            message: '請輸入密碼'
-                                        };
-                                    }
-                                    if (value != '' && value.length < 8) {
-                                        return {
-                                            valid: false,
-                                            message: '密碼不能少於8位數'
-                                        };
-                                    }
-                                    return true;
-                                }
-                            }
-                        }
-                    },
-                    passwordcheck: {
-                        validators: {
-                            callback: {
-                                message: '請輸入密碼',
-                                callback: function (value, validator, $field) {
-                                    if ((UID == 0 || $('#password').val() != '') && value == '') {
-                                        return {
-                                            valid: false,
-                                            message: '請輸入確認密碼'
-                                        };
-                                    }
-                                    if (value != '' && $('#password').val() != value) {
-                                        return {
-                                            valid: false,
-                                            message: '密碼與確認密碼不一致'
-                                        };
-                                    }
-                                    return true;
-                                }
-                            }
-                        }
-                    },
-                    menuSelect: {
-                        validators: {
-                            callback: {
-                                message: '請選擇人員權限',
-                                callback: function (value, validator, $field) {
-                                    return ($('#hidMenuRight').val() != '');
-                                }
-                            }
-                        }
-                    },
-                },
-                err: {
-                    clazz: 'invalid-feedback'
-                },
-                control: {
-                    // The CSS class for valid control
-                    valid: 'is-valid',
-
-                    // The CSS class for invalid control
-                    invalid: 'is-invalid'
-                },
-                row: {
-                    invalid: 'has-danger'
+            $('#btnSave').on('click', function () {
+                if (isAdm === 'True') {
+                    //檢查人員權限
+                    var elem = $('#hidMenuRight').parsley();
+                    if ($('#hidMenuRight').val() === '') {
+                        elem.removeError('menuRightErr');
+                        elem.addError('menuRightErr', { message: '請選擇人員權限!' });
+                    } else {
+                        elem.removeError('menuRightErr');
+                    }
                 }
-            })
-                .on('keyup', '[id="password"]', function (e) {
-                    $('#userEditForm').formValidation('revalidateField', 'passwordcheck');
-                })
-                .on('success.form.fv', function (e) {
-                    // Prevent form submission
-                    e.preventDefault();
 
-                    var $form = $(e.target),
-                        formData = new FormData(),
-                        //fv = $form.data('formValidation');
-                        postData = $form.serializeArray();
+                $('#userEditForm').parsley().validate();
+                if ($('#userEditForm').parsley().isValid()) {
+                    $('#userEditForm').submit();
+                }
+            });
 
-                    formData.append('ID', UID);
-                    $.each(postData, function (i, val) {
-                        formData.append(val.name, val.value);
-                    });
-
-                    // Use Ajax to submit form data
-                    $.ajax({
-                        url: '@Url.Action("UserSave", "UserManagement")',
-                        type: "post",
-                        headers: {
-                            'RequestVerificationToken': '@CommonRazorFunctions.GetAntiForgeryToken()'
-                        },
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function (result) {
-                            if (result) {
-                                var url = '/UserManagement';
-                                if (isAdm === 'False') {
-                                    url = '/';
-                                }
-                                if (UID > 0) {
-                                    SuccessMSGAfterAction("更新成功", url, 1000);
-                                } else {
-                                    SuccessMSGAfterAction("新增成功", url, 1000);
-                                }
-                            } else {
-                                ErrorMSG('異動失敗');
-                            }
+            $('#resetPWD').on('click', function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '/UserManagement/PWDReset',
+                    data: {
+                        uid: UID,
+                        email: $('input[name=Email]').val()
+                    },
+                    success: function (response) {
+                        if (response) {
+                            SuccessMSGAfterAction("密碼重設成功！", '/UserManagement', 1000);
+                        } else {
+                            ErrorMSG('密碼重設失敗！');
                         }
-                    });
+                    }
                 });
+            });
         });
 
+        window.Parsley.addValidator('specialcase', {
+            requirementType: 'number',
+            validateString: function (value, requirement) {
+                var uppercases = value.match(/[A-Z]/g) || [];
+                var lowecases = value.match(/[a-z]/g) || [];
+                var numbers = value.match(/[0-9]/g) || [];
+                var specials = value.match(/[^a-zA-Z0-9]/g) || [];
+
+                return (uppercases.length >= requirement && lowecases.length >= requirement && numbers.length >= requirement && specials.length >= requirement);
+            },
+            messages: {
+                'zh-tw': '密碼組合需包含英文大小寫、數字及特殊符號！'
+            }
+        });
+
+        window.Parsley.addValidator('pwdcheck', {
+            requirementType: 'string',
+            validateString: function (value, requirement) {
+                var validStatus = true;
+                $.ajax({
+                    type: 'POST',
+                    url: '/UserManagement/PWDCheck',
+                    data: {
+                        PWD: value
+                    },
+                    async: false,
+                    success: function (response) {
+                        if (response) {
+                            validStatus = false;
+                        }
+                    }
+                });
+                return validStatus;
+            },
+            messages: {
+                'zh-tw': '新密碼不可與前三次相同！'
+            }
+        });
+
+        //window.Parsley.addAsyncValidator('pwdcheck', function (xhr) {
+        //    var data = xhr.responseText;
+        //    if (data === 'True') {
+        //        return false;
+        //    }
+        //    return true;
+        //}, '/UserManagement/PWDCheck', { "type": "POST", "dataType": "jsonp" });
+        
         $('#menuRight').multiSelect({
             afterSelect: function (values) {
                 if (isInit) {
@@ -240,15 +250,43 @@
                     tmpArray = jQuery.grep(tmpArray, function (n) { return (n); });
                     $.merge(tmpArray, values);
                     $('#hidMenuRight').val(tmpArray.join());
-                    $('#userEditForm').formValidation('revalidateField', 'menuSelect');
+                    //$('#userEditForm').formValidation('revalidateField', 'menuSelect');
+                    $('#hidMenuRight').parsley().removeError('menuRightErr');
                 }
             },
             afterDeselect: function (values) {
                 var tmpArray = $('#hidMenuRight').val().split(",");
                 tmpArray = jQuery.grep(tmpArray, function (value) { return value != values; });
                 $('#hidMenuRight').val(tmpArray.join());
-                $('#userEditForm').formValidation('revalidateField', 'menuSelect');
+                //$('#userEditForm').formValidation('revalidateField', 'menuSelect');
+                $('#hidMenuRight').parsley().removeError('menuRightErr');
             }
         });
+
+        function SuccessMessage(result) {
+            if (result) {
+                var url = '/UserManagement';
+
+                if (isFirsttime === 'True' || pwdExpired === 'True') {
+                    url = '/Account/Logout';
+                } else {
+                    if (isAdm === 'False') {
+                        url = '/';
+                    }
+                }
+
+                if (UID > 0) {
+                    SuccessMSGAfterAction("更新成功", url, 1000);
+                } else {
+                    SuccessMSGAfterAction("新增成功", url, 1000);
+                }
+            } else {
+                ErrorMSG('異動失敗');
+            }
+        }
+
+        function FailMessage() {
+            ErrorMSG('新增失敗');
+        }
     </script>
 }

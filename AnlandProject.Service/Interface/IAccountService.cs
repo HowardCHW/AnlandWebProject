@@ -20,6 +20,12 @@ namespace AnlandProject.Service.Interface
 
         bool AccountSave(AccountModel saveData);
 
-        bool AccountDelete(int id);
+        bool AccountDelete(int id);        
+
+        void UpdateLoginError(string account, bool isError);
+
+        bool PasswordCheck(string account, string newPwd);
+
+        bool PasswordReset(int id, string defaultPwd);
     }
 }

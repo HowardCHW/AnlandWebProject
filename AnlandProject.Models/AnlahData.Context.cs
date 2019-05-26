@@ -58,12 +58,13 @@ namespace AnlandProject.Models
         public virtual DbSet<onlineapp> onlineapp { get; set; }
         public virtual DbSet<website_visitor> website_visitor { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<an_news> an_news { get; set; }
         public virtual DbSet<document> document { get; set; }
         public virtual DbSet<intro10> intro10 { get; set; }
         public virtual DbSet<landlaw> landlaw { get; set; }
         public virtual DbSet<meeting> meeting { get; set; }
         public virtual DbSet<qa> qa { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
+        public virtual DbSet<OldPasswordRecored> OldPasswordRecored { get; set; }
     }
 }
