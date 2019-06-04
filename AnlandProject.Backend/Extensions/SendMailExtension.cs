@@ -70,6 +70,38 @@ namespace AnlandProject.Backend.Extensions
             }
         }
 
+        public static void SendMailBySMTPPWDExpiredWarning(this SMTPSetupModel smtpData, string mailTo, string account, DateTime changeDate)
+        {
+            try
+            {
+                string htmlBody = $"<html><body><p><span class='infoText' style='white-space: pre-line;'><br />" +
+                    $"<div>{account} 您好!</div><br /><br />" +
+                    $"<div>您目前的密碼將於 {changeDate:yyyy/MM/dd} 到期</div><br />" +
+                    $"<div>請盡速至個人設定進行密碼修改!!</div>" +
+                    $"</span></p></body></html>";
+
+                SmtpClient client = new SmtpClient(smtpData.SMTP)
+                {
+                    //If you need to authenticate
+                    Credentials = new NetworkCredential(smtpData.SMTPUserName, smtpData.SMTPPassword)
+                };
+
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress(smtpData.Recipient)
+                };
+                mailMessage.To.Add(mailTo);
+                mailMessage.Subject = "密碼即將到期通知";
+                mailMessage.Body = htmlBody;
+                mailMessage.IsBodyHtml = true;
+                client.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+
         public static void SendMailByWeb(this SMTPSetupModel smtpData, string toMailAdd, string mailContent)
         {
             try

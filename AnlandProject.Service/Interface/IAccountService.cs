@@ -26,6 +26,8 @@ namespace AnlandProject.Service.Interface
 
         bool PasswordCheck(string account, string newPwd);
 
+        List<AccountModel> GetExpiredData();
+
         bool PasswordReset(int id, string defaultPwd);
     }
 }

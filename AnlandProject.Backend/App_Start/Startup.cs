@@ -2,7 +2,7 @@
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
 namespace AnlandProject.Backend.App_Start
 {

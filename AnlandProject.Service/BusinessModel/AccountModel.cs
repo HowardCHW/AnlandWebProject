@@ -22,5 +22,6 @@ namespace AnlandProject.Service.BusinessModel
         public int LoginFailCount { get; set; }
         public bool ShowPwd { get; set; }
         public bool PWDExpired { get; set; }
+        public DateTime PWDChangeDate { get; set; }
     }
 }

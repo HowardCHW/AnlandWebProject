@@ -216,6 +216,20 @@ namespace AnlandProject.Service
             return resultRow > 0;
         }
 
+        public List<AccountModel> GetExpiredData()
+        {
+            List<AccountModel> result = new List<AccountModel>();
+            DateTime thirdDay = DateTime.Now.AddDays(3).Date;
+            result = _accountRepository.GetMany(a => a.pwd_changed_date <= thirdDay).Select(a => new AccountModel
+            {
+                Account = a.username,
+                Email = a.email,
+                PWDChangeDate = a.pwd_changed_date.Value
+            }).ToList();
+
+            return result;
+        }
+
         public void Dispose()
         {
             if (_accountRepository != null)
