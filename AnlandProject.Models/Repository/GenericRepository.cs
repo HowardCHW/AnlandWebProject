@@ -110,6 +110,7 @@ namespace AnlandProject.Models.Repository
             }
             else
             {
+                //_context.Set<TEntity>().Remove(instance);
                 _context.Entry<TEntity>(instance).State = EntityState.Deleted;
                 resultRows = _context.SaveChanges();
             }

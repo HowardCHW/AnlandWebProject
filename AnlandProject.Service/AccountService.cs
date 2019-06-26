@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Transactions;
 using System.Web.Security;
 
 namespace AnlandProject.Service
@@ -17,6 +18,7 @@ namespace AnlandProject.Service
     {
         protected static Logger logger = LogManager.GetCurrentClassLogger();
         private IRepository<admin> _accountRepository = new GenericRepository<admin>();
+        private IRepository<OldPasswordRecored> _oldPWDRepository = new GenericRepository<OldPasswordRecored>();
 
         public bool IsExists(string account)
         {
@@ -154,8 +156,23 @@ namespace AnlandProject.Service
             int result = 0;
             try
             {
-                var deleteData = _accountRepository.Get(i => i.ID == id);
-                result = _accountRepository.Delete(deleteData);
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    var oldPWDData = _oldPWDRepository.GetMany(o => o.UID == id);
+                    foreach (var item in oldPWDData)
+                    {
+                        _oldPWDRepository.Delete(item);
+                    }
+
+                    var deleteData = _accountRepository.Get(i => i.ID == id);
+                    result = _accountRepository.Delete(deleteData);
+
+                    if (result > 0)
+                    {
+                        ts.Complete();
+                    }
+                }
+
             }
             catch (Exception ex)
             {
