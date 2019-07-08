@@ -131,7 +131,7 @@
         var isAdm = '@Model.IsAdmin';
         var isFirsttime = '@Model.IsFirstLogin';
         var pwdExpired = '@Model.PWDExpired';
-        var isInit = true;
+        var isInit = false;
 
         $(document).ready(function () {
             if (isFirsttime === 'True') {
@@ -151,10 +151,11 @@
             });
 
             var menuRight = $('#hidMenuRight').val();
-            if (menuRight != undefined) {
+            if (menuRight !== undefined && menuRight !== '') {
                 var dataarray = menuRight.split(",");
+                isInit = true;
                 $('#menuRight').multiSelect('refresh');
-                $('#menuRight').multiSelect('select', dataarray, 'init');
+                $('#menuRight').multiSelect('select', dataarray);                
             }
 
             $('#btnSave').on('click', function () {
@@ -243,22 +244,20 @@
         
         $('#menuRight').multiSelect({
             afterSelect: function (values) {
-                if (isInit) {
-                    isInit = false;
-                } else {
+                if (!isInit) {
                     var tmpArray = $('#hidMenuRight').val().split(",");
                     tmpArray = jQuery.grep(tmpArray, function (n) { return (n); });
                     $.merge(tmpArray, values);
                     $('#hidMenuRight').val(tmpArray.join());
-                    //$('#userEditForm').formValidation('revalidateField', 'menuSelect');
                     $('#hidMenuRight').parsley().removeError('menuRightErr');
+                } else {
+                    isInit = false;
                 }
             },
             afterDeselect: function (values) {
                 var tmpArray = $('#hidMenuRight').val().split(",");
                 tmpArray = jQuery.grep(tmpArray, function (value) { return value != values; });
                 $('#hidMenuRight').val(tmpArray.join());
-                //$('#userEditForm').formValidation('revalidateField', 'menuSelect');
                 $('#hidMenuRight').parsley().removeError('menuRightErr');
             }
         });
@@ -267,13 +266,13 @@
             if (result) {
                 var url = '/UserManagement';
 
-                if (isFirsttime === 'True' || pwdExpired === 'True') {
-                    url = '/Account/Logout';
-                } else {
-                    if (isAdm === 'False') {
-                        url = '/';
+                if (isAdm === 'False') {
+                    if (isFirsttime === 'True' || pwdExpired === 'True') {
+                        url = '/Account/Logout';
+                    } else {
+                        url = '/';                        
                     }
-                }
+                }                
 
                 if (UID > 0) {
                     SuccessMSGAfterAction("更新成功", url, 1000);
