@@ -133,7 +133,7 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage2" target="_blank" title="開啟新視窗">
+                            <a href="@Url.Action("Download","Organs", new { type = "intro10", fileName = Model.Homepage2 })" target="_blank" title="開啟新視窗">
                                 @if (string.IsNullOrWhiteSpace(Model.File1Momo))
                                 {
                                     @Model.Homepage2
@@ -169,7 +169,7 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage3" target="_blank" title="開啟新視窗">
+                            <a href="@Url.Action("Download","Organs", new { type = "intro10", fileName = Model.Homepage3 })" target="_blank" title="開啟新視窗">
                                 @if (string.IsNullOrWhiteSpace(Model.File2Momo))
                                 {
                                     @Model.Homepage3
@@ -205,7 +205,7 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage4" target="_blank" title="開啟新視窗">
+                            <a href="@Url.Action("Download","Organs", new { type = "intro10", fileName = Model.Homepage4 })" target="_blank" title="開啟新視窗">
                                 @if (string.IsNullOrWhiteSpace(Model.File3Momo))
                                 {
                                     @Model.Homepage4
@@ -241,7 +241,7 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage5" target="_blank" title="開啟新視窗">
+                            <a href="@Url.Action("Download","Organs", new { type = "intro10", fileName = Model.Homepage5 })" target="_blank" title="開啟新視窗">
                                 @if (string.IsNullOrWhiteSpace(Model.File4Momo))
                                 {
                                     @Model.Homepage5
@@ -277,7 +277,7 @@
                                 檔案
                                 <span class="text-red">@(index+=1)</span>：
                             </span>
-                            <a href="@Url.Action("Download","Organs")?type=intro10&fileName=@Model.Homepage6" target="_blank" title="開啟新視窗">
+                            <a href="@Url.Action("Download","Organs", new { type = "intro10", fileName = Model.Homepage6 })" target="_blank" title="開啟新視窗">
                                 @if (string.IsNullOrWhiteSpace(Model.File5Momo))
                                 {
                                     @Model.Homepage6
